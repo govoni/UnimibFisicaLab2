@@ -236,7 +236,7 @@
       }
     ```
 
-### 1.2.3 Parametri chieste all'utente del programma
+### 1.2.3 Parametri chiesti all'utente del programma
 
   * la liberia ```<iostream>``` puo' essere anche utilizzata per leggere informazioni dalla tastiera
     ```cpp
@@ -260,7 +260,46 @@
     hai inserito: 4
     ```
 
-  
+## 1.2 le variabili 
+
+### 1.2.1 i tipi di default
+
+### 1.2.2 il casting fra diversi tipi
+
+## 1.3 gli operatori
+
+### 1.3.1 operatori relazionali
+
+### 1.3.2 operatori logici
+
+### 1.3.3 le precedenze fra operatori
+
+## 1.4 le strutture di controllo
+
+### 1.4.1 if ... then ... else
+
+### 1.4.2 switch 
+
+### 1.4.3 for 
+
+### 1.4.4 while
+
+## 1.5 funzioni matematiche
+
+## 1.6 accesso all'orologio del computer
+
+## 1.7 direttive al preprocessore
+
+### 1.7 le trappole nell'uso delle macro 
+http://www.programmiamo.altervista.org/C/funzioni/funz14.html
+
+## 1.8 le funzioni
+
+### 1.8.1 il prototipo di una funzione e la sua implementazione
+
+### 1.8.2 la divisione in file separati
+
+## 1.9 flag di compilazione
 
 
 
