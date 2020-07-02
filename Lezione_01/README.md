@@ -262,7 +262,48 @@
 
 ## 1.2 le variabili 
 
-### 1.2.1 i tipi di default
+  * le informazioni sono manipolate dal programma sotto forma di **variabili**
+  * **diversi tipi di oggetti** hanno tipicamente bisogno di dimenioni differenti di memoria
+    e di un formato diverso di scrittura
+  * per ogni differente possibilita' esiste un **tipo associato in ```C++```**,
+    che contiene le informazioni di lunghezza e formattazione
+  * i principali tipi sono i seguenti:
+  
+  | tipo                            | Keyword | contenuto  |
+  | Boolean                         | bool    | vero/falso |     
+  | Character                       | char    | singoli caratteri |
+  | Integer                         | int     | numeri interi fra -32768 fino a 32767 |
+  | Floating point (virgola mobile) | float   | numeri razionali | 
+  | Double floating point           | double  | numeri razionali |
+  | Valueless                       | void    | nessun tipo |
+
+  * le variabili si inizializzano utilizzando le keyword indicate in tabella:
+    ```cpp
+    // definizione di due numeri interi
+    int num1 = 0;
+    int num2 = 3;
+    // somma di due numeri interi
+    int somma = num1 + num2; 
+    std::cout << "Somma: " << somma << std::endl ; 
+    // definizione di due numeri razionali
+    float razionale1 = 3.1416;
+    double razionale2 = 1.4142; 
+    // definizione di un carattere
+    char lettera = 'a';
+    // definizione di un valore booleano
+    bool condizione = true;
+    ```
+  | suggerimenti |
+  | -------------|
+  
+  * nonappena una variabile viene definita, assegnare sempre un valore ad essa
+    * che possa essere un buon valore di default nei calcoli a seguire, oppure
+    * che non possa avere senso nel programma, in modo da rendersi conto subito 
+      nel caso in cui la variabile non assuma i valori che dovrebbe
+  * definire una variabile per riga, per chiarezza di lettura
+  * dare nomi lunghi ed esplicativi alle variabili    
+
+### 1.2.1 gli array di variabili
 
 ### 1.2.2 il casting fra diversi tipi
 
