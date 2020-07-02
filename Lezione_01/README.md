@@ -59,3 +59,31 @@
   * esistono diverse versioni del linguaggio ```C++```:
     **C++98** (che useremo noi), C++03, C++11 (che accenneremo), C++14, C++17
 
+
+## 1.2 Un primo programma
+
+### 1.2.1 Il codice sorgente
+
+  * la sequenza di istruzioni scritte nel linguaggio di programmazione
+    sono salvate in un file di testo, 
+    che e' solitamente chiamato **codice sorgente**
+  * gli **editor di testo** dedicati alla programmazione contengono strumenti
+    specifici che permettono di evidenziare la sintassi del codice
+    e talvolta controllarne la grammatica ed ortografia
+  * oltre alle istruzioni, in un codice sorgente si possono inserire **commenti**,
+    che sono frasi ignorate durante la compilazione
+    * i commenti in ```C``` iniziano con ```/*``` e terminano con ```*/```:
+    ```c
+    \* questo e' un commento
+    *\
+    ```
+  * ATTENZIONE: i simboli di apertura e chiusura di commenti **non funzionano come parentesi**
+  * in ```C++``` i commenti possono anche iniziare con ```//```  
+    e terminano automaticamente a fine riga:
+    ```cpp
+    // questo e' un commento
+    ```
+
+### 1.2.1 Uno scheletro vuoto
+
+  * 
