@@ -136,11 +136,13 @@
   * per compilare il programma si utilizza il comando ```c++```, chiamato **compilatore**:
   ```
   c++ -o main_00 main_00.cpp
+
   ```
     * l'argomento ```-o main_00``` dice al copilatore di chiamare l'eseguibile con il nome ```main_00```
     * per eseguire il programma:
   ```
   ./main_00
+
   ```
     * non succede nulla: non ci sono istruzioni all'interno della funzione ```main```!
     * l'istruzione ```return 0``` non dice di scrivere a schermo ```0```, 
