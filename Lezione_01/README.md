@@ -39,3 +39,14 @@
   * le istruzioni vengono eseguite **velocemente**  
   * ```C``` e ```C++``` sono esempi di linguaggi di programmazione compilati
 
+### ```C``` e ```C++```
+
+  * ```C``` e' un linguaggio di programmazione:
+    * **imperativo**, cioe' che impartisce sequenze di istruzioni al calolatore
+    * **procedurale**, cioe' che permette di raggruppare istruzioni in procedure
+  * ```C++``` e' un linguaggio di programmazione:
+    * che **estende il ```C```**
+    * **object oriented**, cioe' che permette di definire nuovi tipi di variabili
+      all'interno dei programmi
+  * esistono diverse versioni del linguaggio ```C++```:
+    **C++98** (che useremo noi), C++03, C++11 (che accenneremo), C++14, C++17    
