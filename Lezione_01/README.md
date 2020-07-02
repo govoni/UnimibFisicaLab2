@@ -86,6 +86,30 @@
 
 ### 1.2.1 Uno scheletro vuoto
 
-  * ogni programma da compilare deve contenere una ed una sola funzione chiamata ```main```, 
+  * ogni programma da compilare deve contenere una ed una sola **funzione chiamata ```main```**, 
     che viene eseguita dal calcolatore quando il programma viene lanciato
+  * esistono due versioni della funzione ```main```
+    * una **senza argomenti** e corrisponde al caso in cui il programma sia eseguito da SHELL senza argomenti 
+    ```cpp
+    int main ()
+      {
+        return 0 ;
+      }
+
+    ```
+    * una **con argomenti in ingresso**, che corrispondono alla frase scritta a linea di comando
+      per lanciare il programma
+    ```cpp
+    int main (int arcg, char ** argv)
+      {
+        return 0 ;
+      }
+
+    ```
+  * entrambe le versioni del programma funzionano ed entrambe le funzioni ```main``` restituiscono alla SHELL
+    un numro intero, chiamato **exit status**
+    * solitamente e' ```0``` se tutto e' andato bene, 
+      mentre e' un numero non nullo se ci sono stati problemi durante l'esecuzione
+      (esistono codici di errori codificati, 
+       tuttavia il programmatore ha la liberta' di aggiungerne o cambiarli)
 
