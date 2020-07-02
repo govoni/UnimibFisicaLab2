@@ -10,3 +10,9 @@ in confidenza con i seguenti concetti.
 ## Le istruzioni a linea di comando: la SHELL
 
 ## Gli editor di testo
+
+## Qualche consiglio pratico
+
+  * prendere note nei programmi con molti commenti
+  * strutturare le cartelle di lavoro in modo utile e sensato
+  * non copiare i programmi, scriverli piuttosto prima di guardare la soluzione
