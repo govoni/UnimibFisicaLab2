@@ -170,7 +170,15 @@
         return 0 ;
       }
     ```
-
+    * la linea ```#include <iostream>``` dice al compilatore di utilizzare la libreria ```iostream```
+        * il compilatore sa dove trovare le librerie standard tramite variabili di ambiente della SHELL
+    * la variabile ```cout``` (see-out) rappresenta lo strumento di output; 
+      in questo caso, essendo quello standard (```std::```) si tratta dello schermo
+    * la variabile ```endl``` e' la fine della linea, essendo quella standard e' un accapo
+    * il simbolo ```<<``` rappresenta l'operatore di redirezione,
+      che sposta quello che sta alla propria destra verso sinistra. 
+      Quindi in questo caso prima ```endl``` viene incollato a ```42```,
+      quindi l'insieme dei due viene inviato allo schermo.
 
 
 
