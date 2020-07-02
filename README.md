@@ -10,8 +10,13 @@
   * Utilizzeremo i seguenti strumenti:
     * Il linguaggio di programmazione [```C++```](http://www.cplusplus.com/) per risolvere i problemi assegnati
     * Il framework di analisi dati [```ROOT```](https://root.cern.ch/) (sviluppato al CERN per l'analisi dati)
+  * NOTA BENE: Gli strumenti scelti per il corso sono semplicemente un mezzo per 
+      * imparare la **logica della programmazione**, 
+      * per esercitarsi nella **scrittura di algoritmi**
+      * per svolgere **esercizi di analisi dati**
   * Gli esercizi svolti a lezione corridspondo al livello di difficolta' medio
     degli esercizi proposti nelle prove di esame
+
 
 ## Lezioni del corso
 

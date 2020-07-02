@@ -45,8 +45,17 @@
     * **imperativo**, cioe' che impartisce sequenze di istruzioni al calolatore
     * **procedurale**, cioe' che permette di raggruppare istruzioni in procedure
   * ```C++``` e' un linguaggio di programmazione:
-    * che **estende il ```C```**
+    * che **estende il ```C```**: 
+      * un programma ```C``` compila anche in ```C++```
+      * la sintassi del ```C``` e' valida anche in ```C++```
+      * esistono concetti nuovi nel ```C++```
+      * esiste piu' liberta' nel ```C++```
     * **object oriented**, cioe' che permette di definire nuovi tipi di variabili
       all'interno dei programmi
+      * vedremo che si tratta di un cambio di paradigma fondamentale
+    * permette la **programmazione template**, 
+      che e' una forma di generalizzazione delle istruzioni impartite al calcolatore
+      * vedremo che porta alla creazione di molte librerie di utilita' generale
   * esistono diverse versioni del linguaggio ```C++```:
-    **C++98** (che useremo noi), C++03, C++11 (che accenneremo), C++14, C++17    
+    **C++98** (che useremo noi), C++03, C++11 (che accenneremo), C++14, C++17
+
