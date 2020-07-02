@@ -299,7 +299,20 @@ http://www.programmiamo.altervista.org/C/funzioni/funz14.html
 
 ### 1.8.2 la divisione in file separati
 
-## 1.9 flag di compilazione
+## 1.9 l'ordine nella scrittura del codice
+
+### 1.9.1 l'uso dell'indentazione
+
+### i caratteri in C++
+
+### 1.9.2 usare molti commenti
+
+### 1.9.3 che nomi dare a variabili e funzioni
+
+### 1.9.2 la fattorizzazione di un programma
+  * i tranelli del #define
+
+## 1.10 flag di compilazione
 
 
 
