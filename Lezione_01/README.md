@@ -179,6 +179,89 @@
       che sposta quello che sta alla propria destra verso sinistra. 
       Quindi in questo caso prima ```endl``` viene incollato a ```42```,
       quindi l'insieme dei due viene inviato allo schermo.
+  * l'esecuzione del programma visualizzera' a schermo ```42```:
+    ```
+    > c++ -o main_01 main_01.cpp
+    > ./main_01 
+    42
+    ```
+
+### 1.2.2 Il lavoro del compilatore
+
+  * La compilazione di un programma di divide in tre fasi
+
+  | preprocessing |
+  | --------------|
+
+  * **creazione del programma** da compilare:
+    * vengono eseguite le direttive al preprocessore, che iniziano con il simbolo ```#```
+    * ad esempio, l'istruzione ```#include <iostream>``` chiede al preprocessore
+      di copiare al posto della linea stessa tutto il codice sorgente 
+      contenuto nella libreria ```iostream```
+
+  | compilazione |
+  | -------------|
+
+  * il compilatore vero e prorio entra in azione in questo stadio
+  * controllo sintattico del programma
+    * ad esempio, ```itn``` invece di ```int``` da' errore
+  * controllo grammaticale del programma
+  * traduzione del codice sorgente in linguaggio macchina
+  * ogni funzione, creata in lunguaggio macchina, diventa un **oggetto del compilatore**
+
+  | linking |
+  | --------|
+
+  * in questo ultimo passaggio, vengono connessi i vari oggetti del compilatore
+  * nel nostro esempio, la parte pre-compilata delle librerie viene debitamente connessa 
+    alle chiamate presenti nella funzione ```main```
+  * NOTA BENE: gli oggetti del compilatore **non** hanno a che fare con la programmazione ad oggetti,
+    si tratta di uno sfortunato caso di omonimia  
+
+### 1.2.3 Parametri passati a linea di comando
+
+  * si possono passare informazioni al programma aggiungendo parametri a linea di comando
+  * la SHELL passa alla funzione ```main``` la frase scritta dall'utente, 
+    sotto forma di ```array``` di stringhe di tipo ```C```
+    * ```argc``` e' il numero di elementi dell'```array```
+    * ```argv``` e' l'array stesso
+    ```cpp
+    #include <iostream>
+
+    int main (int arcg, char ** argv)
+      {
+        std::cout << "42" << std::endl ;
+        std::cout << "ecco il nome dell'eseguibile: " << argv[0] << "\n" ;
+        return 0 ;
+      }
+    ```
+
+### 1.2.3 Parametri chieste all'utente del programma
+
+  * la liberia ```<iostream>``` puo' essere anche utilizzata per leggere informazioni dalla tastiera
+    ```cpp
+    #include <iostream>
+
+    int main (int arcg, char ** argv)
+      {
+        int numero = 0 ;
+        std::cout << "inserisci un numero\n" ;
+        std::cin >> numero ;
+        std::cout << "hai inserito: " << numero << "\n" ;
+        return 0 ;
+      }
+    ```
+    * la tastiera e' identificata da ```std::cin```
+    * l'operatore ```>>``` trasferisce l'informazione dall'esterno verso il programma:
+    ```
+    > ./main_03 
+    inserisci un numero
+    4 
+    hai inserito: 4
+    ```
+
+  
+
 
 
 
