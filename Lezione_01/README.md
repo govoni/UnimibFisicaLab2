@@ -95,7 +95,6 @@
       {
         return 0 ;
       }
-
     ```
     * una **con argomenti in ingresso**, che corrispondono alla frase scritta a linea di comando
       per lanciare il programma
@@ -104,7 +103,6 @@
       {
         return 0 ;
       }
-
     ```
   * entrambe le versioni del programma funzionano ed entrambe le funzioni ```main``` restituiscono alla SHELL
     un numro intero, chiamato **exit status**
@@ -112,4 +110,47 @@
       mentre e' un numero non nullo se ci sono stati problemi durante l'esecuzione
       (esistono codici di errori codificati, 
        tuttavia il programmatore ha la liberta' di aggiungerne o cambiarli)
+  
+  | suggerimenti |
+  | -------------|
+  
+  * nello scrivere un programma, ogni volta che si apre una parentesi graffa **chiuderla immediatamente**,
+    per non dimenticarlo
+  * non dimenticate le variabili di ritorno delle funzioni, ```main``` incluso  
+
+### 1.2.2 La prima compilazione
+
+  * il codice sorgente appena creato va **compilato** perche' possa essere eseguito dal calcolatore
+  * si consiglia di svolgere tutti gli esercizi presentati in ogni lezione in una cartella dedicata, 
+    quindi, dopo aver aperto una SHELL:
+    ```
+    mkdir Lab2_Modulo1
+    cd Lab2_Modulo1
+    mkdir Lezione_01
+    cd Lezione_01
+    touch main_00.cpp
+    ```
+    * il comando ```touch``` crea un file vuoto, in questo caso con nome ```main.cpp```
+  * aprite ```main.cpp``` con il vostro editor preferito e scriveteci il programma da eseguire, 
+    quindi salvate il programma
+  * per compilare il programma si utilizza il comando ```c++```, chiamato **compilatore**:
+  ```
+  c++ -o main_00 main_00.cpp
+  ```
+    * l'argomento ```-o main_00``` dice al copilatore di chiamare l'eseguibile con il nome ```main_00```
+  * per eseguire il programma:
+  ```
+  ./main_00
+  ```
+    * non succede nulla: non ci sono istruzioni all'interno della funzione ```main```!
+    * l'istruzione ```return 0``` non dice di scrivere a schermo ```0```, 
+      ma di restituire alla SHELL il valore ```0```    
+
+  | suggerimenti |
+  | -------------|
+  
+  * includete sempre all'inizio del codice sorgente un commento 
+    che contenga il comando di compilazione del programma
+    
+
 
