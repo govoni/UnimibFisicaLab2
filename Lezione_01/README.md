@@ -86,4 +86,6 @@
 
 ### 1.2.1 Uno scheletro vuoto
 
-  * 
+  * ogni programma da compilare deve contenere una ed una sola funzione chiamata ```main```, 
+    che viene eseguita dal calcolatore quando il programma viene lanciato
+

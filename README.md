@@ -20,4 +20,5 @@
 
 ## Lezioni del corso
 
+  * [Prerequisiti](Lezione_00/README.md): breve riassunto di prerequisiti che non saranno coperti durante il corso
   * [Lezione 1](Lezione_01/README.md) : ripasso di ```C``` ed introduzione al ```C++```
