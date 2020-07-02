@@ -152,5 +152,25 @@
   * includete sempre all'inizio del codice sorgente un commento 
     che contenga il comando di compilazione del programma
     
+### 1.2.2 Scrivere a schermo
+
+  * oltre ai comandi fondamentali disponibili di default,
+    insiemi di istruzioni dedicati allo svolgimento di determinati compiti
+    sono **incapsulate in librerie**
+  * bisogna dichiarare al programma che si vuole utilizzarle
+  * per scrivere a schermo, 
+    si utilizza la che gestisce il flusso (stream) di informazione in input (i) ed output (o) 
+    durante l'esecuzione del programma: ```iostream```
+    ```cpp
+    #include <iostream>
+
+    int main (int arcg, char ** argv)
+      {
+        std::cout << "42" << std::endl ;
+        return 0 ;
+      }
+    ```
+
+
 
 
