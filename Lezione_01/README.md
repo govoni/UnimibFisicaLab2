@@ -270,6 +270,7 @@
   * i principali tipi sono i seguenti:
   
   | tipo                            | Keyword | contenuto  |
+  | ------------------------------- | ------- | ---------- |
   | Boolean                         | bool    | vero/falso |     
   | Character                       | char    | singoli caratteri |
   | Integer                         | int     | numeri interi fra -32768 fino a 32767 |
