@@ -387,11 +387,67 @@
 
 ## 1.3 gli operatori
 
-### 1.3.1 operatori relazionali
+  * Gli operatori predefiniti in ```C++``` permettono di compiere **operazioni fra variabili**
+  * **Per ogni tipo di variabile**, esistono operatori corrispondenti alle operazioni 
+    che si possono fare fra queste variabili
+  * gli operatori si comportano **alla stregua di funzioni**, con variabili in ingresso
+    e variabili di ritorno
+  * tipicamente un operatore agisce su un singolo di tipo, 
+    quindi l'applicazione di operatori a piu' di un tipo 
+    implica un **casting implicito** fatto dal compilatore  
 
-### 1.3.2 operatori logici
+### 1.3.1 l'operatore di assegnazione
 
-### 1.3.3 le precedenze fra operatori
+  * attribuiscono il valore iniziale ad una variabile:
+    ```cpp
+    int numero = 5 ;
+    ```
+    * il tipo in ingresso e' un ```int``` 
+      (la variabile stessa e' una sorta di argomento implicito dell'operatore)
+    * l'effetto dell'operatore e' quello di assegnare alla variabile ```numero``` il valore 
+      che sta a destra del simbolo ```=```
+    * il tipo in uscita e' ancora ```int``` ed e' il valore assegnato alla variabile  
+    ```cpp
+    std::cout << (numero = 7) << std::endl ;
+    ```
+  * anche per l'operatore di assegnazione accade casting implicito:
+    ```cpp
+    float razionale = 5 ;
+    ```
+    * ```5``` e' di tipo ```int```, quindi viene prima convertito in ```float``` (```5.```)
+      e poi passato come argomento all'operatore di assegnazione
+
+### 1.3.2 operatori aritmetici
+
+  * corrispondono alle tipiche operazioni matematiche fra numeri interi o razionali
+    ```cpp
+    float R1 = 5. ;
+    float R2 = 5. ;
+    float R3 = R1 + R2 ;
+    std::cout << R3 << std::endl ;
+    R3 = R3 + 4.5 ;
+    std::cout << R3 << std::endl ;
+    ```
+  * gli operatori aritmetici esistono anche composti con l'operatore di assegnazione
+    ```cpp
+    R3 += 2.1 ;
+    std::cout << R3 << std::endl ;
+    ```
+
+    | operatore | op. composto | operazione |
+    | --- | --- | --- |
+    | ```+``` | ``` += ``` | addizione |
+    | ```-``` | ``` -= ``` | sottrazione |
+    | ```*``` | ``` *= ``` | moltiplicazione |
+    | ```/``` | ``` /= ``` | divisione |
+    | ```%``` | ``` %= ``` | resto della divisione tra interi |
+
+
+### 1.3.3 operatori di incremento
+
+### 1.3.4 operatori logici
+
+### 1.3.5 le precedenze fra operatori
 
 ## 1.4 le strutture di controllo
 
@@ -422,13 +478,13 @@ http://www.programmiamo.altervista.org/C/funzioni/funz14.html
 
 ### 1.9.1 l'uso dell'indentazione
 
-### i caratteri in C++
+### 1.9.2 i caratteri in C++
 
-### 1.9.2 usare molti commenti
+### 1.9.3 usare molti commenti
 
-### 1.9.3 che nomi dare a variabili e funzioni
+### 1.9.4 che nomi dare a variabili e funzioni
 
-### 1.9.2 la fattorizzazione di un programma
+### 1.9.5 la fattorizzazione di un programma
   * i tranelli del #define
 
 ## 1.10 flag di compilazione
