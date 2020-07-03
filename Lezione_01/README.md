@@ -365,6 +365,26 @@
 
 ### 1.2.2 il casting fra diversi tipi
 
+  * il casting in ```C``` e' la **conversione fra diversi tipi di variabili numeriche**
+  * siccome le medesime operazioni fra tipi diversi possono dare risultati differenti
+    (provate a calcolare il valore della frazione 3/5
+     come rapporto fra due variabili ```int``` o come rapporto fra due variabili ```float```),
+    e' importante sapere **come convertire variabili in maniera esplicita**,
+    utilizzando la sintassi ```(type) numero``` per convertire la variabile ```numero```
+    nel tipo ```type```:
+    ```cpp
+    int numero_intero = 4 ;
+    float numero_razionale = (float) numero_intero ;
+    ```
+
+### 1.2.2 il casting in ```C++```
+
+  * in ```C++``` l'operazione di casting ha portata piu' ampia
+    e puo' essere realizzato con operatori dedicati:
+    ```cpp
+    float secondo_razionale = static_cast<float> (numero_intero) ;
+    ```
+
 ## 1.3 gli operatori
 
 ### 1.3.1 operatori relazionali

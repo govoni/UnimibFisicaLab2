@@ -18,6 +18,9 @@
     degli esercizi proposti nelle prove di esame
 
 
+## Riferimenti bibliografici
+
+
 ## Lezioni del corso
 
   * [Prerequisiti](Lezione_00/README.md): breve riassunto di prerequisiti che non saranno coperti durante il corso
