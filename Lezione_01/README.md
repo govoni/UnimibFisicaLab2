@@ -306,7 +306,62 @@
   * definire una variabile per riga, per chiarezza di lettura
   * dare nomi lunghi ed esplicativi alle variabili    
 
-### 1.2.1 gli array di variabili
+### 1.2.1 l'attributo ```const```
+
+  * l'attributo ```const``` premesso ad una variabile indica che essa non puo' cambiare di valore
+    durante l'esecuzione del programma.
+  * se si prova a modificare una variabile dichiarata ```const```,
+    il compilatore si accorge di questo errore di grammatica di programmazione
+    e non compila, restituendo un errore:  
+    ```    
+    > c++ -o main_05 main_05.cpp
+    main_05.cpp:10:12: error: cannot assign to variable 'numero' with const-qualified type 'const int'
+        numero = numero + 1 ;
+        ~~~~~~ ^
+    main_05.cpp:9:15: note: variable 'numero' declared const here
+        const int numero = 0 ;
+        ~~~~~~~~~~^~~~~~~~~~
+    1 error generated.
+    ```
+
+### 1.2.2 gli array di variabili
+
+  * ad una variabile e' associata una **zona di memoria** nella RAM,
+    dove il calcolatore la scrive durante le operazioni
+  * in ```C++``` e' possibile definire una zona di memoria estesa,
+    chiamata **array**,
+    predisposta a contenere un **elenco di variabili dello stesso tipo**
+    giustapposte in celle di memoria contigue
+    ```cpp
+    // array di 5 numeri interi
+    int num_array[5] ;
+    ```
+      * la dimensione dell'array, 
+        indicata fra parentesi nella definizione della variabile,
+        non puo' essere una variabile (nemmeno ```const```),
+        **deve essere un numero scritto nel codice sorgente**
+  * **le singole celle di memoria** sono accessibili 
+    tramite l'operatore ```operator[]``` applicato al nome della variabile,
+    che si scrive utilizzando le parentesi quadre
+    come nell'esempio che segue:
+    ```cpp
+    num_array[0] = 3 ;
+    num_array[1] = 6 ;
+    num_array[2] = 9 ;
+    num_array[3] = 11 ;
+    num_array[4] = 131 ;
+    ```
+      * gli indici delle celle di memoria di un array lungo N **partono a 0 e finiscono ad N-1**
+      * il compilatore **non sempre si accorge** che gli indici siano in questo intervallo
+      * qualunque tentativo di leggere una zona di memoria all'esterno di questo intervallo
+        puo' produrre un errore in fase di compilazione,
+        oppure un comportamento inatteso del programma
+        ```cpp
+        int index = 4 ;
+        std::cout << num_array[index + 1] << std::endl ;
+        ```
+      * NOTA BENE: si tratta di errori difficili da trovare, 
+        bisogna prestare molta attenzione agli indici di lettura degli array
 
 ### 1.2.2 il casting fra diversi tipi
 
