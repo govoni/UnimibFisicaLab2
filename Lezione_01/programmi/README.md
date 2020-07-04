@@ -1,6 +1,6 @@
 # contenuto della cartella
 
-     | -------------| -------------|
+   | -------------| -------------|
    | main_00.cpp | programma vuoto |
    | main_01.cpp | output a schermo |
    | main_02.cpp | argomenti a linea di comando |
