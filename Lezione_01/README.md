@@ -530,6 +530,8 @@
   * ad esempio, nella tabella che segue,
     gli operatori nelle celle in alto hanno precedenza rispetto a quelli sotto
 
+  | categorie di priorita' |
+  | -------------| 
   |  ```a++```, ```a[]```  |
   |  ```++a```, ```!```  |
   |  ```a*b```, ```a/b```, ```a%b```  |
