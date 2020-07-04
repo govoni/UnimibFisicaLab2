@@ -1,5 +1,6 @@
 # contenuto della cartella
 
+   | programma | contenuto |
    | -------------| -------------|
    | main_00.cpp | programma vuoto |
    | main_01.cpp | output a schermo |
