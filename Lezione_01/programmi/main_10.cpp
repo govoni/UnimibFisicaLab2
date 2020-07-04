@@ -28,5 +28,7 @@ int main (int arcg, char ** argv)
     int num4 = 5 ;
     std::cout << num4-- << std::endl ;
     std::cout << num4 << std::endl ;
+
+    return 0 ;
   }
 
