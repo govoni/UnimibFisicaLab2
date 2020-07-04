@@ -419,7 +419,7 @@
 
 ### 1.3.2 operatori aritmetici
 
-  * corrispondono alle tipiche operazioni matematiche fra numeri interi o razionali
+  * corrispondono alle **tipiche operazioni matematiche** fra numeri interi o razionali
     ```cpp
     float R1 = 5. ;
     float R2 = 5. ;
@@ -428,7 +428,7 @@
     R3 = R3 + 4.5 ;
     std::cout << R3 << std::endl ;
     ```
-  * gli operatori aritmetici esistono anche composti con l'operatore di assegnazione
+  * gli operatori aritmetici esistono anche **composti con l'operatore di assegnazione**
     ```cpp
     R3 += 2.1 ;
     std::cout << R3 << std::endl ;
@@ -444,6 +444,40 @@
 
 
 ### 1.3.3 operatori di incremento
+
+  * **L'incremento o decremento unitario** di una variabile si puo' ottenere 
+    anche con operaori dedicati:
+
+    | operatore | operazione |
+    | --- |  --- |
+    | ```++``` | incremento unitario |
+    | ```--``` | decremento unitario |
+
+  * l'operatore agisce direttamente sulla variabile al quale viene applicato,
+    similmente agli operatori composti:
+    ```cpp
+    int num = 5 ;
+    ++num ;
+    std::cout << num << std::endl ;
+    --num ;
+    std::cout << num << std::endl ;
+    ```
+  * ciascun operatore esiste in due versioni:
+    * **pre-incremento** o **pre-decremento**: la variabile a cui viene applicato 
+      viene modificata dall'operatore **prima** dell'esecuzione di eventuali altre operazioni
+      che accadono in quella linea (```++num```, ```--num```)
+    * **post-incremento** o **post-decremento**: la variabile a cui viene applicato 
+      viene modificata dall'operatore **dopo** dell'esecuzione di eventuali altre operazioni
+      che accadono in quella linea (```num++```, ```num--```)
+    ```cpp
+    int num1 = 5 ;
+    std::cout << ++num1 << std::endl ;
+    int num2 = 5 ;
+    std::cout << num2++ << std::endl ;
+    std::cout << num2 << std::endl ;
+    ```
+  * gli operatori di incremento vengono tipicamente utilizzati per aumentare o diminuire
+    il valore delle variabili indice dei cicli
 
 ### 1.3.4 operatori logici
 
