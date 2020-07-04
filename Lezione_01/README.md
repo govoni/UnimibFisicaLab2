@@ -402,13 +402,17 @@
     ```cpp
     int numero = 5 ;
     ```
-    * il tipo in ingresso e' un ```int``` 
+    * in questo caso, il tipo in ingresso e' un ```int``` 
       (la variabile stessa e' una sorta di argomento implicito dell'operatore)
     * l'effetto dell'operatore e' quello di assegnare alla variabile ```numero``` il valore 
       che sta a destra del simbolo ```=```
     * il tipo in uscita e' ancora ```int``` ed e' il valore assegnato alla variabile  
     ```cpp
     std::cout << (numero = 7) << std::endl ;
+    ```
+    * di conseguenza, le assegnazioni si possono fare in cascata:
+    ```cpp
+    int numero_2 = numero = 7 ;
     ```
   * anche per l'operatore di assegnazione accade casting implicito:
     ```cpp
@@ -465,7 +469,8 @@
   * ciascun operatore esiste in due versioni:
     * **pre-incremento** o **pre-decremento**: la variabile a cui viene applicato 
       viene modificata dall'operatore **prima** dell'esecuzione di eventuali altre operazioni
-      che accadono in quella linea (```++num```, ```--num```)
+      che accadono in quella linea (```++num```, ```--num```), 
+      quindi l'operatore restituisce la variabile stessa
     * **post-incremento** o **post-decremento**: la variabile a cui viene applicato 
       viene modificata dall'operatore **dopo** dell'esecuzione di eventuali altre operazioni
       che accadono in quella linea (```num++```, ```num--```)
@@ -476,12 +481,65 @@
     std::cout << num2++ << std::endl ;
     std::cout << num2 << std::endl ;
     ```
+    * gli operatori di post-incremento e post-decremento **creano una copia** della variabile
+      alla quale sono applicati, incrementano la variabile e restituiscono la copia
+      (che non e' stata incrementata)
+    * di conseguenza, gli operatori di post-incremento e post-decremento **sono piu' lenti** 
+      di quelli di pre-incremento e pre-decremento
+      e richiedono che **sia possibile creare una copia** della variabile alla quale sono applicati
   * gli operatori di incremento vengono tipicamente utilizzati per aumentare o diminuire
     il valore delle variabili indice dei cicli
 
-### 1.3.4 operatori logici
+### 1.3.4 operatori relationali
 
-### 1.3.5 le precedenze fra operatori
+  * gli operatori relazionali confrontano i valodi di variabili
+  * prendono in ingresso due variabili e restituiscono un valore booleano
+
+    | operatore | operazione |
+    | --- |  --- |
+    | ```==``` | uguaglianza |
+    | ```!=``` | non uguaglianza |
+    | ```<```  | minore di |
+    | ```<=``` | minore o uguale |
+    | ```>```  | maggiore di |
+    | ```>=``` | maggiore o uguale |
+
+  * NOTA BENE: l'operatore di uguaglianza ha **due segni ```=```** nel nome,
+    perche' l'operatore con un solo ```=``` assegna il valore di destra alla varibile di sinistra.
+    questa e' una frequente sorgente di errori 
+
+### 1.3.5 operatori logici
+
+  * gli operatori logici codifcano le relazioni fra variabili booleane:
+    | operatore | operazione |
+    | --- |  --- |
+    | ```&&``` | and |
+    | ```||``` | or  |
+    | ```!```  | not |
+  * NOTA BENE: spesso accade casting implicito fra variabili intere e booleane:
+    in questo caso, lo ```0``` risulta falso,
+    mentre ogni altro valore intero risulta vero
+
+### 1.3.6 le precedenze fra operatori
+
+  * se in una singola linea di un codice sorgente vengono effettuate diverse istruzioni,
+    il calcolatore le esegue da destra verso sinistra, 
+    rispettando l'ordine imposto da eventuali parentesi
+    e una serie di regole di precedenza
+  * la lista completa delle precedenze si trova [qui](https://en.cppreference.com/w/cpp/language/operator_precedence)  
+  * ad esempio, nella tabella che segue,
+    gli operatori nelle celle in alto hanno precedenza rispetto a quelli sotto
+
+  |  ```a++```, ```a[]```  |
+  |  ```++a```, ```!```  |
+  |  ```a*b```, ```a/b```, ```a%b```  |
+  |  ```a+b```, ```a-b``` |
+  |  ```<```, ```<=```, ```>```, ```>=``` |
+  |  ```==```, ```!=``` |
+  |  ```&&``` |
+  |  ```||``` |
+  |  ```=```, ```+=```, ```-=```, ```*=```, ```/=```, ```%=``` |
+    
 
 ## 1.4 le strutture di controllo
 

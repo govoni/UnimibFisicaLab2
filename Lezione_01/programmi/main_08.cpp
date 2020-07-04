@@ -11,6 +11,9 @@ int main (int arcg, char ** argv)
     numero = 6 ;
 
     std::cout << (numero = 7) << std::endl ;
+    int numero_due = numero = 8 ;
+    std::cout << numero_due << std::endl ;
+
     return 0 ;
   }
 
