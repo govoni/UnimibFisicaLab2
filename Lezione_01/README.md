@@ -690,35 +690,109 @@
     while (i < 2 * N) ;
     ```
   
-## 1.5 funzioni matematiche
+## 1.6 le funzioni
 
-## 1.6 accesso all'orologio del computer
+  * insiemi di istruzioni che svolgono un **compito preciso e spesso ripetuto** 
+    all'interno di uno o piu' programmi 
+    vengono solitamente raggruppate in funzioni,
+    che si utilizzano come un singolo comando
+  * le funzioni hanno un nome, una o piu' variabili in ingresso 
+    e restituiscono una sola variabile,
+    con il comando ```return```
+  * le funzioni vanno **definite prima di essere chiamate**
+    ```cpp
+    int raddoppia (int input_value) 
+      {
+        return 2 * input_value ;
+      }
+    
+    // ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
+    
+    int main (int arcg, char ** argv)
+      {
+      
+        for (int i = 0 ; i < 5 ; ++i)
+          {
+            std::cout << "il doppio di " << i << " vale: " << raddoppia (i) << std::endl ;
+          }
+        return 0 ;
+      }
+    ```
+      * una funzione che non restituisce alcun valore si definisce 
+        con la parola chiave ```void``` come tipo di ritorno
+        ed al suo interno l'istruzione ```return``` e' immediatamente seguita da una virgola
+        ```cpp
+        int raddoppia (int input_value) 
+          {
+            return 2 * input_value ;
+          }
 
-## 1.7 direttive al preprocessore
+        // ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
 
-### 1.7 le trappole nell'uso delle macro 
+        void scriviAschermo (int input_value) 
+          {
+            std::cout << "ecco il numero da scrivere: " << input_value << std::endl ;
+            return ;
+          }
+
+        // ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
+
+        int main (int arcg, char ** argv)
+          {
+              for (int i = 0 ; i < 5 ; ++i)
+              {
+                scriviAschermo (raddoppia (i)) ;
+              }
+
+            return 0 ;
+          }
+        ```
+  * il nome di una funzione, insieme ai suoi tipi in ingresso,
+    la **identifica univocamente**, dunque non possono esistere due funzioni
+    diverse con lo stesso nome e gli stessi tipi in ingresso
+    nello stesso programma
+    * funzioni con lo stesso nome, ma con tipi in ingresso diversi, possono coesistere
+      ```cpp
+      int raddoppia (int input_value) 
+        {
+          return 2 * input_value ;
+        }
+      
+      // ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
+      
+      float raddoppia (float input_value) 
+        {
+          return 2 * input_value ;
+        }
+      ```
+
+### 1.6.1 il prototipo di una funzione e la sua implementazione
+
+### 1.6.2 la divisione in file separati
+
+## 1.6 funzioni matematiche
+
+## 1.7 accesso all'orologio del computer
+
+## 1.8 direttive al preprocessore
+
+### 1.8.1 le trappole nell'uso delle macro 
 http://www.programmiamo.altervista.org/C/funzioni/funz14.html
 
-## 1.8 le funzioni
+## 1.10 l'ordine nella scrittura del codice
 
-### 1.8.1 il prototipo di una funzione e la sua implementazione
+### 1.10.1 l'uso dell'indentazione
 
-### 1.8.2 la divisione in file separati
+### 1.10.2 i caratteri in C++
 
-## 1.9 l'ordine nella scrittura del codice
+### 1.10.3 usare molti commenti
 
-### 1.9.1 l'uso dell'indentazione
+### 1.10.4 che nomi dare a variabili e funzioni
 
-### 1.9.2 i caratteri in C++
-
-### 1.9.3 usare molti commenti
-
-### 1.9.4 che nomi dare a variabili e funzioni
-
-### 1.9.5 la fattorizzazione di un programma
+### 1.10.5 la fattorizzazione di un programma
   * i tranelli del #define
 
-## 1.10 flag di compilazione
+## 1.11 flag di compilazione
 
 
 
