@@ -559,7 +559,32 @@
 
 ### gli scope
 
-### 1.5.1 if ... then ... else
+  * nel codice sorgente, diverse istruzioni vengono raggruppate in insiemi chiamati **scope**,
+    delimitati da parentesi graffe
+  * le **variabili** definite all'interno di uno scope 
+    rimangono definite solamente fino alla chiusura dello scope
+    e vengono automaticamente rimosse alla chiusura della parentesi graffa
+  * singole istruzioni all'interno di una struttura di controllo
+    possono essere sostituite da un intero scope  
+
+### 1.5.1 ```if ... else```
+
+  * la sequenza ```if (condizione) {scope} else {scope alternativo}``` realizza una selezione binaria,
+    nella quale una istruzione o uno scope di istruzioni vengono eseguiti 
+    nel caso in cui venga soddisfatta una condizione booleana
+  * opzionalmente, uno scope alternativo puo' essere eseguito 
+    nel caso in cui la condizione risulti falsa
+    ```cpp
+    int num1 = 5 ;
+    if (num1 % 2 == 0) 
+      {
+        std::cout << num1 << " e' pari\n" ;
+      }
+    else  
+      {
+        std::cout << num1 << " e' dispari\n" ;
+      }
+    ```
 
 ### 1.5.2 switch 
 
