@@ -617,11 +617,13 @@
       del ```case``` corrispondente al valore di ```espressione```
       prende il nome di **fallthrough**
     * il comando ```break``` puo' essere utilizzato anche per **interrompere l'esecusione di un ciclo**
+    * la presenza di un ```break``` **non e' obbligatoria** 
   * oltre ai vari ```case```, 
     si puo' aggiungere un ulteriore caso, 
     che contiene istruzioni da svolgere nell'evenienza in cui nessuno dei ```case```
     venga soddisfatto, 
     che viene etichettato con la parola chiave **```default```**
+    * il caso di default **non e' obbligatorio**
 
 ### 1.5.3 for 
 
