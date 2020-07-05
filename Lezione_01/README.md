@@ -662,15 +662,15 @@
   * nella parentesi che segue l'istruzione ```while```
     deve trovare luogo un'affermazione da verificare; 
     se l'affermazione e' vera, lo scope del ciclo viene effettuato
-  ```cpp
-  int N = 10 ;
-  int i = 0 ;
-  while (i < N)
-    {
-      std::cout << "il doppio di " << i << " vale: " << 2 * i << std::endl ;
-      ++i ;
-    }
-  ```
+    ```cpp
+    int N = 10 ;
+    int i = 0 ;
+    while (i < N)
+      {
+        std::cout << "il doppio di " << i << " vale: " << 2 * i << std::endl ;
+        ++i ;
+      }
+    ```
     * il controllo viene effettuato **prima** dell'esecuzione dell'iterazione corrispondente
     * se il **campo fra parentesi e' vuoto**, il ciclo avviene e continua indefinitamente; 
       va quindi interrotto con il comando ```break```
@@ -681,15 +681,15 @@
     (ad esempio quando, prima della prima iterazione, non ha senso effettuare il controllo)
   * per ottenere questo comportamento, 
     si utilizza la sintassi ``` do { ... } while ()```   
-  ```cpp
-  do
-    {
-      std::cout << "il doppio di " << i << " vale: " << 2 * i << std::endl ;
-      ++i ;
-    }
-  while (i < 2 * N) ;
-  ```
-
+    ```cpp
+    do
+      {
+        std::cout << "il doppio di " << i << " vale: " << 2 * i << std::endl ;
+        ++i ;
+      }
+    while (i < 2 * N) ;
+    ```
+  
 ## 1.5 funzioni matematiche
 
 ## 1.6 accesso all'orologio del computer
