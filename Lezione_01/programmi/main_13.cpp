@@ -16,6 +16,8 @@ int main (int arcg, char ** argv)
         std::cout << num1 << " e' dispari\n" ;
       }
 
+    // ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
+
     int num2 = 2 ;
     switch(num2) {
       case 1:
@@ -31,9 +33,34 @@ int main (int arcg, char ** argv)
         // blocco di istruzioni
     }
 
+    // ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
 
+    int N = 10 ;
+    for (int i = 0 ; i < N ; ++i)
+      {
+        std::cout << "il doppio di " << i << " vale: " << 2 * i << std::endl ;
+      }
 
+    std::cout << std::endl ;
 
+    // ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
+
+    int i = 0 ;
+    while (i < N)
+      {
+        std::cout << "il doppio di " << i << " vale: " << 2 * i << std::endl ;
+        ++i ;
+      }
+
+    // ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
+
+    do
+      {
+        std::cout << "il doppio di " << i << " vale: " << 2 * i << std::endl ;
+        ++i ;
+      }
+    while (i < 2 * N) ;
+  
     return 0 ;
 
   }

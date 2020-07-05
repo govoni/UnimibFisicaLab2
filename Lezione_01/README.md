@@ -559,7 +559,7 @@
 
 ### gli scope
 
-  * nel codice sorgente, diverse istruzioni vengono raggruppate in insiemi chiamati **scope**,
+  * nel codice sorgente diverse istruzioni vengono raggruppate in insiemi chiamati **scope**,
     delimitati da parentesi graffe
   * le **variabili** definite all'interno di uno scope 
     rimangono definite solamente fino alla chiusura dello scope
@@ -606,7 +606,7 @@
         // blocco di istruzioni
     }
     ```
-  * nella struttura di controllo ```switch (espressione)```,
+  * nella struttura di controllo ```switch (espressione)```
     vengono eseguite le istruzioni che stanno sotto la linea ```case``` 
     tale per cui **```espressione``` e' uguale al valore riportato 
     dopo la parola chiave ```case```**
@@ -623,11 +623,72 @@
     che contiene istruzioni da svolgere nell'evenienza in cui nessuno dei ```case```
     venga soddisfatto, 
     che viene etichettato con la parola chiave **```default```**
-    * il caso di default **non e' obbligatorio**
+    * il caso di ```default``` **non e' obbligatorio**
 
-### 1.5.3 for 
+### 1.5.3 il ciclo ```for```
 
-### 1.5.4 while
+  * la struttura di controllo ```for ()``` 
+    e' un modo di implmentare la struttura di controllo a ciclo,
+    tipicamente nel caso in cui al ciclo sia **associato un conteggio**
+  * nella parentesi che segue il comando ```for``` sono solitamente riportate tre istruzioni,
+    separati da un punto e virgola:
+    * **inizializzazione**: dove viene inizializzata (e talvolta definita) 
+      una variabile che conta il numero di cicli, detta contatore
+    * **controllo**: dove si verifica se il numero di cicli abbia oltrepassato una determinata soglia
+    * **incremento**: dove si incrementa il contatore
+    ```cpp
+    int N = 10 ;
+    for (int i = 0 ; i < N ; ++i)
+      {
+        std::cout << "il doppio di " << i << " vale: " << 2 * i << std::endl ;
+      }
+    ```
+    * **le variabili** definite fra parentesi rimangono definite soltanto all'interno
+      dello scope del ciclo
+    * l'operazione di controllo viene compiuta **prima** di effettuare nell'iterazione corrispondente  
+    * l'operazione di incremento viene compiuta **dopo** che e' stata effettuata l'iterazione corrispondente
+  * c'e' **molta liberta'** nella scrittura di un ciclo ```for```:
+    i tre campi fra parentesi possono anche essere vuoti ed il programma compila 
+    * utilizzare una scrittura non ortodossa del ciclo ```for```
+      puo' portare al errori logici nel programma,
+      che possono portare a risultati inaffidabili in fase di esecuzione
+
+### 1.5.4 il ciclo ```while```
+
+  * la struttura di controllo ```while ()``` 
+    e' un modo di implmentare la struttura di controllo a ciclo,
+    tipicamente nel caso in cui si voglia continuare il ciclo 
+    fintanto che una **condizione risulta vera**
+  * nella parentesi che segue l'istruzione ```while```
+    deve trovare luogo un'affermazione da verificare; 
+    se l'affermazione e' vera, lo scope del ciclo viene effettuato
+  ```cpp
+  int N = 10 ;
+  int i = 0 ;
+  while (i < N)
+    {
+      std::cout << "il doppio di " << i << " vale: " << 2 * i << std::endl ;
+      ++i ;
+    }
+  ```
+    * il controllo viene effettuato **prima** dell'esecuzione dell'iterazione corrispondente
+    * se il **campo fra parentesi e' vuoto**, il ciclo avviene e continua indefinitamente; 
+      va quindi interrotto con il comando ```break```
+    * questo permette di distribuire all'interno dello scope del ciclo diversi controlli,
+      aumentando considerevolmente il rischio che il ciclo non termini mai  
+  * talvolta conviene che la condizione di proseguimento del ciclo 
+    venga controllata **dopo l'esecuzione di ogni iterazione**
+    (ad esempio quando, prima della prima iterazione, non ha senso effettuare il controllo)
+  * per ottenere questo comportamento, 
+    si utilizza la sintassi ``` do { ... } while ()```   
+  ```cpp
+  do
+    {
+      std::cout << "il doppio di " << i << " vale: " << 2 * i << std::endl ;
+      ++i ;
+    }
+  while (i < 2 * N) ;
+  ```
 
 ## 1.5 funzioni matematiche
 
