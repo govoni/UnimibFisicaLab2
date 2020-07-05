@@ -513,7 +513,7 @@
     | operatore | operazione |
     | --- |  --- |
     | ```&&``` | and |
-    | ```||``` | or  |
+    | ```\|\|``` | or  |
     | ```!```  | not |
   * NOTA BENE: spesso accade casting implicito fra variabili intere e booleane:
     in questo caso, lo ```0``` risulta falso,
