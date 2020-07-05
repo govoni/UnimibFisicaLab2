@@ -571,8 +571,8 @@
 
   * la sequenza ```if (condizione) {scope} else {scope alternativo}``` realizza una selezione binaria,
     nella quale una istruzione o uno scope di istruzioni vengono eseguiti 
-    nel caso in cui venga soddisfatta una condizione booleana
-  * opzionalmente, uno scope alternativo puo' essere eseguito 
+    nel caso in cui venga **soddisfatta una condizione booleana**
+  * opzionalmente, uno **scope alternativo** puo' essere eseguito 
     nel caso in cui la condizione risulti falsa
     ```cpp
     int num1 = 5 ;
@@ -587,6 +587,40 @@
     ```
 
 ### 1.5.2 switch 
+
+  * la sequenza ```switch ... case ... default``` realizza una selezione fra molte opzioni,
+    basata sul valore di una variabile:
+    ```cpp
+    int num2 = 2 ;
+    switch (num2) {
+      case 1:
+        // blocco di istruzioni
+        std::cout << "uno\n" ;
+        break;
+      case 2:
+        // blocco di istruzioni
+        std::cout << "due\n" ;
+        break;
+      default:
+        std::cout << "altri numeri\n" ;
+        // blocco di istruzioni
+    }
+    ```
+  * nella struttura di controllo ```switch (espressione)```,
+    vengono eseguite le istruzioni che stanno sotto la linea ```case``` 
+    tale per cui **```espressione``` e' uguale al valore riportato 
+    dopo la parola chiave ```case```**
+  * per evitare che vengano eseguite anche le istruzioni riportate dopo i ```case``` sequenti,
+    solitamente si inserisce in ogni blocco di istruzioni il comando **```break```**,
+    che interrompe l'esecuzione dello scope
+    * la situazione in cui le istruzioni eseguite non siano soltanto quelle 
+      del ```case``` corrispondente al valore di ```espressione```
+      prende il nome di **fallthrough**
+    * il comando ```break``` puo' essere utilizzato anche per **interrompere l'esecusione di un ciclo**
+  * oltre ai vari ```case```, 
+    si puo' aggiungere un ulteriore caso, 
+    che contiene istruzioni da svolgere nell'evenienza in cui nessuno dei ```case```
+    venga soddisfatto    
 
 ### 1.5.3 for 
 

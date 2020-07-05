@@ -15,6 +15,25 @@ int main (int arcg, char ** argv)
       {
         std::cout << num1 << " e' dispari\n" ;
       }
+
+    int num2 = 2 ;
+    switch(num2) {
+      case 1:
+        // blocco di istruzioni
+        std::cout << "uno\n" ;
+        break;
+      case 2:
+        // blocco di istruzioni
+        std::cout << "due\n" ;
+        break;
+      default:
+        std::cout << "altri numeri\n" ;
+        // blocco di istruzioni
+    }
+
+
+
+
     return 0 ;
 
   }
