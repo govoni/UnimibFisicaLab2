@@ -260,7 +260,7 @@
     hai inserito: 4
     ```
 
-## 1.2 le variabili 
+## 1.3 le variabili 
 
   * le informazioni sono manipolate dal programma sotto forma di **variabili**
   * **diversi tipi di oggetti** hanno tipicamente bisogno di dimenioni differenti di memoria
@@ -306,7 +306,7 @@
   * definire una variabile per riga, per chiarezza di lettura
   * dare nomi lunghi ed esplicativi alle variabili    
 
-### 1.2.1 l'attributo ```const```
+### 1.3.1 l'attributo ```const```
 
   * l'attributo ```const``` premesso ad una variabile indica che essa non puo' cambiare di valore
     durante l'esecuzione del programma.
@@ -324,7 +324,7 @@
     1 error generated.
     ```
 
-### 1.2.2 gli array di variabili
+### 1.3.2 gli array di variabili
 
   * ad una variabile e' associata una **zona di memoria** nella RAM,
     dove il calcolatore la scrive durante le operazioni
@@ -363,7 +363,7 @@
       * NOTA BENE: si tratta di errori difficili da trovare, 
         bisogna prestare molta attenzione agli indici di lettura degli array
 
-### 1.2.2 il casting fra diversi tipi
+### 1.3.3 il casting fra diversi tipi
 
   * il casting in ```C``` e' la **conversione fra diversi tipi di variabili numeriche**
   * siccome le medesime operazioni fra tipi diversi possono dare risultati differenti
@@ -377,7 +377,7 @@
     float numero_razionale = (float) numero_intero ;
     ```
 
-### 1.2.2 il casting in ```C++```
+### 1.3.4 il casting in ```C++```
 
   * in ```C++``` l'operazione di casting ha portata piu' ampia
     e puo' essere realizzato con operatori dedicati:
@@ -385,7 +385,7 @@
     float secondo_razionale = static_cast<float> (numero_intero) ;
     ```
 
-## 1.3 gli operatori
+## 1.4 gli operatori
 
   * Gli operatori predefiniti in ```C++``` permettono di compiere **operazioni fra variabili**
   * **Per ogni tipo di variabile**, esistono operatori corrispondenti alle operazioni 
@@ -396,7 +396,7 @@
     quindi l'applicazione di operatori a piu' di un tipo 
     implica un **casting implicito** fatto dal compilatore  
 
-### 1.3.1 l'operatore di assegnazione
+### 1.4.1 l'operatore di assegnazione
 
   * attribuiscono il valore iniziale ad una variabile:
     ```cpp
@@ -421,7 +421,7 @@
     * ```5``` e' di tipo ```int```, quindi viene prima convertito in ```float``` (```5.```)
       e poi passato come argomento all'operatore di assegnazione
 
-### 1.3.2 operatori aritmetici
+### 1.4.2 operatori aritmetici
 
   * corrispondono alle **tipiche operazioni matematiche** fra numeri interi o razionali
     ```cpp
@@ -446,8 +446,7 @@
     | ```/``` | ``` /= ``` | divisione |
     | ```%``` | ``` %= ``` | resto della divisione tra interi |
 
-
-### 1.3.3 operatori di incremento
+### 1.4.3 operatori di incremento
 
   * **L'incremento o decremento unitario** di una variabile si puo' ottenere 
     anche con operaori dedicati:
@@ -490,7 +489,7 @@
   * gli operatori di incremento vengono tipicamente utilizzati per aumentare o diminuire
     il valore delle variabili indice dei cicli
 
-### 1.3.4 operatori relationali
+### 1.4.4 operatori relationali
 
   * gli operatori relazionali confrontano i valodi di variabili
   * prendono in ingresso due variabili e restituiscono un valore booleano
@@ -508,7 +507,7 @@
     perche' l'operatore con un solo ```=``` assegna il valore di destra alla varibile di sinistra.
     questa e' una frequente sorgente di errori 
 
-### 1.3.5 operatori logici
+### 1.4.5 operatori logici
 
   * gli operatori logici codifcano le relazioni fra variabili booleane:
     | operatore | operazione |
@@ -520,7 +519,7 @@
     in questo caso, lo ```0``` risulta falso,
     mentre ogni altro valore intero risulta vero
 
-### 1.3.6 le precedenze fra operatori
+### 1.4.6 le precedenze fra operatori
 
   * se in una singola linea di un codice sorgente vengono effettuate diverse istruzioni,
     il calcolatore le esegue da destra verso sinistra, 
@@ -543,15 +542,30 @@
   |  ```=```, ```+=```, ```-=```, ```*=```, ```/=```, ```%=``` |
     
 
-## 1.4 le strutture di controllo
+## 1.5 le strutture di controllo
 
-### 1.4.1 if ... then ... else
+  * Le strutture di controllo sono il metodo che si utilizza nei linguaggi di programmazione procedurali
+    per **gestire il flusso di istruzioni** che il calcolatore deve eseguire.
+    Esistono tre tipi di strutture di controllo:
+    * **sequenza**: si tratta della configurazione di default: 
+      le istruzioni si susseguono una dopo l'altra
+    * **selezione**: a seconda che una condizione sia o meno soddisfatta,
+      il calcolatore sceglie di eseguire diverse istruzioni
+    * **ciclo**: un insieme di istruzioni viene ripetuto un certo numero di volte,
+      in funzione di un algoritmo che decide quando l'iterazione e' terminata  
 
-### 1.4.2 switch 
+  ![strutture](images/strutture.png)
 
-### 1.4.3 for 
 
-### 1.4.4 while
+### gli scope
+
+### 1.5.1 if ... then ... else
+
+### 1.5.2 switch 
+
+### 1.5.3 for 
+
+### 1.5.4 while
 
 ## 1.5 funzioni matematiche
 
