@@ -768,6 +768,52 @@
 
 ### 1.6.1 il prototipo di una funzione e la sua implementazione
 
+  * definire una funzione prima di essere chiamata
+    e' necessario per **permettere il controllo grammaticale** del codice sorgente 
+    da parte del compilatore
+  * per effettuare il controllo grammaticale, 
+    al compilatore e' **sufficiente** conoscere il nome della funzione,
+    la variabili in ingresso e quelle in uscita
+  * e' quindi lecito anticipare questa informazione sotto forma di **prototipo**,
+    posticipando la scrittura dell'implementazione della funzione:
+    ```cpp
+    int raddoppia (int) ;
+    
+    int main (int arcg, char ** argv)
+      {
+      
+        for (int i = 0 ; i < 5 ; ++i)
+          {
+            std::cout << "il doppio di " << i << " vale: " << raddoppia (i) << std::endl ;
+          }
+        return 0 ;
+      }
+    
+    // ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
+    
+    int raddoppia (int input_value) 
+      {
+        return 2 * input_value ;
+      }
+    ```
+    * cio' permette di lasciare piu' in evidenza la funzione ```main``` rispetto alle altre
+    * nella scrittura del prototipo, ***non e' necessario*** indicare il nome delle variabili
+      (ma e' permesso)
+  * nel prototipo, oppure nell'implementazione, si possono assegnare **valori di default** alle variabili,
+    che corrispondono al valore utilizzato dalla funzione per quella variabile
+    nel caso in cui il valore non venga passato
+    ```cpp
+    int raddoppia (int input_value = 0) 
+      {
+        return 2 * input_value ;
+      }
+    ```
+    * il valore di default deve essere attribuito solamente **in uno dei due luoghi**
+    * in caso di **funzioni con piu' variabili in ingresso**, 
+      se ad una variabile viene assegnato un valore di default
+      anche le variabili seguenti devono possederlo, 
+      per evitare situazioni di ambiguita'
+
 ### 1.6.2 la divisione in file separati
 
 ## 1.6 funzioni matematiche
