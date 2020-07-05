@@ -620,7 +620,8 @@
   * oltre ai vari ```case```, 
     si puo' aggiungere un ulteriore caso, 
     che contiene istruzioni da svolgere nell'evenienza in cui nessuno dei ```case```
-    venga soddisfatto    
+    venga soddisfatto, 
+    che viene etichettato con la parola chiave **```default```**
 
 ### 1.5.3 for 
 
