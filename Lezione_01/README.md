@@ -554,7 +554,7 @@
     * **ciclo**: un insieme di istruzioni viene ripetuto un certo numero di volte,
       in funzione di un algoritmo che decide quando l'iterazione e' terminata  
 
-  ![strutture](images/strutture.png)
+  ![strutture](immagini/strutture.png)
 
 
 ### gli scope
