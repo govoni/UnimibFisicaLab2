@@ -4,9 +4,7 @@ c++ -o main_15 main_15.cpp
 
 #include <iostream>
 
-
 int raddoppia (int) ;
-
 
 int main (int arcg, char ** argv)
   {

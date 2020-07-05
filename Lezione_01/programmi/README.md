@@ -17,5 +17,5 @@
    | main_12.cpp | esempio di operatori logici |
    | main_13.cpp | esempio di strutture di controllo |
    | main_14.cpp | esempio di funzione |
-   | main_15.cpp |  |
+   | main_15.cpp | esempio di funzione con protipo |
    | main_16.cpp |  |

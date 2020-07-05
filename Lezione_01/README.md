@@ -706,8 +706,6 @@
         return 2 * input_value ;
       }
     
-    // ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
-    
     int main (int arcg, char ** argv)
       {
       
@@ -727,15 +725,11 @@
             return 2 * input_value ;
           }
 
-        // ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
-
         void scriviAschermo (int input_value) 
           {
             std::cout << "ecco il numero da scrivere: " << input_value << std::endl ;
             return ;
           }
-
-        // ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
 
         int main (int arcg, char ** argv)
           {
@@ -757,8 +751,6 @@
         {
           return 2 * input_value ;
         }
-      
-      // ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
       
       float raddoppia (float input_value) 
         {
@@ -788,8 +780,6 @@
           }
         return 0 ;
       }
-    
-    // ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
     
     int raddoppia (int input_value) 
       {
