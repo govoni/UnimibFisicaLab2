@@ -159,7 +159,7 @@
   | -------------|
   
   * includete sempre all'inizio del codice sorgente un commento 
-    che contenga il comando di compilazione del programma
+    che contenga il **comando di compilazione** del programma
 
 ![linea](immagini/linea.png)
     
@@ -225,7 +225,7 @@
   | linking |
   | --------|
 
-  * in questo ultimo passaggio, vengono connessi i vari oggetti del compilatore
+  * in questo ultimo passaggio, vengono **connessi i vari oggetti del compilatore**
   * nel nostro esempio, la parte pre-compilata delle librerie viene debitamente connessa 
     alle chiamate presenti nella funzione ```main```
   * NOTA BENE: gli oggetti del compilatore **non** hanno a che fare con la programmazione ad oggetti,
@@ -235,7 +235,7 @@
 
 ### 1.2.3 Parametri passati a linea di comando
 
-  * si possono passare informazioni al programma aggiungendo parametri a linea di comando
+  * si possono passare informazioni al programma aggiungendo **parametri a linea di comando**
   * la SHELL passa alla funzione ```main``` la frase scritta dall'utente, 
     sotto forma di ```array``` di stringhe di tipo ```C```
     * ```argc``` e' il numero di elementi dell'```array```
@@ -255,7 +255,7 @@
 
 ### 1.2.3 Parametri chiesti all'utente del programma
 
-  * la liberia ```<iostream>``` puo' essere anche utilizzata per leggere informazioni dalla tastiera
+  * la liberia ```<iostream>``` puo' essere anche utilizzata per **leggere informazioni dalla tastiera**
     ```cpp
     #include <iostream>
 
@@ -1025,6 +1025,31 @@
 ![linea](immagini/linea.png)
 
 ### 1.6.12 funzioni matematiche
+
+  * la libreria ```cmath``` offre un'utile **estensione delle operazioni matematiche**
+  * per poterla utilizzare, bisogna includerne il file ```.h``` (detto header) corrispondente: 
+    ```#include <cmath>```
+  * la libreria contiene funzioni e variabili notevoli
+    * la lista delle funzioni notevoli si trova [qui](http://www.cplusplus.com/reference/cmath/), 
+      contiene funzioni trigonometriche, funzioni di potenza, iperboliche...
+
+### 1.6.13 un esempio: radice quadrata ed elevamento a potenza
+
+  * un esempio di utilizzo delle funzioni presenti in ```cmath```
+    riguarda **l'elevamento a potenza e la radice quadrata**:
+    ```cpp
+    float num = 4.5 ;
+    std::cout << "quadrato di " << num << ": " << pow (num, 2) << "\n" ;
+    num = pow (num, 2) ;
+    std::cout << "radice di " << num << ": " << sqrt (num) << "\n" ;
+    std::cout << "radice di " << num << ": " << pow (num, 0.5) << "\n" ;
+    ```
+  * la **funzione ```pow```** ha come primo argomento la base della potenza,
+    come secondo argomento il suo esponente
+  * utiilzzare l'espressione ```num * num``` invece di ```pow (num, 2)```  
+    e' **meno dispendioso** in termini di tempo di esecuzione
+
+![linea](immagini/linea.png)
 
 ## 1.7 accesso all'orologio del computer
 

@@ -21,3 +21,4 @@
    | main_16.cpp | esempio di funzione scritta in una libreria |
    | libreria.cc | esempio di funzione scritta in una libreria |
    | libreria.h  | esempio di funzione scritta in una libreria |
+   | main_17.cpp | esempio di uso di cmath |
