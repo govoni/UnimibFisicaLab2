@@ -160,6 +160,8 @@
   
   * includete sempre all'inizio del codice sorgente un commento 
     che contenga il comando di compilazione del programma
+
+![linea](immagini/linea.png)
     
 ### 1.2.2 Scrivere a schermo
 
@@ -195,6 +197,8 @@
     42
     ```
 
+![linea](immagini/linea.png)
+
 ### 1.2.2 Il lavoro del compilatore
 
   * La compilazione di un programma di divide in tre fasi
@@ -227,6 +231,8 @@
   * NOTA BENE: gli oggetti del compilatore **non** hanno a che fare con la programmazione ad oggetti,
     si tratta di uno sfortunato caso di omonimia  
 
+![linea](immagini/linea.png)
+
 ### 1.2.3 Parametri passati a linea di comando
 
   * si possono passare informazioni al programma aggiungendo parametri a linea di comando
@@ -244,6 +250,8 @@
         return 0 ;
       }
     ```
+
+![linea](immagini/linea.png)
 
 ### 1.2.3 Parametri chiesti all'utente del programma
 
@@ -268,6 +276,8 @@
     4 
     hai inserito: 4
     ```
+
+![linea](immagini/linea.png)
 
 ## 1.3 le variabili 
 
@@ -315,6 +325,8 @@
   * definire una variabile per riga, per chiarezza di lettura
   * dare nomi lunghi ed esplicativi alle variabili    
 
+![linea](immagini/linea.png)
+
 ### 1.3.1 l'attributo ```const```
 
   * l'attributo ```const``` premesso ad una variabile indica che essa non puo' cambiare di valore
@@ -332,6 +344,8 @@
         ~~~~~~~~~~^~~~~~~~~~
     1 error generated.
     ```
+
+![linea](immagini/linea.png)
 
 ### 1.3.2 gli array di variabili
 
@@ -372,6 +386,8 @@
       * NOTA BENE: si tratta di errori difficili da trovare, 
         bisogna prestare molta attenzione agli indici di lettura degli array
 
+![linea](immagini/linea.png)
+
 ### 1.3.3 il casting fra diversi tipi
 
   * il casting in ```C``` e' la **conversione fra diversi tipi di variabili numeriche**
@@ -386,6 +402,8 @@
     float numero_razionale = (float) numero_intero ;
     ```
 
+![linea](immagini/linea.png)
+
 ### 1.3.4 il casting in ```C++```
 
   * in ```C++``` l'operazione di casting ha portata piu' ampia
@@ -393,6 +411,8 @@
     ```cpp
     float secondo_razionale = static_cast<float> (numero_intero) ;
     ```
+
+![linea](immagini/linea.png)
 
 ## 1.4 gli operatori
 
@@ -404,6 +424,8 @@
   * tipicamente un operatore agisce su un singolo di tipo, 
     quindi l'applicazione di operatori a piu' di un tipo 
     implica un **casting implicito** fatto dal compilatore  
+
+![linea](immagini/linea.png)
 
 ### 1.4.1 l'operatore di assegnazione
 
@@ -430,6 +452,8 @@
     * ```5``` e' di tipo ```int```, quindi viene prima convertito in ```float``` (```5.```)
       e poi passato come argomento all'operatore di assegnazione
 
+![linea](immagini/linea.png)
+
 ### 1.4.2 operatori aritmetici
 
   * corrispondono alle **tipiche operazioni matematiche** fra numeri interi o razionali
@@ -454,6 +478,8 @@
     | ```*``` | ``` *= ``` | moltiplicazione |
     | ```/``` | ``` /= ``` | divisione |
     | ```%``` | ``` %= ``` | resto della divisione tra interi |
+
+![linea](immagini/linea.png)
 
 ### 1.4.3 operatori di incremento
 
@@ -498,6 +524,8 @@
   * gli operatori di incremento vengono tipicamente utilizzati per aumentare o diminuire
     il valore delle variabili indice dei cicli
 
+![linea](immagini/linea.png)
+
 ### 1.4.4 operatori relationali
 
   * gli operatori relazionali confrontano i valodi di variabili
@@ -516,6 +544,8 @@
     perche' l'operatore con un solo ```=``` assegna il valore di destra alla varibile di sinistra.
     questa e' una frequente sorgente di errori 
 
+![linea](immagini/linea.png)
+
 ### 1.4.5 operatori logici
 
   * gli operatori logici codifcano le relazioni fra variabili booleane:
@@ -527,6 +557,8 @@
   * NOTA BENE: spesso accade casting implicito fra variabili intere e booleane:
     in questo caso, lo ```0``` risulta falso,
     mentre ogni altro valore intero risulta vero
+
+![linea](immagini/linea.png)
 
 ### 1.4.6 le precedenze fra operatori
 
@@ -550,6 +582,7 @@
   |  ```||``` |
   |  ```=```, ```+=```, ```-=```, ```*=```, ```/=```, ```%=``` |
     
+![linea](immagini/linea.png)
 
 ## 1.5 le strutture di controllo
 
@@ -565,6 +598,7 @@
 
   ![strutture](immagini/strutture.png)
 
+![linea](immagini/linea.png)
 
 ### gli scope
 
@@ -575,6 +609,8 @@
     e vengono automaticamente rimosse alla chiusura della parentesi graffa
   * singole istruzioni all'interno di una struttura di controllo
     possono essere sostituite da un intero scope  
+
+![linea](immagini/linea.png)
 
 ### 1.5.1 ```if ... else```
 
@@ -594,6 +630,8 @@
         std::cout << num1 << " e' dispari\n" ;
       }
     ```
+
+![linea](immagini/linea.png)
 
 ### 1.5.2 switch 
 
@@ -634,6 +672,8 @@
     che viene etichettato con la parola chiave **```default```**
     * il caso di ```default``` **non e' obbligatorio**
 
+![linea](immagini/linea.png)
+
 ### 1.5.3 il ciclo ```for```
 
   * la struttura di controllo ```for ()``` 
@@ -661,6 +701,8 @@
     * utilizzare una scrittura non ortodossa del ciclo ```for```
       puo' portare al errori logici nel programma,
       che possono portare a risultati inaffidabili in fase di esecuzione
+
+![linea](immagini/linea.png)
 
 ### 1.5.4 il ciclo ```while```
 
@@ -698,7 +740,9 @@
       }
     while (i < 2 * N) ;
     ```
-  
+ 
+![linea](immagini/linea.png)
+ 
 ## 1.6 le funzioni
 
   * insiemi di istruzioni che svolgono un **compito preciso e spesso ripetuto** 
@@ -767,6 +811,8 @@
         }
       ```
 
+![linea](immagini/linea.png)
+
 ### 1.6.1 il prototipo di una funzione e la sua implementazione
 
   * definire una funzione prima di essere chiamata
@@ -813,6 +859,8 @@
       anche le variabili seguenti devono possederlo, 
       per evitare situazioni di ambiguita'
 
+![linea](immagini/linea.png)
+
 ### 1.6.2 l'esportazione delle funzioni in librerie
 
   * funzioni che vengono utilizzate in piu' di un programma ```main``` 
@@ -824,6 +872,8 @@
   * per permettere al compilatore di **controllare la grammatica** in fase di compilazione,
     e' sempre necessario mettere nel codice sorgente del ```main``` il prototipo delle funzioni
   * questa struttura viene realizzata tipicamente con tre file:
+
+![linea](immagini/linea.png)
 
 ### 1.6.3 la divisione in file separati
 
@@ -910,6 +960,8 @@
     ```
     * in questo caso, la funzione va definita prima del ```main```, quindi **nel file ```.h```**
     * il compilatore puo' decidere di ignorare la parola chiave ```inline```
+
+![linea](immagini/linea.png)
 
 ### 1.6.4 funzioni matematiche
 
