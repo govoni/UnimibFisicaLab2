@@ -1067,17 +1067,17 @@
 
   * un'altra libreria di uso frequente
     ```ctime```
-  * l'istruzione ```clock ()``` restituisce il tempo di calcolo del processore
+  * l'istruzione ```clock ()``` restituisce il **tempo di calcolo** del processore
     consumato dal programma,
     espresso in cicli di calcolo
-    * la frequenza dei cicli di calcolo e' disponibile nella variabile ```CLOCKS_PER_SEC```
-  * l'istruzione ```ctime ()``` resituisce il tempo trascorso a partire dal primo gennaio 1970:
+    * la **frequenza dei cicli di calcolo** e' disponibile nella variabile ```CLOCKS_PER_SEC```
+  * l'istruzione ```ctime ()``` resituisce il **tempo trascorso** a partire dal primo gennaio 1970:
 
 ![linea](immagini/linea.png)
 
 ### 1.6.15 un test di performance
 
-  * se volessimo confrontare la velocita' di esecuzione della funzione ```pow (x, 2)```
+  * se volessimo **confrontare la velocita' di esecuzione** della funzione ```pow (x, 2)```
     rispetto all'operazione ```x * x``` potremmo ripetere entrambe le operazioni molte (```N```) volte
     e misurare il tempo di calcolo nei due casi:
     ```cpp
@@ -1097,20 +1097,78 @@
     stop = (double) clock () / CLOCKS_PER_SEC ;
     std::cout << "tempo di esecuzione per i*i: " << stop - start << " secondi\n" ;
     ```
-  * si otterrebbe un risultato di questo tipo:
+  * si otterrebbe un **risultato** di questo tipo:
   ```
 tempo di esecuzione per pow: 30.2506 secondi
 tempo di esecuzione per i*i: 3.91943 secondi
   ```  
 
+![linea](immagini/linea.png)
+
 ## 1.8 direttive al preprocessore
+
+  * L'insieme di istruzioni che iniziano con il simbolo ```#``` si chiamano
+    **direttive al preprocessore** perche' vengono lette ed interpretate
+    prima della fase di compilazione
+  * si tratta di istruzioni che **non riguardano la fase di compilazione** del programma,
+    quindi **macro e variabili del preprocessore sono concetti diversi**
+    rispetto alle funzioni e variabili di ```C++```  
+
+![linea](immagini/linea.png)
+
+## 1.8.1 la direttiva ```#include```
+
+  * come abbiamo gia' visto,
+    questa istruzione viene utilizzata quando si scrivono **librerie di funzioni**
+    in un file separato da quello che contiene il codice sorgente del ```main``` program
+  * seguendo questa direttiva, 
+    il preprocessore **sostituisce alla linea l'intero file** riportato dopo ```#include```
+
+![linea](immagini/linea.png)
+
+## 1.8.2 variabili del preprocessore
+
+  * la direttiva ```#define``` **definisce variabili** del preprocessore
+  * viene estensivamente utilizzata per impedire la doppia definizione del prototipo di una funzione
+    e per impedire che si crei un circolo infinito di istruzioni ```#include```,
+    unitamente al controllo booleano ```#ifndef``` (se non e' definita):
+    ```cpp
+    #ifndef libreria_h
+    #define libreria_h
+    
+    int raddoppia (int) ;
+    
+    #endif
+    ```
+  * e' invalso nell'uso utilizzare ```#define``` anche in sostituzione di variabili del ```C++```
+    ```cpp
+    #define NUMERO 150
+    ```
+    * si tratta di una **cattiva pratica di programmazione**, 
+      perche' puo' portare a comportamenti inattesi del codice (inclusi problemi di compilazione)
+      e rende difficile la fattorizzazione del codice
+    * in questo caso, ```NUMERO``` **non e' una variabile del ```C++```**,
+      bensi' il preprocessore sostituisce il testo ```NUMERO``` con il testo ```100``` nel programma
+      prima della compilazione
+    * quando si utilizzano questi metodi poco ortodossi,
+      e' buona regola utilizzare prassi sintattiche che differenzino chiaramente
+      le effettive variabili del ```C++``` dalle sostituzioni di testo del preprocessore, 
+      ad esempio scrivendone il nome interamente in caratteri maiuscoli    
+
+![linea](immagini/linea.png)
 
 ### 1.8.1 le trappole nell'uso delle macro 
 http://www.programmiamo.altervista.org/C/funzioni/funz14.html
 
+![linea](immagini/linea.png)
+
 ## 1.10 l'ordine nella scrittura del codice
 
+![linea](immagini/linea.png)
+
 ### 1.10.1 l'uso dell'indentazione
+
+![linea](immagini/linea.png)
 
 ### 1.10.2 i caratteri in C++
 
