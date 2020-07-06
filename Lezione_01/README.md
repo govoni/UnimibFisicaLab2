@@ -297,6 +297,10 @@
   | Double floating point           | double  | numeri razionali |
   | Valueless                       | void    | nessun tipo |
 
+![linea](immagini/linea.png)
+
+## 1.3.1 la loro inizializzazione 
+
   * le variabili si inizializzano utilizzando le keyword indicate in tabella:
     ```cpp
     // definizione di due numeri interi
@@ -327,7 +331,7 @@
 
 ![linea](immagini/linea.png)
 
-### 1.3.1 l'attributo ```const```
+### 1.3.2 l'attributo ```const```
 
   * l'attributo ```const``` premesso ad una variabile indica che essa non puo' cambiare di valore
     durante l'esecuzione del programma.
@@ -347,7 +351,7 @@
 
 ![linea](immagini/linea.png)
 
-### 1.3.2 gli array di variabili
+### 1.3.3 gli array di variabili
 
   * ad una variabile e' associata una **zona di memoria** nella RAM,
     dove il calcolatore la scrive durante le operazioni
@@ -374,21 +378,26 @@
     num_array[3] = 11 ;
     num_array[4] = 131 ;
     ```
-      * gli indici delle celle di memoria di un array lungo N **partono a 0 e finiscono ad N-1**
-      * il compilatore **non sempre si accorge** che gli indici siano in questo intervallo
-      * qualunque tentativo di leggere una zona di memoria all'esterno di questo intervallo
-        puo' produrre un errore in fase di compilazione,
-        oppure un comportamento inatteso del programma
-        ```cpp
-        int index = 4 ;
-        std::cout << num_array[index + 1] << std::endl ;
-        ```
-      * NOTA BENE: si tratta di errori difficili da trovare, 
-        bisogna prestare molta attenzione agli indici di lettura degli array
 
 ![linea](immagini/linea.png)
 
-### 1.3.3 il casting fra diversi tipi
+### 1.3.3 gli indici degli array
+
+  * gli indici delle celle di memoria di un array lungo N **partono a 0 e finiscono ad N-1**
+  * il compilatore **non sempre si accorge** che gli indici siano in questo intervallo
+  * qualunque tentativo di leggere una zona di memoria all'esterno di questo intervallo
+    puo' produrre un errore in fase di compilazione,
+    oppure un comportamento inatteso del programma
+    ```cpp
+    int index = 4 ;
+    std::cout << num_array[index + 1] << std::endl ;
+    ```
+  * NOTA BENE: si tratta di errori difficili da trovare, 
+    bisogna prestare molta attenzione agli indici di lettura degli array
+
+![linea](immagini/linea.png)
+
+### 1.3.5 il casting fra diversi tipi
 
   * il casting in ```C``` e' la **conversione fra diversi tipi di variabili numeriche**
   * siccome le medesime operazioni fra tipi diversi possono dare risultati differenti
@@ -404,7 +413,7 @@
 
 ![linea](immagini/linea.png)
 
-### 1.3.4 il casting in ```C++```
+### 1.3.6 il casting in ```C++```
 
   * in ```C++``` l'operazione di casting ha portata piu' ampia
     e puo' essere realizzato con operatori dedicati:
@@ -465,6 +474,11 @@
     R3 = R3 + 4.5 ;
     std::cout << R3 << std::endl ;
     ```
+
+![linea](immagini/linea.png)
+
+### 1.4.3 operatori aritmetici composti con assegnazione
+
   * gli operatori aritmetici esistono anche **composti con l'operatore di assegnazione**
     ```cpp
     R3 += 2.1 ;
@@ -481,7 +495,7 @@
 
 ![linea](immagini/linea.png)
 
-### 1.4.3 operatori di incremento
+### 1.4.4 operatori di incremento
 
   * **L'incremento o decremento unitario** di una variabile si puo' ottenere 
     anche con operaori dedicati:
@@ -500,6 +514,11 @@
     --num ;
     std::cout << num << std::endl ;
     ```
+
+![linea](immagini/linea.png)
+
+### 1.4.5 pre-incremento e post-incremento
+
   * ciascun operatore esiste in due versioni:
     * **pre-incremento** o **pre-decremento**: la variabile a cui viene applicato 
       viene modificata dall'operatore **prima** dell'esecuzione di eventuali altre operazioni
@@ -526,7 +545,7 @@
 
 ![linea](immagini/linea.png)
 
-### 1.4.4 operatori relationali
+### 1.4.6 operatori relationali
 
   * gli operatori relazionali confrontano i valodi di variabili
   * prendono in ingresso due variabili e restituiscono un valore booleano
@@ -546,7 +565,7 @@
 
 ![linea](immagini/linea.png)
 
-### 1.4.5 operatori logici
+### 1.4.7 operatori logici
 
   * gli operatori logici codifcano le relazioni fra variabili booleane:
     | operatore | operazione |
@@ -560,7 +579,7 @@
 
 ![linea](immagini/linea.png)
 
-### 1.4.6 le precedenze fra operatori
+### 1.4.8 le precedenze fra operatori
 
   * se in una singola linea di un codice sorgente vengono effettuate diverse istruzioni,
     il calcolatore le esegue da destra verso sinistra, 
@@ -600,7 +619,7 @@
 
 ![linea](immagini/linea.png)
 
-### gli scope
+### 1.5.1 gli scope
 
   * nel codice sorgente diverse istruzioni vengono raggruppate in insiemi chiamati **scope**,
     delimitati da parentesi graffe
@@ -612,7 +631,7 @@
 
 ![linea](immagini/linea.png)
 
-### 1.5.1 ```if ... else```
+### 1.5.2 ```if ... else```
 
   * la sequenza ```if (condizione) {scope} else {scope alternativo}``` realizza una selezione binaria,
     nella quale una istruzione o uno scope di istruzioni vengono eseguiti 
@@ -633,7 +652,7 @@
 
 ![linea](immagini/linea.png)
 
-### 1.5.2 switch 
+### 1.5.3 switch 
 
   * la sequenza ```switch ... case ... default``` realizza una selezione fra molte opzioni,
     basata sul valore di una variabile:
@@ -674,7 +693,7 @@
 
 ![linea](immagini/linea.png)
 
-### 1.5.3 il ciclo ```for```
+### 1.5.4 il ciclo ```for```
 
   * la struttura di controllo ```for ()``` 
     e' un modo di implmentare la struttura di controllo a ciclo,
@@ -704,7 +723,7 @@
 
 ![linea](immagini/linea.png)
 
-### 1.5.4 il ciclo ```while```
+### 1.5.5 il ciclo ```while```
 
   * la struttura di controllo ```while ()``` 
     e' un modo di implmentare la struttura di controllo a ciclo,
