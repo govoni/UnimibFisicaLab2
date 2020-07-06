@@ -1033,6 +1033,8 @@
     * la lista delle funzioni notevoli si trova [qui](http://www.cplusplus.com/reference/cmath/), 
       contiene funzioni trigonometriche, funzioni di potenza, iperboliche...
 
+![linea](immagini/linea.png)
+
 ### 1.6.13 un esempio: radice quadrata ed elevamento a potenza
 
   * un esempio di utilizzo delle funzioni presenti in ```cmath```
