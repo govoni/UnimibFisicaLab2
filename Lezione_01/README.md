@@ -787,7 +787,7 @@
       }
     ```
     * cio' permette di lasciare piu' in evidenza la funzione ```main``` rispetto alle altre
-    * nella scrittura del prototipo, ***non e' necessario*** indicare il nome delle variabili
+    * nella scrittura del prototipo, **non e' necessario** indicare il nome delle variabili
       (ma e' permesso)
   * nel prototipo, oppure nell'implementazione, si possono assegnare **valori di default** alle variabili,
     che corrispondono al valore utilizzato dalla funzione per quella variabile
@@ -804,9 +804,77 @@
       anche le variabili seguenti devono possederlo, 
       per evitare situazioni di ambiguita'
 
-### 1.6.2 la divisione in file separati
+### 1.6.2 l'esportazione delle funzioni in librerie
 
-## 1.6 funzioni matematiche
+  * funzioni che vengono utilizzate in piu' di un programma ```main``` 
+    possono essere **scritte in un file diverso**,
+    in modo che non sia necessario riscriverle ogni volta
+  * ogni funzione, dopo essere stata compilata, diventa un **oggetto del compilatore**
+  * dopo la compilazione, il **linker** (che e' il terzo passaggio della compilazione)
+    connette le varie funzioni per costruire l'eseguibile finale
+  * per permettere al compilatore di **controllare la grammatica** in fase di compilazione,
+    e' sempre necessario mettere nel codice sorgente del ```main``` il prototipo delle funzioni
+  * questa struttura viene realizzata tipicamente con tre file:
+
+### 1.6.3 la divisione in file separati
+
+  * ```libreria.h```: e' il file che contiene il codice sorgente dei prototipi delle altre funzioni
+    ```cpp
+    #ifndef libreria_h
+    #define libreria_h
+    
+    int raddoppia (int) ;
+    
+    #endif
+    ```
+     * le linee che iniziano con ```#``` sono istruzioni al preprocessore,
+       si tratta del controllo di una condizione:
+       se non e' definita una variabile (```#ifndef```) con il nome ```libreria_h```,
+       si considera tutto quello che segue fino ad ```#endif```
+     * questo permette di non definire due volte il prototipo di una funzione,
+       che genererebbe un errore di compilazione  
+  * ```libreria.cc```: e' il file che contiene il codice sorgente delle altre funzioni
+    ```cpp
+    #include "libreria.h"      
+    
+    int raddoppia (int input_value) 
+      {
+        return 2 * input_value ;
+      }
+    ```
+     * il codice sorgente include ```libreria.h```
+       per ereditare tutte le definizioni e gli altri include
+       che stanno al suo interno
+  * ```main.cpp```: e' il file che contiene il codice sorgente della funzione ```main```
+    ```cpp
+    #include <iostream>
+    #include "libreria.h"
+       
+    int main (int arcg, char ** argv)
+      {
+      
+        for (int i = 0 ; i < 5 ; ++i)
+          {
+            std::cout << "il doppio di " << i << " vale: " << raddoppia (i) << std::endl ;
+          }
+        return 0 ;
+      }
+    ```
+     * il codice sorgente include ```libreria.h```
+       per ereditare tutte le definizioni e gli altri include
+       che stanno al suo interno
+     * il file ```libreria.cc``` non viene mai incluso, 
+       ma va indicato nel comando di compilazione:
+       ```
+       > c++ -o main_16 libreria.cc main_16.cpp
+       ```  
+  * si possono creare ed includere piu' di una libreria in un programma
+  * le librerie di ```C++``` funzionano in questo modo,
+    con i codici sorgente delle librerie spesso gia' compilati
+    ed il file da includere indicato fra parentesi angolate, 
+    come ad esempio ```#include <iostream>```
+
+### 1.6.4 funzioni matematiche
 
 ## 1.7 accesso all'orologio del computer
 

@@ -18,4 +18,6 @@
    | main_13.cpp | esempio di strutture di controllo |
    | main_14.cpp | esempio di funzione |
    | main_15.cpp | esempio di funzione con protipo |
-   | main_16.cpp |  |
+   | main_16.cpp | esempio di funzione scritta in una libreria |
+   | libreria.cc | esempio di funzione scritta in una libreria |
+   | libreria.h  | esempio di funzione scritta in una libreria |
