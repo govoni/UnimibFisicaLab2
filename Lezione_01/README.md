@@ -1184,24 +1184,90 @@ tempo di esecuzione per i*i: 3.91943 secondi
 
 ![linea](immagini/linea.png)
 
-## 1.10 l'ordine nella scrittura del codice
+## 1.9 la scrittura del proprio programma
+
+  * perche' un codice sorgente **compili**, 
+    bisogna rispettare sintassi e grammatica del ```C++```
+  * perche' un programma **funzioni**,
+    bisogna evitare errori logici nell'uso del ```C++```
+    e nella funzionalita' degli algoritmi
+  * perche' un codice sorgente **sia leggibile**,
+    e' buona cosa seguire regole aggiuntive di buon senso nella scrittura    
 
 ![linea](immagini/linea.png)
 
-### 1.10.1 l'uso dell'indentazione
+### 1.9.1 la nomenclatura di variabili e funzioni
+
+  * scegliete nomi di funzioni e variabili **lunghi ed autoesplicativi**
+  * scegliete nomi che riguardino il ruolo effettivo di variabili e funzioni:
+    ad esempio, se una variabile o una funzione servono 
+    nel programma per ottenere un determinato calcolo,
+    ma abbiano funzionalita' piu' ampia,
+    il loro nome deve **riflettere l'effettiva funzionalita'**
+  * scegliete un **sistema consistente** di nomenclatura, ad esempio:
+    * le funzioni iniziano con lettere minuscole, le variabili con lettere maiuscole
+    * nei nomi compposti da piu' parole, si divide il nome con un ```_``` (e.g. ```calcola_media```),
+      oppure rendendo maiuscola ogni parola all'interno (e.g. ```calcolaMedia```)
 
 ![linea](immagini/linea.png)
 
-### 1.10.2 i caratteri in C++
+### 1.9.2 la dimensione degli scope
 
-### 1.10.3 usare molti commenti
+  * scegliete di scrivere **scope piccoli**: 
+    se il numero di istruzioni in uno scope e' molto alto,
+    spezzatelo in sotto-gruppi tramite funzioni
+  * una **numero indicativo** di istruzioni oltre il quale pensare se spezzare lo scope
+    in funzioni e' 7
 
-### 1.10.4 che nomi dare a variabili e funzioni
+![linea](immagini/linea.png)
 
-### 1.10.5 la fattorizzazione di un programma
+### 1.9.3 utilizzare i commenti nel codice sorgente
+
+  * molti commenti nel codice sorgente aiutano a **capire cosa facciano** funzioni e variabili,
+    descrivendo il loro contenuto o la loro funzionalita'
+  * i commenti possono essere utilizzati per chiarire **che cosa sta succedendo nel codice sorgente**
+  * la **spiegazione di eventuali formule** utilizzate,
+    oppure il **link a pagine web** di riferimento,
+    possono essere inseriti nei commenti
+  * nel caso di scope molto lunghi,
+    per cui la chiusura di parentesi graffe non si vede insieme all'apertura,
+    si possono usare commenti per ricordare al lettore
+    **quale scope sia chiuso** da una graffa:
+    ```cpp
+    int main (int argc, char ** argv)
+      { 
+        for (int i1 = 0 ; i1 < 100 ; ++i1)
+          {
+            /* tante istruzioni che si susseguono */
+          } // ciclo su i1
+        return 0 ;
+      }
+    ```
+
+![linea](immagini/linea.png)
+
+### 1.9.4 l'intentazione del codice
+
+  * indentare il codice coerentemente aiuta enormemente la lettura del programma
+  * **tutte le istruzioni di uno stesso scope** devono inizare alla medesima colonna
+  * quando si apre uno scope, 
+    le istruzioni devono **inziare in posizione rientrata**
+    rispetto allo scope precedente:
+    **scegliete una regola** (ad es. 2 colonne) ed attenetevi rigorosamente a quella
+    * imparate ad usare con cognizione di causa il tasto ```TAB```,
+      oppure non utilizzatelo
+  * decidete se **aprire le parentesi graffe** alla fine di una linea, 
+    oppure dopo essere andati accapo
+  * non chiudete parentesi graffe su una **linea in cui ci sono istruzioni**
+
+![linea](immagini/linea.png)
+
+### 1.9.6 la fattorizzazione di un programma
   * i tranelli del #define
 
-## 1.11 flag di compilazione
+![linea](immagini/linea.png)
+
+## 1.10 flag di compilazione
 
 
 
