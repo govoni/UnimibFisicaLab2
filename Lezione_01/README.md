@@ -871,11 +871,12 @@
     connette le varie funzioni per costruire l'eseguibile finale
   * per permettere al compilatore di **controllare la grammatica** in fase di compilazione,
     e' sempre necessario mettere nel codice sorgente del ```main``` il prototipo delle funzioni
-  * questa struttura viene realizzata tipicamente con tre file:
+  * questa struttura viene realizzata tipicamente con tre file: 
+    ```libreria.h```, ```libreria.cc```, ```main.cpp```
 
 ![linea](immagini/linea.png)
 
-### 1.6.3 la divisione in file separati
+### 1.6.3 il file ```libreria.h```
 
   * ```libreria.h```: e' il file che contiene il codice sorgente dei prototipi delle altre funzioni
     ```cpp
@@ -892,6 +893,11 @@
        si considera tutto quello che segue fino ad ```#endif```
      * questo permette di non definire due volte il prototipo di una funzione,
        che genererebbe un errore di compilazione  
+
+![linea](immagini/linea.png)
+
+### 1.6.4 il file ```libreria.cc```
+
   * ```libreria.cc```: e' il file che contiene il codice sorgente delle altre funzioni
     ```cpp
     #include "libreria.h"      
@@ -904,6 +910,11 @@
      * il codice sorgente include ```libreria.h```
        per ereditare tutte le definizioni e gli altri include
        che stanno al suo interno
+
+![linea](immagini/linea.png)
+
+### 1.6.5 il file ```main.cpp```
+
   * ```main.cpp```: e' il file che contiene il codice sorgente della funzione ```main```
     ```cpp
     #include <iostream>
@@ -927,6 +938,11 @@
        ```
        > c++ -o main_16 libreria.cc main_16.cpp
        ```  
+
+![linea](immagini/linea.png)
+
+### 1.6.6 librerie in ```C++```
+
   * si possono creare ed includere piu' di una libreria in un programma
   * le librerie di ```C++``` funzionano in questo modo,
     con i codici sorgente delle librerie spesso gia' compilati
@@ -943,6 +959,12 @@
     perche' richiede al calcolatore di cercare in memoria la funzione
     di passarle gli argomenti e di recuperarne l'output,
     che sono operazioni aggiuntive
+
+![linea](immagini/linea.png)
+
+### 1.6.7 le funzioni ```inline```
+
+
   * si puo' utilizzare la parola chiave ```inline```,
     per funzioni piccole (in cui queste istruzioni aggiuntive richiedono tempo confrontabile
     rispetto all'esecuzione dello scope della funzione),
@@ -963,7 +985,7 @@
 
 ![linea](immagini/linea.png)
 
-### 1.6.4 funzioni matematiche
+### 1.6.8 funzioni matematiche
 
 ## 1.7 accesso all'orologio del computer
 
