@@ -322,22 +322,22 @@
   | suggerimenti |
   | -------------|
   
-  * nonappena una variabile viene definita, assegnare sempre un valore ad essa
-    * che possa essere un buon valore di default nei calcoli a seguire, oppure
-    * che non possa avere senso nel programma, in modo da rendersi conto subito 
+  * non appena una variabile viene definita, **assegnare sempre un valore** ad essa
+    * che possa essere un buon **valore di default** nei calcoli a seguire, oppure
+    * che **non** possa avere senso nel programma, in modo da rendersi conto subito 
       nel caso in cui la variabile non assuma i valori che dovrebbe
-  * definire una variabile per riga, per chiarezza di lettura
-  * dare nomi lunghi ed esplicativi alle variabili    
+  * definire **una variabile per riga**, per chiarezza di lettura
+  * dare **nomi lunghi ed esplicativi** alle variabili    
 
 ![linea](immagini/linea.png)
 
 ### 1.3.2 l'attributo ```const```
 
-  * l'attributo ```const``` premesso ad una variabile indica che essa non puo' cambiare di valore
+  * l'attributo ```const``` premesso ad una variabile indica che essa **non puo' cambiare di valore**
     durante l'esecuzione del programma.
   * se si prova a modificare una variabile dichiarata ```const```,
     il compilatore si accorge di questo errore di grammatica di programmazione
-    e non compila, restituendo un errore:  
+    e **non compila**, restituendo un errore:  
     ```    
     > c++ -o main_05 main_05.cpp
     main_05.cpp:10:12: error: cannot assign to variable 'numero' with const-qualified type 'const int'
