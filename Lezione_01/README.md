@@ -133,23 +133,23 @@
   * si consiglia di svolgere tutti gli esercizi presentati in ogni lezione in una cartella dedicata, 
     quindi, dopo aver aperto una SHELL:
     ```
-    mkdir Lab2_Modulo1
-    cd Lab2_Modulo1
-    mkdir Lezione_01
-    cd Lezione_01
-    touch main_00.cpp
+    > mkdir Lab2_Modulo1
+    > cd Lab2_Modulo1
+    > mkdir Lezione_01
+    > cd Lezione_01
+    > touch main_00.cpp
     ```
     * il comando ```touch``` crea un file vuoto, in questo caso con nome ```main.cpp```
   * aprite ```main.cpp``` con il vostro editor preferito e scriveteci il programma da eseguire, 
     quindi salvate il programma
   * per compilare il programma si utilizza il comando ```c++```, chiamato **compilatore**:
     ```
-    c++ -o main_00 main_00.cpp
+    > c++ -o main_00 main_00.cpp
     ```
     * l'argomento ```-o main_00``` dice al copilatore di chiamare l'eseguibile con il nome ```main_00```
     * per eseguire il programma:
     ```
-    ./main_00
+    > ./main_00
     ```
     * non succede nulla: non ci sono istruzioni all'interno della funzione ```main```!
     * l'istruzione ```return 0``` non dice di scrivere a schermo ```0```, 
