@@ -14,6 +14,8 @@
   * l'**esecuzione** di un programma corrisponde al momento in cui il calcolatore 
     segue le istruzioni impartite
 
+![linea](immagini/linea.png)
+
 ### 1.1.2 linguaggi intepretati o compilati
 
   * esistono **due grandi categorie** di linguaggi di programmazione:  
@@ -39,6 +41,8 @@
   * le istruzioni vengono eseguite **velocemente**  
   * ```C``` e ```C++``` sono esempi di linguaggi di programmazione compilati
 
+![linea](immagini/linea.png)
+
 ### 1.1.3 ```C``` e ```C++```
 
   * ```C``` e' un linguaggio di programmazione:
@@ -59,6 +63,7 @@
   * esistono diverse versioni del linguaggio ```C++```:
     **C++98** (che useremo noi), C++03, C++11 (che accenneremo), C++14, C++17
 
+![linea](immagini/linea.png)
 
 ## 1.2 Un primo programma
 
@@ -83,6 +88,8 @@
     ```cpp
     // questo e' un commento
     ```
+
+![linea](immagini/linea.png)
 
 ### 1.2.1 Uno scheletro vuoto
 
@@ -117,6 +124,8 @@
   * nello scrivere un programma, ogni volta che si apre una parentesi graffa **chiuderla immediatamente**,
     per non dimenticarlo
   * non dimenticate le variabili di ritorno delle funzioni, ```main``` incluso  
+
+![linea](immagini/linea.png)
 
 ### 1.2.2 La prima compilazione
 
