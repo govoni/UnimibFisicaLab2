@@ -39,7 +39,7 @@
   * le istruzioni vengono eseguite **velocemente**  
   * ```C``` e ```C++``` sono esempi di linguaggi di programmazione compilati
 
-### ```C``` e ```C++```
+### 1.1.3 ```C``` e ```C++```
 
   * ```C``` e' un linguaggio di programmazione:
     * **imperativo**, cioe' che impartisce sequenze di istruzioni al calolatore
