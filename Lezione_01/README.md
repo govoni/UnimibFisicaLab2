@@ -1151,14 +1151,36 @@ tempo di esecuzione per i*i: 3.91943 secondi
       bensi' il preprocessore sostituisce il testo ```NUMERO``` con il testo ```100``` nel programma
       prima della compilazione
     * quando si utilizzano questi metodi poco ortodossi,
-      e' buona regola utilizzare prassi sintattiche che differenzino chiaramente
+      e' buona regola utilizzare **prassi sintattiche che differenzino chiaramente**
       le effettive variabili del ```C++``` dalle sostituzioni di testo del preprocessore, 
       ad esempio scrivendone il nome interamente in caratteri maiuscoli    
 
 ![linea](immagini/linea.png)
 
-### 1.8.1 le trappole nell'uso delle macro 
-http://www.programmiamo.altervista.org/C/funzioni/funz14.html
+### 1.8.3 le macro del preprocessore 
+
+  * si possono anche definire **macro del preprocessore**,
+    che sono espressioni che richiamano in forma il comportamento delle funzioni del ```C++```
+    ```cpp
+    #define quadrato(a) a*a
+    ```
+  * utilizzare le macro del processore come funzioni 
+    **puo' produrre disastri**, questo programma:
+    ```cpp
+    int main (int argc, char ** argv)
+      { 
+        double numero = 3. ;
+        double risposta = quadrato (numero + 1.) ;
+      
+        std::cout << "Il quadrato di " << numero + 1. 
+                  << " vale " << risposta << "\n" ;
+        return 0 ;
+      }
+    ```
+    produce come output:
+    ```
+    Il quadrato di 4 vale 7
+    ```
 
 ![linea](immagini/linea.png)
 
