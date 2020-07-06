@@ -760,6 +760,16 @@
     while (i < 2 * N) ;
     ```
  
+ ![linea](immagini/linea.png)
+ 
+## 1.5.6 l'interruzione di un ciclo
+
+  * oltre a sfruttare la condizione controllata da un ciclo,
+    **la sua esecuzione puo' essere interrotta** con due comandi:
+  * l'istruzione ```break``` interrompe l'esecuzione dell'iterazione ed esce dal ciclo
+  * l'istruzione ```continue``` interrompe l'esecuzione dell'iterazione 
+    e passa a quella successiva
+
 ![linea](immagini/linea.png)
  
 ## 1.6 le funzioni
@@ -1053,7 +1063,45 @@
 
 ![linea](immagini/linea.png)
 
-## 1.7 accesso all'orologio del computer
+### 1.6.14 accesso all'orologio del computer
+
+  * un'altra libreria di uso frequente
+    ```ctime```
+  * l'istruzione ```clock ()``` restituisce il tempo di calcolo del processore
+    consumato dal programma,
+    espresso in cicli di calcolo
+    * la frequenza dei cicli di calcolo e' disponibile nella variabile ```CLOCKS_PER_SEC```
+  * l'istruzione ```ctime ()``` resituisce il tempo trascorso a partire dal primo gennaio 1970:
+
+![linea](immagini/linea.png)
+
+### 1.6.14 un test di performance
+
+  * se volessimo confrontare la velocita' di esecuzione della funzione ```pow (x, 2)```
+    rispetto all'operazione ```x * x``` potremmo ripetere entrambe le operazioni molte (```N```) volte
+    e misurare il tempo di calcolo nei due casi:
+    ```cpp
+    double start = (double) clock () / CLOCKS_PER_SEC ; 
+    for (double i = 0; i < N; ++i) 
+      {
+        test += pow (i, 2) ; 
+      }
+    double stop = (double) clock () / CLOCKS_PER_SEC ;
+    std::cout << "tempo di esecuzione per pow: " << stop - start << " secondi\n" ;
+
+    start = (double) clock () / CLOCKS_PER_SEC ; 
+    for (double i = 0; i < N; ++i) 
+      {
+        test += i * i ; 
+      }
+    stop = (double) clock () / CLOCKS_PER_SEC ;
+    std::cout << "tempo di esecuzione per i*i: " << stop - start << " secondi\n" ;
+    ```
+  * si otterrebbe un risultato di questo tipo:
+  ```
+tempo di esecuzione per pow: 30.2506 secondi
+tempo di esecuzione per i*i: 3.91943 secondi
+  ```  
 
 ## 1.8 direttive al preprocessore
 
