@@ -874,6 +874,34 @@
     ed il file da includere indicato fra parentesi angolate, 
     come ad esempio ```#include <iostream>```
 
+  | suggerimenti |
+  | -------------|
+
+  * e' utile **organizzare** le proprie librerie per funzionalita', 
+    sia per strutturazione logica del proprio programma
+    che per decidere che cosa includere e compilare in ogni programma
+  * l'utilizzo di una funzione comporta **rallentamento** nel programma,
+    perche' richiede al calcolatore di cercare in memoria la funzione
+    di passarle gli argomenti e di recuperarne l'output,
+    che sono operazioni aggiuntive
+  * si puo' utilizzare la parola chiave ```inline```,
+    per funzioni piccole (in cui queste istruzioni aggiuntive richiedono tempo confrontabile
+    rispetto all'esecuzione dello scope della funzione),
+    che chiede al compilatore di **sostituire la funzione con la sua implementazione**  
+    ```cpp
+    #ifndef libreria_h
+    #define libreria_h
+    
+    inline int raddoppia (int input_value) 
+      {
+        return 2 * input_value ;
+      }
+    
+    #endif
+    ```
+    * in questo caso, la funzione va definita prima del ```main```, quindi **nel file ```.h```**
+    * il compilatore puo' decidere di ignorare la parola chiave ```inline```
+
 ### 1.6.4 funzioni matematiche
 
 ## 1.7 accesso all'orologio del computer
