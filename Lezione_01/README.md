@@ -752,6 +752,11 @@
   * le funzioni hanno un nome, una o piu' variabili in ingresso 
     e restituiscono una sola variabile,
     con il comando ```return```
+
+![linea](immagini/linea.png)
+ 
+## 1.6.1 un primo esempio
+
   * le funzioni vanno **definite prima di essere chiamate**
     ```cpp
     int raddoppia (int input_value) 
@@ -769,31 +774,41 @@
         return 0 ;
       }
     ```
-      * una funzione che non restituisce alcun valore si definisce 
-        con la parola chiave ```void``` come tipo di ritorno
-        ed al suo interno l'istruzione ```return``` e' immediatamente seguita da una virgola
-        ```cpp
-        int raddoppia (int input_value) 
+
+![linea](immagini/linea.png)
+ 
+## 1.6.2 funzioni senza tipo di ritorno
+
+  * una funzione che non restituisce alcun valore si definisce 
+    con la parola chiave ```void``` come tipo di ritorno
+    ed al suo interno l'istruzione ```return``` e' immediatamente seguita da una virgola
+    ```cpp
+    int raddoppia (int input_value) 
+      {
+        return 2 * input_value ;
+      }
+
+    void scriviAschermo (int input_value) 
+      {
+        std::cout << "ecco il numero da scrivere: " << input_value << std::endl ;
+        return ;
+      }
+
+    int main (int arcg, char ** argv)
+      {
+          for (int i = 0 ; i < 5 ; ++i)
           {
-            return 2 * input_value ;
+            scriviAschermo (raddoppia (i)) ;
           }
 
-        void scriviAschermo (int input_value) 
-          {
-            std::cout << "ecco il numero da scrivere: " << input_value << std::endl ;
-            return ;
-          }
+        return 0 ;
+      }
+    ```
 
-        int main (int arcg, char ** argv)
-          {
-              for (int i = 0 ; i < 5 ; ++i)
-              {
-                scriviAschermo (raddoppia (i)) ;
-              }
+![linea](immagini/linea.png)
+ 
+## 1.6.3 funzoni ed omonimia
 
-            return 0 ;
-          }
-        ```
   * il nome di una funzione, insieme ai suoi tipi in ingresso,
     la **identifica univocamente**, dunque non possono esistere due funzioni
     diverse con lo stesso nome e gli stessi tipi in ingresso
@@ -813,7 +828,7 @@
 
 ![linea](immagini/linea.png)
 
-### 1.6.1 il prototipo di una funzione e la sua implementazione
+### 1.6.4 il prototipo di una funzione e la sua implementazione
 
   * definire una funzione prima di essere chiamata
     e' necessario per **permettere il controllo grammaticale** del codice sorgente 
@@ -844,6 +859,11 @@
     * cio' permette di lasciare piu' in evidenza la funzione ```main``` rispetto alle altre
     * nella scrittura del prototipo, **non e' necessario** indicare il nome delle variabili
       (ma e' permesso)
+
+![linea](immagini/linea.png)
+
+### 1.6.5 valori di default degli argomenti di una funzione
+
   * nel prototipo, oppure nell'implementazione, si possono assegnare **valori di default** alle variabili,
     che corrispondono al valore utilizzato dalla funzione per quella variabile
     nel caso in cui il valore non venga passato
@@ -861,7 +881,7 @@
 
 ![linea](immagini/linea.png)
 
-### 1.6.2 l'esportazione delle funzioni in librerie
+### 1.6.6 l'esportazione delle funzioni in librerie
 
   * funzioni che vengono utilizzate in piu' di un programma ```main``` 
     possono essere **scritte in un file diverso**,
@@ -876,7 +896,7 @@
 
 ![linea](immagini/linea.png)
 
-### 1.6.3 il file ```libreria.h```
+### 1.6.7 il file ```libreria.h```
 
   * ```libreria.h```: e' il file che contiene il codice sorgente dei prototipi delle altre funzioni
     ```cpp
@@ -896,7 +916,7 @@
 
 ![linea](immagini/linea.png)
 
-### 1.6.4 il file ```libreria.cc```
+### 1.6.8 il file ```libreria.cc```
 
   * ```libreria.cc```: e' il file che contiene il codice sorgente delle altre funzioni
     ```cpp
@@ -913,7 +933,7 @@
 
 ![linea](immagini/linea.png)
 
-### 1.6.5 il file ```main.cpp```
+### 1.6.9 il file ```main.cpp```
 
   * ```main.cpp```: e' il file che contiene il codice sorgente della funzione ```main```
     ```cpp
@@ -941,7 +961,7 @@
 
 ![linea](immagini/linea.png)
 
-### 1.6.6 librerie in ```C++```
+### 1.6.10 librerie in ```C++```
 
   * si possono creare ed includere piu' di una libreria in un programma
   * le librerie di ```C++``` funzionano in questo modo,
@@ -962,7 +982,7 @@
 
 ![linea](immagini/linea.png)
 
-### 1.6.7 le funzioni ```inline```
+### 1.6.11 le funzioni ```inline```
 
 
   * si puo' utilizzare la parola chiave ```inline```,
@@ -985,7 +1005,7 @@
 
 ![linea](immagini/linea.png)
 
-### 1.6.8 funzioni matematiche
+### 1.6.12 funzioni matematiche
 
 ## 1.7 accesso all'orologio del computer
 
