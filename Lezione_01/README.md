@@ -91,7 +91,7 @@
 
 ![linea](immagini/linea.png)
 
-### 1.2.1 Uno scheletro vuoto
+### 1.2.2 Uno scheletro vuoto
 
   * ogni programma da compilare deve contenere una ed una sola **funzione chiamata ```main```**, 
     che viene eseguita dal calcolatore quando il programma viene lanciato
@@ -127,7 +127,7 @@
 
 ![linea](immagini/linea.png)
 
-### 1.2.2 La prima compilazione
+### 1.2.3 La prima compilazione
 
   * il codice sorgente appena creato va **compilato** perche' possa essere eseguito dal calcolatore
   * si consiglia di svolgere tutti gli esercizi presentati in ogni lezione in una cartella dedicata, 
@@ -163,7 +163,7 @@
 
 ![linea](immagini/linea.png)
     
-### 1.2.2 Scrivere a schermo
+### 1.2.4 Scrivere a schermo
 
   * oltre ai comandi fondamentali disponibili di default,
     insiemi di istruzioni dedicati allo svolgimento di determinati compiti
@@ -199,7 +199,7 @@
 
 ![linea](immagini/linea.png)
 
-### 1.2.2 Il lavoro del compilatore
+### 1.2.5 Il lavoro del compilatore
 
   * La compilazione di un programma di divide in tre fasi
 
@@ -233,7 +233,7 @@
 
 ![linea](immagini/linea.png)
 
-### 1.2.3 Parametri passati a linea di comando
+### 1.2.6 Parametri passati a linea di comando
 
   * si possono passare informazioni al programma aggiungendo **parametri a linea di comando**
   * la SHELL passa alla funzione ```main``` la frase scritta dall'utente, 
@@ -253,7 +253,7 @@
 
 ![linea](immagini/linea.png)
 
-### 1.2.3 Parametri chiesti all'utente del programma
+### 1.2.7 Parametri chiesti all'utente del programma
 
   * la liberia ```<iostream>``` puo' essere anche utilizzata per **leggere informazioni dalla tastiera**
     ```cpp
@@ -381,7 +381,7 @@
 
 ![linea](immagini/linea.png)
 
-### 1.3.3 gli indici degli array
+### 1.3.4 gli indici degli array
 
   * gli indici delle celle di memoria di un array lungo N **partono a 0 e finiscono ad N-1**
   * il compilatore **non sempre si accorge** che gli indici siano in questo intervallo
@@ -1075,7 +1075,7 @@
 
 ![linea](immagini/linea.png)
 
-### 1.6.14 un test di performance
+### 1.6.15 un test di performance
 
   * se volessimo confrontare la velocita' di esecuzione della funzione ```pow (x, 2)```
     rispetto all'operazione ```x * x``` potremmo ripetere entrambe le operazioni molte (```N```) volte
