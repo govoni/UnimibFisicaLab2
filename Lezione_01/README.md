@@ -1246,9 +1246,9 @@ tempo di esecuzione per i*i: 3.91943 secondi
 
 ![linea](immagini/linea.png)
 
-### 1.9.4 l'intentazione del codice
+### 1.9.4 l'indentazione del codice sorgente
 
-  * indentare il codice coerentemente aiuta enormemente la lettura del programma
+  * indentare il codice coerentemente aiuta enormemente la lettura del codice sorgente
   * **tutte le istruzioni di uno stesso scope** devono inizare alla medesima colonna
   * quando si apre uno scope, 
     le istruzioni devono **inziare in posizione rientrata**
@@ -1262,12 +1262,24 @@ tempo di esecuzione per i*i: 3.91943 secondi
 
 ![linea](immagini/linea.png)
 
-### 1.9.6 la fattorizzazione di un programma
-  * i tranelli del #define
+### 1.9.5 la fattorizzazione di un programma
+
+  * molto spesso **pezzi di codice sorgente vengono riciclati** copiandoli da programmi vecchi
+    ed incollandoli in programmi nuovi
+  * per facilitare questa operazione e per rendere il codice sorgente piu' comprensibile,
+    e' buona norma mantenere il piu' vicino possible tutte le istruzioni relative
+    ad un **medesimo blocco logico** del programma
+    * definire le variabili **appena prima che vengano utilizzate**
+      (cioe' NON tutte all'inizio del programma)
+    * NON sparpagliare per il programma istruzioni che **logicamente si susseguono**
 
 ![linea](immagini/linea.png)
 
 ## 1.10 flag di compilazione
+
+![linea](immagini/linea.png)
+
+## 1.11 gli errori di compilazione
 
 
 
