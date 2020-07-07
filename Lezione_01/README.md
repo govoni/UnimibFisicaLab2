@@ -1345,4 +1345,10 @@ tempo di esecuzione per i*i: 3.91943 secondi
     quindi e' consigliato risolvere gli errori uno per uno, 
     iniziando dal primo che si trova
 
+![linea](immagini/linea.png)
+
+## 1.12 ESERCIZI
+
+  * Gli esercizi relativi alla prima lezione si trovano [qui](ESERCIZI.md)
+
 
