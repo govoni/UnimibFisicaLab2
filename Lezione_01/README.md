@@ -1273,6 +1273,19 @@ tempo di esecuzione per i*i: 3.91943 secondi
       (cioe' NON tutte all'inizio del programma)
     * NON sparpagliare per il programma istruzioni che **logicamente si susseguono**
 
+
+![linea](immagini/linea.png)
+
+### 1.9.5 dettagli
+
+  * il ```C++``` **distingue maiuscole da minuscole**, 
+    quindi ```num``` e ```Num``` sono due variabili diverse
+  * il ```C++``` **non riconosce caratteri speciali** come lettere accentate,
+    quindi non usatele nei codici sorgente
+  * esistono **caratteri riservati** al ```C++```, come le virgolette, gli apici, o il backslash:
+    nell'output a schermo evitate di utilizzarli, oppure fateli precedere con il carattere ```\\```, 
+    che dice al compilatore di non utilizzare il carattere successivo come carattere riservato
+
 ![linea](immagini/linea.png)
 
 ## 1.10 le opzioni di compilazione
@@ -1295,7 +1308,7 @@ tempo di esecuzione per i*i: 3.91943 secondi
 
 ![linea](immagini/linea.png)
 
-## 1.10 il caso di librerie non di default
+### 1.10.1 il caso di librerie non di default
 
   * nel caso si utilizzino librerie non di default, 
     si puo' istruire il compilatore riguardo alla loro posizione nel computer:

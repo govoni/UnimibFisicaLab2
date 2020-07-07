@@ -1,5 +1,7 @@
 /*
 c++ -o main_18 main_18.cpp
+c++ -o main_18 -O3 main_18.cpp
+
 */
 
 #include <iostream>
