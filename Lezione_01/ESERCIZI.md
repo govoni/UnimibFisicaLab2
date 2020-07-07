@@ -42,3 +42,16 @@ Scrivere una funzione che calcoli il fattoriale di un numero intero non negativo
 Scrivere la funzione fattoriale in modo ricorsivo, 
 cioe' facendo in modo che la funzione che calcola il fattoriale chiami se stessa
 dove necessario, sfruttando il fatto che ```N! = N * (N-1)!```.
+
+![linea](immagini/linea.png)
+
+## Esercizio 1.7
+
+Scrivere un programma che chieda all’utente di inserire 10 numeri da tastiera 
+e li memorizzi in un array.
+Implementare le funzioni:
+```cpp
+  double Media (float array[], int N);
+  double Varianza (float array[], int N);
+```  
+e utilizzarle nel main per calcolare la media e la varianza dei numeri inseriti.
