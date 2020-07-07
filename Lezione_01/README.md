@@ -1291,7 +1291,7 @@ tempo di esecuzione per i*i: 3.91943 secondi
 ## 1.10 le opzioni di compilazione
 
   * durante la compilazione di un codice sorgente,
-    il compilatore (```c++```) prende in ingresso diversi parametri. 
+    il compilatore (```c++```) prende in ingresso **diversi parametri**. 
     Alcuni sono elencati qui:
     | parametro | ruolo |
     | --------- | --------- |  
@@ -1304,13 +1304,13 @@ tempo di esecuzione per i*i: 3.91943 secondi
     | ```-Werror``` | trasforma Warning in errori: il compilatore non compila se ci sono Warning |
     * provate a confrontare l'uso di ```pow (x, 2)``` con ```x * x``` a diversi livelli di ottimizzazione:
       che cosa cambia?
-    * una lista completa di opzioni di compilazione si trova [qui](https://gcc.gnu.org/onlinedocs/gcc/Option-Summary.html)
+    * una **lista completa** di opzioni di compilazione si trova [qui](https://gcc.gnu.org/onlinedocs/gcc/Option-Summary.html)
 
 ![linea](immagini/linea.png)
 
 ### 1.10.1 il caso di librerie non di default
 
-  * nel caso si utilizzino librerie non di default, 
+  * nel caso si utilizzino **librerie non di default**, 
     si puo' istruire il compilatore riguardo alla loro posizione nel computer:
     | parametro | ruolo |
     | --------- | --------- |  
@@ -1318,13 +1318,31 @@ tempo di esecuzione per i*i: 3.91943 secondi
     | ```-L[/path/to/shared-libraries]``` | la cartella dove stanno le librerie da linkare |
     | ```-I[/path/to/header-files]``` | dove stanno gli header file da includere |
     * (\*) il nome della libreria deve essere linalg.dll in Windows, liblinalg.so su Unix-like (e.g. Linux), linalg.dylib su MacOSX
-  * spesso (come vedremo per ROOT) pacchetti esterni forniscono anche un comando
-    che compila queste opzioni per il compilatore
+  * spesso (come vedremo per ROOT) pacchetti esterni **forniscono anche un comando**
+    che prepara queste opzioni per il compilatore
 
 ![linea](immagini/linea.png)
 
 ## 1.11 gli errori di compilazione
 
-
+  * in caso di errore di compilazione, 
+    il compilatore mostra a schemo la **descrizione degli errori** che ha riscontrato
+  * il messaggio di errore e' solitamente utile a capire il problema:
+    ```
+    > c++ -o main_05 main_05.cpp
+    main_05.cpp:10:12: error: cannot assign to variable 'numero' with const-qualified type 'const int'
+        numero = numero + 1 ;
+        ~~~~~~ ^
+    main_05.cpp:9:15: note: variable 'numero' declared const here
+        const int numero = 0 ;
+        ~~~~~~~~~~^~~~~~~~~~
+    1 error generated.
+    ```
+     * in questo caso, il compilatore indica **il file** con il codice sorgente problematico,
+       **la linea** alla quale ha trovato un errore
+       e **la ragione** per la quale ha ritenuto che ci fosse un problema
+  * spesso un singolo errore genera altri errori in cascata,  
+    quindi e' consigliato risolvere gli errori uno per uno, 
+    iniziando dal primo che si trova
 
 
