@@ -1275,7 +1275,31 @@ tempo di esecuzione per i*i: 3.91943 secondi
 
 ![linea](immagini/linea.png)
 
-## 1.10 flag di compilazione
+## 1.10 le opzioni di compilazione
+
+  * durante la compilazione di un codice sorgente, 
+    il compilatore (```c++```) prende in ingresso diversi parametri:
+    | parametro | ruolo |
+    | --------- | --------- |  
+    |  ```*.cc```, ```*.cpp```  | codice dell'implementazione: deve esserci una sola funzione ```main``` |
+    | ```-o eseguibile``` | nome da assegnare all'eseguibile: valore di default e' ```a.out``` |
+    | ```-O0``` | compilazione veloce e non ottimizzata, esecuzione lenta |
+    | ```-O2``` | compilazione ottimizzata e lenta, esecuzione piu' veloce |
+    | ```-O3``` | compilazione ottimizzata e lenta, esecuzione piu' veloce |
+    | ```-Wall``` | accende tutti i Warning: il compilatore avvisa in caso di problemi sospetti |
+    | ```-Werror``` | trasforma Warning in errori: il compilatore non compila se ci sono Warning |
+    * provate a confrontare l'uso di ```pow (x, 2)``` con ```x * x``` a diversi livelli di ottimizzazione:
+      che cosa cambia?
+  * nel caso si utilizzino librerie non di default, 
+    si puo' istruire il compilatore riguardo alla loro posizione nel computer:
+    | parametro | ruolo |
+    | --------- | --------- |  
+    | ```-l[linalg]``` | nome (\*) della libreria precompilata (oggetto del compilatore) da linkare al programma |
+    | ```-L[/path/to/shared-libraries]``` | la cartella dove stanno le librerie da linkare |
+    | ```-I[/path/to/header-files]``` | dove stanno gli header file da includere |
+    * (\*) il nome della libreria deve essere linalg.dll in Windows, liblinalg.so su Unix-like (e.g. Linux), linalg.dylib su MacOSX
+  * spesso (come vedremo per ROOT) pacchetti esterni forniscono anche un comando
+    che compila queste opzioni per il compilatore
 
 ![linea](immagini/linea.png)
 
