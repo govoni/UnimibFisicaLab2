@@ -1277,8 +1277,9 @@ tempo di esecuzione per i*i: 3.91943 secondi
 
 ## 1.10 le opzioni di compilazione
 
-  * durante la compilazione di un codice sorgente, 
-    il compilatore (```c++```) prende in ingresso diversi parametri:
+  * durante la compilazione di un codice sorgente,
+    il compilatore (```c++```) prende in ingresso diversi parametri. 
+    Alcuni sono elencati qui:
     | parametro | ruolo |
     | --------- | --------- |  
     |  ```*.cc```, ```*.cpp```  | codice dell'implementazione: deve esserci una sola funzione ```main``` |
@@ -1290,6 +1291,12 @@ tempo di esecuzione per i*i: 3.91943 secondi
     | ```-Werror``` | trasforma Warning in errori: il compilatore non compila se ci sono Warning |
     * provate a confrontare l'uso di ```pow (x, 2)``` con ```x * x``` a diversi livelli di ottimizzazione:
       che cosa cambia?
+    * una lista completa di opzioni di compilazione si trova [qui](https://gcc.gnu.org/onlinedocs/gcc/Option-Summary.html)
+
+![linea](immagini/linea.png)
+
+## 1.10 il caso di librerie non di default
+
   * nel caso si utilizzino librerie non di default, 
     si puo' istruire il compilatore riguardo alla loro posizione nel computer:
     | parametro | ruolo |
