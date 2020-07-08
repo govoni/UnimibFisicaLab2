@@ -64,7 +64,20 @@
 
 ![linea](../immagini/linea.png)
 
-### 2.1.4 L'indirizzo di memoria: i puntatori
+### 2.1.4 L'indirizzo di memoria di una variabile
+
+  * per ogni variabile, in ```C++``` si conosce il suo **valore** tramite il suo nome
+  * si puo' anche conoscere il suo indirizzo di memoria,
+    tramite l'operatore ```&```:
+    ```cpp
+    int numero_intero = 5 ;
+    std::cout << "valore:    " << numero_intero << std::endl ;
+    std::cout << "indirizzo: " << & numero_intero << std::endl ;
+    ```
+
+![linea](../immagini/linea.png)
+
+### 2.1.4 Salvare l'indirizzo di memoria: i puntatori
 
   * l'indirizzo di una cella di memoria e' un numero, 
     quindi puo' essere a sua volta **salvato in una variabile**
@@ -74,7 +87,6 @@
     si **dichiarano in modo specifico**, con la sintassi ```type * var```:
     ```cpp
     int * puntatore_ad_intero ;
-
     ```
   * questa dichiarazione fa si' che **il programma sappia come accedere al contenuto**
     della cella di memoria che sta all'indirizzo salvato in ```puntatore_ad_intero```,
@@ -85,6 +97,26 @@
 ![linea](../immagini/linea.png)
 
 ### 2.1.5 Dalla variabile al puntatore e viceversa
+
+  * il simbolo ```*```, oltre a comparire nella dichiarazione di un puntatore,
+    permette anche di estrarre il valore della variabile contenuta
+    nell'indirizzo di memoria puntato:
+    ```cpp
+    int * puntatore_ad_intero = & numero_intero ;
+    std::cout << "valore   : " << numero_intero << std::endl ;
+    std::cout << "indirizzo: " << & numero_intero << std::endl ;
+    std::cout << "puntatore: " << puntatore_ad_intero << std::endl ;
+    std::cout << "valore   : " << * puntatore_ad_intero << std::endl ;
+    ```
+  * un puntatore definito e non inizializzato non punta ad alcun indirizzo di memoria:
+    ```cpp
+    int * puntatore_ad_intero ;
+    std::cout << "puntatore: " << puntatore_ad_intero << std::endl ;
+    ```
+    produce come ouptut:
+    ```
+    0x0
+    ```
 
 ![linea](../immagini/linea.png)
 
