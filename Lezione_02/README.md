@@ -99,7 +99,7 @@
 ### 2.1.5 Dalla variabile al puntatore e viceversa
 
   * il simbolo ```*```, oltre a comparire nella dichiarazione di un puntatore,
-    permette anche di estrarre il valore della variabile contenuta
+    rappresenta anche l'opertore che estrae il valore della variabile contenuta
     nell'indirizzo di memoria puntato:
     ```cpp
     int * puntatore_ad_intero = & numero_intero ;
@@ -128,6 +128,34 @@
 ![linea](../immagini/linea.png)
 
 ### 2.1.6 Esempi sull'uso dei puntatori
+
+  * un puntatore e' una variabile,
+    dunque puo' **cambiare valore** anche dopo essere stato inizializzato:  
+    ```cpp
+    ptr = & var ;
+    std::cout << "Ora ptr punta a var: " << ptr
+              << " ed il valore a cui punta vale: " << *ptr << std::endl ; 
+    ```
+  * se un puntatore viene inizializzato all'indirizzo di una variabile,
+    si puo' **accedere alla variabile tramite il puntatore**:
+    in questo caso viene modificato ```*ptr``` e visualizzato il valore di ```var```:
+    ```cpp
+    *ptr = 100 ;
+    std::cout << "var ora vale: " << var << std::endl ;
+    ```
+  * una variabile puo' essere inizializzata con il valore presente
+    all'indirizzo contenuto in un puntatore: 
+    ```cpp
+    int pippo = * ptr ;
+    std::cout << "La variabile pippo vale: " << pippo << std::endl; 
+    ```
+    * a questo punto, le modifiche a ```*ptr``` effettuate dopo l'inzializzazione
+      **non hanno effetto su ```pippo```**, perche' quest'ultimo e' un'altra variabile
+      (quindi con il contenuto salvato in un'altra zona di memoria):
+    ```cpp
+    (*ptr)++;
+    std::cout << "var ora vale: " << var << " e pippo vale: " << pippo << std::endl; 
+    ```
 
 ![linea](../immagini/linea.png)
 

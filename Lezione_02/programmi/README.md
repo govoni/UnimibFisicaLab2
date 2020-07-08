@@ -5,7 +5,7 @@
    | main_00.cpp | esempio di utilizzo di ```sizeof``` |
    | main_01.cpp | stampa dell'indirizzo di memoria di una variabile |
    | main_02.cpp | esempio di uso di puntatori |
-   | main_03.cpp |  |
+   | main_03.cpp | esempi di uso di puntatori |
    | main_04.cpp |  |
    | main_05.cpp |  |
    | main_06.cpp |  |
