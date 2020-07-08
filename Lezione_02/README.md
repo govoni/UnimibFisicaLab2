@@ -1,4 +1,4 @@
-# Lezione 2: ripasso di ```C``` ed introduzione al ```C++```
+# Lezione 2: ripasso di ```C``` ed introduzione al ```C++```, parte 2
 
 ## 2.1 Variabili e puntatori
 
@@ -18,16 +18,34 @@
 
 ![linea](immagini/linea.png)
 
-### 2.1.2 Le dimensioni tipiche di alcuni tipi 
+### 2.1.2 Lo spazio occupato dalle variabili 
 
   * ogni tipo ha una **dimensione assegnata** nella RAM
   * per i tipi numerici interi, una dimensione assegnata significa che **i valori che la variabile puo' assumere
     sono limitati**
   * i tipi in virgola mobile (```float```, ```double```) non hanno limitazioni in valore, ma in precisione,
     quindi il tipo ```double```, occupando piu' celle di memoria, e' piu' preciso del tipo ```float``` 
+  * per conoscere la dimensione occupata da un tipo, si puo' utilizzare la funzone ```sizeof ()```:
+    ```cpp
+    std::cout << "Dimensione di un char : " << sizeof (char)  
+             << " byte" << std::endl ; 
+
+    ```
+
+![linea](immagini/linea.png)
+
+### 2.1.2 Le dimensioni tipiche di alcuni tipi 
+
+  * a seconda dell'architettura del calcolatore che si sta utilizzando, 
+    le **dimensioni di un tipo possono cambiare**
+  * nella tabella che segue,
+    sono indicati **valori tipici** per le dimensioni dei tipi comunemente utilizzati
+  * esistono **type modifier** che cambiano le caratteristiche di un tipo 
+    (```signed```, ```unsigned```, ```short```, ```long```)
+    che ne modificano la dimensione o l'intervallo di copertura
 
  | tipo | dimensione (in Byte) | intervallo |
- | --- | --- | --- |
+ | --- | :---: | :---: |
  | short int              | 2      | -32,768 to 32,767               |   
  | unsigned short int     | 2      | 0 to 65,535                     |               
  | unsigned int           | 4      | 0 to 4,294,967,295              |                      
