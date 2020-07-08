@@ -4,33 +4,47 @@
 
 ### 2.1.1 La gestione delle variabili nel calcolatore
 
-![linea](immagini/linea.png)
+  * In un computer tutto è rappresentato mediante **numeri**
+  * I numeri sono salvati in **zone di memoria** (Random Access Memory = RAM)
+  * Le celle della memoria sono individuate mediante **indirizzi**
+  * Le **variabili di diversi tipi occupano una o piu' celle** di memoria (una zona),
+    a seconda del tipo
+    * Il calcolatore e' in grado di **interpretare correttamente il contenuto** di una zona di memoria, 
+      se conosce l'indirizzo della prima cella ed il tipo salvato
 
-### 2.1.2 L'indirizzo di memoria: i puntatori
-
-![linea](immagini/linea.png)
-
-### 2.1.3 Dalla variabile al puntatore e viceversa
-
-![linea](immagini/linea.png)
-
-### 2.1.4 Esempi sull'uso dei puntatori
+![cella](immagini/celle.png)
 
 ![linea](immagini/linea.png)
 
-### 2.1.5 Puntatori ed array
+### 2.1.2 Le dimensioni tipiche di alcuni tipi 
 
 ![linea](immagini/linea.png)
 
-### 2.1.6 I puntatori sono variabili
+### 2.1.3 L'indirizzo di memoria: i puntatori
 
 ![linea](immagini/linea.png)
 
-### 2.1.7 Le referenze
+### 2.1.4 Dalla variabile al puntatore e viceversa
 
 ![linea](immagini/linea.png)
 
-### 2.1.8 Riepilogo sui puntatori
+### 2.1.5 Esempi sull'uso dei puntatori
+
+![linea](immagini/linea.png)
+
+### 2.1.6 Puntatori ed array
+
+![linea](immagini/linea.png)
+
+### 2.1.7 I puntatori sono variabili
+
+![linea](immagini/linea.png)
+
+### 2.1.8 Le referenze
+
+![linea](immagini/linea.png)
+
+### 2.1.9 Riepilogo sui puntatori
 
 ![linea](immagini/linea.png)
 
