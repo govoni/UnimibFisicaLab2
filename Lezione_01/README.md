@@ -14,7 +14,7 @@
   * l'**esecuzione** di un programma corrisponde al momento in cui il calcolatore 
     segue le istruzioni impartite
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.1.2 linguaggi intepretati o compilati
 
@@ -41,7 +41,7 @@
   * le istruzioni vengono eseguite **velocemente**  
   * ```C``` e ```C++``` sono esempi di linguaggi di programmazione compilati
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.1.3 ```C``` e ```C++```
 
@@ -63,7 +63,7 @@
   * esistono diverse versioni del linguaggio ```C++```:
     **C++98** (che useremo noi), C++03, C++11 (che accenneremo), C++14, C++17
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ## 1.2 Un primo programma
 
@@ -89,7 +89,7 @@
     // questo e' un commento
     ```
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.2.2 Uno scheletro vuoto
 
@@ -125,7 +125,7 @@
     per non dimenticarlo
   * non dimenticate le variabili di ritorno delle funzioni, ```main``` incluso  
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.2.3 La prima compilazione
 
@@ -161,7 +161,7 @@
   * includete sempre all'inizio del codice sorgente un commento 
     che contenga il **comando di compilazione** del programma
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
     
 ### 1.2.4 Scrivere a schermo
 
@@ -197,7 +197,7 @@
     42
     ```
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.2.5 Il lavoro del compilatore
 
@@ -231,7 +231,7 @@
   * NOTA BENE: gli oggetti del compilatore **non** hanno a che fare con la programmazione ad oggetti,
     si tratta di uno sfortunato caso di omonimia  
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.2.6 Parametri passati a linea di comando
 
@@ -251,7 +251,7 @@
       }
     ```
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.2.7 Parametri chiesti all'utente del programma
 
@@ -277,7 +277,7 @@
     hai inserito: 4
     ```
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ## 1.3 le variabili 
 
@@ -297,7 +297,7 @@
   | Double floating point           | double  | numeri razionali |
   | Valueless                       | void    | nessun tipo |
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ## 1.3.1 la loro inizializzazione 
 
@@ -329,7 +329,7 @@
   * definire **una variabile per riga**, per chiarezza di lettura
   * dare **nomi lunghi ed esplicativi** alle variabili    
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.3.2 l'attributo ```const```
 
@@ -349,7 +349,7 @@
     1 error generated.
     ```
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.3.3 gli array di variabili
 
@@ -379,7 +379,7 @@
     num_array[4] = 131 ;
     ```
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.3.4 gli indici degli array
 
@@ -395,7 +395,7 @@
   * NOTA BENE: si tratta di errori difficili da trovare, 
     bisogna prestare molta attenzione agli indici di lettura degli array
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.3.5 il casting fra diversi tipi
 
@@ -411,7 +411,7 @@
     float numero_razionale = (float) numero_intero ;
     ```
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.3.6 il casting in ```C++```
 
@@ -421,7 +421,7 @@
     float secondo_razionale = static_cast<float> (numero_intero) ;
     ```
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ## 1.4 gli operatori
 
@@ -434,7 +434,7 @@
     quindi l'applicazione di operatori a piu' di un tipo 
     implica un **casting implicito** fatto dal compilatore  
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.4.1 l'operatore di assegnazione
 
@@ -461,7 +461,7 @@
     * ```5``` e' di tipo ```int```, quindi viene prima convertito in ```float``` (```5.```)
       e poi passato come argomento all'operatore di assegnazione
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.4.2 operatori aritmetici
 
@@ -475,7 +475,7 @@
     std::cout << R3 << std::endl ;
     ```
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.4.3 operatori aritmetici composti con assegnazione
 
@@ -493,7 +493,7 @@
     | ```/``` | ``` /= ``` | divisione |
     | ```%``` | ``` %= ``` | resto della divisione tra interi |
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.4.4 operatori di incremento
 
@@ -515,7 +515,7 @@
     std::cout << num << std::endl ;
     ```
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.4.5 pre-incremento e post-incremento
 
@@ -543,7 +543,7 @@
   * gli operatori di incremento vengono tipicamente utilizzati per aumentare o diminuire
     il valore delle variabili indice dei cicli
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.4.6 operatori relationali
 
@@ -563,7 +563,7 @@
     perche' l'operatore con un solo ```=``` assegna il valore di destra alla varibile di sinistra.
     questa e' una frequente sorgente di errori 
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.4.7 operatori logici
 
@@ -577,7 +577,7 @@
     in questo caso, lo ```0``` risulta falso,
     mentre ogni altro valore intero risulta vero
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.4.8 le precedenze fra operatori
 
@@ -601,7 +601,7 @@
   |  ```||``` |
   |  ```=```, ```+=```, ```-=```, ```*=```, ```/=```, ```%=``` |
     
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ## 1.5 le strutture di controllo
 
@@ -617,7 +617,7 @@
 
   ![strutture](immagini/strutture.png)
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.5.1 gli scope
 
@@ -629,7 +629,7 @@
   * singole istruzioni all'interno di una struttura di controllo
     possono essere sostituite da un intero scope  
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.5.2 ```if ... else```
 
@@ -650,7 +650,7 @@
       }
     ```
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.5.3 switch 
 
@@ -691,7 +691,7 @@
     che viene etichettato con la parola chiave **```default```**
     * il caso di ```default``` **non e' obbligatorio**
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.5.4 il ciclo ```for```
 
@@ -721,7 +721,7 @@
       puo' portare al errori logici nel programma,
       che possono portare a risultati inaffidabili in fase di esecuzione
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.5.5 il ciclo ```while```
 
@@ -760,7 +760,7 @@
     while (i < 2 * N) ;
     ```
  
- ![linea](immagini/linea.png)
+ ![linea](../immagini/linea.png)
  
 ## 1.5.6 l'interruzione di un ciclo
 
@@ -770,7 +770,7 @@
   * l'istruzione ```continue``` interrompe l'esecuzione dell'iterazione 
     e passa a quella successiva
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
  
 ## 1.6 le funzioni
 
@@ -782,7 +782,7 @@
     e restituiscono una sola variabile,
     con il comando ```return```
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
  
 ## 1.6.1 un primo esempio
 
@@ -804,7 +804,7 @@
       }
     ```
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
  
 ## 1.6.2 funzioni senza tipo di ritorno
 
@@ -834,7 +834,7 @@
       }
     ```
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
  
 ## 1.6.3 funzoni ed omonimia
 
@@ -855,7 +855,7 @@
         }
       ```
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.6.4 il prototipo di una funzione e la sua implementazione
 
@@ -889,7 +889,7 @@
     * nella scrittura del prototipo, **non e' necessario** indicare il nome delle variabili
       (ma e' permesso)
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.6.5 valori di default degli argomenti di una funzione
 
@@ -908,7 +908,7 @@
       anche le variabili seguenti devono possederlo, 
       per evitare situazioni di ambiguita'
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.6.6 l'esportazione delle funzioni in librerie
 
@@ -923,7 +923,7 @@
   * questa struttura viene realizzata tipicamente con tre file: 
     ```libreria.h```, ```libreria.cc```, ```main.cpp```
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.6.7 il file ```libreria.h```
 
@@ -943,7 +943,7 @@
      * questo permette di non definire due volte il prototipo di una funzione,
        che genererebbe un errore di compilazione  
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.6.8 il file ```libreria.cc```
 
@@ -960,7 +960,7 @@
        per ereditare tutte le definizioni e gli altri include
        che stanno al suo interno
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.6.9 il file ```main.cpp```
 
@@ -988,7 +988,7 @@
        > c++ -o main_16 libreria.cc main_16.cpp
        ```  
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.6.10 librerie in ```C++```
 
@@ -1009,7 +1009,7 @@
     di passarle gli argomenti e di recuperarne l'output,
     che sono operazioni aggiuntive
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.6.11 le funzioni ```inline```
 
@@ -1032,7 +1032,7 @@
     * in questo caso, la funzione va definita prima del ```main```, quindi **nel file ```.h```**
     * il compilatore puo' decidere di ignorare la parola chiave ```inline```
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.6.12 funzioni matematiche
 
@@ -1043,7 +1043,7 @@
     * la lista delle funzioni notevoli si trova [qui](http://www.cplusplus.com/reference/cmath/), 
       contiene funzioni trigonometriche, funzioni di potenza, iperboliche...
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.6.13 un esempio: radice quadrata ed elevamento a potenza
 
@@ -1061,7 +1061,7 @@
   * utiilzzare l'espressione ```num * num``` invece di ```pow (num, 2)```  
     e' **meno dispendioso** in termini di tempo di esecuzione
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.6.14 accesso all'orologio del computer
 
@@ -1073,7 +1073,7 @@
     * la **frequenza dei cicli di calcolo** e' disponibile nella variabile ```CLOCKS_PER_SEC```
   * l'istruzione ```ctime ()``` resituisce il **tempo trascorso** a partire dal primo gennaio 1970:
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.6.15 un test di performance
 
@@ -1103,7 +1103,7 @@ tempo di esecuzione per pow: 30.2506 secondi
 tempo di esecuzione per i*i: 3.91943 secondi
   ```  
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ## 1.8 direttive al preprocessore
 
@@ -1114,7 +1114,7 @@ tempo di esecuzione per i*i: 3.91943 secondi
     quindi **macro e variabili del preprocessore sono concetti diversi**
     rispetto alle funzioni e variabili di ```C++```  
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ## 1.8.1 la direttiva ```#include```
 
@@ -1124,7 +1124,7 @@ tempo di esecuzione per i*i: 3.91943 secondi
   * seguendo questa direttiva, 
     il preprocessore **sostituisce alla linea l'intero file** riportato dopo ```#include```
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ## 1.8.2 variabili del preprocessore
 
@@ -1155,7 +1155,7 @@ tempo di esecuzione per i*i: 3.91943 secondi
       le effettive variabili del ```C++``` dalle sostituzioni di testo del preprocessore, 
       ad esempio scrivendone il nome interamente in caratteri maiuscoli    
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.8.3 le macro del preprocessore 
 
@@ -1182,7 +1182,7 @@ tempo di esecuzione per i*i: 3.91943 secondi
     Il quadrato di 4 vale 7
     ```
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ## 1.9 la scrittura del proprio programma
 
@@ -1194,7 +1194,7 @@ tempo di esecuzione per i*i: 3.91943 secondi
   * perche' un codice sorgente **sia leggibile**,
     e' buona cosa seguire regole aggiuntive di buon senso nella scrittura    
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.9.1 la nomenclatura di variabili e funzioni
 
@@ -1209,7 +1209,7 @@ tempo di esecuzione per i*i: 3.91943 secondi
     * nei nomi compposti da piu' parole, si divide il nome con un ```_``` (e.g. ```calcola_media```),
       oppure rendendo maiuscola ogni parola all'interno (e.g. ```calcolaMedia```)
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.9.2 la dimensione degli scope
 
@@ -1219,7 +1219,7 @@ tempo di esecuzione per i*i: 3.91943 secondi
   * una **numero indicativo** di istruzioni oltre il quale pensare se spezzare lo scope
     in funzioni e' 7
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.9.3 utilizzare i commenti nel codice sorgente
 
@@ -1244,7 +1244,7 @@ tempo di esecuzione per i*i: 3.91943 secondi
       }
     ```
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.9.4 l'indentazione del codice sorgente
 
@@ -1260,7 +1260,7 @@ tempo di esecuzione per i*i: 3.91943 secondi
     oppure dopo essere andati accapo
   * non chiudete parentesi graffe su una **linea in cui ci sono istruzioni**
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.9.5 la fattorizzazione di un programma
 
@@ -1274,7 +1274,7 @@ tempo di esecuzione per i*i: 3.91943 secondi
     * NON sparpagliare per il programma istruzioni che **logicamente si susseguono**
 
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.9.5 dettagli
 
@@ -1286,7 +1286,7 @@ tempo di esecuzione per i*i: 3.91943 secondi
     nell'output a schermo evitate di utilizzarli, oppure fateli precedere con il carattere ```\\```, 
     che dice al compilatore di non utilizzare il carattere successivo come carattere riservato
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ## 1.10 le opzioni di compilazione
 
@@ -1306,7 +1306,7 @@ tempo di esecuzione per i*i: 3.91943 secondi
       che cosa cambia?
     * una **lista completa** di opzioni di compilazione si trova [qui](https://gcc.gnu.org/onlinedocs/gcc/Option-Summary.html)
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 1.10.1 il caso di librerie non di default
 
@@ -1321,7 +1321,7 @@ tempo di esecuzione per i*i: 3.91943 secondi
   * spesso (come vedremo per ROOT) pacchetti esterni **forniscono anche un comando**
     che prepara queste opzioni per il compilatore
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ## 1.11 gli errori di compilazione
 
@@ -1345,7 +1345,7 @@ tempo di esecuzione per i*i: 3.91943 secondi
     quindi e' consigliato risolvere gli errori uno per uno, 
     iniziando dal primo che si trova
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ## 1.12 ESERCIZI
 

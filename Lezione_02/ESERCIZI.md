@@ -5,19 +5,19 @@
 Scrivere un programma che assegni il valore di una variabile ad un'altra utilizzando un puntatore. 
 Stampare inoltre a terminale i valori e gli indirizzi di ogni variabile prima e dopo l'assegnazione.
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ## Esercizio 2.2 
 
 Dichiarare un puntatore e poi cercare di assegnargli direttamente un valore numerico. Cosa succede? Perché?
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ## Esercizio 2.3
 
 Utilizzare new e delete per creare e distruggere una variabile double ed un array di double.
     
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ## Esercizio 2.4
 
@@ -33,14 +33,14 @@ La funzione deve rendere disponibile il risultato al programma che la chiama.
     * ```double * par``` serve per passare l’array dei coefficienti
     * ```double * x```  è l’indirizzo di un array in cui salvare le soluzioni dell’equazione
     
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ## Esercizio 2.5
 
 Rifare l’esercizio su media/varianza realizzando un’unica funzione che le calcoli entrambe,
 facendo opportuno uso puntatori o referenze.
     
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ## Esercizio 2.6
 
@@ -51,7 +51,7 @@ lo ordini dal più piccolo al più grande
     ```cpp
     void SortArray (double * myArray, int dim) ;
     ```
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ## Esercizio 2.7
 
