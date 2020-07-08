@@ -115,6 +115,10 @@
     puntatore: 0x7ffeeedfa44c
     valore   : 5
     ```
+![linea](../immagini/linea.png)
+
+### 2.1.6 Puntatori non inizializzati
+
   * un puntatore definito e non inizializzato non punta ad alcun indirizzo di memoria:
     ```cpp
     int * puntatore_ad_intero ;
@@ -127,7 +131,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 2.1.6 Esempi sull'uso dei puntatori
+### 2.1.7 I puntatori sono variabili
 
   * un puntatore e' una variabile,
     dunque puo' **cambiare valore** anche dopo essere stato inizializzato:  
@@ -143,35 +147,85 @@
     *ptr = 100 ;
     std::cout << "var ora vale: " << var << std::endl ;
     ```
+    produce come output:
+    ```
+    Ora ptr punta a var: 0x7ffeee47f43c ed il valore a cui punta vale: 137
+    ```
   * una variabile puo' essere inizializzata con il valore presente
     all'indirizzo contenuto in un puntatore: 
     ```cpp
     int pippo = * ptr ;
     std::cout << "La variabile pippo vale: " << pippo << std::endl; 
     ```
+    produce come output:
+    ```
+    La variabile pippo vale: 100
+    ```
     * a questo punto, le modifiche a ```*ptr``` effettuate dopo l'inzializzazione
       **non hanno effetto su ```pippo```**, perche' quest'ultimo e' un'altra variabile
       (quindi con il contenuto salvato in un'altra zona di memoria):
+      ```cpp
+      (*ptr)++;
+      std::cout << "var ora vale: " << var << " e pippo vale: " << pippo << std::endl; 
+      ```
+      produce come output:
+      ```
+      var ora vale: 101 e pippo vale: 100
+      ```
+
+![linea](../immagini/linea.png)
+
+### 2.1.8 Puntatori di puntatori
+
+  * se un puntatore e' una variabile, 
+    ha un **contenuto ed un indirizzo di memoria**
+  * quindi, si puo' costruire un puntatore al suo indirizzo, 
+    cioe' un puntatore a puntatore
+
+![ptrptr](immagini/puntatore_a_puntatore.png)
+
+![linea](../immagini/linea.png)
+
+### 2.1.9 risalire la caterna di indirizzi
+
+  * tramite l'operatore ```*``` si puo' arrivare fino al valore della variabile iniziale:
     ```cpp
-    (*ptr)++;
-    std::cout << "var ora vale: " << var << " e pippo vale: " << pippo << std::endl; 
+    int var = 137 ; 
+    int * ptr = & var ;
+    int ** ptrAptr = & ptr ;
+
+    std::cout << "var    : " << var << std::endl ;
+    std::cout << "ptr    : " << ptr << std::endl ;
+    std::cout << " `--> *ptr: " << *ptr << std::endl ;
+    std::cout << "ptrAptr: " << ptrAptr << std::endl ;
+    std::cout << " `--> *ptrAptr: " << *ptrAptr << std::endl ;
+    std::cout << "        `-->**ptrAptr: " << **ptrAptr << std::endl ;
+    ```
+    produce come output:
+    ```
+    var    : 137
+    ptr    : 0x7ffee7f0e43c
+     `--> *ptr: 137
+    ptrAptr: 0x7ffee7f0e430
+     `--> *ptrAptr: 0x7ffee7f0e43c
+            `-->**ptrAptr: 137
     ```
 
 ![linea](../immagini/linea.png)
 
-### 2.1.7 Puntatori ed array
+### 2.1.10 Puntatori ed array
 
 ![linea](../immagini/linea.png)
 
-### 2.1.8 I puntatori sono variabili
+### 2.1.11 I puntatori sono variabili
 
 ![linea](../immagini/linea.png)
 
-### 2.1.9 Le referenze
+### 2.1.12 Le referenze
 
 ![linea](../immagini/linea.png)
 
-### 2.1.10 Riepilogo sui puntatori
+### 2.1.13 Riepilogo sui puntatori
 
 ![linea](../immagini/linea.png)
 
