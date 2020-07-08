@@ -7,7 +7,7 @@
    | main_02.cpp | esempio di uso di puntatori |
    | main_03.cpp | esempi di uso di puntatori |
    | main_04.cpp | esempio di puntatore a puntatore |
-   | main_05.cpp |  |
+   | main_05.cpp | array e puntatori |
    | main_06.cpp |  |
    | main_07.cpp |  |
    | main_08.cpp |  |
