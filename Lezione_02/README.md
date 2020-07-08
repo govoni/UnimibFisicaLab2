@@ -34,7 +34,7 @@
 
 ![linea](immagini/linea.png)
 
-### 2.1.2 Le dimensioni tipiche di alcuni tipi 
+### 2.1.3 Le dimensioni tipiche di alcuni tipi 
 
   * a seconda dell'architettura del calcolatore che si sta utilizzando, 
     le **dimensioni di un tipo possono cambiare**
@@ -64,31 +64,47 @@
 
 ![linea](immagini/linea.png)
 
-### 2.1.3 L'indirizzo di memoria: i puntatori
+### 2.1.4 L'indirizzo di memoria: i puntatori
+
+  * l'indirizzo di una cella di memoria e' un numero, 
+    quindi puo' essere a sua volta **salvato in una variabile**
+  * variabili che contengono indirizzi alla prima cella di memoria di altre variabili 
+    sono chiamate **puntatori**
+  * siccome rivestono un ruolo fondamentale nella programmazione,
+    si **dichiarano in modo specifico**, con la sintassi ```type * var```:
+    ```cpp
+    int * puntatore_ad_intero ;
+
+    ```
+  * questa dichiarazione fa si' che **il programma sappia come accedere al contenuto**
+    della cella di memoria che sta all'indirizzo salvato in ```puntatore_ad_intero```,
+    perche' sa di che tipo si tratta
+
+![cella](immagini/puntatore.png)
 
 ![linea](immagini/linea.png)
 
-### 2.1.4 Dalla variabile al puntatore e viceversa
+### 2.1.5 Dalla variabile al puntatore e viceversa
 
 ![linea](immagini/linea.png)
 
-### 2.1.5 Esempi sull'uso dei puntatori
+### 2.1.6 Esempi sull'uso dei puntatori
 
 ![linea](immagini/linea.png)
 
-### 2.1.6 Puntatori ed array
+### 2.1.7 Puntatori ed array
 
 ![linea](immagini/linea.png)
 
-### 2.1.7 I puntatori sono variabili
+### 2.1.8 I puntatori sono variabili
 
 ![linea](immagini/linea.png)
 
-### 2.1.8 Le referenze
+### 2.1.9 Le referenze
 
 ![linea](immagini/linea.png)
 
-### 2.1.9 Riepilogo sui puntatori
+### 2.1.10 Riepilogo sui puntatori
 
 ![linea](immagini/linea.png)
 
