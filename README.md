@@ -17,7 +17,7 @@
   * Gli esercizi svolti a lezione corridspondo al livello di difficolta' medio
     degli esercizi proposti nelle prove di esame
 
-![linea](Lezione_01/immagini/linea.png)
+![linea](immagini/linea.png)
 
 ## Lezioni del corso
 
@@ -25,7 +25,7 @@
   * [Lezione 1](Lezione_01/README.md) : ripasso di ```C``` ed introduzione al ```C++```, parte 1
   * [Lezione 2](Lezione_02/README.md) : ripasso di ```C``` ed introduzione al ```C++```, parte 2
 
-![linea](Lezione_01/immagini/linea.png)
+![linea](immagini/linea.png)
 
 ## Riferimenti bibliografici
 
