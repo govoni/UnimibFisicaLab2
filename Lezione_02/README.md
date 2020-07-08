@@ -151,6 +151,11 @@
     ```
     Ora ptr punta a var: 0x7ffeee47f43c ed il valore a cui punta vale: 137
     ```
+
+![linea](../immagini/linea.png)
+
+### 2.1.8 Inizializzare una variabile a partire da un puntatore
+
   * una variabile puo' essere inizializzata con il valore presente
     all'indirizzo contenuto in un puntatore: 
     ```cpp
@@ -175,7 +180,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 2.1.8 Puntatori di puntatori
+### 2.1.9 Puntatori di puntatori
 
   * se un puntatore e' una variabile, 
     ha un **contenuto ed un indirizzo di memoria**
@@ -186,7 +191,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 2.1.9 risalire la caterna di indirizzi
+### 2.1.10 risalire la caterna di indirizzi
 
   * tramite l'operatore ```*``` si puo' arrivare fino al valore della variabile iniziale:
     ```cpp
@@ -213,19 +218,19 @@
 
 ![linea](../immagini/linea.png)
 
-### 2.1.10 Puntatori ed array
+### 2.1.11 Puntatori ed array
 
 ![linea](../immagini/linea.png)
 
-### 2.1.11 I puntatori sono variabili
+### 2.1.12 I puntatori sono variabili
 
 ![linea](../immagini/linea.png)
 
-### 2.1.12 Le referenze
+### 2.1.13 Le referenze
 
 ![linea](../immagini/linea.png)
 
-### 2.1.13 Riepilogo sui puntatori
+### 2.1.14 Riepilogo sui puntatori
 
 ![linea](../immagini/linea.png)
 
