@@ -2,6 +2,8 @@
 
 ## 2.1 Variabili e puntatori
 
+![linea](immagini/linea.png)
+
 ### 2.1.1 La gestione delle variabili nel calcolatore
 
   * In un computer tutto è rappresentato mediante **numeri**
@@ -17,6 +19,30 @@
 ![linea](immagini/linea.png)
 
 ### 2.1.2 Le dimensioni tipiche di alcuni tipi 
+
+  * ogni tipo ha una **dimensione assegnata** nella RAM
+  * per i tipi numerici interi, una dimensione assegnata significa che **i valori che la variabile puo' assumere
+    sono limitati**
+  * i tipi in virgola mobile (```float```, ```double```) non hanno limitazioni in valore, ma in precisione,
+    quindi il tipo ```double```, occupando piu' celle di memoria, e' piu' preciso del tipo ```float``` 
+
+ | tipo | dimensione (in Byte) | intervallo |
+ | --- | --- | --- |
+ | short int              | 2      | -32,768 to 32,767               |   
+ | unsigned short int     | 2      | 0 to 65,535                     |               
+ | unsigned int           | 4      | 0 to 4,294,967,295              |                      
+ | int                    | 4      | -2,147,483,648 to 2,147,483,647 |                 
+ | long int               | 4      | -2,147,483,648 to 2,147,483,647 |                 
+ | unsigned long int      | 4      | 0 to 4,294,967,295              |    
+ | long long int          | 8      | -(2^63) to (2^63)-1             |     
+ | unsigned long long int | 8      | 0 to 18,446,744,073,709,551,615 |                 
+ | signed char            | 1      | -128 to 127                     |               
+ | unsigned char          | 1      | 0 to 255                        |            
+ | float                  | 4      |                                 |                      
+ | double                 | 8      |                                 |                      
+ | long double            | 12     |                                 |                        
+ | wchar_t                | 2 or 4 | 1 wide character                |                    
+
 
 ![linea](immagini/linea.png)
 
