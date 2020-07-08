@@ -167,31 +167,31 @@
 
 ![linea](../immagini/linea.png)
 
-## 2.3.1 Heap and Stack
+### 2.3.1 Heap and Stack
 
 ![linea](../immagini/linea.png)
 
-## 2.3.2 Allocazione di una variabile nella Stack
+### 2.3.2 Allocazione di una variabile nella Stack
 
 ![linea](../immagini/linea.png)
 
-## 2.3.3 Allocazione di una variabile nella Heap
+### 2.3.3 Allocazione di una variabile nella Heap
 
 ![linea](../immagini/linea.png)
 
-## 2.3.4 Allocazione dinamica ed array
+### 2.3.4 Allocazione dinamica ed array
 
 ![linea](../immagini/linea.png)
 
-## 2.3.5 Rappresentzione degli array in memoria
+### 2.3.5 Rappresentzione degli array in memoria
 
 ![linea](../immagini/linea.png)
 
-## 2.3.6 Come non usare l'allocazione dinamica, 1
+### 2.3.6 Come non usare l'allocazione dinamica, 1
 
 ![linea](../immagini/linea.png)
 
-## 2.3.7 Come non usare l'allocazione dinamica, 2
+### 2.3.7 Come non usare l'allocazione dinamica, 2
 
 ![linea](../immagini/linea.png)
 
