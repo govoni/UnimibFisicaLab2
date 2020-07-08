@@ -17,6 +17,10 @@ int main (int arcg, char ** argv)
     int index = 4 ;
     std::cout << num_array[index + 1] << std::endl ;
 
+    float float_array[] = {2., 3.14} ;
+    std::cout << float_array[0] << std::endl ;
+    std::cout << float_array[1] << std::endl ;
+
     return 0 ;
   }
 

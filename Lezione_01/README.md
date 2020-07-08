@@ -397,7 +397,19 @@
 
 ![linea](../immagini/linea.png)
 
-### 1.3.5 il casting fra diversi tipi
+### 1.3.5 definizione di un array con il contenuto
+
+  * un array puo' essere anche definito indicandone esplicitamente la lista degli elementi
+    fra parentesi graffe:
+    ```cpp
+    float float_array[] = {2., 3.14} ;
+    std::cout << float_array[0] << std::endl ;
+    std::cout << float_array[1] << std::endl ;
+    ```
+
+![linea](../immagini/linea.png)
+
+### 1.3.6 il casting fra diversi tipi
 
   * il casting in ```C``` e' la **conversione fra diversi tipi di variabili numeriche**
   * siccome le medesime operazioni fra tipi diversi possono dare risultati differenti
@@ -413,7 +425,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 1.3.6 il casting in ```C++```
+### 1.3.7 il casting in ```C++```
 
   * in ```C++``` l'operazione di casting ha portata piu' ampia
     e puo' essere realizzato con operatori dedicati:
