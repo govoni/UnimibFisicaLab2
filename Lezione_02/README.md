@@ -220,17 +220,51 @@
 
 ### 2.1.11 Puntatori ed array
 
+  * Quando si definisce un array, suo nome (senza parentesi graffe) 
+    contiene **l’indirizzo di memoria del primo elemento** dell’array:  
+    ```cpp
+    int vec[] = {2, 20} ;
+    std::cout << vec << std::endl ;
+    ```
+    produce come output:
+    ```
+    0x7ffeef024440
+    ```
+
 ![linea](../immagini/linea.png)
 
-### 2.1.12 I puntatori sono variabili
+### 2.1.12 Gli elementi di un array
+
+  * se ```vec``` e' il puntatore al primo elemento dell'array,
+    **```*vec``` e' il suo contenuto**:
+    ```cpp
+    std::cout << vec[0] << " == " << *vec << std::endl ;
+    ```
+  * si puo' accedere agli **elementi successivi dell'array** tramite l'operatore ```*```  
+    ```cpp
+    std::cout << vec[1] << " == " << *(vec+1) << std::endl ;
+    ```
+  * l'**algebra dei puntatori** con gli operatori ```+``` e ```-``` funziona
+    perche' il puntatore e' di un tipo definito,
+    quindi il programma sa di quante celle di memoria muoversi per raggiungere
+    la zona di memoria successiva
+    * ```*(vec+1)``` non e' la cella di memoria successiva a quella
+      indicizzata da ```vec```,
+      ma quella che dista da ```vec``` la dimensione di un intero
+  * le due sintassi ```vec[i]``` e ```*(vec+i)``` significano la stessa cosa,
+    cioe' sono due rappresentazioni della medesima operazione fatta dal calcolatore
 
 ![linea](../immagini/linea.png)
 
-### 2.1.13 Le referenze
+### 2.1.13 I puntatori sono variabili
 
 ![linea](../immagini/linea.png)
 
-### 2.1.14 Riepilogo sui puntatori
+### 2.1.14 Le referenze
+
+![linea](../immagini/linea.png)
+
+### 2.1.15 Riepilogo sui puntatori
 
 ![linea](../immagini/linea.png)
 
