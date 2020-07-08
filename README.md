@@ -17,11 +17,16 @@
   * Gli esercizi svolti a lezione corridspondo al livello di difficolta' medio
     degli esercizi proposti nelle prove di esame
 
-
-## Riferimenti bibliografici
-
+![linea](Lezione_01/immagini/linea.png)
 
 ## Lezioni del corso
 
   * [Prerequisiti](Lezione_00/README.md): breve riassunto di prerequisiti che non saranno coperti durante il corso
-  * [Lezione 1](Lezione_01/README.md) : ripasso di ```C``` ed introduzione al ```C++```
+  * [Lezione 1](Lezione_01/README.md) : ripasso di ```C``` ed introduzione al ```C++```, parte 1
+  * [Lezione 2](Lezione_02/README.md) : ripasso di ```C``` ed introduzione al ```C++```, parte 2
+
+![linea](Lezione_01/immagini/linea.png)
+
+## Riferimenti bibliografici
+
+
