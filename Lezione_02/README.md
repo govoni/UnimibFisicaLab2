@@ -62,7 +62,7 @@
  | wchar_t                | 2 or 4 | 1 wide character                |                    
 
 
-![linea](immagini/linea.png)
+![linea](../immagini/linea.png)
 
 ### 2.1.4 L'indirizzo di memoria: i puntatori
 
