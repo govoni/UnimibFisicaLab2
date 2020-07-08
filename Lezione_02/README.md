@@ -108,6 +108,13 @@
     std::cout << "puntatore: " << puntatore_ad_intero << std::endl ;
     std::cout << "valore   : " << * puntatore_ad_intero << std::endl ;
     ```
+    produce come output:
+    ```
+    valore   : 5
+    indirizzo: 0x7ffeeedfa44c
+    puntatore: 0x7ffeeedfa44c
+    valore   : 5
+    ```
   * un puntatore definito e non inizializzato non punta ad alcun indirizzo di memoria:
     ```cpp
     int * puntatore_ad_intero ;
