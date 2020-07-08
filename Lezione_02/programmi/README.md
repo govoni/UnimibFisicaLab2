@@ -3,8 +3,8 @@
    | programma | contenuto |
    | -------------| -------------|
    | main_00.cpp | esempio di utilizzo di ```sizeof``` |
-   | main_01.cpp |  |
-   | main_02.cpp |  |
+   | main_01.cpp | stampa dell'indirizzo di memoria di una variabile |
+   | main_02.cpp | esempio di uso di puntatori |
    | main_03.cpp |  |
    | main_04.cpp |  |
    | main_05.cpp |  |
