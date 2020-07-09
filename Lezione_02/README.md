@@ -310,7 +310,6 @@
 
   * tutti i tre tipi di accesso alla memoria (valore di una variabile, puntatore o referenza)
     possono essere usati per **passare argomenti ad una funzione**
-  * possono essere utilizzati i tre tipi di variabile anche per **ricevere gli output** di una funzione  
 
 ![linea](../immagini/linea.png)
 
