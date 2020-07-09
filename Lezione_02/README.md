@@ -254,6 +254,8 @@
   * le due sintassi ```vec[i]``` e ```*(vec+i)``` significano la stessa cosa,
     cioe' sono due rappresentazioni della medesima operazione fatta dal calcolatore
 
+![cella](immagini/array.png)
+
 ![linea](../immagini/linea.png)
 
 ### 2.1.13 I puntatori sono variabili
