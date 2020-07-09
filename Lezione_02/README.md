@@ -332,11 +332,13 @@
     **non risente delle azioni che subisce all'interno della funzione**:
     ```cpp
     int numero = 5 ;
-    std::cout << "raddoppio (valore)    " << raddoppia (numero) << " da " << numero << "\n" ;
+    std::cout << "raddoppio (valore)    " << raddoppia (numero) << "\n" ;
+    std::cout << "numero: " << numero << "\n" ;
     ```
-    restituisce come risultato:
+    restituisce come risultato (numero rimane uguale a 5):
     ```
-    raddoppio (valore)    10 da 5
+    raddoppio (valore)    10
+    numero: 5
     ```
 
 ![linea](../immagini/linea.png)
@@ -358,11 +360,13 @@
     ed ogni modifica fatta alla zona di memoria indicizzata dal puntatore all'interno della funzione
     **ha effetto anche al di fuori dello scope della funzione**:
     ```cpp
-    std::cout << "raddoppio (puntatore) " << raddoppia (& numero) << " da " << numero << "\n" ;
+    std::cout << "raddoppio (puntatore) " << raddoppia (& numero) << "\n" ;
+    std::cout << "numero: " << numero << "\n" ;
     ```
-    restituisce come risultato:
+    restituisce come risultato (numero diventa uguale a 10):
     ```
-    raddoppio (puntatore) 10 da 10
+    raddoppio (puntatore) 10
+    numero: 10
     ```
 
 ![linea](../immagini/linea.png)
@@ -384,11 +388,13 @@
     ed ogni modifica fatta alla referenza all'interno della funzione 
     **ha effetto anche al di fuori dello scope della funzione**:
     ```cpp
-    std::cout << "raddoppio (referenza) " << raddoppiaRef (numero) << " da " << numero << "\n" ;
+    std::cout << "raddoppio (referenza) " << raddoppiaRef (numero) << "\n" ;
+    std::cout << "numero: " << numero << "\n" ;
     ```
-    restituisce come risultato:
+    restituisce come risultato (numero diventa uguale a 10):
     ```
-    raddoppio (referenza) 10 da 10
+    raddoppio (referenza) 10
+    numero: 10
     ```
 
 ![linea](../immagini/linea.png)

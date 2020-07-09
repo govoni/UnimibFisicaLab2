@@ -27,10 +27,13 @@ int main  (int arcg, char ** argv)
   {
 
     int numero = 5 ;
-    std::cout << "raddoppio (valore)    " << raddoppia (numero) << " da " << numero << "\n" ;
-    std::cout << "raddoppio (puntatore) " << raddoppia (& numero) << " da " << numero << "\n" ;
+    std::cout << "raddoppio (valore)    " << raddoppia (numero) << "\n" ;
+    std::cout << "numero: " << numero << "\n" ;
+    std::cout << "raddoppio (puntatore) " << raddoppia (& numero) << "\n" ;
+    std::cout << "numero: " << numero << "\n" ;
     numero = 5 ;
-    std::cout << "raddoppio (referenza) " << raddoppiaRef (numero) << " da " << numero << "\n" ;
+    std::cout << "raddoppio (referenza) " << raddoppiaRef (numero) << "\n" ;
+    std::cout << "numero: " << numero << "\n" ;
 
     return 0 ; 
 }
