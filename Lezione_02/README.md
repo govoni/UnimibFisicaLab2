@@ -380,7 +380,7 @@
     }
     ```
   * il calcolatore pasa alla funzione l'alias alla variabile, che si comporta come un puntatore 
-  *  quindi **il passaggio di informazione e' veloce**
+  * quindi **il passaggio di informazione e' veloce**
     ed ogni modifica fatta alla referenza all'interno della funzione 
     **ha effetto anche al di fuori dello scope della funzione**:
     ```cpp
