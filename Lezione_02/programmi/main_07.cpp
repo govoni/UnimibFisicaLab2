@@ -35,5 +35,7 @@ int main  (int arcg, char ** argv)
     std::cout << "raddoppio (referenza) " << raddoppiaRef (numero) << "\n" ;
     std::cout << "numero: " << numero << "\n" ;
 
+    int risultato = raddoppia (numero) ;
+
     return 0 ; 
 }

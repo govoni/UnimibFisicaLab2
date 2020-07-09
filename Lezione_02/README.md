@@ -398,6 +398,66 @@
 
 ![linea](../immagini/linea.png)
 
+### 2.2.4 L'output di una funzione
+
+  * nelle funzoni viste finora, l'oggetto restituito dalla funzione e' il valore di variabile
+  * questo valore viene scritto nella zona di memoria della variabile alla quale
+    viene assegnato il valore (```risultato``` nell'esempio che segue):
+    ```cpp
+    int risultato = raddoppia (numero) ;
+    ```
+  * ritornare il puntatore o la referenza ad una variabile e' **un'operazione rischiosa 
+    e non sempre permessa**
+  * infatti, ogni volta che una variabile viene definita all'interno della funzione,
+    al termine della funzione viene **elimiata dal calcolatore** (va out of scope)  
+
+![linea](../immagini/linea.png)
+
+### 2.2.5 Come reagisce il compilatore nel caso di una referenza
+
+  * fuori dalla funzione 
+    la variabile ```risultato``` non esiste piu',
+    quindi la referenza, che e' il suo alias,
+    **non ha significato**:
+    ```cpp
+    int & raddoppiaReturnReferenza (int valore)
+    {
+      int risultato = valore * 2 ; 
+      return & risultato ;
+    }
+    ```
+    in fase di compilazione produce un **Warning**:
+    ```
+    main_08.cpp:23:10: warning: reference to stack memory associated with local variable 'risultato' returned [-Wreturn-stack-address]
+      return risultato ;
+             ^~~~~~~~~
+    ```
+ 
+![linea](../immagini/linea.png)
+
+### 2.2.6 Come reagisce il compilatore nel caso di un puntatore
+
+  * fuori dalla funzione 
+    il puntatore a questa variabile indicizza una **zona di memoria non piu' occupata**
+    ```cpp
+    int * raddoppiaReturnPuntatore (int valore)
+    {
+      int risultato = valore * 2 ; 
+      return & risultato ;
+    }
+    ```
+    anche in questo caso, in fase di compilazione produce un **Warning**:
+    ```
+    main_08.cpp:17:12: warning: address of stack memory associated with local variable 'risultato' returned [-Wreturn-stack-address]
+      return & risultato ;
+               ^~~~~~~~~
+    ```
+  * il passaggio di valori per puntatore e' **veloce**:
+    per approfittare appieno di questa proprieta',
+    dobbiamo **acquisire un controllo piu' stretto della memoria**
+
+![linea](../immagini/linea.png)
+
 ## 2.3 La gestione dinamica della memoria
 
 ![linea](../immagini/linea.png)
