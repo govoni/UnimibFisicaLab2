@@ -265,8 +265,6 @@
 
 ### 2.1.14 Le referenze
 
-![linea](../immagini/linea.png)
-
   * Le referenze sono **alias per i nomi delle variabili**. 
     In termini di contenuti, la variabile o la sua referenza sono la stessa cosa:
     ```cpp
@@ -284,8 +282,28 @@
     cioe' da' accesso alle variabili direttamente tramite l'indirizzo di memoria,
     piuttosto che il suo contenuto
 
+![linea](../immagini/linea.png)
 
 ### 2.1.15 Riepilogo sui puntatori
+
+  * ```C++``` permette di accedere alla memoria in due modi:
+    * tramite le **variabili**, che rappresentano il valore contenuto nella memoria
+    * tramite i **puntatori**, che rappresentano l'indirizzo fisico dove i valori sono salvati
+  * fornisce inoltre il modo di passare da una rappresentazione all'altra:
+    * l'**operatore \*** permette di passare da puntatore a variabile
+    * l'**operatore &** permette di passare da variabile a puntatore
+  * le **referenze** sono un alias delle variabili, 
+    che in realta' maneggiano l'indirizzo di memoria invece del valore della variabile
+
+|   |   |
+| --- | --- |
+                                    
+| ```int var = 137 ;```       | Creazione variabile int              |                              
+| ```int* ptr ;```            | Creazione variabile puntatore a int  |                         
+| ```ptr = &var ;```          | Indirizzo di memoria di var          |                           
+| ```int new_var = * ptr ;``` | Contenuto della cella puntata da ptr |                                     
+| ```int& ref = var ;```      | Creazione di un alias di var         |                                   
+
 
 ![linea](../immagini/linea.png)
 
