@@ -77,7 +77,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 2.1.4 Salvare l'indirizzo di memoria: i puntatori
+### 2.1.5 Salvare l'indirizzo di memoria: i puntatori
 
   * l'indirizzo di una cella di memoria e' un numero, 
     quindi puo' essere a sua volta **salvato in una variabile**
@@ -96,7 +96,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 2.1.5 Dalla variabile al puntatore e viceversa
+### 2.1.6 Dalla variabile al puntatore e viceversa
 
   * il simbolo ```*```, oltre a comparire nella dichiarazione di un puntatore,
     rappresenta anche l'opertore che estrae il valore della variabile contenuta
@@ -117,7 +117,7 @@
     ```
 ![linea](../immagini/linea.png)
 
-### 2.1.6 Puntatori non inizializzati
+### 2.1.7 Puntatori non inizializzati
 
   * un puntatore definito e non inizializzato non punta ad alcun indirizzo di memoria:
     ```cpp
@@ -131,7 +131,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 2.1.7 I puntatori sono variabili
+### 2.1.8 I puntatori sono variabili
 
   * un puntatore e' una variabile,
     dunque puo' **cambiare valore** anche dopo essere stato inizializzato:  
@@ -154,7 +154,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 2.1.8 Inizializzare una variabile a partire da un puntatore
+### 2.1.9 Inizializzare una variabile a partire da un puntatore
 
   * una variabile puo' essere inizializzata con il valore presente
     all'indirizzo contenuto in un puntatore: 
@@ -180,7 +180,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 2.1.9 Puntatori di puntatori
+### 2.1.10 Puntatori di puntatori
 
   * se un puntatore e' una variabile, 
     ha un **contenuto ed un indirizzo di memoria**
@@ -191,7 +191,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 2.1.10 risalire la caterna di indirizzi
+### 2.1.11 risalire la caterna di indirizzi
 
   * tramite l'operatore ```*``` si puo' arrivare fino al valore della variabile iniziale:
     ```cpp
@@ -218,7 +218,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 2.1.11 Puntatori ed array
+### 2.1.12 Puntatori ed array
 
   * Quando si definisce un array, suo nome (senza parentesi graffe) 
     contiene **l’indirizzo di memoria del primo elemento** dell’array:  
@@ -233,7 +233,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 2.1.12 Gli elementi di un array
+### 2.1.13 Gli elementi di un array
 
   * se ```vec``` e' il puntatore al primo elemento dell'array,
     **```*vec``` e' il suo contenuto**:
@@ -249,7 +249,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 2.1.13 L'algebra dei puntatori
+### 2.1.14 L'algebra dei puntatori
 
   * l'**algebra dei puntatori** con gli operatori ```+``` e ```-``` funziona
     perche' il puntatore e' di un tipo definito,
@@ -263,7 +263,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 2.1.14 Le referenze
+### 2.1.15 Le referenze
 
   * Le referenze sono **alias per i nomi delle variabili**. 
     In termini di contenuti, la variabile o la sua referenza sono la stessa cosa:
@@ -284,7 +284,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 2.1.15 Riepilogo sui puntatori
+### 2.1.16 Riepilogo sui puntatori
 
   * ```C++``` permette di accedere alla memoria in due modi:
     * tramite le **variabili**, che rappresentano il valore contenuto nella memoria
