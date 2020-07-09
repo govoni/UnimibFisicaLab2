@@ -9,7 +9,7 @@
    | main_04.cpp | esempio di puntatore a puntatore |
    | main_05.cpp | array e puntatori |
    | main_06.cpp | esmepio di referenze |
-   | main_07.cpp |  |
+   | main_07.cpp | passaggio di argomenti ad una funzione |
    | main_08.cpp |  |
    | main_09.cpp |  |
    | main_10.cpp |  |

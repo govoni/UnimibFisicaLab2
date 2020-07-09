@@ -308,17 +308,88 @@
 
 ## 2.2 Il passaggio di parametri alle funzioni
 
+  * tutti i tre tipi di accesso alla memoria (valore di una variabile, puntatore o referenza)
+    possono essere usati per **passare argomenti ad una funzione**
+  * possono essere utilizzati i tre tipi di variabile anche per **ricevere gli output** di una funzione  
+
 ![linea](../immagini/linea.png)
 
 ### 2.2.1 Passaggio per valore
+
+  * nel passaggio per valore, 
+    nel prototipo della funzione fra parentesi e' indidcato il **nome della variabile**
+    ```cpp
+    int raddoppia (int valore)
+    {
+      valore *= 2 ; 
+      return valore ;
+    }
+    ```
+  * il calcolatore **crea una copia** della variabile di input
+    e passa la copia alla funzione
+  * questo significa che **il passaggio di informazione e' lento** 
+    e la variabile passata alla funzione
+    **non risente delle azioni che subisce all'interno della funzione**:
+    ```cpp
+    int numero = 5 ;
+    std::cout << "raddoppio (valore)    " << raddoppia (numero) << " da " << numero << "\n" ;
+    ```
+    restituisce come risultato:
+    ```
+    raddoppio (valore)    10 da 5
+    ```
 
 ![linea](../immagini/linea.png)
 
 ### 2.2.2 Passaggio per puntatore
 
+  * nel passaggio per valore, 
+    nel prototipo della funzione fra parentesi e' indidcato il **puntatore alla variabile**
+    da passare
+    ```cpp
+    int raddoppia (int * valore)
+    {
+      *valore *= 2 ; 
+      return *valore ;
+    }
+    ```
+  * il calcolatore pasa alla funzione la variabile puntatore, 
+    quindi **il passaggio di informazione e' veloce**
+    ed ogni modifica fatta alla zona di memoria indicizzata dal puntatore all'interno della funzione
+    **ha effetto anche al di fuori dello scope della funzione**:
+    ```cpp
+    std::cout << "raddoppio (puntatore) " << raddoppia (& numero) << " da " << numero << "\n" ;
+    ```
+    restituisce come risultato:
+    ```
+    raddoppio (puntatore) 10 da 10
+    ```
+
 ![linea](../immagini/linea.png)
 
 ### 2.2.3 Passaggio per referenza
+
+  * nel passaggio per valore, 
+    nel prototipo della funzione fra parentesi e' indidcata la **referenza alla variabile**
+    da passare
+    ```cpp
+    int raddoppiaRef (int & valore)
+    {
+      valore *= 2 ; 
+      return valore ;
+    }
+    ```
+  * il calcolatore pasa alla funzione l'alias alla variabile, che si comporta come un puntatore 
+  *  quindi **il passaggio di informazione e' veloce**
+    ed ogni modifica fatta alla referenza all'interno della funzione 
+    **ha effetto anche al di fuori dello scope della funzione**:
+    ```cpp
+    std::cout << "raddoppio (referenza) " << raddoppiaRef (numero) << " da " << numero << "\n" ;
+    ```
+    restituisce come risultato:
+    ```
+    raddoppio (referenza) 10 da 10
+    ```
 
 ![linea](../immagini/linea.png)
 
