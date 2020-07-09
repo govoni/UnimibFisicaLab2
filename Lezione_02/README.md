@@ -295,9 +295,8 @@
   * le **referenze** sono un alias delle variabili, 
     che in realta' maneggiano l'indirizzo di memoria invece del valore della variabile
 
-|   |   |
-| --- | --- |
-                                    
+|  azione | effetto |
+| --- | --- |                                    
 | ```int var = 137 ;```       | Creazione variabile int              |                              
 | ```int* ptr ;```            | Creazione variabile puntatore a int  |                         
 | ```ptr = &var ;```          | Indirizzo di memoria di var          |                           
