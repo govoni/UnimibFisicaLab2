@@ -423,7 +423,7 @@
     int & raddoppiaReturnReferenza (int valore)
     {
       int risultato = valore * 2 ; 
-      return & risultato ;
+      return risultato ;
     }
     ```
     in fase di compilazione produce un **Warning**:
