@@ -244,6 +244,13 @@
     ```cpp
     std::cout << vec[1] << " == " << *(vec+1) << std::endl ;
     ```
+
+![cella](immagini/array.png)
+
+![linea](../immagini/linea.png)
+
+### 2.1.13 L'algebra dei puntatori
+
   * l'**algebra dei puntatori** con gli operatori ```+``` e ```-``` funziona
     perche' il puntatore e' di un tipo definito,
     quindi il programma sa di quante celle di memoria muoversi per raggiungere
@@ -254,17 +261,29 @@
   * le due sintassi ```vec[i]``` e ```*(vec+i)``` significano la stessa cosa,
     cioe' sono due rappresentazioni della medesima operazione fatta dal calcolatore
 
-![cella](immagini/array.png)
-
-![linea](../immagini/linea.png)
-
-### 2.1.13 I puntatori sono variabili
-
 ![linea](../immagini/linea.png)
 
 ### 2.1.14 Le referenze
 
 ![linea](../immagini/linea.png)
+
+  * Le referenze sono **alias per i nomi delle variabili**. 
+    In termini di contenuti, la variabile o la sua referenza sono la stessa cosa:
+    ```cpp
+    double pi_greco = 3.1415 ;
+    double & ref = pi_greco ;
+    std::cout << "ref fornisce un alias di pi_greco: "
+              << ref << std::endl ;
+
+    pi_greco = 3.141592 ;
+    std::cout << "ref fornisce un alias di pi_greco: "
+              << ref << std::endl ;
+    ```
+  * di conseguenza, una referenza si crea **soltanto a partire da una variabile esistente**
+  * allo stesso tempo, si **comporta come un puntatore**, 
+    cioe' da' accesso alle variabili direttamente tramite l'indirizzo di memoria,
+    piuttosto che il suo contenuto
+
 
 ### 2.1.15 Riepilogo sui puntatori
 
