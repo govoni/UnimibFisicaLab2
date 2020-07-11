@@ -11,8 +11,8 @@
    | main_06.cpp | esmepio di referenze |
    | main_07.cpp | passaggio di argomenti ad una funzione |
    | main_08.cpp | variabili in output da una funzione |
-   | main_09.cpp |  |
-   | main_10.cpp |  |
+   | main_09.cpp | esempio di allocazione dinamica della memoria |
+   | main_10.cpp | esempio di allocazione dinamica in una funzione |
    | main_11.cpp |  |
    | main_12.cpp |  |
    | main_13.cpp |  |

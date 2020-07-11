@@ -460,21 +460,138 @@
 
 ## 2.3 La gestione dinamica della memoria
 
+  * in generale,
+    quando una nuova variabile viene creata
+    il calcolatore compie **due operazioni**:
+    * riservare la memoria per la variabile, chiamata **allocazione di memoria**
+    * **inizializzazione della variabile** in quello spazio di memoria
+
 ![linea](../immagini/linea.png)
 
 ### 2.3.1 Heap and Stack
+
+  * il programma (quindi il programmatore) ha a disposizione due tipi di gestione della RAM:
+
+  | **stack** |
+  | --------- |
+
+  * le variabili vengono salvate in **zone contigue** di memoria (da cui il nome)
+  * il calcolatore si occupa della manutenzione della stack:
+    la memoria viene **automaticamente allocata e cancellata** a fine scope
+
+  | **heap** |
+  | -------- |
+
+  * le variabili vengono salvate in **una zona meno ordinata** di memoria
+  * il calcolatore **non** si occupa della manutenzione della stack:
+    il programma (quindi il programmatore) deve **ricordarsi di svuotare la memoria**
 
 ![linea](../immagini/linea.png)
 
 ### 2.3.2 Allocazione di una variabile nella Stack
 
+  * una qualunque definizione di variabili vista finora 
+    e' un esempio di uso della stack:
+    ```cpp
+    int numero = 5 ;
+    float array[3] ;
+    array[0] = 4.3 ;
+    // etc
+    ```
+  * utilizzare la stack e' detto anche **allocazione automatica della memoria**
+
+  | **vantaggi** |
+  | --------- |
+
+  * il programmatore non si preoccupa della gestione della memoria
+
+  | **svantaggi** |
+  | --------- |
+
+  * la zona di RAM riservata alla stack e' **piccola**
+  * la dimensione delle variabili deve essere **nota al momento della compilazione**
+
 ![linea](../immagini/linea.png)
 
 ### 2.3.3 Allocazione di una variabile nella Heap
 
+  * per allocare una variabile nella heap si usa l'istruzione **```new```**:
+    ```cpp
+    int * numero = new int (5) ;
+    std::cout << * numero << std::endl ;
+    ```
+    * new **ritorna un puntatore** alla zona di memoria allocata,
+      da assegnare ad una variabile
+    * se si perde il valore del puntatore, 
+      diventa **impossibile rintracciare la zona di memoria** allocata da ```new``` 
+  * la zona di memoria non viene deallocata automaticamente,
+    nel codice sorgente **e' necessario utilizzare l'istruzione ```delete```** per farlo:
+    ```cpp
+    delete numero ;
+    ```
+  * utilizzare la stack e' detto anche **allocazione dinamica della memoria**
+
+  | **vantaggi** |
+  | --------- |
+
+  * la memoria heap e' **molto piu' grande** della stack
+  * il programmatore puo' decidere la dimensione della variabile durante l'esecuzione del programma
+  * la memoria non viene cancellata automaticamente a fine scope
+
+  | **svantaggi** |
+  | --------- |
+
+  * se non si libera la memoria con ```delete```,
+    in particolare nei cicli,
+    questa si intasa e l'esecuzione rischia di **interrompersi ad un punto casuale**
+    (cioe' quando la memoria e' piena)
+    ed e' molto difficile identificare il problema nel programma
+
 ![linea](../immagini/linea.png)
 
-### 2.3.4 Allocazione dinamica ed array
+### 2.3.4 Esempio di allocazione dinamica: utilizzo in una funzione
+
+  * la funzione seguente sfrutta il fatto che la memoria allocata dinamicamente
+    **non viene cancellata quando finisce lo scope**:
+    ```cpp
+    int * creaInteroDoppio (int valore)
+    {
+      int * risultato = new int (valore * 2) ; 
+      return risultato ;
+    }
+    ```
+  * infatti, il valore del risultato **rimane accessibile** anche 
+    dopo che la funzione e' stata eseguita:
+    ```cpp
+    int numero = 5 ;
+    int * doppio = creaInteroDoppio (numero) ;
+    std::cout << "Valore iniziale: " << numero  << std::endl ;
+    std::cout << "Valore doppio  : " << *doppio << std::endl ;
+    ```
+  * **non bisogna dimenticare** di svuotare la memoria quando la variabile non serve piu':
+    ```cpp
+    delete doppio ;
+    ```    
+
+![linea](../immagini/linea.png)
+
+### 2.3.5 Un errore pernicioso
+
+  * nell'utilizzo della funzione ```creaInteroDoppio```
+    non bisogna dimenticare di assegnare ad una variabile il valore del puntatore
+  * la linea seguente non da' errore, 
+    tuttavia **perde il valore del puntatore** 
+    alla memoria allocata dinamicamente      
+    ```cpp
+    std::cout << "Valore doppio  : " << *creaInteroDoppio (numero) << std::endl ;
+    ```
+  * di conseguenza, non e' possibile utilizzare il comando ```delete```
+    e la zona di memoria rimane inutilizzabile fino al termine 
+    dell'esecuzione del programma
+    
+![linea](../immagini/linea.png)
+
+### 2.3.5 Allocazione dinamica ed array
 
 ![linea](../immagini/linea.png)
 
