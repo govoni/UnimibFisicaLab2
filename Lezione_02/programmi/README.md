@@ -13,7 +13,7 @@
    | main_08.cpp | variabili in output da una funzione |
    | main_09.cpp | esempio di allocazione dinamica della memoria |
    | main_10.cpp | esempio di allocazione dinamica in una funzione |
-   | main_11.cpp |  |
+   | main_11.cpp | esempio di allocazione dinamica di un array |
    | main_12.cpp |  |
    | main_13.cpp |  |
    | main_14.cpp |  |

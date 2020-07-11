@@ -55,6 +55,6 @@ lo ordini dal più piccolo al più grande
 
 ## Esercizio 2.7
 
-Riscrivere la funzione ```creaVettore (...) ``` della lezione  
-senza fare uso dell’istruzione return (il passaggio degli argomenti deve essere leggermente modificato).
-
+Scrivere una funzione ```creaArray (...) ``` che prenda in input un numero intero,
+crei un array di tipo ```float``` lungo quando il numero intero di input
+e restituisca il puntatore al primo elemento dell'array.

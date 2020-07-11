@@ -585,27 +585,134 @@
     ```cpp
     std::cout << "Valore doppio  : " << *creaInteroDoppio (numero) << std::endl ;
     ```
-  * di conseguenza, non e' possibile utilizzare il comando ```delete```
+  * di conseguenza, **non e' possibile utilizzare il comando ```delete```**
     e la zona di memoria rimane inutilizzabile fino al termine 
     dell'esecuzione del programma
-    
+
 ![linea](../immagini/linea.png)
 
 ### 2.3.5 Allocazione dinamica ed array
 
+  * siccome l'allocazione statica richiede che la dimensione delle variabili sia nota in fase di compilazione,
+    la lunghezza di un array deve essere scritta nel codice sorgente:
+    ```cpp    
+    float array[3] ;  // QUESTO VA BENE
+    int N = 5 ;
+    float array[N] ;  // QUESTO __NON__ VA BENE
+    ```
+    * la linea ```float array[N]``` non e' corretta in ```C++```, 
+      la dimensione dell'array non sara' ```5```, ma un numero che a priori non conosciamo,
+      creando problemi in esecuzione difficili da identificare
+  * si puo' utilizzare allocazione dinamica della memoria
+    per creare array che abbiano dimensione scelta durante l'esecuzione     
+    ```cpp    
+    int N = 5 ;
+    float * dynamic_array = new float [N] ;
+    ```
+    * invece delle parentesi tonde, dopo il tipo della variabile bisogna utilizzare **parentesi quadre**
+  * avendo usato l'operatore ```new```, la memoria va liberata quando l'array non serve piu':
+  ```cpp
+  delete [] dynamic_array ;
+  ```
+  * non bisogna dimenticare le **parentesi quadre** dopo ```delete```
+  * fintanto che siste, questo array si utilizza come uno allocato staticamente
+
 ![linea](../immagini/linea.png)
 
-### 2.3.5 Rappresentzione degli array in memoria
+### 2.3.6 Trova l'errore, 1
+
+  * cosa c'e' di sbagliato nella sequenza di istruzioni seguente?
+    ```cpp
+    int anArray[10];
+    int* num;
+    int* vec = new int[10]; num = anArray;
+    vec = num;
+    delete[] vec;
+    ```
 
 ![linea](../immagini/linea.png)
 
-### 2.3.6 Come non usare l'allocazione dinamica, 1
+### 2.3.7 Trova l'errore, 2
+
+  * cosa c'e' di sbagliato nella sequenza di istruzioni seguente?
+    ```cpp
+    int nElem ;
+    // ...
+    double * myArray ; 
+    if (nElem > 0)
+      myArray = new double[nElem] ; 
+    // ...
+    delete[] myArray ;
+    ```
 
 ![linea](../immagini/linea.png)
 
-### 2.3.7 Come non usare l'allocazione dinamica, 2
+### 2.3.7 Trova l'errore, 3
+
+  * cosa c'e' di sbagliato nella sequenza di istruzioni seguente?
+    ```cpp
+    int nElem ;
+    double * myArray = new double[10] ; 
+    // ...
+    if (nElem > 0)
+      myArray = new double[nElem] ; 
+    // ...
+    delete[] myArray ;
+    ```
 
 ![linea](../immagini/linea.png)
+
+### 2.3.7 Trova l'errore, 4
+
+  * cosa c'e' di sbagliato nella sequenza di istruzioni seguente?
+    ```cpp
+    int myFunction (int * inArray, int dim)
+      {
+        int sumEven = 0 ;
+        int myArray[dim] ;
+        unsigned int indx = 0;
+        for (unsigned int i = 0 ; i < 10 ; ++i) 
+          {
+            if (inArray[i]%2 == 0) 
+              {
+                myArray[indx] = inArray[i] ;
+                ++indx ; 
+              }
+          }
+        for (unsigned int i = 0 ; i < indx ; ++i)
+          sumEven += myArray[i]; 
+        return sumEven;
+      }
+
+    ```
+
+![linea](../immagini/linea.png)
+
+### 2.3.7 Trova l'errore, 5
+
+  * cosa c'e' di sbagliato nella sequenza di istruzioni seguente?
+    ```cpp
+    int myFunction (int * inArray, int dim)
+      {
+        int sumEven = 0 ;
+        int * myArray = new int[dim] ;
+        unsigned int indx = 0 ;
+        for (unsigned int i = 0 ; i < 10 ; ++i) 
+          {
+            if (inArray[i]%2 == 0) 
+              {
+                myArray[indx] = inArray[i] ;
+                ++indx ; 
+              }
+          }
+        for (unsigned int i = 0 ; i < indx ; ++i)
+          sumEven += myArray[i] ; 
+        return sumEven ;
+      }
+    ```
+
+![linea](../immagini/linea.png)
+
 
 ## 2.4 ESERCIZI
 
