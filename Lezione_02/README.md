@@ -626,7 +626,7 @@
     quindi **non va persa quell'informazione**,
     altrimenti non si riesce piu' a liberare la memoria
 
-![arrrayeptr](../immagini/arrayeptr.png)
+![arrrayeptr](immagini/arrayeptr.png)
 
 ![linea](../immagini/linea.png)
 
