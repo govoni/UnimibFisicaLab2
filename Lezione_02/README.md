@@ -619,7 +619,18 @@
 
 ![linea](../immagini/linea.png)
 
-### 2.3.6 Trova l'errore, 1
+### 2.3.6 Non bisogna perdere il puntatore!
+
+  * anche in questo caso, il puntatore restituito da ```new```
+    e' l'unico accesso alla memoria allocata dinamicamente,
+    quindi **non va persa quell'informazione**,
+    altrimenti non si riesce piu' a liberare la memoria
+
+![arrrayeptr](../immagini/arrayeptr.png)
+
+![linea](../immagini/linea.png)
+
+### 2.3.7 Trova l'errore, 1
 
   * cosa c'e' di sbagliato nella sequenza di istruzioni seguente?
     ```cpp
@@ -632,7 +643,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 2.3.7 Trova l'errore, 2
+### 2.3.8 Trova l'errore, 2
 
   * cosa c'e' di sbagliato nella sequenza di istruzioni seguente?
     ```cpp
@@ -647,7 +658,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 2.3.7 Trova l'errore, 3
+### 2.3.9 Trova l'errore, 3
 
   * cosa c'e' di sbagliato nella sequenza di istruzioni seguente?
     ```cpp
@@ -662,7 +673,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 2.3.7 Trova l'errore, 4
+### 2.3.10 Trova l'errore, 4
 
   * cosa c'e' di sbagliato nella sequenza di istruzioni seguente?
     ```cpp
@@ -688,7 +699,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 2.3.7 Trova l'errore, 5
+### 2.3.11 Trova l'errore, 5
 
   * cosa c'e' di sbagliato nella sequenza di istruzioni seguente?
     ```cpp
@@ -712,7 +723,6 @@
     ```
 
 ![linea](../immagini/linea.png)
-
 
 ## 2.4 ESERCIZI
 
