@@ -14,11 +14,3 @@
    | main_09.cpp | esempio di allocazione dinamica della memoria |
    | main_10.cpp | esempio di allocazione dinamica in una funzione |
    | main_11.cpp | esempio di allocazione dinamica di un array |
-   | main_12.cpp |  |
-   | main_13.cpp |  |
-   | main_14.cpp |  |
-   | main_15.cpp |  |
-   | main_16.cpp |  |
-   | main_17.cpp |  |
-   | main_18.cpp |  |
-   | main_19.cpp |  |
