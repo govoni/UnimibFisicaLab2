@@ -710,7 +710,7 @@
 ### 1.5.4 il ciclo ```for```
 
   * la struttura di controllo ```for ()``` 
-    e' un modo di implmentare la struttura di controllo a ciclo,
+    e' un modo di implementare la struttura di controllo a ciclo,
     tipicamente nel caso in cui al ciclo sia **associato un conteggio**
   * nella parentesi che segue il comando ```for``` sono solitamente riportate tre istruzioni,
     separati da un punto e virgola:
@@ -742,7 +742,7 @@
 ### 1.5.5 il ciclo ```while```
 
   * la struttura di controllo ```while ()``` 
-    e' un modo di implmentare la struttura di controllo a ciclo,
+    e' un modo di implementare la struttura di controllo a ciclo,
     tipicamente nel caso in cui si voglia continuare il ciclo 
     fintanto che una **condizione risulta vera**
   * nella parentesi che segue l'istruzione ```while```
