@@ -795,7 +795,7 @@
   * l'istruzione ```continue``` interrompe l'esecuzione dell'iterazione 
     e passa a quella successiva
 
-   ![strutture](immagini/greak_continue.png)
+   ![strutture](immagini/break_continue.png)
 
 ![linea](../immagini/linea.png)
  
