@@ -735,7 +735,7 @@
       puo' portare al errori logici nel programma,
       che possono portare a risultati inaffidabili in fase di esecuzione
 
-  ![strutture](immagini/do_while.png)
+  ![strutture](immagini/while.png)
 
 ![linea](../immagini/linea.png)
 
@@ -763,7 +763,7 @@
     * questo permette di distribuire all'interno dello scope del ciclo diversi controlli,
       aumentando considerevolmente il rischio che il ciclo non termini mai  
 
-  ![strutture](immagini/do_while.png)
+  ![strutture](immagini/while.png)
 
 ![linea](../immagini/linea.png)
 
