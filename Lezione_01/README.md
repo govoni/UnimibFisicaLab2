@@ -662,6 +662,8 @@
       }
     ```
 
+  ![strutture](immagini/if_then_else.png)
+
 ![linea](../immagini/linea.png)
 
 ### 1.5.3 switch 
@@ -733,6 +735,9 @@
       puo' portare al errori logici nel programma,
       che possono portare a risultati inaffidabili in fase di esecuzione
 
+  ![strutture](immagini/while.png)
+
+
 ![linea](../immagini/linea.png)
 
 ### 1.5.5 il ciclo ```while```
@@ -772,6 +777,8 @@
     while (i < 2 * N) ;
     ```
  
+   ![strutture](immagini/do_while.png)
+
  ![linea](../immagini/linea.png)
  
 ## 1.5.6 l'interruzione di un ciclo
