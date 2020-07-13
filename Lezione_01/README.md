@@ -686,6 +686,9 @@
         // blocco di istruzioni
     }
     ```
+
+  ![strutture](immagini/switch.png)
+
   * nella struttura di controllo ```switch (espressione)```
     vengono eseguite le istruzioni che stanno sotto la linea ```case``` 
     tale per cui **```espressione``` e' uguale al valore riportato 
@@ -725,6 +728,9 @@
         std::cout << "il doppio di " << i << " vale: " << 2 * i << std::endl ;
       }
     ```
+
+  ![strutture](immagini/while.png)
+
     * **le variabili** definite fra parentesi rimangono definite soltanto all'interno
       dello scope del ciclo
     * l'operazione di controllo viene compiuta **prima** di effettuare nell'iterazione corrispondente  
@@ -734,8 +740,6 @@
     * utilizzare una scrittura non ortodossa del ciclo ```for```
       puo' portare al errori logici nel programma,
       che possono portare a risultati inaffidabili in fase di esecuzione
-
-  ![strutture](immagini/while.png)
 
 ![linea](../immagini/linea.png)
 
@@ -757,13 +761,15 @@
         ++i ;
       }
     ```
+
+  ![strutture](immagini/while.png)
+
     * il controllo viene effettuato **prima** dell'esecuzione dell'iterazione corrispondente
     * se il **campo fra parentesi e' vuoto**, il ciclo avviene e continua indefinitamente; 
       va quindi interrotto con il comando ```break```
     * questo permette di distribuire all'interno dello scope del ciclo diversi controlli,
       aumentando considerevolmente il rischio che il ciclo non termini mai  
 
-  ![strutture](immagini/while.png)
 
 ![linea](../immagini/linea.png)
 
