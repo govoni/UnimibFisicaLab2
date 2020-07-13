@@ -735,8 +735,7 @@
       puo' portare al errori logici nel programma,
       che possono portare a risultati inaffidabili in fase di esecuzione
 
-  ![strutture](immagini/while.png)
-
+  ![strutture](immagini/do_while.png)
 
 ![linea](../immagini/linea.png)
 
@@ -763,6 +762,13 @@
       va quindi interrotto con il comando ```break```
     * questo permette di distribuire all'interno dello scope del ciclo diversi controlli,
       aumentando considerevolmente il rischio che il ciclo non termini mai  
+
+  ![strutture](immagini/do_while.png)
+
+![linea](../immagini/linea.png)
+
+### 1.5.6 il ciclo ```do ... while```
+
   * talvolta conviene che la condizione di proseguimento del ciclo 
     venga controllata **dopo l'esecuzione di ogni iterazione**
     (ad esempio quando, prima della prima iterazione, non ha senso effettuare il controllo)
@@ -781,13 +787,15 @@
 
  ![linea](../immagini/linea.png)
  
-## 1.5.6 l'interruzione di un ciclo
+## 1.5.7 l'interruzione di un ciclo
 
   * oltre a sfruttare la condizione controllata da un ciclo,
     **la sua esecuzione puo' essere interrotta** con due comandi:
   * l'istruzione ```break``` interrompe l'esecuzione dell'iterazione ed esce dal ciclo
   * l'istruzione ```continue``` interrompe l'esecuzione dell'iterazione 
     e passa a quella successiva
+
+   ![strutture](immagini/greak_continue.png)
 
 ![linea](../immagini/linea.png)
  
