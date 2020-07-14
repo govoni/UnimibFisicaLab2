@@ -4,7 +4,7 @@
    | -------------| -------------|
    | main_00.cpp | esempio di utilizzo di ```rand ()``` |
    | main_01.cpp | esempio di utilizzo di ```srand ()```|
-   | main_02.cpp | |
+   | main_02.cpp | esempio di generazione di pdf uniforme |
    | main_03.cpp | |
    | main_04.cpp | |
    | main_05.cpp | |

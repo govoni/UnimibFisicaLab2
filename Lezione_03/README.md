@@ -148,23 +148,50 @@
     non e' in generale ben adattata ad un suo uso generico
   * ci interessa produrre sequenze di numeri pseudo-casuali 
     che seguano distribuzioni differenti
+  * le densita' di probabilita' dei numeri pseudo-casuali generati
+    avranno sempre **dominio limitato**, 
+    per via delle limitazioni intrinseche dei calcolatori  
 
 ![linea](../immagini/linea.png)
 
-### 3.2.1 una distribuzione uniforme
+### 3.2.1 una distribuzione uniforme di numeri razionali pseudo-casuali
 
   * una distribuzione uniforme di numeri casuali e' **definita su un insieme limitato**
     per costruzione, perche' altrimenti il suo integrale sarebbe divergente
+  * l'obiettivo e' produrre numeri casuali compresi nell'intervallo ```min, max```,
+    **partendo dalle risorse che abbiamo**, cioe' ```rand ()```
+    1. **distribuzione uniforme fra ``0`` ed ``1``** : 
+       ```cpp
+       rand () / static_cast<float> RAND_RANGE ;
+       ```  
+    2. **dilatazione** fra ``0`` e ``max-min``:
+       ```cpp
+       (max - min) * rand () / static_cast<float> RAND_RANGE ;  
+       ```  
+    3. **traslazione** di ```min```:
+       ```cpp
+       float rand_range (float min, float max)
+         {
+           min (max - min) * rand () / static_cast<float> RAND_RANGE ;
+         }  
+       ```  
 
+![linea](../immagini/linea.png)
 
-  * item
+### 3.2.1 altre distribuzioni: il metodo try & catch
 
-  | testo |
-  | -----------------------|
+  * per generare distribuzioni di numeri pseudo-casuali che non siano uniformi
+    bisogna sempre partire **dai generatori a nostra disposizione**:
+    numeri razionali con distribuzione uniforme su un intervallo arbitrario
 
 ![linea](../immagini/linea.png)
 
 ### 3.1.2 titolo
+
+
+  | testo |
+  | -----------------------|
+
 
 ![linea](../immagini/linea.png)
 
