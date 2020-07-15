@@ -23,7 +23,11 @@ int main (int argc, char ** argv)
       }
     int Nmax = atoi (argv[1]) ;
 
-    TH1F h_uniforme ("h_uniforme", "distribuzione uniforme", 50, -5., 5.) ;
+    TString titolo = "distribuzione uniforme, " ;
+    titolo += argv[1] ;
+    titolo += " eventi" ;
+    TH1F h_uniforme ("h_uniforme", titolo, 50, -5., 5.) ;
+    h_uniforme.GetXaxis ()->SetTitle ("x") ;
 
     for (int i = 0 ; i < Nmax ; ++i)
       h_uniforme.Fill (rand_range (-4., 4.)) ;

@@ -1,4 +1,4 @@
-# Lezione 3: la generazione di numeri casuali
+# Lezione 4: la generazione di numeri casuali
 
   * quando si effettua una qualunque misura,
     si porta a termine il **confronto fra i dati raccolti e un modello della natura**
@@ -14,11 +14,11 @@
 
 ![linea](../immagini/linea.png)
 
-## 3.1 la generazione di numeri casuali
+## 4.1 la generazione di numeri casuali
 
 ![linea](../immagini/linea.png)
 
-### 3.1.1 sequenze casuali
+### 4.1.1 sequenze casuali
 
   * un **processo casuale, o stocastico**,
     produce una successione di numeri distribuiti casualmente 
@@ -33,7 +33,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 3.1.2 sequenze pseudo-casuali
+### 4.1.2 sequenze pseudo-casuali
 
   * esistono programmi e librerie, 
     detti in generale **generatori di numeri pseudo-casuali**,
@@ -49,7 +49,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 3.1.3 il generatore lineare congruenziale
+### 4.1.3 il generatore lineare congruenziale
 
   * un esempio di formula per **calcolare l'elemento successivo**
     di una sequenza pseudo-casuale dato un qualunque numero e' il seguente:
@@ -61,7 +61,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 3.1.4 le problematiche dei generatori di numeri pseudo-casuali
+### 4.1.4 le problematiche dei generatori di numeri pseudo-casuali
 
   * la dipendenza funzionale fra due numeri pseudo-casuali consecutivi **non deve essere visibile**
   * se in una sequenza di numeri pseudo-casuali ricompare un numero gia' visto,
@@ -78,7 +78,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 3.1.5 un generatore di numeri casuali in ```C++```
+### 4.1.5 un generatore di numeri casuali in ```C++```
 
   * nella libreria ```cstdlib``` e' presente un generatore di numeri pseudo-casuali:
     ```cpp
@@ -106,7 +106,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 3.1.6 le caratteristiche di ```rand ()```
+### 4.1.6 le caratteristiche di ```rand ()```
 
   * numeri interi pseudo-casuali distribuiti uniformemente fra ```0``` e ```RAND_MAX```,
     che e' una variabile definita all'interno della libreria ```cstdlib```
@@ -115,7 +115,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 3.1.6 come cambiare il seed di generazione
+### 4.1.6 come cambiare il seed di generazione
 
   * esiste la funzione ```srand (int seed)``` che imposta il seed di generazione
     dei numeri casuali:
@@ -142,7 +142,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 3.2 ottenere diverse distribuzioni di numeri pseudo-casuali
+### 4.2 ottenere diverse distribuzioni di numeri pseudo-casuali
 
   * una sequenza di numeri interi compresi fra ```0``` e ```RAND_MAX```
     non e' in generale ben adattata ad un suo uso generico
@@ -154,7 +154,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 3.2.1 una distribuzione uniforme di numeri razionali pseudo-casuali
+### 4.2.1 una distribuzione uniforme di numeri razionali pseudo-casuali
 
   * una distribuzione uniforme di numeri casuali e' **definita su un insieme limitato**
     per costruzione, perche' altrimenti il suo integrale sarebbe divergente
@@ -168,7 +168,7 @@
        ```cpp
        (max - min) * rand () / static_cast<float> (RAND_MAX) ;  
        ```  
-    3. **traslazione** di ```min```:
+    4. **traslazione** di ```min```:
        ```cpp
        float rand_range (float min, float max)
          {
@@ -178,7 +178,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 3.2.2 altre distribuzioni di probabilita'
+### 4.2.2 altre distribuzioni di probabilita'
 
   * secondo la distribuzione di densita' di probabilita' (pdf) uniforme,
     la probabilita' che eventi pseudo-casuali vengano generati in un dato intervallo
@@ -189,7 +189,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 3.2.3 l'algoritmo try-and-catch (TAC)
+### 4.2.3 l'algoritmo try-and-catch (TAC)
 
   * generare eventi pseudo-casuali in modo **proporzionale all'area sottesa dalla pdf**
 
@@ -203,7 +203,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 3.2.3 l'implementazione dell'algoritmo try-and-catch
+### 4.2.3 l'implementazione dell'algoritmo try-and-catch
 
   * per ripetere la generazione fino a che la condizione ```y < f(x)``` non e' soddisfatta,
     si utilizza un ciclo:
@@ -227,7 +227,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 3.2.3 vantaggi e svantaggi dell'algoritmo try-and-catch
+### 4.2.3 vantaggi e svantaggi dell'algoritmo try-and-catch
 
   | vantaggi |
   | -------- |
@@ -247,16 +247,14 @@
 
 ![linea](../immagini/linea.png)
 
-### 3.1.2 titolo
-
+### 4.X titolo
 
   | testo |
   | -----------------------|
 
-
 ![linea](../immagini/linea.png)
 
-## 1.12 ESERCIZI
+## 4.X ESERCIZI
 
   * Gli esercizi relativi alla prima lezione si trovano [qui](ESERCIZI.md)
 
