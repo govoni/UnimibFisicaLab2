@@ -875,7 +875,8 @@
     la **identifica univocamente**, dunque non possono esistere due funzioni
     diverse con lo stesso nome e gli stessi tipi in ingresso
     nello stesso programma
-    * funzioni con lo stesso nome, ma con tipi in ingresso diversi, possono coesistere
+    * funzioni con lo stesso nome, ma con tipi in ingresso diversi, possono coesistere:
+      questa proprieta' del ```C++``` si chiama **overloading**
       ```cpp
       int raddoppia (int input_value) 
         {

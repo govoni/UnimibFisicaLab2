@@ -26,9 +26,24 @@
   * [Lezione 2](Lezione_02/README.md) : ripasso di ```C``` ed introduzione al ```C++```, parte 2
   * [Lezione 3](Lezione_03/README.md) : programmazione ad oggetti: le classi
   * [Lezione 4](Lezione_04/README.md) : generazione di numeri casuali
+  * [Lezione 5](Lezione_05/README.md) : metodi Monte Carlo
+  * [Lezione 6](Lezione_06/README.md) : programmazione ad oggetti: l'ereditarieta'
+  * [Lezione 7](Lezione_07/README.md) : programmazione template e standard template library
+  * [Lezione 8](Lezione_08/README.md) : 
+  * [Lezione 9](Lezione_09/README.md) : 
+  * [Lezione 10](Lezione_10/README.md) : 
+  * [Lezione 11](Lezione_11/README.md) : 
+  * [Lezione 12](Lezione_12/README.md) : 
 
 ![linea](immagini/linea.png)
 
 ## Riferimenti bibliografici
+
+
+
+- algoritmi di ricerca di minimi e zeri, algoritmi di ordinamento
+- istogrammi e fit di istogrammi e TGraph
+- minimi quadrati e maximum likelihood
+- lettura e scrittura dei dati: file di testo e ntuple di ROOT
 
 
