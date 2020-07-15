@@ -203,7 +203,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 3.2.3 l'implementazione
+### 3.2.3 l'implementazione dell'algoritmo try-and-catch
 
   * per ripetere la generazione fino a che la condizione ```y < f(x)``` non e' soddisfatta,
     si utilizza un ciclo:
@@ -224,6 +224,26 @@
     * la **forma funzionale** da usare come pdf: 
       come vedete anche una funzione puo' essere passata come argomento
       ad un'altra funzione, descrivendone il prototipo
+
+![linea](../immagini/linea.png)
+
+### 3.2.3 vantaggi e svantaggi dell'algoritmo try-and-catch
+
+  | vantaggi |
+  | -------- |
+
+  * **nota la forma funzionale** della pdf, l'algoritmo funziona
+  * **non e' necessario che sia nota analiticamente**,
+      e' sufficiente che si possa scrivere come funzione di ```C++```
+  * facilmente **generalizzabile a N dimensioni** 
+
+  | svantaggi |
+  | --------- |
+
+  * bisogna essere certi di **conoscere il massimo** (```yMax```) della funzione
+  * ha **bassa efficienza**:
+    * per ottenere un numero casuale, bisogna generarne di sicuro almeno due
+    * spesso molti di piu', perche' molti punti sul piano vengono scartati
 
 ![linea](../immagini/linea.png)
 
