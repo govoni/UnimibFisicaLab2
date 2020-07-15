@@ -279,14 +279,8 @@
         std::cout << "costruzione di un numero complesso" << std::endl ;
       }
     ```
-  * per ogni classe, il ```C++``` tipicamente **definisce un costruttore di default**
-    se non lo trova implementato, 
-    quindi conviene sempre implementarlo per avere sotto controllo il comportamento del programma
-
-  | domanda |
-  | ------- |
-
-  * come fareste ad impedire che il costruttore di default possa essere utilizzato?
+  * se una classe non ha il costruttore, 
+    il compilaore  **definisce un costruttore di default** vuoto
 
 ![linea](../immagini/linea.png)
 
@@ -334,6 +328,8 @@
   * nel distruttore si possono anche implementare comportamenti aggiuntivi,
     come ad esempio il salvataggio automatico dell'informazione
   * anche il distruttore **non ha tipo di ritorno**
+  * se non viene implementato,
+    **il compilatore crea automaticamnete** un distruttore vuoto
 
 ![linea](../immagini/linea.png)
 
