@@ -196,27 +196,150 @@
 
 ### 3.3 Funzioni speciali di una classe
 
+  * oltre a quelle che servono per maneggiare le variabili, 
+    ogni tipo predefinito possiede funzioni dedicate alla 
+    **creazione ed alla distruzione delle variabili**
+  * in una classe,
+    queste funzioni **vanno implementate**  
+
 ![linea](../immagini/linea.png)
 
 ### 3.3.1 Il costruttore
 
-- cosa fare nel costruttore
-- la lista di inizializzazione
-- overloading
-- niente tipo di ritorno
+  * **crea l'oggetto** al momento della sua definizione,
+    inizializzando i membri dell'oggetto:
+    ```cpp
+    complesso::complesso (double r, double i):
+      m_real (r),
+      m_imag (i)
+      {
+        std::cout << "costruzione di un numero complesso" << std::endl ;
+      }
+    ```
+  * le variabili di **tipi predefiniti** vengono create dal proprio costruttore
+  * oggetti di altre classi vengono **creati dal proprio costruttore**   
+  * il costruttore **non ha tipo di ritorno**
+  * nello scope del costruttore si possono eseguire istruzioni
+    (in questo esempio c'e' una stampa a schermo, che in realta' e' scomodo:
+     nessuno vuole un programma troppo petulante)
+  * questo e' un buon posto dove **allocare dinamicamente la memoria**, se necessario   
 
 ![linea](../immagini/linea.png)
 
-### 3.3.2 Il costruttore di default
+### 3.3.2 La lista di inizializzazione
 
-- come si fa a non averlo?
+  * tutti i membri di una classe vengono creati **prima dell'inizio** dello scope del costruttore
+  * la sequenza:
+    ```cpp
+    m_real (r),
+    m_imag (i)
+    ```
+    e' detta **lista di inizializzazione**
+  * ottimizza l'uso della memoria: inizializza ciascun membro al valore fra parentesi
+    al momento della creazione del membro
+  * se non si mettesse la lista di inizializzazione,
+    bisognerebbe inizializzare le variabili nello scope del costruttore,
+    spendendo piu' tempo di esecuzione:
+    ```cpp
+    complesso::complesso (double r, double i):
+      {
+        m_real = r ;
+        m_imag = i ;
+        std::cout << "costruzione di un numero complesso" << std::endl ;
+      }
+    ```
 
 ![linea](../immagini/linea.png)
 
-### 3.3.3 Il costruttore di copia
+### 3.3.3 overloading del costruttore
 
-- come e' scritto l'argomento
-- niente tipo di ritorno anche qui
+  * una classe puo' possedere **piu' di un costruttore**,
+    a patto che ciascuno prenda argomenti diversi
+  * ad esempio, si puo' definire un costruttore che abbia come input soltanto 
+    un numero reale:  
+    ```cpp
+    complesso::complesso (double r):
+      m_real (r),
+      m_imag (0.)
+      {
+        std::cout << "costruzione di un numero complesso" << std::endl ;
+      }
+    ```
+
+![linea](../immagini/linea.png)
+
+### 3.3.4 Il costruttore di default
+
+  * un costruttore senza argomenti di input e' chiamato **costruttore di default**:
+    ```cpp
+    complesso::complesso ():
+      m_real (0.),
+      m_imag (0.)
+      {
+        std::cout << "costruzione di un numero complesso" << std::endl ;
+      }
+    ```
+  * per ogni classe, il ```C++``` tipicamente **definisce un costruttore di default**
+    se non lo trova implementato, 
+    quindi conviene sempre implementarlo per avere sotto controllo il comportamento del programma
+
+  | domanda |
+  | ------- |
+
+  * come fareste ad impedire che il costruttore di default possa essere utilizzato?
+
+![linea](../immagini/linea.png)
+
+### 3.3.5 Il costruttore di copia, o copy constructor
+
+  * e' naturale immaginare di costruire un oggetto nuovo
+    copiando il contenuto di uno esistente:
+    ```cpp
+    complesso::complesso (const complesso & orig):
+      m_real (orig.m_real),
+      m_imag (orig.m_imag)
+      {}
+    ```
+  * una classe ha sempre accesso a tutti i membri 
+    di tutti gli oggetti di quella classe 
+    se vengono passati come argomenti di una funzione,
+    quindi **il copy constructor ha accesso ai membri ```private```
+    dell'oggetto ```orig```**
+    * esiste una eccezione a questa regola,
+      che vedremo quando parleremo di ereditarieta'
+  * l'oggetto ```orig``` viene passato:
+    * **per referenza** per ragioni di velocita'
+    * **con l'attributo const** per garantire che non venga modificato  
+  * anche in questo caso, **non c'e' tipo di ritorno**
+
+![linea](../immagini/linea.png)
+
+### 3.3.6 Il distruttore
+
+  * al termine della vita di un oggetto, cioe' al momento in cui va out of scope, 
+    la memoria che occupa va liberata
+  * i suoi membri di tipi predefiniti del ```C++``` allocati automaticamente
+    vengono distrutti automaticamente
+  * la memoria allocata dinamicamente va ripulita esplicitamente:
+    per fare questo, esiste una funzione dedicata, chiamata **distruttore**,
+    dove tutti i **```delete```** necessari possono essere chiamati
+    ```cpp
+    complesso::~complesso () 
+      {
+        // qui va ripulita la memoria allocata dinamicamente
+      }
+
+    ```    
+  * eventuali **membri che siano oggetti di altre classi** saranno distrutti dal proprio distruttore
+  * nel distruttore si possono anche implementare comportamenti aggiuntivi,
+    come ad esempio il salvataggio automatico dell'informazione
+  * anche il distruttore **non ha tipo di ritorno**
+
+![linea](../immagini/linea.png)
+
+## 3.4 La ridefinizione di operatori, overloading
+
+- i vari ```operator```
 
 ![linea](../immagini/linea.png)
 
@@ -224,23 +347,6 @@
 
 - come e' scritto l'argomento
 - tipo di ritorno?
-
-![linea](../immagini/linea.png)
-
-### 3.3.5 Il distruttore
-
-- ricordare i delete!
-- non chiamato esplicitamente
-- niente tipo di ritorno
-- quando viene chiamato?
-  - allocazione automatica
-  - allocazione dinamica
-
-![linea](../immagini/linea.png)
-
-## 3.4 La ridefinizione di operatori, overloading
-
-- i vari ```operator```
 
 ![linea](../immagini/linea.png)
 

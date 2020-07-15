@@ -13,5 +13,8 @@ int main (int argc, char ** argv)
 
   std::cout << numero_complesso_1.modulo () << std::endl ;
   std::cout << numero_complesso_2.modulo () << std::endl ;
+
+  complesso numero_complesso_3 (numero_complesso_2) ;
+
   return 0 ;
 }
