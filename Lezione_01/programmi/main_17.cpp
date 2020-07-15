@@ -5,7 +5,7 @@ c++ -o main_17 main_17.cpp
 #include <iostream>
 #include <cmath>
 
-int main (int arcg, char ** argv)
+int main (int argc, char ** argv)
   {
     float num = 4.5 ;
     std::cout << "quadrato di " << num << ": " << pow (num, 2) << "\n" ;

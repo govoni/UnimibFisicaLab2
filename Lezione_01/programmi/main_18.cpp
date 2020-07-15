@@ -8,7 +8,7 @@ c++ -o main_18 -O3 main_18.cpp
 #include <cmath>
 #include <ctime>
 
-int main (int arcg, char ** argv)
+int main (int argc, char ** argv)
   {
 
     long int N = 1e9 ; 

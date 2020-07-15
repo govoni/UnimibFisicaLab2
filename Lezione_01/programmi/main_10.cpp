@@ -4,7 +4,7 @@ c++ -o main_10 main_10.cpp
 
 #include <iostream>
 
-int main (int arcg, char ** argv)
+int main (int argc, char ** argv)
   {
     int num = 5 ;
     ++num ;

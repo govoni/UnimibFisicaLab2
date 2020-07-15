@@ -23,7 +23,7 @@ int raddoppiaRef (int & valore)
   return valore ;
 }
 
-int main  (int arcg, char ** argv)
+int main  (int argc, char ** argv)
   {
 
     int numero = 5 ;

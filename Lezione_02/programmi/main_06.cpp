@@ -4,7 +4,7 @@ c++ -o main_06 main_06.cpp
 
 #include<iostream> 
 
-int main  (int arcg, char ** argv)
+int main  (int argc, char ** argv)
   {
 
     double pi_greco = 3.1415 ;

@@ -4,7 +4,7 @@ c++ -o main_04 main_04.cpp
 
 #include<iostream> 
 
-int main  (int arcg, char ** argv)
+int main  (int argc, char ** argv)
   {
     int var = 137 ; 
     int * ptr = & var ;

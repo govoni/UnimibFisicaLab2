@@ -4,7 +4,7 @@ c++ -o main_09 main_09.cpp
 
 #include <iostream>
 
-int main (int arcg, char ** argv)
+int main (int argc, char ** argv)
   {
     float R1 = 5. ;
     float R2 = 5. ;

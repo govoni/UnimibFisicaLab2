@@ -1,36 +1,30 @@
 /*
-c++ -o main_03 main_03.cpp
+c++ -o main_03 `root-config --glibs --cflags` main_03.cpp
 */
 
 #include <cstdlib>
 #include <iostream>
-#include <cmath>
 
-float fgaus (float x) 
-  {
-    return exp (-0.5 * x * x) ; 
-  }
+#include "TH1F.h"
 
 float rand_range (float min, float max)
   {
     return min + (max - min) * rand () / static_cast<float> (RAND_MAX) ;
   } 
 
-float rand_TAC (float f (float), float xMin, float xMax, float yMax)
-  {
-    double x = 0. ;
-    double y = 0. ; 
-    do {
-      x = rand_range (xMin, xMax) ;
-      y = rand_range (0, yMax) ;
-    } while (y > f (x)) ;
-    return x ; 
-  }
 
-int main (int arcg, char ** argv)
+int main (int argc, char ** argv)
   {
-    for (int i = 0 ; i < 5 ; ++i)
-      std::cout << "indice " << i << " --> " << rand_TAC (fgaus, -1., 1., 1.) << "\n" ;
+    if (argc < 2)
+      {
+        std::cerr << "uso del programma: " << argv[0] << " numero_eventi" << std::endl ;
+      }
+    int Nmax = atoi (argv[1]) ;
+
+    TH1F h_uniforme ("h_uniforme", "distribuzione uniforme", 50, -5., 5.) ;
+
+    for (int i = 0 ; i < Nmax ; ++i)
+      h_uniforme.Fill (rand_range (-4., 4.)) ;
 
     return 0 ;
   }

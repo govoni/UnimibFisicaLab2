@@ -6,7 +6,7 @@ c++ -o main_01 main_01.cpp
 #include <iostream>
 #include <ctime>
 
-int main (int arcg, char ** argv)
+int main (int argc, char ** argv)
   {
     srand (3) ;
     for (int i = 0 ; i < 5 ; ++i)

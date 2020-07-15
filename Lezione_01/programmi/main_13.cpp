@@ -4,7 +4,7 @@ c++ -o main_13 main_13.cpp
 
 #include <iostream>
 
-int main (int arcg, char ** argv)
+int main (int argc, char ** argv)
   {
     int num1 = 5 ;
     if (num1 % 2 == 0) 

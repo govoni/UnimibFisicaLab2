@@ -6,7 +6,7 @@ c++ -o main_15 main_15.cpp
 
 int raddoppia (int) ;
 
-int main (int arcg, char ** argv)
+int main (int argc, char ** argv)
   {
   
     for (int i = 0 ; i < 5 ; ++i)

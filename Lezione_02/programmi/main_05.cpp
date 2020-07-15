@@ -4,7 +4,7 @@ c++ -o main_05 main_05.cpp
 
 #include<iostream> 
 
-int main  (int arcg, char ** argv)
+int main  (int argc, char ** argv)
   {
     int vec[] = {2, 20} ;
     std::cout << vec << std::endl ;

@@ -11,10 +11,10 @@ float rand_range (float min, float max)
   } 
 
 
-int main (int arcg, char ** argv)
+int main (int argc, char ** argv)
   {
     for (int i = 0 ; i < 5 ; ++i)
-      std::cout << "indice " << i << " --> " << rand () << "\n" ;
+      std::cout << "indice " << i << " --> " << rand_range (-4., 4.) << "\n" ;
 
     std::cout << "\n" ;
 

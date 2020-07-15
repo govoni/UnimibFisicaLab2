@@ -33,7 +33,7 @@ void scriviAschermo (int input_value)
 // ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
 
 
-int main (int arcg, char ** argv)
+int main (int argc, char ** argv)
   {
   
     for (int i = 0 ; i < 5 ; ++i)

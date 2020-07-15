@@ -6,7 +6,7 @@ c++ -o main_16 libreria.cc main_16.cpp
 #include "libreria.h"
 
 
-int main (int arcg, char ** argv)
+int main (int argc, char ** argv)
   {
   
     for (int i = 0 ; i < 5 ; ++i)

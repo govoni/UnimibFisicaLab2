@@ -4,7 +4,7 @@ c++ -o main_08 main_08.cpp
 
 #include <iostream>
 
-int main (int arcg, char ** argv)
+int main (int argc, char ** argv)
   {
     int numero = 5 ;
 
