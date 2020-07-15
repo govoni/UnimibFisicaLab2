@@ -88,6 +88,10 @@
       double m_imag ;
     } ;
     ```   
+  | attenzione |
+  | ---------- |
+
+  * dopo la chiusura della parentesi graffa **c'e' un punto e virgola! ```} ;```**
 
 ![linea](../immagini/linea.png)
 
@@ -96,34 +100,97 @@
   * in un qualunque punto del codice sorgente,
     si puo' quindi creare un numero complesso:
     ```cpp
-    complesso numero_complesso (0., 0.) ;
+    complesso numero_complesso_1 (0., 0.) ;
+    complesso numero_complesso_2 (3., 4.) ;
     ```
+  * in questo esempio ```complesso``` e' la classe (il nuovo tipo),
+    mentre ```numero_complesso_1``` e ```numero_complesso_2```
+    sono due **oggetti**
 
 ![linea](../immagini/linea.png)
 
 ### 3.2.2 I membri di una classe
 
+  * le variabili definite all'interno della definizione della classe
+    sono dette **membri della classe**:
+    ```cpp
+    double m_real ;
+    double m_imag ;
+    ```
+  * ogni volta che viene creato un oggetto di una classe,
+    viene creata una nuova istanza dei membri della classe
+    associata a quell'oggetto,
+    quindi **ogni oggetto ha le proprie variabili membro** corrispondenti
+  * i membri possono essere di tipo predefinito, 
+    oppure **a loro volta oggetti** di una classe
+  * e' buona regola di programmazione **identificare i membri in modo simbolico**,
+    ad esempio con il prefisso ```m_```  
+
 ![linea](../immagini/linea.png)
 
 ### 3.2.3 I metodi di una classe
 
-![linea](../immagini/linea.png)
-
-### 3.2.4 Il campo ```public```
-
-- e' il default se si scrive ```struct```
+  * le funzioni che sono definite all'interno di una classe sono chiamate **metodi** della classe
+  * hanno automaticamente **accesso ai membri** dell'oggetto sul quale operano
+    e si invocano su un oggetto utilizzando il nome dell'oggetto
+    seguito da un punto e dal nome del metodo:
+    ```cpp
+    numero_complesso_1.modulo ()
+    ```
+  * i metodi **possono avere argomenti**, 
+    ad esempio uno di essi potrebbe moltiplicare il numero complesso 
+    per un numero reale:
+    ```cpp
+    numero_complesso_1.dilata (double fattore_di_scala)
+    ```
 
 ![linea](../immagini/linea.png)
 
 ### 3.2.5 Il campo ```private```
 
-- e' il default per una classe
+  * i metodi di una classe **fungono da interfaccia** fra i membri di un oggetto
+    ed il codice sorgente dove l'oggetto e' definito
+  * e' talvolta auspicabile che i membri possano essere modificati 
+    **soltanto attraverso i metodi**, 
+    per evitare che subiscano operazioni
+    che compromettano la funzionalita' dell'oggetto nel suo insieme
+  * tutti i metodi ed i membri definiti **dopo la parola chiave ```private```**
+    sono accessibili solo per i metodi della loro classe
+  * se non si indica nulla, tutto il contenuto di una classe e' ```private```
+
+![linea](../immagini/linea.png)
+
+### 3.2.4 Il campo ```public```
+
+  * i metodi ed i membri definiti **dopo la parola chiave ```public```**
+    sono accessibili nel codice sorgente al di fuori della classe
+    (ad esempio nella funzione ```main```)
+    tramite la sintassi del ```.```:
+    ```cpp
+    numero_complesso_1.modulo ()
+    ```
+  * solitamente, i **membri** di una classe sono ```private```, 
+    mentre i suoi **metodi** sono ```public```
+  * se si definisce una classe con l'identificativo ```struct``` invece di ```class```,
+    se non si indica nulla tutto il contenuto della classe e' ```public```
 
 ![linea](../immagini/linea.png)
 
 ### 3.2.5 L'implementazione della classe (il file ```complesso.cc```)
 
-- i ```::``` per definire univocamente i metodi
+  * i metodi di una classe possono essere **implementati** 
+    direttamente nello scope di definizione 
+  * solitamente, tuttavia, questo succede **in un file separato**,
+    dove vanno associati alla classe che li contiene, ad esempio:
+    ```cpp
+    #include "complesso.h"
+   double complesso::modulo ()
+     {
+       return sqrt (m_real * m_real + m_imag * m_imag) ;
+     }    
+    ```
+  * il nome di ogni metodo e' preceduto dal nome della classe, 
+    separato dall'operatore di scope resolution ```::``` 
 
 ![linea](../immagini/linea.png)
 
