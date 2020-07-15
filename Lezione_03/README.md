@@ -166,23 +166,64 @@
        ```  
     2. **dilatazione** fra ``0`` e ``max-min``:
        ```cpp
-       (max - min) * rand () / static_cast<float> RAND_RANGE ;  
+       (max - min) * rand () / static_cast<float> (RAND_MAX) ;  
        ```  
     3. **traslazione** di ```min```:
        ```cpp
        float rand_range (float min, float max)
          {
-           min (max - min) * rand () / static_cast<float> RAND_RANGE ;
+           min (max - min) * rand () / static_cast<float> (RAND_MAX) ;
          }  
        ```  
 
 ![linea](../immagini/linea.png)
 
-### 3.2.1 altre distribuzioni: il metodo try & catch
+### 3.2.2 altre distribuzioni di probabilita'
 
-  * per generare distribuzioni di numeri pseudo-casuali che non siano uniformi
-    bisogna sempre partire **dai generatori a nostra disposizione**:
-    numeri razionali con distribuzione uniforme su un intervallo arbitrario
+  * secondo la distribuzione di densita' di probabilita' (pdf) uniforme,
+    la probabilita' che eventi pseudo-casuali vengano generati in un dato intervallo
+    **non dipende dalla posizione** dell'intervallo
+  * per pdf non uniformi questo **non e' vero**
+
+![distribuzione_non_uniforme](immagini/try_and_catch_0_due.png)
+
+![linea](../immagini/linea.png)
+
+### 3.2.3 l'algoritmo try-and-catch (TAC)
+
+  * generare eventi pseudo-casuali in modo **proporzionale all'area sottesa dalla pdf**
+
+![distribuzione_non_uniforme](immagini/try_and_catch_aree.png)
+
+  * popolare il piano con coppie di numeri pseudo-casuali ```x,y```, 
+    ciascuno generato uniformemente con ```rand_range ()```
+    e utilizzare ```x``` solo se ```y < f(x)```
+
+![distribuzione_non_uniforme](immagini/try_and_catch_2.png)
+
+![linea](../immagini/linea.png)
+
+### 3.2.3 l'implementazione
+
+  * per ripetere la generazione fino a che la condizione ```y < f(x)``` non e' soddisfatta,
+    si utilizza un ciclo:
+    ```cpp
+    float rand_TAC (float f (float), float xMin, float xMax, float yMax)
+      {
+        double x = 0. ;
+        double y = 0. ; 
+        do {
+          x = rand_range (xMin, xMax) ;
+          y = rand_range (0, yMax) ;
+        } while (y > f (x)) ;
+        return x ; 
+      }
+    ```
+  * la funzione ```rand_TAC``` ha bisogno di piu' argomenti rispetto a ```rand_range```:
+    * un **limite superiore per l'asse verticale**: ```yMax```
+    * la **forma funzionale** da usare come pdf: 
+      come vedete anche una funzione puo' essere passata come argomento
+      ad un'altra funzione, descrivendone il prototipo
 
 ![linea](../immagini/linea.png)
 

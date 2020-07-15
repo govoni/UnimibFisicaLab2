@@ -7,7 +7,7 @@ c++ -o main_02 main_02.cpp
 
 float rand_range (float min, float max)
   {
-    return min + (max - min) * rand () / static_cast<float> RAND_RANGE ;
+    return min + (max - min) * rand () / static_cast<float> (RAND_MAX) ;
   } 
 
 
