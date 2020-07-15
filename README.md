@@ -40,6 +40,7 @@
 ## Riferimenti bibliografici
 
 
+## argomenti principali rimanenti
 
 - algoritmi di ricerca di minimi e zeri, algoritmi di ordinamento
 - istogrammi e fit di istogrammi e TGraph
