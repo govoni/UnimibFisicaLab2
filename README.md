@@ -24,6 +24,8 @@
   * [Prerequisiti](Lezione_00/README.md): breve riassunto di prerequisiti che non saranno coperti durante il corso
   * [Lezione 1](Lezione_01/README.md) : ripasso di ```C``` ed introduzione al ```C++```, parte 1
   * [Lezione 2](Lezione_02/README.md) : ripasso di ```C``` ed introduzione al ```C++```, parte 2
+  * [Lezione 3](Lezione_03/README.md) : programmazione ad oggetti: le classi
+  * [Lezione 4](Lezione_04/README.md) : generazione di numeri casuali
 
 ![linea](immagini/linea.png)
 
