@@ -478,9 +478,11 @@
 
 ## 3.4 Classi e puntatori
 
-![linea](../immagini/linea.png)
+- puntino e freccetta
+- uso del new
+- uso nel new dentro la classe
 
-### 3.4.X ```this```
+![linea](../immagini/linea.png)
 
 ## 3.X ESERCIZI
 
