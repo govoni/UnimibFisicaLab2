@@ -16,5 +16,19 @@ int main (int argc, char ** argv)
 
   complesso numero_complesso_3 (numero_complesso_2) ;
 
+  complesso numero_complesso_4 = numero_complesso_3 + numero_complesso_2 ;
+//  complesso numero_complesso_4 = numero_complesso_3.operator+ (numero_complesso_2) ;
+
+  numero_complesso_4.stampami () ;
+
+  complesso numero_complesso_5 = numero_complesso_4 + 5. ;
+
+  numero_complesso_5.stampami () ;
+
+  complesso numero_complesso_6 = numero_complesso_5 = numero_complesso_2 ;
+
+  numero_complesso_5.stampami () ;
+  numero_complesso_6.stampami () ;
+
   return 0 ;
 }

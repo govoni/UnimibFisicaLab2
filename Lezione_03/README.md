@@ -194,6 +194,24 @@
 
 ![linea](../immagini/linea.png)
 
+### 3.2.6 Un membro implicito di ogni classe: l'oggetto stesso
+
+  * per ogni classe, 
+    e' sempre definito il **puntatore all'oggetto corrente**,
+    rappresentato dal simbolo **```this```**
+    ```cpp
+    void
+    complesso::stampami ()
+    {
+      std::cout << this->m_real << " + " << this->m_imag << "i" << std::endl ;
+      return ;
+    }
+    ```
+  * il ```.``` che si usa per accedere a membri e metodi di un oggetto
+    viene **sostituito da ```->``` per i puntatori ad oggetti**
+
+![linea](../immagini/linea.png)
+
 ### 3.3 Funzioni speciali di una classe
 
   * oltre a quelle che servono per maneggiare le variabili, 
@@ -237,6 +255,8 @@
     e' detta **lista di inizializzazione**
   * ottimizza l'uso della memoria: inizializza ciascun membro al valore fra parentesi
     al momento della creazione del membro
+  * l'**ordine delle variabili** deve essere il medesimo della loro definizione
+    all'interno della classe  
   * se non si mettesse la lista di inizializzazione,
     bisognerebbe inizializzare le variabili nello scope del costruttore,
     spendendo piu' tempo di esecuzione:
@@ -335,14 +355,105 @@
 
 ## 3.4 La ridefinizione di operatori, overloading
 
-- i vari ```operator```
+  * per i tipi predefiniti di ```C++``` le operazioni matematiche fondamentali
+    sono effettuate con i simboli algebrici noti: ```+```, ```-```, ```*```, ```/```, ```=``` ....
+  * si puo' definire il comportamento di queste funzioni anche per gli oggetti
+    delle classi
+    (come sempre, si distinguono dagli altri per i diversi tipi in ingresso)
+  * ecco due esempi notevoli  
 
 ![linea](../immagini/linea.png)
 
-### 3.3.4 L'operatore di assegnazione
+### 3.3.1 L'operatore di assegnazione per tipi predefiniti
 
-- come e' scritto l'argomento
-- tipo di ritorno?
+  * una operazione solitamente fattibile con tipi predefiniti e' 
+    l'assegnazione a partire da una altra variabile esistente:
+    ```cpp
+    int numero = 5 ;
+    ```
+    * in questo caso, il ```C++``` prima costruisce la variabile ```numero``` e le assegna un valore in memoria,
+      successivamente le fa assumere il valore di ```5```
+
+![linea](../immagini/linea.png)
+
+### 3.3.2 L'operatore di assegnazione per una classe
+
+  * il comportamento dell'operatore di assegnazione **va definito** per una classe
+    ```cpp
+    complesso & 
+    complesso::operator= (const complesso & orig)
+    {
+      m_real = orig.m_real ;
+      m_imag = orig.m_imag ;
+      return *this ;
+    }  
+    ```
+    * la **variabile in ingresso** e' una referenza costante per garantire velocita' e non modificabilita'
+    * la **variabile in uscita** e' una referenza all'oggetto,
+      per permettere la seguente sintassi:
+      ```cpp
+      complesso numero_complesso_6 = numero_complesso_5 = numero_complesso_2 ;
+      ```
+    * non viene restituita una copia dell'oggetto corrente per **risparmiare tempo**
+
+![linea](../immagini/linea.png)
+
+### 3.3.3 L'operatore di somma
+
+  * vogliamo che l'operazione di somma fra numeri complessi si possa scrivere come:
+    ```cpp
+    complesso numero_complesso_4 = numero_complesso_3 + numero_complesso_2 ;
+    ```
+  * in ```C++``` si puo' ottenere defintendo un metodo della classe complesso 
+    chiamato ```operator+```:
+    ```cpp
+    complesso
+    complesso::operator+ (const complesso & addendo)
+    {
+      complesso somma (m_real, m_imag) ;
+      somma.m_real = somma.m_real + addendo.m_real ;
+      somma.m_imag = somma.m_imag + addendo.m_imag ;
+      return somma ;
+    }
+    ```
+    * la **variabile in ingresso** e' una referenza costante per garantire velocita' e non modificabilita'
+    * la **variabile in uscita** e' un oggetto nuovo
+  * l'```operator+``` ha in questo caso un solo argomento,
+    perche' uno dei due addendi e' l'oggetto sul quale e' chiamato.
+    Infatti, le due scritture seguenti sono equivalenti:
+    ```cpp
+    complesso numero_complesso_4 = numero_complesso_3 + numero_complesso_2 ;
+    complesso numero_complesso_4 = numero_complesso_3.operator+ (numero_complesso_2) ;
+    ```
+
+![linea](../immagini/linea.png)
+
+### 3.3.4 Definizione al di fuori della classe
+
+  * la funzione ```operator+``` puo' essere definita anche **al di fuori della classe**
+    * in questo caso ha due argomenti, che sono entrambi gli addendi
+  * in questo caso, tuttavia, nella funzione i membri privati degli oggetti **non sono accessibili**
+    * bisogna definire **metodi pubblici di interfaccia** per accedere al valore dei membri
+      ```cpp
+      double 
+      complesso::parte_reale () const
+      {
+        return m_real ;
+      }
+      ```
+  * puo' essere comodo per definire operazioni **fra oggetti eterogenei**
+    ```cpp
+    complesso operator+ (const complesso & uno, const double & due)
+      {
+        double real = uno.parte_reale () + due ;
+        double imag = uno.parte_immaginaria () ;
+        complesso somma (real, imag) ;
+        return somma ;
+      }
+    ```  
+    * essendo una funzione **esterna alla classe**,
+      in questo caso non e' presente la denominazione si scope ```complesso::```
+
 
 ![linea](../immagini/linea.png)
 
