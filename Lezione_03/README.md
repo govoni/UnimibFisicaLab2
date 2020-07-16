@@ -454,10 +454,39 @@
     * essendo una funzione **esterna alla classe**,
       in questo caso non e' presente la denominazione si scope ```complesso::```
 
-
 ![linea](../immagini/linea.png)
 
 ## 3.5 L'attributo ```const```
+
+  * la parola chiave ```const``` indica il fatto che **non sia permesso
+    cambiare il valore** contenuto in una variabile o in un oggetto
+  * const si **applica** al primo attributo alla sua sinistra, 
+    se non c'è nulla si applica al primo attributo alla sua destra
+    * a seconda della sua posizione, ha effetti differenti
+
+  | sintassi  | effetto |
+  | --- | --- |
+  | ```const int C1 = 10 ;```    | ```C1``` e' un intero il cui valore e' costante |
+  | ```int const C1 = 10 ;```    | ```C1``` e' un intero il cui valore e' costante |
+  | ```const int * C2 ;```       | ```C2``` e' un puntatore ad un ```const int```, cioè un puntatore ad un intero costante |
+  | ```int const * C2 ;```       | ```C2``` e' un puntatore ad un ```const int```, cioè un puntatore ad un intero costante |
+  | ```int * const C3 ;```       | ```C3``` e' un puntatore costante ad un intero variabile |
+  | ```int const * const C4 ;``` | ```C4``` e' un puntatore costante ad un intero costante |
+
+  * NOTA BENE: siccome ```C3``` e ```C4``` sono puntatori costanti,
+    vanno **immediatamente inizializzati**,
+    perche' i puntatori non sono inizializzati ad alcun valore di default:
+    ```cpp
+    int * const C3 (& numero) ;
+    int const * const C4 (& C1) ;
+    ```
+  * E' possibile rimuovere l’attributo ```const``` mediante il ```const_cast```:
+    ```cpp
+    const int myConst = 5;
+    int* nonConst = const_cast<int*>(&myConst);
+    ```
+    * ```nonConst``` punta alla stessa cella di memoria ```myConst```,
+      ma ne puo' modificare il contenuto
 
 ![linea](../immagini/linea.png)
 

@@ -5,7 +5,7 @@
    | complesso.h  | definizione della classe numero complesso |
    | complesso.cc | implementazione della classe numero complesso |
    | main_00.cpp  | primo test della classe complesso |
-   | main_01.cpp  | |
+   | main_01.cpp  | esempi di uso di const con tipi predefiniti |
    | main_02.cpp  | |
    | main_03.cpp  | |
    | main_04.cpp  | |
