@@ -464,6 +464,10 @@
     se non c'è nulla si applica al primo attributo alla sua destra
     * a seconda della sua posizione, ha effetti differenti
 
+![linea](../immagini/linea.png)
+
+### 3.5.1 Esempi di utilizzo di ```const``` con i tipi predefiniti
+
   | sintassi  | effetto |
   | --- | --- |
   | ```const int C1 = 10 ;```    | ```C1``` e' un intero il cui valore e' costante |
@@ -490,19 +494,24 @@
 
 ![linea](../immagini/linea.png)
 
-### 3.5.1 Dove si puo' utlizzare in ```C++``` con i tipi predefiniti
-
-![linea](../immagini/linea.png)
-
 ### 3.5.2 Oggetti definiti ```const```
 
-![linea](../immagini/linea.png)
-
-### 3.5.2 Metodi definiti ```const```
-
-- un metodo ```const``` non puo' modificare nessun data member della classe
-- se una classe è stata istanziata come ```const``` si possono usare solo i suoli metodi ```const```
-
+  * le **stesse regole** si applicano ad oggetti definiti
+  * tuttavia, si pone il problema aggiuntivo che, in generale,
+    **i metodi di una classe possono modificare i membri** di un oggetto
+  * per continuare ad utilizzare metodi preservando la caratteristica ```const```
+    il ```C++``` richiede di **indicare quali metodi non modifichino i membri** 
+    di una classe, aggiungendo l'attributo ```const``` al termine del loro prototpo:
+    ```cpp
+    double 
+    complesso::parte_reale () const
+    {
+      return m_real ;
+    }
+    ```
+  * su un oggetto di tipo ```const``` possono essere invocati 
+    soltanto i metodi dichiarati ```const```
+    
 ![linea](../immagini/linea.png)
 
 ## 3.4 Classi e puntatori
