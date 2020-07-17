@@ -128,14 +128,3 @@ int main(int argc, char** argv)
 }
 
 ```
-
-
-![linea](../immagini/linea.png)
-
-## Esercizio 3.6
-
-
-![linea](../immagini/linea.png)
-
-## Esercizio 3.7
-
