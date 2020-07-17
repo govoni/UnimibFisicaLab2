@@ -1307,10 +1307,9 @@ tempo di esecuzione per i*i: 3.91943 secondi
       (cioe' NON tutte all'inizio del programma)
     * NON sparpagliare per il programma istruzioni che **logicamente si susseguono**
 
-
 ![linea](../immagini/linea.png)
 
-### 1.9.5 dettagli
+### 1.9.6 dettagli
 
   * il ```C++``` **distingue maiuscole da minuscole**, 
     quindi ```num``` e ```Num``` sono due variabili diverse
@@ -1319,6 +1318,29 @@ tempo di esecuzione per i*i: 3.91943 secondi
   * esistono **caratteri riservati** al ```C++```, come le virgolette, gli apici, o il backslash:
     nell'output a schermo evitate di utilizzarli, oppure fateli precedere con il carattere ```\\```, 
     che dice al compilatore di non utilizzare il carattere successivo come carattere riservato
+
+![linea](../immagini/linea.png)
+
+### 1.9.6 unit testing
+
+  * quando si scrive un nuovo programma,
+    e' utile **compilare il codice sorgente** molto spesso
+  * ad ogni passaggio importante del programma, fate uno **unit test**,
+    cioe' test di compilazione ed esecuzione 
+    * scrivere **la funzione ```main``` vuota** e' un passaggio importante 
+      (una unit da testare)
+    * **includere una libreria** e' una unit da testare
+    * aggiungere la **definizione di una variabile rilevante** per il programma e' una unit da testare
+    * aggiungere **una struttura di controllo vuota**, 
+      cioe' ancora prima di avere scritto istruzioni all'interno,
+      e' una unit da testare
+  * procedendo in questo modo, 
+    si semplifica molto l'identificazione delle cause di errori,
+    perche' sono tipicamente da ricercare soltanto nelle ultime aggiunte al codice sorgente    
+  * in caso di programmi molto complessi,
+    e' buona pratica preparare tante versioni della funzione ```main```, 
+    dove ciascuna fa da **test di un aspetto specifico del programma**, 
+    ad esempio una funzione ```main``` per fare il test di ogni libreria creata
 
 ![linea](../immagini/linea.png)
 
