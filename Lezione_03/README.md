@@ -516,9 +516,17 @@
 
 ## 3.4 Classi e puntatori
 
-- puntino e freccetta
-- uso del new
-- uso nel new dentro la classe
+  * come abbiamo gia' visto, 
+    esistono **puntatori e referenze ad oggetti**,
+    con i medesimi comportamenti delle variaibli di tipo predefinito
+  * per accedere a metodi e membri di un oggetto 
+    attraveso un suo puntatore,
+    si utilizza **l'operatore ```->``` invece di ```.```**
+  * le classe possono anche **contenere puntatori** a variabili di tipo predefinito
+    o ad altri oggetti
+  * nel caso in cui si utilizzi **allocazione dinamica** della memoria,
+    e' prudente invocarla nel costruttore
+    ed e' **necessario ripulire la memoria nel distruttore**  
 
 ![linea](../immagini/linea.png)
 
