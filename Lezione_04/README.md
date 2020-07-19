@@ -265,8 +265,11 @@
   * si **generano numeri pseudo-casuali y<sub>i</sub> con distribuzione uniforme** fra *0* ed *1* lungo l'asse *y*
   * per ogni evento generato, si calcola *x<sub>i</sub> = F <sup>-1</sup>(y<sub>i</sub>)*
   * dove *f(x)* e' piu' alta, *F(x)* e' piu' ripida, 
-    quindi &Delta;
-
+    quindi il numero di numeri pseudo-casuali generati nei due intervalli 
+    *&Delta;y<sub>1<sub>*
+    *&Delta;y<sub>2<sub>*
+    risulta proporzionale all'area sottesa dalla curva *f(x)*
+    supra i due intervalli con dimensione *&Delta;x*.
 
   | testo |
   | -----------------------|
