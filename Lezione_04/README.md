@@ -142,7 +142,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 4.2 ottenere diverse distribuzioni di numeri pseudo-casuali
+### 4.2 generare numeri pseudo-casuali con distribuzione uniforme
 
   * una sequenza di numeri interi compresi fra ```0``` e ```RAND_MAX```
     non e' in generale ben adattata ad un suo uso generico
@@ -178,7 +178,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 4.2.2 altre distribuzioni di probabilita'
+### 4.3 altre distribuzioni di probabilita': try-and-catch
 
   * secondo la distribuzione di densita' di probabilita' (pdf) uniforme,
     la probabilita' che eventi pseudo-casuali vengano generati in un dato intervallo
@@ -189,7 +189,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 4.2.3 l'algoritmo try-and-catch (TAC)
+### 4.3.1 l'algoritmo try-and-catch (TAC)
 
   * generare eventi pseudo-casuali in modo **proporzionale all'area sottesa dalla pdf**
 
@@ -203,7 +203,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 4.2.3 l'implementazione dell'algoritmo try-and-catch
+### 4.3.2 l'implementazione dell'algoritmo try-and-catch
 
   * per ripetere la generazione fino a che la condizione ```y < f(x)``` non e' soddisfatta,
     si utilizza un ciclo:
@@ -227,7 +227,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 4.2.3 vantaggi e svantaggi dell'algoritmo try-and-catch
+### 4.3.3 vantaggi e svantaggi dell'algoritmo try-and-catch
 
   | vantaggi |
   | -------- |
@@ -242,8 +242,27 @@
 
   * bisogna essere certi di **conoscere il massimo** (```yMax```) della funzione
   * ha **bassa efficienza**:
-    * per ottenere un numero casuale, bisogna generarne di sicuro almeno due
-    * spesso molti di piu', perche' molti punti sul piano vengono scartati
+    * per ottenere un numero casuale, bisogna generarne di sicuro **almeno due**
+    * spesso **molti di piu'**, perche' molti punti sul piano vengono scartati
+
+![linea](../immagini/linea.png)
+
+### 4.4 altre distribuzioni di probabilita': la funzione inversa
+
+  * **Sia x una variabile casuale con pdf *f(x)* continua e cumulante *F(x)* strettamente crescente.
+    Allora la variabile *y = F(x)* ha distribuzione uniforme**
+  * generare eventi pseudo-casuali **con distribuzione uniforme in *y***
+    equivale a generare eventi pseudo-casuali lungo *x* con distribuzione *f(x)*
+![funzione_inversa](immagini/funzione_inversa.png)
+
+### 4.4.1 l'algoritmo della funzione inversa
+
+  * si calcola analiticamente *F(x)* e la sua funzione inversa *F<sup>-1</sup>(x)* F<sup>-1</sup>(x)
+
+
+  | testo |
+  | -----------------------|
+
 
 ![linea](../immagini/linea.png)
 
