@@ -253,13 +253,19 @@
     Allora la variabile *y = F(x)* ha distribuzione uniforme**
   * generare eventi pseudo-casuali **con distribuzione uniforme in *y***
     equivale a generare eventi pseudo-casuali lungo *x* con distribuzione *f(x)*
-![funzione_inversa](immagini/funzione_inversa.png)
+
+![linea](../immagini/linea.png)
 
 ### 4.4.1 l'algoritmo della funzione inversa
 
   * si **calcolano analiticamente** *F(x)* e la sua funzione inversa *F <sup>-1</sup>(y)*
+
+![funzione_inversa](immagini/funzione_inversa.png)
+
   * si **generano numeri pseudo-casuali y<sub>i</sub> con distribuzione uniforme** fra *0* ed *1* lungo l'asse *y*
-  * per ogni evento generato, si calcola *x<sub>i</sub> = F <sup>-1</sup>(y<sub>i</sub>)
+  * per ogni evento generato, si calcola *x<sub>i</sub> = F <sup>-1</sup>(y<sub>i</sub>)*
+  * dove *f(x)* e' piu' alta, *F(x)* e' piu' ripida, 
+    quindi &Delta;
 
 
   | testo |
