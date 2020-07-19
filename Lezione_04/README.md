@@ -257,7 +257,9 @@
 
 ### 4.4.1 l'algoritmo della funzione inversa
 
-  * si calcola analiticamente *F(x)* e la sua funzione inversa *F <sup>-1</sup>(x)*
+  * si **calcolano analiticamente** *F(x)* e la sua funzione inversa *F <sup>-1</sup>(y)*
+  * si **generano numeri pseudo-casuali y<sub>i</sub> con distribuzione uniforme** fra *0* ed *1* lungo l'asse *y*
+  * per ogni evento generato, si calcola *x<sub>i</sub> = F <sup>-1</sup>(y<sub>i</sub>)
 
 
   | testo |
