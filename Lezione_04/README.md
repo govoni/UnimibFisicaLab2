@@ -264,16 +264,29 @@
 
   * si **generano numeri pseudo-casuali y<sub>i</sub> con distribuzione uniforme** fra *0* ed *1* lungo l'asse *y*
   * per ogni evento generato, si calcola *x<sub>i</sub> = F <sup>-1</sup>(y<sub>i</sub>)*
-  * dove *f(x)* e' piu' alta, *F(x)* e' piu' ripida, 
+  * dove *f(x)* e' piu' alta *F(x)* e' piu' ripida, 
     quindi il numero di numeri pseudo-casuali generati nei due intervalli 
-    *&Delta;y<sub>1<sub>*
-    *&Delta;y<sub>2<sub>*
+    *&Delta;y<sub>1<sub>* e *&Delta;y<sub>2<sub>*
     risulta proporzionale all'area sottesa dalla curva *f(x)*
-    supra i due intervalli con dimensione *&Delta;x*.
+    supra i due intervalli con dimensione *&Delta;x*, rispettivamente,
+    che e' l'obiettivo che si vuole ottenere.
 
-  | testo |
-  | -----------------------|
+![linea](../immagini/linea.png)
 
+### 4.3.3 vantaggi e svantaggi dell'algoritmo della funzione inversa
+
+  | vantaggi |
+  | -------- |
+
+  * e' **efficiente** nella generazione dei numeri pseudo-casuali, 
+    perche' ogni numero viene utilizzato
+
+  | svantaggi |
+  | --------- |
+
+  * bisogna **conoscere la forma analitica** di *f(x)* ed *F(x)* e **sapere invertire**
+    la funzione comulativa per ottenere *F <sup>-1</sup>(y)*
+  * il calcolo di una funzione **aggiunge tempo** nella generazione degli eventi
 
 ![linea](../immagini/linea.png)
 
