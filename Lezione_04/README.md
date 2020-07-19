@@ -257,7 +257,7 @@
 
 ### 4.4.1 l'algoritmo della funzione inversa
 
-  * si calcola analiticamente *F(x)* e la sua funzione inversa *F<sup>-1</sup>(x)* F<sup>-1</sup>(x)
+  * si calcola analiticamente *F(x)* e la sua funzione inversa *F <sup>-1</sup>(x)*
 
 
   | testo |
