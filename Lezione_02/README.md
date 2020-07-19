@@ -726,6 +726,6 @@
 
 ## 2.4 ESERCIZI
 
-  * Gli esercizi relativi alla prima lezione si trovano [qui](ESERCIZI.md)
+  * Gli esercizi relativi alla lezione si trovano [qui](ESERCIZI.md)
 
 

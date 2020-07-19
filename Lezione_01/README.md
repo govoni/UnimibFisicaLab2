@@ -1405,6 +1405,6 @@ tempo di esecuzione per i*i: 3.91943 secondi
 
 ## 1.12 ESERCIZI
 
-  * Gli esercizi relativi alla prima lezione si trovano [qui](ESERCIZI.md)
+  * Gli esercizi relativi alla lezione si trovano [qui](ESERCIZI.md)
 
 
