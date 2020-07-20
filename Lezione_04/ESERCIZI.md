@@ -35,18 +35,27 @@ ad un qualunque punto.
 
 ## Esercizio 4.4
 
+Si implementi un generatore di numeri pseudo-casuali secondo una distribuzione uniforme
+fra due estremi arbitrari.
 
 ![linea](../immagini/linea.png)
 
 ## Esercizio 4.5
 
+Si implementi un generatore di numeri pseudo-casuali che utilizzi il metodo
+try-and-catch per generare numeri casuali secondo un distribuzione di probabilita' arbitraria
+  * si prenda come parametro di ingresso la pdf da utilizzare per la generazione di numeri casuali
 
 ![linea](../immagini/linea.png)
 
 ## Esercizio 4.6
 
+Si implementi un generatore di numeri pseduo-casuali che utilizzi il metodo della funzione inversa
+per generare eventi distribuiti secondo distribuzione di probabilita' esponenziale.
 
 ![linea](../immagini/linea.png)
 
 ## Esercizio 4.7
 
+Si implementi un generatore di numeri pseudo-casuali che utilizzi il metodo del teorema centrale del limite
+per generare eventi distribuiti secondo una distribuzione di probabilita' gaussiana.
