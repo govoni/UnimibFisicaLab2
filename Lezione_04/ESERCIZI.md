@@ -58,4 +58,65 @@ per generare eventi distribuiti secondo distribuzione di probabilita' esponenzia
 ## Esercizio 4.7
 
 Si implementi un generatore di numeri pseudo-casuali che utilizzi il metodo del teorema centrale del limite
-per generare eventi distribuiti secondo una distribuzione di probabilita' gaussiana.
+per generare eventi distribuiti secondo una distribuzione di probabilita' Gaussiana.
+  * Come si fa ad ottenere una distribuzione si probabilita' Normale, 
+    cioe' Gaussiana centrata in zero con varianza unitaria?
+  * Si verifichi visivamente che al crescere del numero di eventi
+    aumenta la somiglianza fra la distribuzione ottenuta e la forma funzionale Gaussiana  
+
+![linea](../immagini/linea.png)
+
+## Esercizio 4.8
+
+Si implementi la classe seguente, 
+che calcola le statistiche associate ad un campione di numeri.
+```cpp
+class statistiche
+{
+  public:
+
+  statistiche () ;
+  ~statistiche () ;
+
+  // aggiunge un numero alle informazioni salvate
+  int aggiungiNumero () ;
+
+ 
+  // resituisce la media dei numeri aggiunti
+  double media () const ;
+  // restituisce la varianza dei numeri aggiunti
+  // in caso di opzione true, applica la correzione di Bessel
+  double varianza (bool corretta = false) const ;
+  // restituisce la sigma dei numeri aggiunti
+  // in caso di opzione true, applica la correzione di Bessel
+  double sigma (bool corretta = false) const ;
+  // resituisce la deviazione standard
+  // in caso di opzione true, applica la correzione di Bessel
+  double dev_standard (bool corretta = false) const ;
+  // resituisce la deviazione standard dalla media
+  double dev_standard_media (bool corretta = false) const ;
+  // resituisce il numero dei numeri aggiunti
+  double N () const ;
+
+  private:
+  
+  // etc...  
+} ;
+
+```
+  * che membri privati e' necessario aggiungere alla classe per garantirne la funzionalita'?
+  * che valore devono avere i membri privati in fase di inizilizzazione?
+  * potrebbero essere utili anche metodi privati, da aggiungere alla classe?
+
+
+![linea](../immagini/linea.png)
+
+## Esercizio 4.9
+
+Si collaudi la classe ```statistiche``` con ciascuono degli agoritmi di generazione implementati.
+In particolare, poi:
+  * si verifichi che il valore della varianza della distribuzione uniforme corrisponde alle attese
+    (quale e' l'incertezza associata al numero ottenuto?)
+  * si verifichi che il valore della varianza ottenuta con la tecnica del teorema centrale del limite
+    corrisponda a quello atteso  
+

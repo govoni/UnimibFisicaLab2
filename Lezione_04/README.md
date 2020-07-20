@@ -294,25 +294,40 @@
 
   * Il **teorema centrale del limite** puo' essere utilizzato
     per generare distribuzioni di probabilita' con forma Gaussiana
-  * Siano date *N* variabili casuali *x<sub>i</sub>* indipendenti ed identicamente distribuite
-    secondo una distribuzione di probabilita' *f(x)* con media &mu; e varianza &sigma;<sup>2</sup>.
-    Allora la variabile *y = &lang;x<sub>i</sub>&rang;* e' distribuita, per *N* grande, come una Gaussiana 
-    con media &mu; e varianza &sigma;<sup>2</sup>.
 
   | Siano date *N* variabili casuali *x<sub>i</sub>* indipendenti ed identicamente distribuite secondo una distribuzione di probabilita' *f(x)* con media &mu; e varianza &sigma;<sup>2</sup>. Allora la variabile *y = &lang;x<sub>i</sub>&rang;* e' distribuita, per *N* grande, come una Gaussiana con media &mu; e varianza &sigma;<sup>2</sup>. |
   | --------- |
 
+![linea](../immagini/linea.png)
 
+### 4.4.1 l'implementazione dell'algoritmo
+
+  * anche in questo caso, 
+    si parte da **genartori di numeri pseudo-casuali noti**: 
+    la distribuzione uniforme
+  * per produrre un singolo numero pseudo-casuale distribuito secondo una Gaussiana, 
+    e' necessario **generare *N* numeri pseudo-casuali** secondo la distribuzione uniforme
+    e calcolarne la media
+  * al **crescere di *N*** la distribuzione finale si avvicina sempre piu' al limite Gaussiano:
 
 ![funzione_inversa](immagini/teorema_centrale_limite.png)
 
-
 ![linea](../immagini/linea.png)
 
-### 4.X titolo
+### 4.4.2 vantaggi e svantaggi dell'algoritmo della funzione inversa
 
-  | testo |
-  | -----------------------|
+  | vantaggi |
+  | -------- |
+
+  * e' basato su un **ben noto teorema** e permette di verificare che il teorema stesso funzioni
+  * non e' necessario descrivere analiticamente la forma funzionale della Gaussiana
+
+  | svantaggi |
+  | --------- |
+
+  * per raggiungere una buona precisione,
+    bisogna generare molti numeri pseudo-casuali uniformi
+    per ottenerne uno distribuito Gaussianamente
 
 ![linea](../immagini/linea.png)
 
