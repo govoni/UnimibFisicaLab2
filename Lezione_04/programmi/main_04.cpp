@@ -16,21 +16,19 @@ float rand_range (float min, float max)
     return min + (max - min) * rand () / static_cast<float> (RAND_MAX) ;
   } 
 
-float rand_TAC (float f (float), float xMin, float xMax, float yMax)
+float rand_TCL (float xMin, float xMax, int N = 10)
   {
-    double x = 0. ;
     double y = 0. ; 
-    do {
-      x = rand_range (xMin, xMax) ;
-      y = rand_range (0, yMax) ;
-    } while (y > f (x)) ;
-    return x ; 
+    for (int i = 0 ; i < N ; ++i)
+      y += rand_range (xMin, xMax) ;
+    y /= N ;
+    return y ;
   }
 
 int main (int argc, char ** argv)
   {
     for (int i = 0 ; i < 5 ; ++i)
-      std::cout << "indice " << i << " --> " << rand_TAC (fgaus, -1., 1., 1.) << "\n" ;
+      std::cout << "indice " << i << " --> " << rand_TCL (-1., 1., 10) << "\n" ;
 
     return 0 ;
   }
