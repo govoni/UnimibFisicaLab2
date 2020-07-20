@@ -290,13 +290,21 @@
 
 ![linea](../immagini/linea.png)
 
-### 4.4 altre distribuzioni di probabilita': il teorema centrale del limite
+### 4.4 distribuzioni di probabilita' Gaussiane: il teorema centrale del limite
 
+  * Il **teorema centrale del limite** puo' essere utilizzato
+    per generare distribuzioni di probabilita' con forma Gaussiana
   * Siano date *N* variabili casuali *x<sub>i</sub>* indipendenti ed identicamente distribuite
     secondo una distribuzione di probabilita' *f(x)* con media &mu; e varianza &sigma;<sup>2</sup>.
-    Allora la variabile *y = &lang;x<sub>i</sub>&rang;* e' distribuita come una Gaussiana
-    per *N* grande, 
+    Allora la variabile *y = &lang;x<sub>i</sub>&rang;* e' distribuita, per *N* grande, come una Gaussiana 
     con media &mu; e varianza &sigma;<sup>2</sup>.
+
+  | Siano date *N* variabili casuali *x<sub>i</sub>* indipendenti ed identicamente distribuite
+    secondo una distribuzione di probabilita' *f(x)* con media &mu; e varianza &sigma;<sup>2</sup>.
+    Allora la variabile *y = &lang;x<sub>i</sub>&rang;* e' distribuita, per *N* grande, come una Gaussiana 
+    con media &mu; e varianza &sigma;<sup>2</sup>. |
+  | --------- |
+
 
 
 ![funzione_inversa](immagini/teorema_centrale_limite.png)
