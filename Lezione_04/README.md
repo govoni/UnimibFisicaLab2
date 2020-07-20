@@ -294,7 +294,7 @@
 
   * Siano date *N* variabili casuali *x<sub>i</sub>* indipendenti ed identicamente distribuite
     secondo una distribuzione di probabilita' *f(x)* con media &mu; e varianza &sigma;<sup>2</sup>.
-    Allora la variabile *y = &lang;x<sub>i</sub>*&rang;* e' distribuita come una Gaussiana
+    Allora la variabile *y = &lang;x<sub>i</sub>&rang;* e' distribuita come una Gaussiana
     per *N* grande, 
     con media &mu; e varianza &sigma;<sup>2</sup>.
 
