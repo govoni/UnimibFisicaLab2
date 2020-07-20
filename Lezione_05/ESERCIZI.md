@@ -1,5 +1,9 @@
 # Esercizi per la lezione 5
 
+
+- controllare fluttuazioni statistiche poissoniane?
+
+
 ## Esercizio 5.1
 
 
