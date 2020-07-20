@@ -14,9 +14,7 @@
 
 ![linea](../immagini/linea.png)
 
-## 4.1 la generazione di numeri casuali
-
-![linea](../immagini/linea.png)
+## 4.1 I numeri pseudo-casuali
 
 ### 4.1.1 sequenze casuali
 
@@ -115,7 +113,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 4.1.6 come cambiare il seed di generazione
+### 4.1.7 come cambiare il seed di generazione
 
   * esiste la funzione ```srand (int seed)``` che imposta il seed di generazione
     dei numeri casuali:
@@ -273,7 +271,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 4.3.3 vantaggi e svantaggi dell'algoritmo della funzione inversa
+### 4.4.2 vantaggi e svantaggi dell'algoritmo della funzione inversa
 
   | vantaggi |
   | -------- |
@@ -290,7 +288,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 4.4 distribuzioni di probabilita' Gaussiane: il teorema centrale del limite
+### 4.5 distribuzioni di probabilita' Gaussiane: il teorema centrale del limite
 
   * Il **teorema centrale del limite** puo' essere utilizzato
     per generare distribuzioni di probabilita' con forma Gaussiana
@@ -300,7 +298,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 4.4.1 l'implementazione dell'algoritmo
+### 4.5.1 l'implementazione dell'algoritmo
 
   * anche in questo caso, 
     si parte da **genartori di numeri pseudo-casuali noti**: 
@@ -314,7 +312,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 4.4.2 vantaggi e svantaggi dell'algoritmo della funzione inversa
+### 4.5.2 vantaggi e svantaggi dell'algoritmo della funzione inversa
 
   | vantaggi |
   | -------- |
@@ -331,7 +329,7 @@
 
 ![linea](../immagini/linea.png)
 
-## 4.X ESERCIZI
+## 4.6 ESERCIZI
 
   * Gli esercizi relativi alla lezione si trovano [qui](ESERCIZI.md)
 
