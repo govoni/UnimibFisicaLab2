@@ -157,22 +157,35 @@
     c1.Print ("esempio.png", "png") ;
     ```
     * l'oggetto ```c1``` si occupa di produrre l'immagine che contiene l'istogramma
-
+  * il box in alto a sinistra nell'immagine dell'istogramma 
+    riporta **statistiche associate alla collezione di eventi**
 ![istogramma](immagini/primo_TH1F.png)
 
 ![linea](../immagini/linea.png)
 
-### 5.2.6 il box delle statistiche
+### 5.2.6 opzioni grafiche
+
+  * perche' l'informazione sull'istogramma sia completa,
+    e' necessario aggiungere informazioni riguardo il **significato degli assi**,
+    prima di invocare il metodo ```Draw```:
+    ```cpp
+    istogramma.SetFillColor (kOrange + 1) ;
+    istogramma.GetXaxis ()->SetTitle ("asse x") ;
+    istogramma.GetYaxis ()->SetTitle ("conteggi per bin") ;
+    ```
+  * inoltre, e' possibile cambiare il colore di riempimento di un istogramma:
+    ```cpp
+    istogramma.SetFillColor (kOrange + 1) ;
+    ```
+![istogramma](immagini/primo_TH1F_col.png)
+  * la descrizione dettagliata di tutte le funzionalita'
+    ed opzioni di disegno degli istogrammi
+    e' **documentata nella relativa [guida per l'utente](https://root.cern.ch/root/htmldoc/guides/users-guide/Histograms.html)**
 
 ![linea](../immagini/linea.png)
 
-### 5.2.7 opzioni grafiche
-
-![linea](../immagini/linea.png)
 
 
-- concetto di istogramma
-- accedere alle statistiche dell'istogramma
 - riempimenti pesati
 - visualizzazione logaritmica
 - opzioni grafiche
