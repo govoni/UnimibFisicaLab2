@@ -208,6 +208,20 @@
 
 ### 5.2.8 scale logaritmiche
 
+  * quando i valori in diversi bin cambiano considerevolmente,
+    puo' essere comodo **visuallizzare gli istogrammi in scala logaritmica**
+    (lungo l'asse orizzontale o verticale),
+    per migliorare la leggibilita' del risultato
+  * essendo una diversa visualizzazione dello stesso contenuto,
+    e' un'operazione che si fa con un metodo della classe ```TCanvas```
+    ```cpp
+    c1.SetLogy () ;
+    c1.Print ("Gaussian.png", "png") ;
+    ```
+    * chiaramente, lo zero dell'asse in scala logaritmica non puo' comparire nelle immagini
+![gaussiana](immagini/Gaussian_TH1F_log.png)
+
+
 - riempimenti pesati
 - visualizzazione logaritmica
 - opzioni grafiche
