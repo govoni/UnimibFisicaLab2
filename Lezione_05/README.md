@@ -13,6 +13,9 @@
     che si presenta nella forma di una linea di comando,
     dove istruzioni scritte in ```C++``` vengono interpretate
     da un parser dedicato
+  * In questo corso vi mostriamo alcune funzionalita' di ```ROOT```, 
+    la descrizione completa di quello che puo' fare
+    si trova nella documentazione on-line 
 
 ![linea](../immagini/linea.png)
 
@@ -221,17 +224,27 @@
     * chiaramente, lo zero dell'asse in scala logaritmica non puo' comparire nelle immagini
 ![gaussiana](immagini/Gaussian_TH1F_log.png)
 
-## TH2F: istogrammi bidimnesionali
+![linea](../immagini/linea.png)
+
+### 5.2.9 le statistiche di un istogramma
+
+  * e' possibile estrarre i valori della **media e della deviazione standard**
+    degli eventi salvati in un istogramma:
+    ```cpp
+    std::cout << "numero di eventi:    " << h.GetEntries () << std::endl ;
+    std::cout << "media:               " << h.GetMean ()    << std::endl ;
+    std::cout << "deviazione standard: " << h.GetRMS ()     << std::endl ;
+    ```
 
 ## TGraph
 
-## TNtuple
+## TH2F: istogrammi bidimnesionali
 
-## THStack
+## TNtuple
 
 ## TStringhe
 
-## TApp
+## TApplication
 
 
 ### 5.1.1 
