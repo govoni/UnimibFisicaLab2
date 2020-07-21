@@ -86,7 +86,7 @@
 
 ![linea](../immagini/linea.png)
 
-## 5.2.1 istogrammi monodimensionali
+### 5.2.1 istogrammi monodimensionali
 
   * per una variabile casuale di interesse *x*, si suddivide il suo intervallo di definizione
     in **sotto-intervalli adiacenti e disgiunti** delimitati da *{x<sub>k</sub>}*
@@ -101,7 +101,7 @@
 
 ![linea](../immagini/linea.png)
 
-## 5.2.2 istogrammi monodimensionali e distribuzioni di densita' di probabilita'
+### 5.2.2 istogrammi monodimensionali e distribuzioni di densita' di probabilita'
 
   * al **limite per la dimensione dei bin che diventa infinitesima**,
     un istogramma diventa una funzione continua
@@ -111,14 +111,67 @@
     quindi un istogramma diventa l'approssimazione di una 
     distribuzione di densita' di probabilita'
 
+![linea](../immagini/linea.png)
 
+### 5.2.3 istogrammi monodimensionali in ```ROOT```
+
+  * istogrammi mono-dimensionali in ```ROOT``` sono realizzati con la classe ```TH1F```
+    ```cpp
+    TH1F istogramma ("istogramma", "titolo", 10, -5., 5.) ;
+    ```
+  * il costruttore di ```TH1F``` prende come input:
+    * un **nome**: e' saggio usare il medesimo della variabile
+    * un **titolo**, che viene scritto sopra l'istogramma
+    * il **numero di bin** (```10``` in questo caso) in cui dividere l'intervallo di definizione della variabile
+    * l'**intervallo di definizione** della variabile (```-5., 5.``` in questo caso)
+
+![linea](../immagini/linea.png)
+
+### 5.2.4 rimepimento di un ```TH1F```
+
+  * un oggetto della classe ```TH1F``` viene creato, **e' vuoto**,
+    cioe'  i conteggi di ogni singolo bin sono nulli 
+  * per riempire l'istogramma,
+    si utilizza il suo metodo ```Fill```,
+    che viene chiamato per ogni evento:  
+    ```cpp
+    istogramma.Fill (2.2) ;
+    istogramma.Fill (2.1) ;
+    istogramma.Fill (-1.4) ;
+    ```
+    * aggiorna i **conteggi** del bin in cui casca il valore passato (in questo caso ```3.2```)
+    * aggiorna i **contatori** per il calcolo delle statistiche 
+      (numero di eventi, somma degli eventi, somma del quadrato degli eventi)
+
+![linea](../immagini/linea.png)
+
+### 5.2.5 visualizzazione di un ```TH1F```
+
+  * per visualizzare un istogramma, serve istanziare un oggetto grafico
+    della classe ```TCanvas```,
+    che e' la tela dove l'istogramma viene disegnato
+      * e' necessario includere ```TCanvas.h``` perche' il programma compili
+    ```cpp
+    TCanvas c1 ;
+    istogramma.Draw () ;
+    c1.Print ("esempio.png", "png") ;
+    ```
+    * l'oggetto ```c1``` si occupa di produrre l'immagine che contiene l'istogramma
+
+![istogramma](immagini/primo_TH1F.png)
+
+![linea](../immagini/linea.png)
+
+### 5.2.6 il box delle statistiche
+
+![linea](../immagini/linea.png)
+
+### 5.2.7 opzioni grafiche
 
 ![linea](../immagini/linea.png)
 
 
 - concetto di istogramma
-- nome della variabile, nome dell'istogramma, titolo dell'istogramma
-- visualizzazione dell'istogramma
 - accedere alle statistiche dell'istogramma
 - riempimenti pesati
 - visualizzazione logaritmica
@@ -135,6 +188,8 @@
 ## THStack
 
 ## TStringhe
+
+## TApp
 
 
 ### 5.1.1 

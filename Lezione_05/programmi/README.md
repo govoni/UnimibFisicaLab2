@@ -3,8 +3,8 @@
    | programma | contenuto |
    | -------------| -------------|
    | main_00.cpp | primo esempio di inclusione di una classe di ```ROOT``` |
-   | main_01.cpp | |
-   | main_02.cpp | |
+   | main_01.cpp | esempio di riempimento di un ```TH1F``` |
+   | main_02.cpp | esempio di disegno di un ```TH1F``` |
    | main_03.cpp | |
    | main_04.cpp | |
    | main_05.cpp | |
