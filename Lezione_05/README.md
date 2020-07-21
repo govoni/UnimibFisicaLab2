@@ -14,6 +14,8 @@
     dove istruzioni scritte in ```C++``` vengono interpretate
     da un parser dedicato
 
+![linea](../immagini/linea.png)
+
 ### 5.1.1 l'organizzazione delle librerie di ROOT
 
   * in un programma scritto in ```C++```, 
@@ -33,6 +35,8 @@
   * la **visualizzazione** degli strumenti statistici e' un aspetto fondamentale del programma,
     quindi molte opzioni grafiche sono integrate negli oggetti statistici
 
+![linea](../immagini/linea.png)
+
 ### 5.1.2 prerquisiti per utilizzare ```ROOT```
 
   * dopo l'installazione, le librerie di ```ROOT``` sono salvate nel disco fisso
@@ -51,6 +55,8 @@
     > source thisroot.sh
     ```      
       
+![linea](../immagini/linea.png)
+
 ### 5.1.3 come compilare un programma che include classi di ```ROOT```
 
   * e' necessario **fornire al compilatore opzioni aggiuntive** perche' sia in grado di trovare
@@ -66,10 +72,25 @@
     > c++ -o main_00 `root-config --glibs --cflags` main_00.cpp
     ```
     
+![linea](../immagini/linea.png)
+
 ## 5.2 TH1F: istogrammi monodimensionali
 
-- il concetto di istogramma
+  * gli **istogrammi** sono una rappresentazione di distribuzioni differenziali
+  * per una variabile casuale di interesse *x*, si suddivide il suo intervallo di definizione
+    in **sotto-intervalli adiacenti e disgiunti** delimitati da *{x<sub>k</sub>}*
+    * l'intervallo *k*-esimo e' limitato fra x<sub>k</sub> ed x<sub>k+1</sub>}
+    * solitamente gli intervalli sono chiamati **bin**
+  * **dato un campione di eventi *{x<sub>i</sub>}<sub>i=1,..N</sub>***
+  * un istogramma e' l'**insieme dei conteggi degli eventi che cascano in ogni intervallo** 
+  * la visualizzazione di un istogramma mono-dimensionale mostra tipicamente:
+    * sull'**asse orizzontale** l'intervallo di definizione della variabile *x*
+    * sull'**asse verticale** i conteggi corrispondenti a ciascun bin
+    * sopra ad ogni bin, **una barra verticale** alta quanto i conteggi
 
+![istogramma](immagini/istogramma.png)
+
+![linea](../immagini/linea.png)
 
 
 - concetto di istogramma
