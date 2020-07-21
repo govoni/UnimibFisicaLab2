@@ -159,7 +159,7 @@
     * l'oggetto ```c1``` si occupa di produrre l'immagine che contiene l'istogramma
   * il box in alto a sinistra nell'immagine dell'istogramma 
     riporta **statistiche associate alla collezione di eventi**
-![istogramma](immagini/primo_TH1F.png)
+![istogramma_graph](immagini/primo_TH1F.png)
 
 ![linea](../immagini/linea.png)
 
@@ -184,7 +184,29 @@
 
 ![linea](../immagini/linea.png)
 
+### 5.2.7 un esempio: la forma funzionale Gaussiana
 
+  * si puo' utilizzare un oggetto di tipo ```TH1F```
+    per **visualizzare la distribuzione di eventi pseudo-casuali** generati
+    con gli algoritmi scritti nella lezione precedente
+  * assumendo che la **funzione che genera numeri casuali**
+    utilizzando il metodo del teorema centrale del limite 
+    abbia il seguente prototipo:
+    ```cpp
+    float rand_TCL (float xMin, float xMax, int N = 10)
+    ```
+  * si puo' rimepire un istograma di test dell'algoritmo in questo modo:
+    ```cpp
+    TH1F h ("h", "eventi pseudo-casuali Gaussiani", 200, -1.5, 1.5) ;
+    for (int j = 0 ; j < 1000000 ; ++j)
+      h.Fill (rand_TCL (-1., 1., 10)) ;
+    ```
+    con ```1000000``` eventi, ottenendo poi:
+![gaussiana](immagini/Gaussian_TH1F.png)
+
+![linea](../immagini/linea.png)
+
+### 5.2.8 scale logaritmiche
 
 - riempimenti pesati
 - visualizzazione logaritmica
@@ -213,7 +235,7 @@
 
 ![linea](../immagini/linea.png)
 
-## %.X ESERCIZI
+## 5.X ESERCIZI
 
   * Gli esercizi relativi alla lezione si trovano [qui](ESERCIZI.md)
 

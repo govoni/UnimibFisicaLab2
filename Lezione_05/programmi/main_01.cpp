@@ -8,7 +8,7 @@ int main (int argc, char ** argv)
   {
     TH1F istogramma ("istogramma", "istogramma", 10, -5., 5.) ;
 
-    istogramma.Fill (3.2) ;
+    istogramma.Fill (2.2) ;
 
     return 0 ;
   }

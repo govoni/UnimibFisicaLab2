@@ -6,7 +6,7 @@
    | main_01.cpp | esempio di riempimento di un ```TH1F``` |
    | main_02.cpp | esempio di disegno di un ```TH1F``` |
    | main_03.cpp | esempio di disegno di un ```TH1F``` con opzioni grafiche |
-   | main_04.cpp | |
+   | main_04.cpp | esempio di riempimento di un istogramma con numeri casuali |
    | main_05.cpp | |
    | main_06.cpp | |
    | main_07.cpp | |
