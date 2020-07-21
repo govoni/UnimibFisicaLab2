@@ -2,7 +2,7 @@
 
    | programma | contenuto |
    | -------------| -------------|
-   | main_00.cpp | |
+   | main_00.cpp | primo esempio di inclusione di una classe di ```ROOT``` |
    | main_01.cpp | |
    | main_02.cpp | |
    | main_03.cpp | |
