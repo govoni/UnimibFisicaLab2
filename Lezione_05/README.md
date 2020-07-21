@@ -16,7 +16,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 5.1.1 l'organizzazione delle librerie di ROOT
+### 5.1.1 l'organizzazione delle librerie di ```ROOT```
 
   * in un programma scritto in ```C++```, 
     ogni oggetto di ```ROOT``` viene reso disponibile nel codice sorgente
@@ -76,19 +76,42 @@
 
 ## 5.2 TH1F: istogrammi monodimensionali
 
-  * gli **istogrammi** sono una rappresentazione di distribuzioni differenziali
+  * gli **istogrammi** sono una rappresentazione di distribuzioni differenziali,
+    costruita a partire da un campione di numeri,
+    che chiamiamo **eventi**
+  * si parte quindi da **un campione di eventi *{x<sub>i</sub>}<sub>i=1,..,N</sub>***
+    * un esempio di un campione di eventi
+      e' **l'insieme delle misure raccolte durante un esperimento**,
+      oppure una **sequenza di numeri pseudo-casuali**
+
+![linea](../immagini/linea.png)
+
+## 5.2.1 istogrammi monodimensionali
+
   * per una variabile casuale di interesse *x*, si suddivide il suo intervallo di definizione
     in **sotto-intervalli adiacenti e disgiunti** delimitati da *{x<sub>k</sub>}*
-    * l'intervallo *k*-esimo e' limitato fra x<sub>k</sub> ed x<sub>k+1</sub>}
+    * l'intervallo *k*-esimo e' limitato fra x<sub>k</sub> ed x<sub>k+1</sub>
     * solitamente gli intervalli sono chiamati **bin**
-  * **dato un campione di eventi *{x<sub>i</sub>}<sub>i=1,..N</sub>***
   * un istogramma e' l'**insieme dei conteggi degli eventi che cascano in ogni intervallo** 
+![istogramma](immagini/istogramma.png)
   * la visualizzazione di un istogramma mono-dimensionale mostra tipicamente:
     * sull'**asse orizzontale** l'intervallo di definizione della variabile *x*
     * sull'**asse verticale** i conteggi corrispondenti a ciascun bin
     * sopra ad ogni bin, **una barra verticale** alta quanto i conteggi
 
-![istogramma](immagini/istogramma.png)
+![linea](../immagini/linea.png)
+
+## 5.2.2 istogrammi monodimensionali e distribuzioni di densita' di probabilita'
+
+  * al **limite per la dimensione dei bin che diventa infinitesima**,
+    un istogramma diventa una funzione continua
+![istogramma](immagini/istogramma_e_pdf.png)
+  * se si dividesse il contenuto di ogni bin per il numero totale di eventi *N*,
+    questa funzione e' normalizzata, 
+    quindi un istogramma diventa l'approssimazione di una 
+    distribuzione di densita' di probabilita'
+
+
 
 ![linea](../immagini/linea.png)
 
