@@ -74,7 +74,7 @@
     
 ![linea](../immagini/linea.png)
 
-## 5.2 TH1F: istogrammi monodimensionali
+## 5.2 ```TH1F```: istogrammi monodimensionali
 
   * gli **istogrammi** sono una rappresentazione di distribuzioni differenziali,
     costruita a partire da un campione di numeri,
@@ -86,7 +86,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 5.2.1 istogrammi monodimensionali
+### 5.2.1 i bin di un istogramma
 
   * per una variabile casuale di interesse *x*, si suddivide il suo intervallo di definizione
     in **sotto-intervalli adiacenti e disgiunti** delimitati da *{x<sub>k</sub>}*
