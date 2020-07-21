@@ -221,13 +221,6 @@
     * chiaramente, lo zero dell'asse in scala logaritmica non puo' comparire nelle immagini
 ![gaussiana](immagini/Gaussian_TH1F_log.png)
 
-
-- riempimenti pesati
-- visualizzazione logaritmica
-- opzioni grafiche
-- scalare un istogramma
-- DrawNormalized ()
-
 ## TH2F: istogrammi bidimnesionali
 
 ## TGraph
