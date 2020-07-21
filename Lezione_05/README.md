@@ -93,7 +93,7 @@
     * l'intervallo *k*-esimo e' limitato fra x<sub>k</sub> ed x<sub>k+1</sub>
     * solitamente gli intervalli sono chiamati **bin**
   * un istogramma e' l'**insieme dei conteggi degli eventi che cascano in ogni intervallo** 
-![istogramma](immagini/istogramma.png)
+![istogramma](immagini/istogramma_solo.png)
   * la visualizzazione di un istogramma mono-dimensionale mostra tipicamente:
     * sull'**asse orizzontale** l'intervallo di definizione della variabile *x*
     * sull'**asse verticale** i conteggi corrispondenti a ciascun bin
@@ -105,7 +105,7 @@
 
   * al **limite per la dimensione dei bin che diventa infinitesima**,
     un istogramma diventa una funzione continua
-![istogramma](immagini/istogramma_e_pdf.png)
+![istogramma_pdf](immagini/istogramma_e_pdf.png)
   * se si dividesse il contenuto di ogni bin per il numero totale di eventi *N*,
     questa funzione e' normalizzata, 
     quindi un istogramma diventa l'approssimazione di una 
