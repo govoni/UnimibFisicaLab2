@@ -761,9 +761,7 @@
         ++i ;
       }
     ```
-
-  ![strutture](immagini/while.png)
-
+    ![strutture](immagini/while.png)
     * il controllo viene effettuato **prima** dell'esecuzione dell'iterazione corrispondente
     * se il **campo fra parentesi e' vuoto**, il ciclo avviene e continua indefinitamente; 
       va quindi interrotto con il comando ```break```
@@ -788,7 +786,6 @@
       }
     while (i < 2 * N) ;
     ```
- 
    ![strutture](immagini/do_while.png)
 
  ![linea](../immagini/linea.png)
