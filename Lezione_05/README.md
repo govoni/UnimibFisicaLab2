@@ -383,7 +383,9 @@
   * la **scala logaritmica sull'asse *x***
     aiuta a visualizzare in modo piu' efficace queste variazioni
 
-## TH2F: istogrammi bidimnesionali
+![linea](../immagini/linea.png)
+
+## 5.5 TH2F: istogrammi bidimnesionali
 
   * il concetto di istogramma monodimensionale si applica facilmente anche al **caso bidimensionale**
   * l'oggetto di ```ROOT``` associato a questo concetto si chiama ```TH2F```
@@ -397,7 +399,9 @@
     ```
 ![gaussiana2D](immagini/Gaussian_TH2F.png)
 
-## L'interfaccia interattiva di ```ROOT```: la classe ```TApplication```
+![linea](../immagini/linea.png)
+
+## 5.6 L'interfaccia interattiva di ```ROOT```: la classe ```TApplication```
 
   * i ```TCanvas``` di ```ROOT``` sono dotati di diverse **funzionalita' interattive**
     alle quali si accede con menu a tendina o contestuali 
@@ -423,25 +427,21 @@
     * per terminare l'esecuzione del programma, 
       da un qualunque ```TCanvas``` bisogna utilizzare il menu ```File->Quit ROOT```
 
+![linea](../immagini/linea.png)
 
-## TNtuple
+## 5.7 Una gestione furba del testo: ```TString```
 
-## TStringhe
-
-## TApplication
-
-
- --- DOPO ---
-
-- la sigma fluttua maggiormente con pochi eventi
-- il concetto di toy experiment ed il test delle distribuzioni della media
-  rispetto alla sua varianza
-
-### 5.1.1 
-
-  | vantaggi |
-  | -------- |
-
+  * ```ROOT``` fornisce un oggetto che serve per **maneggiare stringhe**
+    che puo' essere utilizzato come argomento nei metodi delle sue classi
+  * le ```TString``` hanno definite una serie di operazioni
+    che permettono di **combinare velocemente testo con altre variabili**
+    ```cpp
+    int num = atoi (argv[1]) ;
+    TString titolo = "ci sono " ;
+    titolo += num ;
+    titolo += " eventi" ;
+    TH1F istogramma ("istogramma", titolo, 10, -5., 5.) ;
+    ```
 
 ![linea](../immagini/linea.png)
 
