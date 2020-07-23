@@ -236,12 +236,115 @@
     std::cout << "deviazione standard: " << h.GetRMS ()     << std::endl ;
     ```
 
-## 5.3 la varianza di una distribuzione
+![linea](../immagini/linea.png)
 
-  * 
+## 5.3 una piccoola digressione: la varianza di una distribuzione
+
+  * dato un campione di variabili casualu *{x<sub>i</sub>}<sub>i=1,..,N</sub>***
+    indipendenti identicamente distribuiti,
+    **la varianza della distribuzione e' la media degli scarti quadratici dalla media**
+  * si dimostra che la varianza di un campione e' uguale alla **media dei quadrati meno il quadrato della media**:
+    *V = E[x<sup>2</sup>]-E[x]<sup>2</sup>* 
+    (*E[f]* e' il valore di aspettazione di f sul campione in esame)
+  * la radice della varianza e' detta **sigma, o deviazione standard**
+    ed e' una stima della dispersione del campione attorno alla sua media
+
+![linea](../immagini/linea.png)
+
+### 5.3.1 la varianza e la dimensione del campione
+
+  * all'aumentare del numero di eventi nel campione,
+    la dispersone degli eventi non cambia, quindi **la varianza rimane costante**
+    per variabili identicamente distribuite
+  * chiaramente, siccome ogni campione e' finito,
+    i valori della varianza ottenuti con campioni diversi non sono identici, 
+    ma ci si aspetta che siano **compatibili fra loro**
+  * di conseguenza, 
+    anche la **deviazione standard non dipende dal numero di eventi nel campione**
+
+![linea](../immagini/linea.png)
+
+### 5.3.2 varianza e misure (o numeri pseudo-casuali)
+
+  * se si conosce media e varianza di un campione, 
+    si ha un'idea di **dove ci si aspetta di trovare l'evento successivo** di quel campione
+  * se il campione e' un insieme di misure,
+    la deviazione standard dice quanto distante ci si aspetta di trovare la **prossima misura**
+    dalla media delle misure raccolte
+  * dunque, la deviazione standard e' associata all'**incertezza sulla singola misura**  
+
+![linea](../immagini/linea.png)
+
+### 5.3.3 incertezza sulla media
+
+  * all'aumentare del numero di misure, invece, aumenta la **precisione 
+    con la quale si conosce la media** del campione
+  * la **deviazione standard dalla media**,
+    definita come la deviazione standard divisa per la radice del numero di eventi nel campione,
+    e' una stima dell'**incertezza sulla media**
+
+![linea](../immagini/linea.png)
+
+## 5.4 rappresentazione di andamenti *y* vs *x*: i ```TGraph```
+
+  * gli istogrammi mostrano una **singola variabile fisica**
+  * talvolta e' utile visualizzare **coppie di misure** *(x,y)*
+  * in ```ROOT``` la classe che si utilizza per farlo e' il ```TGraph```
+
+![linea](../immagini/linea.png)
+
+### 5.4.1 definizione di un ```TGraph```  
+
+  * come sempre, bisogna includere la **libreria** corrispondente:
+    ```cpp
+    #include "TGraph.h
+    ```
+  * ricordando di aggiungere le opzioni di ```ROOT``` al comando di compilazione:
+    ```
+    > root-config --cflags --glibs  
+    ```
+  * un oggetto di tipo ```TGraph``` si definisce semplicemente:
+    ```cpp
+    TGraph g_sigma ;
+    ```
+    * l'oggetto e' **vuoto**: non contiene alcuna variabile
+    * esistono **altri costruttori** oltre a quello di default,
+      che permettono di inizializzare un ```TGraph``` con un insieme di coppie di punti nulli
+      oppure a partire da array gia' riempiti
+
+![linea](../immagini/linea.png)
+
+### 5.4.1 riempimento di un ```TGraph```
+
+  * un ```TGraph``` viene **riempito** con il metodo ```TGraph::SetPoint (Int_t i, Double_t x, Double_t y)```,
+    che prende in input:
+    * l'**indice del punto da riempire**, che per il primo punto e' *0*
+    * il **valore della variabile *x***
+    * il **valore della variabile *y***
+    ```cpp
+    g_sigma.SetPoint (g_sigma.GetN (), 11.5, 7.4) ;
+    ```
+    * in questo caso, come primo argomento si utilizza il metodo stesso ```TGraph::GetN ()```,
+      perche' per un ```TGraph``` che contiene ```N``` elementi
+      l'indice dell'ultimo elemento salvato e' ```N-1```
+  * si noti che ```ROOT``` ridefinisce le variabili numeriche del ```C++```
+    (sostituendo ```int``` con ```Int_t``` e ```double``` con ```Double_t``` in questo caso),
+    perche' le variaibli definite internamente da ```ROOT``` hanno una dimensione in byte convenzionale
+   
+
+  - ripasso di varianza, sigma, deviazione standard dalla media
+  - come ci si aspetta cambino i due valori all'aumentare del numero di eventi
 
 
-## TGraph
+
+
+
+ --- DOPO ---
+
+- la sigma fluttua maggiormente con pochi eventi
+- il concetto di toy experiment ed il test delle distribuzioni della media
+  rispetto alla sua varianza
+
 
 ## TH2F: istogrammi bidimnesionali
 
