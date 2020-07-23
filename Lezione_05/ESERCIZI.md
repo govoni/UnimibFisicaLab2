@@ -41,9 +41,22 @@ sommando distribuzioni uniformi.
 
 ## Esercizio 5.5
 
+Si calcolino la deviazione standard e la deviazione standard della media
+per una distribuzione di eventi uniforme
+sfruttando il generatore di eventi pseudo-casuali sviluppato nella Lezione 4
+al variare del numero di eventi generato, con andamento logaritmico.
+  * Si mostri con un ```TGraph``` l'andamento della deviazione standard verso il numero di eventi.
+  * Si mostri con un ```TGraph``` l'andamento della deviazione standard della media verso il numero di eventi.
+  * Si confronti il valore ottenuto della deviazione standard con il valore atteso 
+    noti gli estremi della distribuzione uniforme.  
+
 ![linea](../immagini/linea.png)
 
 ## Esercizio 5.6
+
+Si generalizzi l'esercizio precedente scrivendo una funzione
+che produca questo risultato a partire da una qualunque classe 
+scritta per generare numeri casuali.
 
 
 ![linea](../immagini/linea.png)

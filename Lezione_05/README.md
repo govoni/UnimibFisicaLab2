@@ -375,16 +375,16 @@
     si nota chiaramente che una delle due rimane costante, 
     mentre l'altra diminuisce all'aumentare del numero di eventi
     presenti nel campione
-
 ![deviazione_standard](immagini/sigma_trends.png)
+  * il campionamento di punti sull'asse *x* e' fatto
+    **con ragione logaritmica**,
+    perche' l'andamento atteso e' lento
+    (proporzionale a radice di *N*)
+  * la **scala logaritmica sull'asse *x***
+    aiuta a visualizzare in modo piu' efficace queste variazioni
 
+## TH2F: istogrammi bidimnesionali
 
-
- --- DOPO ---
-
-- la sigma fluttua maggiormente con pochi eventi
-- il concetto di toy experiment ed il test delle distribuzioni della media
-  rispetto alla sua varianza
 
 
 ## TH2F: istogrammi bidimnesionali
@@ -395,6 +395,12 @@
 
 ## TApplication
 
+
+ --- DOPO ---
+
+- la sigma fluttua maggiormente con pochi eventi
+- il concetto di toy experiment ed il test delle distribuzioni della media
+  rispetto alla sua varianza
 
 ### 5.1.1 
 
