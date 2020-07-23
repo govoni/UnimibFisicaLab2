@@ -80,3 +80,7 @@ ed *y* definito fra *-1.* e *3.*.
 ![linea](../immagini/linea.png)
 
 ## Esercizio 5.9
+
+Si renda interattivo l'output del programma precedente tramite un oggetto di tipo ```TApplication```
+e si provino le varie funzionalita' di interfaccia.
+

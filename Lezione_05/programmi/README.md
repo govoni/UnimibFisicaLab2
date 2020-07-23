@@ -14,4 +14,4 @@
    | main_08.cpp | esempio di calcolo della varianza all'aumentare del numero di punti |
    | main_09.cpp | esempio di disegno della varianza all'aumentare del numero di punti con TGraph |
    | main_10.cpp | esempio di riempimento e disegno di un ```TH2F``` con numeri casuali |
-   | main_11.cpp | |
+   | main_11.cpp | esempio di utilizzo di un oggetto della classe ```TApplication``` |

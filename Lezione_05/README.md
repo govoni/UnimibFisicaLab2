@@ -397,10 +397,31 @@
     ```
 ![gaussiana2D](immagini/Gaussian_TH2F.png)
 
+## L'interfaccia interattiva di ```ROOT```: la classe ```TApplication```
 
+  * i ```TCanvas``` di ```ROOT``` sono dotati di diverse **funzionalita' interattive**
+    alle quali si accede con menu a tendina o contestuali 
+    (accessibili con il pulsante destro del mouse)
+  * per **abilitare queste funzionalita'** in un programma compilato,
+    e' necessario utilizzare un oggetto della classe **TApplication**
+    ```cpp
+    TApplication theApp ("theApp", &argc, argv) ;
+    TCanvas c1 ;
+    istogramma.Draw ("hist") ;
+    theApp.Run () ;
+    ```
+    * fra la linea
+      ```cpp
+      TApplication theApp ("theApp", &argc, argv) ;
+      ```
+      e la linea
+      ```cpp
+      theApp.Run () ;
+      ```
+      va incluso tutto il codice che si vuole interattivo
+    * puo' esistere un solo oggetto di tipo ```TApplication``` in ogni programma
+    * per uscire, da un qualunque ```TCanvas``` bisogna utilizzare il menu ```File->Quit ROOT```
 
-
-## TH2F: istogrammi bidimnesionali
 
 ## TNtuple
 
