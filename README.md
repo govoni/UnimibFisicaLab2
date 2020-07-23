@@ -40,11 +40,14 @@
 ## Riferimenti bibliografici
 
 
+![linea](immagini/linea.png)
+
 ## argomenti principali rimanenti
 
 - algoritmi di ricerca di minimi e zeri, algoritmi di ordinamento
 - istogrammi e fit di istogrammi e TGraph
 - minimi quadrati e maximum likelihood
 - lettura e scrittura dei dati: file di testo e ntuple di ROOT
-
-
+- TNtuple
+- il concetto di toy experiment ed il test delle distribuzioni della media
+  rispetto alla sua varianza
