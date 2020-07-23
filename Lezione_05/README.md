@@ -130,7 +130,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 5.2.4 rimepimento di un ```TH1F```
+### 5.2.4 riempimento di un ```TH1F```
 
   * un oggetto della classe ```TH1F``` viene creato, **e' vuoto**,
     cioe'  i conteggi di ogni singolo bin sono nulli 
