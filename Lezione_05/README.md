@@ -330,12 +330,35 @@
   * si noti che ```ROOT``` ridefinisce le variabili numeriche del ```C++```
     (sostituendo ```int``` con ```Int_t``` e ```double``` con ```Double_t``` in questo caso),
     perche' le variaibli definite internamente da ```ROOT``` hanno una dimensione in byte convenzionale
-   
 
-  - ripasso di varianza, sigma, deviazione standard dalla media
-  - come ci si aspetta cambino i due valori all'aumentare del numero di eventi
+![linea](../immagini/linea.png)
 
+### 5.4.1 disegno di un ```TGraph```
 
+  * come nel caso di ```TH1F```, un ```TGraph``` si **disegna su un ```TCanvas```**:
+    ```cpp
+    TCanvas c1 ("c1", "c1", 100, 100, 1000, 1000) ;
+    c1.SetLogx () ;
+    g_sigma.Draw ("ALP") ;
+    c1.Print ("sigmaTrend.png", "png") ;
+    ```
+    * le opzioni passate al metodo ```Draw``` richiedono di
+      * tracciare gli **assi** (```A```)
+      * congiungere i punti con una **linea** (```L```)
+      * disegnare i marker ad ogni punto (```P```). 
+    * anche per un ```TGraph```, 
+      si possono impostare diversi parametri grafici:
+    ```cpp
+    g_sigma.SetMarkerStyle (20) ;
+    g_sigma.SetMarkerColor (kAzure - 1) ;
+    g_sigma.SetLineColor (kGray + 1) ;
+    g_sigma.SetMarkerSize (2) ;
+    g_sigma.GetHistogram ()->GetXaxis ()->SetTitle ("numero di eventi nel campione") ;
+    g_sigma.GetHistogram ()->GetYaxis ()->SetTitle ("deviazione standard") ;
+    ```
+      * il metodo ```TGraph::GetHistogram ()``` restituisce il puntatore
+        all'istogramma di servizio creato da ```ROOT```
+        per comporre graficamente il disegno
 
 
 

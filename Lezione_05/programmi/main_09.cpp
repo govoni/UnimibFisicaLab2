@@ -46,19 +46,19 @@ int main (int argc, char ** argv)
     g_sigma.SetMarkerColor (kAzure - 1) ;
     g_sigma.SetLineColor (kGray + 1) ;
     g_sigma.SetMarkerSize (2) ;
-    g_sigma.Draw ("ALP") ;
     g_sigma.GetHistogram ()->GetYaxis ()->SetRangeUser (0., 2.) ;
     g_sigma.GetHistogram ()->GetXaxis ()->SetTitle ("numero di eventi nel campione") ;
     g_sigma.GetHistogram ()->GetYaxis ()->SetTitle ("deviazione standard") ;
+    g_sigma.Draw ("ALP") ;
     c1.Print ("sigmaTrend.png", "png") ;
 
     g_sigmaMedia.SetMarkerStyle (20) ;
     g_sigmaMedia.SetMarkerColor (kAzure - 1) ;
     g_sigmaMedia.SetLineColor (kGray + 1) ;
     g_sigmaMedia.SetMarkerSize (2) ;
-    g_sigmaMedia.Draw ("ALP") ;
     g_sigmaMedia.GetHistogram ()->GetXaxis ()->SetTitle ("numero di eventi nel campione") ;
     g_sigmaMedia.GetHistogram ()->GetYaxis ()->SetTitle ("deviazione standard dalla media") ;
+    g_sigmaMedia.Draw ("ALP") ;
     c1.Print ("sigmaMediaTrend.png", "png") ;
 
 
