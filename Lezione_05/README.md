@@ -236,6 +236,11 @@
     std::cout << "deviazione standard: " << h.GetRMS ()     << std::endl ;
     ```
 
+## 5.3 la varianza di una distribuzione
+
+  * 
+
+
 ## TGraph
 
 ## TH2F: istogrammi bidimnesionali

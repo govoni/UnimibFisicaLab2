@@ -13,6 +13,7 @@ class stats
       m_N (0)
       {}
 
+    // aggiunge un elemento al campione
     long long int addEvent (double value) 
       {
         m_sum += value ;
@@ -21,12 +22,14 @@ class stats
         return m_N ;
       }
 
+    // restituisce la media
     double getMean () const
       {
         if (m_N == 0) return 0. ; 
         return m_sum / static_cast<double> (m_N) ;
       }
 
+    // restituisce la varianza
     double getVariance (bool correct = false) const
       {
         if (m_N == 0) return 0. ; 
@@ -36,25 +39,40 @@ class stats
         return sigma ;
       }
 
+    // restituisce la sigma
     double getSigma (bool correct = false) const
       {
         return sqrt (getVariance (correct)) ;
       }
 
+    // restituisce la varianza della media
     double getVarianceMean (bool correct = false) const
       {
         return getVariance (correct) / m_N ;
       }
 
+    // restituisce la sigma della media
     double getSigmaMean (bool correct = false) const
       {
         return sqrt (getVarianceMean (correct)) ;
       }
+    
+    // annulla tutti i membri
+    void reset () 
+      {
+        m_sum = 0. ;
+        m_sumSq = 0. ;
+        m_N = 0 ;
+        return ;
+      }
 
   private:  
 
+    // somma dei numeri del campione
     double m_sum ;
+    // somma quadrata dei numeri del campione
     double m_sumSq ;
+    // numero di elementi del campione
     long long int m_N ;
 
 } ;
