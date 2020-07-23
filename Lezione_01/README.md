@@ -1395,7 +1395,7 @@ tempo di esecuzione per i*i: 3.91943 secondi
        **la linea** alla quale ha trovato un errore
        e **la ragione** per la quale ha ritenuto che ci fosse un problema
   * spesso un singolo errore genera altri errori in cascata,  
-    quindi e' consigliato risolvere gli errori uno per uno, 
+    quindi e' consigliato **risolvere gli errori uno per uno**, 
     iniziando dal primo che si trova
 
 ![linea](../immagini/linea.png)
