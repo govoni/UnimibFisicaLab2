@@ -279,7 +279,7 @@
 
   * all'aumentare del numero di misure, invece, aumenta la **precisione 
     con la quale si conosce la media** del campione
-  * la **deviazione standard dalla media**,
+  * la **deviazione standard della media**,
     definita come la deviazione standard divisa per la radice del numero di eventi nel campione,
     e' una stima dell'**incertezza sulla media**
 
@@ -333,7 +333,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 5.4.1 disegno di un ```TGraph```
+### 5.4.2 disegno di un ```TGraph```
 
   * come nel caso di ```TH1F```, un ```TGraph``` si **disegna su un ```TCanvas```**:
     ```cpp
@@ -346,8 +346,13 @@
       * tracciare gli **assi** (```A```)
       * congiungere i punti con una **linea** (```L```)
       * disegnare i marker ad ogni punto (```P```). 
-    * anche per un ```TGraph```, 
-      si possono impostare diversi parametri grafici:
+
+![linea](../immagini/linea.png)
+
+### 5.4.3 qualche opzione grafica
+
+  * anche per un ```TGraph```, 
+    si possono impostare diversi parametri grafici:
     ```cpp
     g_sigma.SetMarkerStyle (20) ;
     g_sigma.SetMarkerColor (kAzure - 1) ;
@@ -359,6 +364,19 @@
       * il metodo ```TGraph::GetHistogram ()``` restituisce il puntatore
         all'istogramma di servizio creato da ```ROOT```
         per comporre graficamente il disegno
+
+![linea](../immagini/linea.png)
+
+### 5.4.4 il risultato del disegno
+
+  * nel caso dell'andamento della **deviazione standard**
+    e della **deviazione standard della media**,
+    dal disegno dei ```TGraph``` nel caso di una distribuzione uniforme
+    si nota chiaramente che una delle due rimane costante, 
+    mentre l'altra diminuisce all'aumentare del numero di eventi
+    presenti nel campione
+
+![deviazione_standard](immagini/sigma_trends.png)
 
 
 
