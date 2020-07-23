@@ -445,7 +445,7 @@
 
 ![linea](../immagini/linea.png)
 
-## 5.X ESERCIZI
+## 5.8 ESERCIZI
 
   * Gli esercizi relativi alla lezione si trovano [qui](ESERCIZI.md)
 
