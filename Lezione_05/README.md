@@ -420,7 +420,8 @@
       ```
       va incluso tutto il codice che si vuole interattivo
     * puo' esistere un solo oggetto di tipo ```TApplication``` in ogni programma
-    * per uscire, da un qualunque ```TCanvas``` bisogna utilizzare il menu ```File->Quit ROOT```
+    * per terminare l'esecuzione del programma, 
+      da un qualunque ```TCanvas``` bisogna utilizzare il menu ```File->Quit ROOT```
 
 
 ## TNtuple
