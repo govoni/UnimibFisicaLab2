@@ -385,6 +385,19 @@
 
 ## TH2F: istogrammi bidimnesionali
 
+  * il concetto di istogramma monodimensionale si applica facilmente anche al **caso bidimensionale**
+  * l'oggetto di ```ROOT``` associato a questo concetto si chiama ```TH2F```
+  * nel costruttore, e' necessario inserire numero di bin ed estremi per due direzioni
+    ```cpp
+    TH2F h2 ("h2", "eventi pseudo-casuali Gaussiani", 200, -1.5, 1.5, 200, -1.5, 1.5) ;
+    ```
+  * nel riempimento, il metodo ```TH2F::Fill (Double_t x, Double_t y)``` prende in ingresso due valori
+    ```cpp
+    h2.Fill (rand_TCL (-1., 1., 10), rand_TCL (-1., 1., 10)) ;
+    ```
+![gaussiana2D](immagini/Gaussian_TH2F.png)
+
+
 
 
 ## TH2F: istogrammi bidimnesionali

@@ -63,11 +63,19 @@ scritta per generare numeri casuali.
 
 ## Esercizio 5.7
 
+Si crei e riempia un ```TH2F``` che contenga una Gaussiana bidimensionale nel piano *(x,y)* 
+centrata in (0., 0.) con *&sigma;<sub>x</sub> = &sigma;<sub>y</sub> = 2.*,
+generata con la tecnica del teorema centrale del limite,
+ricordando che una distribuzione di probabilita' Gaussiana bi-dimnesionale 
+si ottiene facendo il prodotto di due distribuzioni di probabilita' Gaussiane mono-dimensionali.
 
 ![linea](../immagini/linea.png)
 
 ## Esercizio 5.8
 
+Si crei e riempia un ```TH2F``` che contenga una distribuzione uniforme 
+bidimensionale, con *x* definito fra *0.* ed *1.* 
+ed *y* definito fra *-1.* e *3.*.
 
 ![linea](../immagini/linea.png)
 
