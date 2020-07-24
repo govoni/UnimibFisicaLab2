@@ -4,7 +4,7 @@ c++ -o main_08 main_08.cpp
 
 #include <cstdlib>
 #include <iostream>
-#include "stats.h"
+#include "statistiche.h"
 
 float rand_range (float min, float max)
   {
@@ -21,17 +21,17 @@ int main (int argc, char ** argv)
       }
 
     int NMAX = atoi (argv[1]) ;
-    stats statistiche ;
+    statistiche s_eventi ;
 
     for (int N = 1 ; N < NMAX ; N = N * 2)
       {
         int i = 0 ;
-        while (i++ < N) statistiche.addEvent (rand_range (-3., 3.)) ;
+        while (i++ < N) s_eventi.addEvent (rand_range (-3., 3.)) ;
         std::cout << N 
-                  << "\t" << statistiche.getMean () 
-                  << "\t" << statistiche.getSigma ()
-                  << "\t" << statistiche.getSigmaMean () << "\n" ;
-        statistiche.reset () ;
+                  << "\t" << s_eventi.getMean () 
+                  << "\t" << s_eventi.getSigma ()
+                  << "\t" << s_eventi.getSigmaMean () << "\n" ;
+        s_eventi.reset () ;
       }
 
     return 0 ;

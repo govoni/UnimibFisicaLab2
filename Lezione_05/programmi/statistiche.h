@@ -1,17 +1,19 @@
-#ifndef stats_h
-#define stats_h
+#ifndef statistiche_h
+#define statistiche_h
 
 #include <cmath>
 
-class stats 
+class statistiche
 {
   public:
 
-    stats () :
+    statistiche () :
       m_sum (0.),
       m_sumSq (0.),
       m_N (0)
       {}
+
+    ~statistiche () {}
 
     // aggiunge un elemento al campione
     long long int addEvent (double value) 
@@ -55,6 +57,12 @@ class stats
     double getSigmaMean (bool correct = false) const
       {
         return sqrt (getVarianceMean (correct)) ;
+      }
+    
+    // restituisce il numero di eventi
+    double getN () const
+      {
+        return m_N ;
       }
     
     // annulla tutti i membri

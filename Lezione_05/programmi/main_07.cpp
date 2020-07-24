@@ -4,7 +4,7 @@ c++ -o main_07 main_07.cpp
 
 #include <cstdlib>
 #include <iostream>
-#include "stats.h"
+#include "statistiche.h"
 
 float rand_range (float min, float max)
   {
@@ -14,16 +14,16 @@ float rand_range (float min, float max)
 
 int main (int argc, char ** argv)
   {
-    stats statistiche ;
+    statistiche s_eventi ;
 
     int i = 0 ;
-    while (i++ < 1000) statistiche.addEvent (rand_range (-3., 3.)) ;
+    while (i++ < 1000) s_eventi.addEvent (rand_range (-3., 3.)) ;
 
-    std::cout << "media               : " << statistiche.getMean () << std::endl ;
-    std::cout << "sigma               : " << statistiche.getSigma () << std::endl ;
-    std::cout << "sigma (corr)        : " << statistiche.getSigma (true) << std::endl ;
-    std::cout << "dev st. mean        : " << statistiche.getSigmaMean () << std::endl ;
-    std::cout << "dev st. mean (corr) : " << statistiche.getSigmaMean (true) << std::endl ;
+    std::cout << "media               : " << s_eventi.getMean () << std::endl ;
+    std::cout << "sigma               : " << s_eventi.getSigma () << std::endl ;
+    std::cout << "sigma (corr)        : " << s_eventi.getSigma (true) << std::endl ;
+    std::cout << "dev st. mean        : " << s_eventi.getSigmaMean () << std::endl ;
+    std::cout << "dev st. mean (corr) : " << s_eventi.getSigmaMean (true) << std::endl ;
 
     return 0 ;
   }

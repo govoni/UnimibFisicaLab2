@@ -45,6 +45,8 @@ Si calcolino la deviazione standard e la deviazione standard della media
 per una distribuzione di eventi uniforme
 sfruttando il generatore di eventi pseudo-casuali sviluppato nella Lezione 4
 al variare del numero di eventi generato, con andamento logaritmico.
+Effettuando i calcoli delle statistiche 
+con la classe ```statistiche``` sviluppata durante la Lezione 4:
   * Si mostri con un ```TGraph``` l'andamento della deviazione standard verso il numero di eventi.
   * Si mostri con un ```TGraph``` l'andamento della deviazione standard della media verso il numero di eventi.
   * Si confronti il valore ottenuto della deviazione standard con il valore atteso 

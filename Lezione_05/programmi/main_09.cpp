@@ -7,7 +7,7 @@ c++ -o main_09 `root-config --glibs --cflags` main_09.cpp
 #include "TH1F.h"
 #include <TGraph.h>
 #include <TCanvas.h>
-#include "stats.h"
+#include "statistiche.h"
 
 float rand_range (float min, float max)
   {
@@ -24,19 +24,19 @@ int main (int argc, char ** argv)
       }
 
     int NMAX = atoi (argv[1]) ;
-    stats statistiche ;
+    statistiche s_eventi ;
 
     TGraph g_sigma ;
     TGraph g_sigmaMedia ;
     for (int N = 10 ; N < NMAX ; N = N * 2)
       {
         int i = 0 ;
-        while (i++ < N) statistiche.addEvent (rand_range (-3., 3.)) ;
+        while (i++ < N) s_eventi.addEvent (rand_range (-3., 3.)) ;
 
-        g_sigma.SetPoint (g_sigma.GetN (), N, statistiche.getSigma ()) ;
-        g_sigmaMedia.SetPoint (g_sigmaMedia.GetN (), N, statistiche.getSigmaMean ()) ;
+        g_sigma.SetPoint (g_sigma.GetN (), N, s_eventi.getSigma ()) ;
+        g_sigmaMedia.SetPoint (g_sigmaMedia.GetN (), N, s_eventi.getSigmaMean ()) ;
 
-        statistiche.reset () ;
+        s_eventi.reset () ;
       }
 
     TCanvas c1 ("c1", "c1", 100, 100, 1000, 1000) ;
