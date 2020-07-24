@@ -133,12 +133,18 @@
   * si generano *N* coppie numeri pseudo-casuali nel piano che contiene il disegno della funzione
     e si conta il **numero di eventi** *n<sub>hit</sub>* che cascano nell'area sottesa dalla funzione 
   ![integrale_RP](immagini/integrale_random_points.png)
-  * di conseguenza, se *A* e' l'area del rettangolo dove sono stati generati gli eventi:
+  * di conseguenza, se *A* e' l'area del rettangolo dove sono stati generati gli eventi 
+    ed *m* ed *M* gli estremi di integrazione:
   ![integrale_HOM](immagini/integrale_HOM.png)
 
 ![linea](../immagini/linea.png)
 
 ### 6.2.2 la precisione del metodo
+
+  * non si possono generare infiniti numeri pseudo-casuali, 
+    dunque il **risultato sara' approssimato**:
+  ![integrale_HOM](immagini/integrale_HOM_real.png)
+
 
 
 - metodi di integrazione
