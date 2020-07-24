@@ -40,6 +40,7 @@
         s_singleToy.reset () ;
       } // loop sui toy experiment
     ```
+    * **NOTA BENW**: l'oggetto ```s_singleToy``` viene vuotato al termine di ogni toy experiment
   * mentre l'oggetto ```s_singleToy``` raccoglie le **statistiche di ogni singolo toy experiment**
     e viene utilizzato per calcolarne la media,
     l'oggetto ```s_tot``` raccoglie il campione dei valori delle medie 
@@ -75,12 +76,11 @@
     deve quindi corrispondere
     alla **deviazione standard** del campione delle medie
   * per controllare questa corrispondenza,
-    si puo' utilizzare la classe ```stats```
+    si puo' utilizzare la classe ```statistiche```
     ```cpp
     stats s_singleToy ;
     stats s_tot ;
     stats s_incertezzaMedia ;
-
     // loop sui toy experiment
     for (int iToy = 0 ; iToy < NToys ; ++iToy)
       {
@@ -92,6 +92,15 @@
         s_singleToy.reset () ;
       } // loop sui toy experiment
     ```
+    che produce come risultato:
+    ```
+    media delle deviazioni standard della media per i singoli toy: 0.0773579 
+    deviazione standard della distribuzione delle medie dei singoli toy: 0.0774481 
+    ```
+
+![linea](../immagini/linea.png)
+
+## 6.2 integrazione con numeri casuali
 
 
 
