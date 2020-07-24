@@ -100,8 +100,45 @@
 
 ![linea](../immagini/linea.png)
 
-## 6.2 integrazione con numeri casuali
+## 6.2 integrazione con numeri pseudo-casuali
 
+  * le sequenze di numeri pseudo-casuali possono essere utilizzate efficacemente
+    anche per **calcolare aree** sottese da funzioni
+  * i metodi che sfruttano numeri pseudo-casuali prendono il nome di tecniche **Monte Carlo**,
+    derivando questa definizione dall'omonimo casino',
+    regno della dea bendata
+  * l'utilizzo di queste tecniche in fisica e' **molto vasto**,
+    ad esempio nel calcolo di integrali in meccanica quantistica e teoria quantistica dei campi,
+    per la simulazione di apparati di misura, et cetera
+    
+![linea](../immagini/linea.png)
+
+### 6.2.1 prerequisiti
+
+  * studiamo il caso di integrazione di **funzioni mono-dimensionali positive, continue 
+    e definite su un intervallo compatto e connesso**
+    (quindi finite su tutto l'insieme di definizione)
+  * sia data come esempio la funzione *f(x) = sen(x) + 1* definita sull'intevallo *(0, &pi;)*
+    * per questa funzione sappiamo calcolare l'integrale in forma analitica,
+      pari a *2&pi;*
+
+  ![integrale](immagini/integrale.png)
+
+![linea](../immagini/linea.png)
+
+### 6.2.2 il metodo hit-or-miss
+
+  * l'**algoritmo hit-or-miss** si comporta in modo simile alla generazione di numeri pseudo-casuali
+    con la tecnica try-and-catch
+  * si generano *N* coppie numeri pseudo-casuali nel piano che contiene il disegno della funzione
+    e si conta il **numero di eventi** *n<sub>hit</sub>* che cascano nell'area sottesa dalla funzione 
+  ![integrale_RP](immagini/integrale_random_points.png)
+  * di conseguenza, se *A* e' l'area del rettangolo dove sono stati generati gli eventi:
+  ![integrale_HOM](immagini/integrale_HOM.png)
+
+![linea](../immagini/linea.png)
+
+### 6.2.2 la precisione del metodo
 
 
 - metodi di integrazione
