@@ -28,9 +28,9 @@
   * [Lezione 4](Lezione_04/README.md) : generazione di numeri casuali
   * [Lezione 5](Lezione_05/README.md) : visualizzazione dei dati con ROOT
   * [Lezione 6](Lezione_06/README.md) : esempi di applicazione di sequenze pseudo-casuali
-  * [Lezione 7](Lezione_07/README.md) : programmazione ad oggetti: l'ereditarieta'
-  * [Lezione 8](Lezione_08/README.md) : programmazione template e standard template library
-  * [Lezione 9](Lezione_09/README.md) : 
+  * [Lezione 7](Lezione_07/README.md) : programmazione template
+  * [Lezione 7](Lezione_08/README.md) : programmazione ad oggetti: l'ereditarieta'
+  * [Lezione 9](Lezione_09/README.md) : standard template library
   * [Lezione 10](Lezione_10/README.md) : 
   * [Lezione 11](Lezione_11/README.md) : 
   * [Lezione 12](Lezione_12/README.md) : 

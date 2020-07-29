@@ -144,7 +144,24 @@
   * non si possono generare infiniti numeri pseudo-casuali, 
     dunque il **risultato sara' approssimato**:
   ![integrale_HOM](immagini/integrale_HOM_real_2.png)
+  * la quantita' *I* e' il *risultato dell'integrale* per il metodo hit-or-miss
+  * essendo funzione di numeri pseudo-casuali, e' a sua volta un **numero pseudo-casuale**
+  * ha un valore atteso ed una varianza
+    quest'ultima e' **l'incetezza numerica** nel calcolo dell'integrale
+    * *A* ed *N* sono **noti senza incertezza**
+    * *n<sub>hit</sub>* ha invece **distribuzione binomiale**,
+      associando al successo il fatto che un punto generato si trovi sotto la funzione da integrare,
+      con **probabilita' *p = n<sub>hit</sub> / N***
+  
+### 6.2.4 l'incetezza numerica del metodo hit-or-miss
 
+  * **valore di aspettazione e varianza** di *I* quindi, 
+    dati *N* numeri pseudo-casuali geneati,
+    sono quindi:
+  ![integrale_HOM](immagini/integrale_HOM_exp_var.png)
+  * di conseguenza, 
+    l'incetezza numerica sul calcolo dell'integrale
+    e' data dalla **radice della varianza**
 
 ![linea](../immagini/linea.png)
 
