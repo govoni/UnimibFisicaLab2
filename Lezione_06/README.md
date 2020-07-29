@@ -152,7 +152,9 @@
     * *n<sub>hit</sub>* ha invece **distribuzione binomiale**,
       associando al successo il fatto che un punto generato si trovi sotto la funzione da integrare,
       con **probabilita' *p = n<sub>hit</sub> / N***
-  
+
+![linea](../immagini/linea.png)
+
 ### 6.2.4 l'incetezza numerica del metodo hit-or-miss
 
   * **valore di aspettazione e varianza** di *I* quindi, 
