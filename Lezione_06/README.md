@@ -204,19 +204,19 @@
 
 ### 6.2.4 il metodo del *crude Monte Carlo*
 
-
-
-
-
   * L'agoritmo *crude Monte Carlo* 
-  * L’algoritmo del metodo crude Monte Carlo per l’integrazione di una funzione *f(x)* 
-    definita nell’intervallo *[a,b]* può essere riassunto nei seguenti passaggi:
-    1. Generare numeri casuali, x, secondo una distribuzione di probabilità uniforme, nell’intervallo [a,b]
-    2. Valutare *y = f(x)*
-    3. Ripetere il procedimento *N* volte e calcolare, 
-       al termine del ciclo di generazione, 
-       la media e la varianza campionaria delle *y* ottenute. 
-       Valutare l’integrale, e la sua incertezza, tramite:
+    sfrutta le proprieta' del **valore di aspettazione** di una funzione
+  * dato un insieme di numeri pseudo-casuali *x<sub>i</sub>* 
+    generati secondo una distribuzione di probabilita' uniforme *f(x)*, 
+    il **valore di aspettazione della funzione *g(x)***
+    risulta essere:
+    ![integrale_crude](immagini/integrale_crude.png)
+    per definizione della distribuzione di probabilita' uniforme
+  * *E[g(x)]* e' stimabile con la **media dei valori *g(x<sub>i</sub>)***
+    e la varianza di *g(x)* e' stimabile con la 
+    **deviazione standard della media dei valori *g(x<sub>i</sub>)***
+  * dunque si puo' calcolare una stima dell'integrale di *g(x)* e della sua incertezza
+    ![integrale_crude_res](immagini/integrale_crude_res.png)
 
 
 ![linea](../immagini/linea.png)
