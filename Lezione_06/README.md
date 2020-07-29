@@ -135,7 +135,7 @@
   ![integrale_RP](immagini/integrale_random_points.png)
   * di conseguenza, se *A* e' l'area del rettangolo dove sono stati generati gli eventi 
     ed *m* ed *M* gli estremi di integrazione:
-  ![integrale_HOM](immagini/integrale_HOM.png)
+  ![integrale_HOM](immagini/integrale_HOM_2.png)
 
 ![linea](../immagini/linea.png)
 
