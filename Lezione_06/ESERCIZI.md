@@ -33,11 +33,25 @@ al variare del numero di eventi generati in un singolo toy experiment.
 
 ## Esercizio 6.5
 
+Si implementi il metodo di integrazione hit-or-miss
+con la funzione di esempio *f(x) = sin (x)*.
+  * Si scriva l'algoritmo che calcola l'integrale come una funzione esterna al programma ```main```,
+    facendo in modo che prenda come parametri di ingresso,
+    oltre agli estremi lungo l'asse *x* e l'asse *y*,
+    anche il numero di punti pseudo-casuali da generare.
+  * Si faccia in modo che l'algoritmo ritorni un contenitore contenente due elementi:
+    il primo elemento sia il valore dell'integrale,
+    il secondo sia la sua incertezza.
 
 ![linea](../immagini/linea.png)
 
 ## Esercizio 6.6
 
+Si inserisca il calcolo dell'integrale dell'esercizio precedente in un ciclo che,
+al variare del numero *N* di punti generati, mostri il valore dell'integrale
+e della sua incertezza.
+  * Si utilizzi un ```TGraph``` per disegnare gli andamenti del valore dell'integrale
+    e della sua incertezza, al variare di *N* con ragione logaritmica.
 
 ![linea](../immagini/linea.png)
 

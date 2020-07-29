@@ -155,15 +155,49 @@
 
 ![linea](../immagini/linea.png)
 
-### 6.2.4 l'incetezza numerica del metodo hit-or-miss
+### 6.2.4 l'incertezza numerica del metodo hit-or-miss
 
   * **valore di aspettazione e varianza** di *I* quindi, 
     dati *N* numeri pseudo-casuali geneati,
     sono quindi:
   ![integrale_HOM](immagini/integrale_HOM_exp_var.png)
   * di conseguenza, 
-    l'incetezza numerica sul calcolo dell'integrale
+    l'incertezza numerica sul calcolo dell'integrale
     e' data dalla **radice della varianza**
+
+![linea](../immagini/linea.png)
+
+### 6.2.5 l'implementazione del metodo hit-or-miss
+
+  * anche in questo caso, 
+    si tratta di **generare numeri pseudo-casuali** sul piano
+    entro *(0, 2&pi;)* sull'asse *x* e *(0, 2)* sull'asse *y*
+    e contare quante coppie di punti stiano sotto la funzione da integrare:
+    ```cpp
+    int N = 10000 ;
+    int nHit = 0 ;
+    double xMin = 0. ;
+    double xMax = 2*M_PI ; 
+    double yMin = 0. ; 
+    double yMax = 2. ;
+
+    for (int i = 0 ; i < N ; ++i) 
+      {
+        if (isBelow (fsin, xMin, xMax, yMin, yMax) == true) ++nHit ; 
+      }
+    ```
+    dove:
+    ```cpp
+    bool isBelow (double f (double), double xMin, double xMax,
+                  double yMin, double yMax)
+      {
+        double x = 0., y = 0.;
+        x = rand_range (xMin, xMax) ;
+        y = rand_range (yMin, yMax) ; 
+        if (y < f (x)) return true ; 
+        return false ;
+      }
+    ```
 
 ![linea](../immagini/linea.png)
 
@@ -182,6 +216,7 @@
     cioe' inscatolare in box piccole vari sotto-intervalli di integrazione  
 
 ![linea](../immagini/linea.png)
+
 
 ## 6.1  
 
