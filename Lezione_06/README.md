@@ -118,7 +118,7 @@
   * studiamo il caso di integrazione di **funzioni mono-dimensionali positive, continue 
     e definite su un intervallo compatto e connesso**
     (quindi finite su tutto l'insieme di definizione)
-  * sia data come esempio la funzione *f(x) = sen(x) + 1* definita sull'intevallo *(0, &pi;)*
+  * sia data come esempio la funzione *g(x) = sin(x) + 1* definita sull'intevallo *(0, &pi;)*
     * per questa funzione sappiamo calcolare l'integrale in forma analitica,
       pari a *2&pi;*
 
@@ -143,7 +143,7 @@
 
   * non si possono generare infiniti numeri pseudo-casuali, 
     dunque il **risultato sara' approssimato**:
-  ![integrale_HOM](immagini/integrale_HOM_real_2.png)
+  ![integrale_HOM](immagini/integrale_HOM_real_3.png)
   * la quantita' *I* e' il *risultato dell'integrale* per il metodo hit-or-miss
   * essendo funzione di numeri pseudo-casuali, e' a sua volta un **numero pseudo-casuale**
   * ha un valore atteso ed una varianza
@@ -188,21 +188,40 @@
     ```
     dove:
     ```cpp
-    bool isBelow (double f (double), double xMin, double xMax,
+    bool isBelow (double g (double), double xMin, double xMax,
                   double yMin, double yMax)
       {
-        double x = 0., y = 0.;
-        x = rand_range (xMin, xMax) ;
-        y = rand_range (yMin, yMax) ; 
-        if (y < f (x)) return true ; 
+        double x = rand_range (xMin, xMax) ;
+        double y = rand_range (yMin, yMax) ; 
+        if (y < g (x)) return true ; 
         return false ;
       }
     ```
+  * a partire da n<sub>hit</sub>, quindi, si possono calcolare il valore dell'integrale 
+    e la sua incertezza.
+
+![linea](../immagini/linea.png)
+
+### 6.2.4 il metodo del *crude Monte Carlo*
+
+
+
+
+
+  * L'agoritmo *crude Monte Carlo* 
+  * L’algoritmo del metodo crude Monte Carlo per l’integrazione di una funzione *f(x)* 
+    definita nell’intervallo *[a,b]* può essere riassunto nei seguenti passaggi:
+    1. Generare numeri casuali, x, secondo una distribuzione di probabilità uniforme, nell’intervallo [a,b]
+    2. Valutare *y = f(x)*
+    3. Ripetere il procedimento *N* volte e calcolare, 
+       al termine del ciclo di generazione, 
+       la media e la varianza campionaria delle *y* ottenute. 
+       Valutare l’integrale, e la sua incertezza, tramite:
+
 
 ![linea](../immagini/linea.png)
 
 - metodi di integrazione
-  - metodo MC hit-or-miss
   - metodo "crude MC"
   - incetezze statistiche associate ai due metodi
   - vegas algorithm?

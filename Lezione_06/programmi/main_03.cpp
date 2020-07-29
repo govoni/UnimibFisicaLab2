@@ -20,13 +20,12 @@ double fsin (double x)
     return 1. + sin(x) ; 
   }
 
-bool isBelow (double f (double), double xMin, double xMax,
+bool isBelow (double g (double), double xMin, double xMax,
               double yMin, double yMax)
   {
-    double x = 0., y = 0.;
-    x = rand_range (xMin, xMax) ;
-    y = rand_range (yMin, yMax) ; 
-    if (y < f (x)) return true ; 
+    double x = rand_range (xMin, xMax) ;
+    double y = rand_range (yMin, yMax) ; 
+    if (y < g (x)) return true ; 
     return false ;
   }
 
