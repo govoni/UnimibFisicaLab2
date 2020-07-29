@@ -214,7 +214,8 @@
     per definizione della distribuzione di probabilita' uniforme
   * *E[g(x)]* e' stimabile con la **media dei valori *g(x<sub>i</sub>)***
     e la varianza di *g(x)* e' stimabile con la 
-    **deviazione standard della media dei valori *g(x<sub>i</sub>)***
+    **deviazione standard della media dei valori *g(x<sub>i</sub>)***,
+    che si calcola a partire dalla varianza *V[g(x)]*
   * dunque si puo' calcolare una stima dell'integrale di *g(x)* e della sua incertezza
     ![integrale_crude_res](immagini/integrale_crude_res.png)
 
@@ -222,8 +223,6 @@
 ![linea](../immagini/linea.png)
 
 - metodi di integrazione
-  - metodo "crude MC"
-  - incetezze statistiche associate ai due metodi
   - vegas algorithm?
 - determinazione degli zeri di una funzione
 - determinazione dei massimi di una funzione
