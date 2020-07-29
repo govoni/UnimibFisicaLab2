@@ -139,13 +139,14 @@
 
 ![linea](../immagini/linea.png)
 
-### 6.2.2 la precisione del metodo
+### 6.2.3 la precisione del metodo
 
   * non si possono generare infiniti numeri pseudo-casuali, 
     dunque il **risultato sara' approssimato**:
-  ![integrale_HOM](immagini/integrale_HOM_real.png)
+  ![integrale_HOM](immagini/integrale_HOM_real_2.png)
 
 
+![linea](../immagini/linea.png)
 
 - metodi di integrazione
   - metodo MC hit-or-miss
