@@ -218,6 +218,39 @@
 
 ## 7.6 ```template``` su valori di variabili
 
+  * oltre che su tipi di variabili,
+    si puo' scrivere templare una funzione o una classe
+    anche **sul valore di una variabile**
+  * ad esempio,
+    se si volessero definire elementi di uno spazio vettoriale
+    con dimensione finita, 
+    la **dimensione dei vettori** potrebbe essere templata:
+    ```cpp
+    template <int N> 
+    class vettore 
+    {
+      public:
+        vettore () { /* implementazione */ }
+        void setCoord (int i, double val) { /* implementazione */ }
+        double norm () { /* implementazione */ }
+    
+      private:
+        float elementi[N] ;
+    } ;
+
+    ```
+    e questo ```vettore``` si potrebbe utilizzare cosi':
+    ```cpp
+    vettore<2> v1 ;
+    v1.setCoord (0, 3.) ;
+    v1.setCoord (1, 4.) ;
+    std::cout << v1.norm () << std::endl ;
+    ```
+  * essendo la classe templata, 
+    il valore di *N* e' noto al **momento della compilazione**,
+    quindi e' lecito utilizzare l'allocazione automatica della memoria
+    per definire l'array ```elementi```
+
 ![linea](../immagini/linea.png)
 
 ## 7.7 ordine nelle librerie: i ```namespace```

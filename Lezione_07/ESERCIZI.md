@@ -44,9 +44,20 @@ un elemento in fondo all'array degli elementi gia' esistenti.
 
 ## Esercizio 7.5
 
+Si implementi la classe templata ```vettore``` definita nella lezione.
+  * Si ricordi di controllare che gli indici passati ai metodi della classe siano entro i limiti 
+    della memoria occupata dagli oggetti di tipo ```vettore```
+  * Si aggiungano gli **operatori algebrici** necessari per la definizione di uno spazio vettoriale
+
 ![linea](../immagini/linea.png)
 
 ## Esercizio 7.6
+
+Si implementi la classe templata ```matrice``` delle matrici quadrate di dimensione *N*, 
+templata sulla dimensione delle matrici, 
+definendo anche le operazioni fra matrici.
+  * Si definiscano gli operatori di moltiplicazione fra matrici e vettori,
+    utilizzando anche la classe ```vettore```.
 
 ![linea](../immagini/linea.png)
 
@@ -55,7 +66,6 @@ un elemento in fondo all'array degli elementi gia' esistenti.
 ![linea](../immagini/linea.png)
 
 ## Esercizio 7.8
-
 
 ![linea](../immagini/linea.png)
 

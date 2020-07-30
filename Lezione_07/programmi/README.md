@@ -10,3 +10,4 @@
    | main_03.cpp   | esempio d classe ```template``` |
    | main_04.cpp   | esempio di ```template``` multipli |
    | main_05.cpp   | esempio di specializzazione di un ```template``` |
+   | main_06.cpp   | esempio di una classe templata sul valore di una variabile |
