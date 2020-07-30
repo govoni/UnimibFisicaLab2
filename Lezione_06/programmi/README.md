@@ -8,10 +8,3 @@
    | main_03.cpp | esempio di implementazione di hit-or-miss |
    | main_04.cpp | esempio di algoritmo di bisezione |
    | main_05.cpp | esempio di algoritmo di bisezione ricorsiva |
-   | main_06.cpp |  |
-   | main_07.cpp |  |
-   | main_08.cpp |  |
-   | main_09.cpp |  |
-   | main_10.cpp |  |
-   | main_11.cpp |  |
-   | main_12.cpp |  |
