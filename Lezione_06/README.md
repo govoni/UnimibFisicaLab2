@@ -1,4 +1,4 @@
-# Lezione 6: esempi di applicazione di sequenze pseudo-casuali
+# Lezione 6: esempi di applicazione di sequenze pseudo-casuali ed esempi di calcolo numerico
 
   * le sequenze di numeri pseudo-casuali
     sono molto spesso utilizzate
@@ -216,8 +216,114 @@
     e la varianza di *g(x)* e' stimabile con la 
     **deviazione standard della media dei valori *g(x<sub>i</sub>)***,
     che si calcola a partire dalla varianza *V[g(x)]*
-  * dunque si puo' calcolare una stima dell'integrale di *g(x)* e della sua incertezza
+  * dunque si puo' calcolare una stima dell'integrale di *g(x)* e della sua incertezza:
     ![integrale_crude_res](immagini/integrale_crude_res.png)
+
+![linea](../immagini/linea.png)
+
+## 6.3 aree positive o negative: alla ricerca degli zeri di una funzione
+
+  * se una funzione ha anche una **parte negativa**,
+    gli algoritmi di calcolo dell'integrale devono tenerne conto
+    dividendo le regioni da integrare in positiva e negativa
+  * esistono tecniche per **trovare gli zeri** di una funzione  
+  * ipotesi sempici:
+    * funzione *g(x)* **continua definita su un intervallo compatto e connesso** *[x<sub>0</sub>, x<sub>0</sub>]*
+    * la funzione ha **un solo zero** nell'intervallo
+    * agli estremi dell'intervallo, i valori della funzione **hanno segno opposto**
+    ![integrale_crude_res](immagini/funzione_con_zero.png)
+
+![linea](../immagini/linea.png)
+
+### 6.3.1 il metodo della bisezione
+
+  * il programma non vede la funzione nella sua interezza,
+    quindi l'unico modo che ha per determinare dove sia lo zero 
+    e' **stimare la funzione in singoli punti**
+  * date le ipotesi iniziali,
+    lo zero della funzione si trova sicuramente fra due punti tali per cui
+    la funzione **assume valore con segno opposto** fra questi due punti  
+  * la tecnica della bisezione **restringe iterativamente questo intervallo**  
+    fino a che non diventa piu' piccolo di una risoluzione fissata
+    ![integrale_crude_res](immagini/bisezione.png)
+
+![linea](../immagini/linea.png)
+
+### 6.3.2 una impoementazione dell'algoritmo di bisezione
+
+  * ad ogni iterazione,
+    si calcola il **punto medo dell'intervallo** che contiene lo zero
+    e si decide se lo zero stia alla sua destra o alla sua sinistra
+    ```cpp
+    double bisezione (
+      double f (double),
+      double xMin,
+      double xMax,
+      double precision = 0.0001
+    )
+    {
+      double xAve = xMin ;
+      while ((xMax - xMin) > precision)
+        {
+          xAve = 0.5 * (xMax + xMin) ;
+          if (f (xAve) * f (xMin) > 0.) xMin = xAve ;
+          else                          xMax = xAve ;
+        }
+      return xAve ;
+    }  
+    ```
+
+![linea](../immagini/linea.png)
+
+### 6.3.3 una impoementazione dell'algoritmo di bisezione in modo ricorsivo
+
+  * l'algoritmo di bisezione effettua ripetutamente la **stessa operazione**
+    in maniera ricorsiva
+  * questo comportamento si puo' anche implementare in ```C++```, 
+    scrivendo una **funzione ricorsiva**,
+    cioe' che invoca se stessa:  
+    ```cpp
+    double bisezione_ricorsiva (
+      double f (double),
+      double xMin,
+      double xMax,
+      double precision = 0.0001
+    )
+    {
+      double xAve = 0.5 * (xMax + xMin) ;
+      if ((xMax - xMin) < precision) return xAve ;
+      if (f (xAve) * f (xMin) > 0.) return bisezione_ricorsiva (f, xAve, xMax, precision) ;
+      else                          return bisezione_ricorsiva (f, xMin, xAve, precision) ;
+    }  
+    ```
+
+  | attenzione |
+  | -------- |
+
+  * in ogni funzione ricorsiva, devono essere presenti **due elementi**:
+    * l'**invocazione della funzione** stessa
+    * la **condizione di uscita** dalla sequenza di auto-invocazioni
+
+![linea](../immagini/linea.png)
+
+## 6.4 informazioni necessarie: gli estremi di una funzione
+
+  * il metodo di hit-or-miss necessita della **conoscenza del valore massimo e minimo**
+    che assume *g(x)* sull'intervallo di integrazione
+  * in generale,
+    l'identificazione di massimi e minimi di una funzione
+    e' un problema 
+
+
+  * Per trovare il minimo di una funzione servono abbastanza punti da capirne la pendenza, 
+    quindi se ne cercano quattro, che determinano tre intervalli
+  * L'intervallo si stringe eliminando il tratto dove il minimo di sicuro non c'e'.
+  * Come per la trisezione, all'iterazione successiva si considera [0,r] se
+    f(1-r) < f(r) viceversa si sceglie l'intervallo [1-r,1]
+    All'iterazione successiva si vuole “riciclare” uno dei punti considerati in
+    quella precedente, perciò si impone la condizione:
+
+https://virgilio.mib.infn.it/~chiesa/labinfo/
 
 
 ![linea](../immagini/linea.png)

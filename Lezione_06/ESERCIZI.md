@@ -78,7 +78,42 @@ e della sua incertezza.
     e della sua incertezza, al variare di *N* con ragione logaritmica.
   * Si sovrapponga questo ```TGraph``` a quello ottenuto dallo svolgimento dell'Esercizio 6.6.
 
-
 ![linea](../immagini/linea.png)
 
 ## Esercizio 6.9
+
+Si disegnino in due ```TGraph``` gli andamenti della precisione del calcolo dell'integrale,
+per i due algoritmi di hit-or-miss e crude-MC, in funzione del tempo di calcolo 
+corrispondente alle varie scelte del numero totale *N* di eventi pseudo-casuali generati.
+
+![linea](../immagini/linea.png)
+
+## Esercizio 6.10
+
+Si utilizzi il metodo hit-or-miss per stimare l’integrale sotteso 
+ad una disrtibuzione di probabilita' Gaussiana con *&mu;=0* e *&sigma;=1
+in un generico intervallo *[a,b]*.
+  * Si calcoli l'integrale contenuto entro gli intervalli *[-k&sigma;,k&sigma;]*
+    al variare di k da *1* a *5*.
+
+![linea](../immagini/linea.png)
+
+## Esercizio 6.11
+
+Si calcoli con il metodo della bisezione lo zero della funzione *g(x) = cos(x)*
+nell'intervallo *(0, 4)*.
+
+![linea](../immagini/linea.png)
+
+## Esercizio 6.12
+
+Si svolga l'esercizio precedente utilizzando una funzione ricorsiva.
+
+![linea](../immagini/linea.png)
+
+## Esercizio 6.13
+
+Si implementi una funzione che calcola il fattoriale di un numero 
+utilizzando una funzione ricorsiva.
+
+
