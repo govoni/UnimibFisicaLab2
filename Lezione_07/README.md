@@ -216,11 +216,11 @@
 
 ![linea](../immagini/linea.png)
 
-## 7.6 ```template``` su valori di variabili
+## 7.6 ```template``` su valori di variabili intere
 
   * oltre che su tipi di variabili,
-    si puo' scrivere templare una funzione o una classe
-    anche **sul valore di una variabile**
+    si puo' templare una funzione o una classe
+    anche **sul valore di una variabile intera**
   * ad esempio,
     se si volessero definire elementi di uno spazio vettoriale
     con dimensione finita, 
@@ -255,13 +255,53 @@
 
 ## 7.7 ordine nelle librerie: i ```namespace```
 
+  * Al crescere delle dimensioni di una libreria,
+    puo' essere comodo incorporarne gli strumenti (siano essi classi o funzioni)
+    all'interno di un **contenitore**,
+    che permetta di identificarne la provenienza
+  * Un ```namespace``` fornisce questa possibilita'
+  * si potrebbe ad esempio raggruppare le varie funzioni ```somma``` 
+    nel modo seguente:
+    ```cpp
+    namespace ops
+    {
+      template <typename T>
+      T somma (T a, T b) { /* implementazione */ }
+        
+      template<>
+      float somma (float a, float b) { /* implementazione */ }
+      
+      template <typename T1, typename T2>
+      T2 somma (T1 a, T2 b) { /* implementazione */ }
+    }
+    ```
+  * per poter usare le funzioni definite all'interno di un ```namespace```,
+    bisogna utilizzare l'operatore di risoluzione di *scope*: ```operator::```:
+    ```cpp
+    std::cout << "somma di interi    " << ops::somma (i_a, i_b) << std::endl ;
+    std::cout << "somma di razionali " << ops::somma (d_a, d_b) << std::endl ;
+    ```
+
 ![linea](../immagini/linea.png)
 
-### 7.7.1 costruzione di un ```namespace```
+### 7.7.1 un ```namespace``` familiare: ```std```
 
-![linea](../immagini/linea.png)
+  * gli **strumenti standard** di ```C++``` sono definiti all'interno del ```namespace``` ```std```
+    (ad esempio ```std::cout```)
+  * si puo' istruire il compilatore a **cercare automaticamente** uno strumento
+    all'interno di un determinato ```namespace```, 
+    evitando cosi' di indicarlo esplicitamente:
+    ```cpp
+    using namespace std ;
+    int main (int argc, char ** argv)
+      {
+        //...
+        cout << "per scrivere questo messaggio non ho bisogno di std::" << endl ; 
+      }
 
-### 7.7.2 utilizzo di un ```namespace``` come default
+    ```
+  * e' buona norma **non** invocare ```using namespace std ;``` all'interno di **header file**,
+    perche' avrebbe effetto in tutti i programmi che includono quell'header
 
 ![linea](../immagini/linea.png)
 

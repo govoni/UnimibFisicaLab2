@@ -58,15 +58,3 @@ templata sulla dimensione delle matrici,
 definendo anche le operazioni fra matrici.
   * Si definiscano gli operatori di moltiplicazione fra matrici e vettori,
     utilizzando anche la classe ```vettore```.
-
-![linea](../immagini/linea.png)
-
-## Esercizio 7.7
-
-![linea](../immagini/linea.png)
-
-## Esercizio 7.8
-
-![linea](../immagini/linea.png)
-
-## Esercizio 7.9
