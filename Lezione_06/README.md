@@ -334,10 +334,10 @@
 
 ### 6.4.2 il criterio di restringimento
   
-  * Per trovare il minimo di una funzione servono abbastanza punti da capirne la pendenza 
+  * Per trovare il minimo di una funzione servono abbastanza punti da **capirne la pendenza** 
     in diverse regioni dell'intervallo, 
     quindi se ne cercano quattro, che determinano tre intervalli
-  * L'intervallo si stringe eliminando il tratto dove il minimo di sicuro non c'e'.
+  * L'intervallo si stringe **eliminando il tratto dove il minimo di sicuro non c'e'**.
     ![sezione_aurea_pendenza](immagini/sezione_aurea_pendenza.png)
   * l'iterazione successiva si restringe a
     *[x<sub>3</sub>, x<sub>1</sub>]* se *g(x<sub>3</sub>) > g(x<sub>2</sub>)*,
@@ -345,50 +345,37 @@
 
 ![linea](../immagini/linea.png)
 
-### 6.4.2 l'ottimizzazione della scelta dei punti
+### 6.4.3 l'ottimizzazione della scelta dei punti
   
   * per ottimizzare il calcolo,
     i punti *x<sub>2</sub>, x<sub>3</sub>* vengono scelti in modo
-    che uno dei due possa essere utilizzato anche nell'iterazione seguente,
+    che uno dei due possa essere **utilizzato anche nell'iterazione seguente**,
     garantendo la stessa proporzione di suddivisione dell'intervallo
     ![sezione_aurea_r](immagini/sezione_aurea_r.png)
   * perche' questo sia possibile deve valere:
     ![sezione_aurea_r](immagini/sezione_aurea_formula.png)
-  * e dunque il processo iterativo si restringe intorno all'estremante della funzione:  
+  * e dunque **il processo iterativo si restringe** intorno all'estremante della funzione:  
     ![sezione_aurea_r](immagini/sezione_aurea.png)
 
 ![linea](../immagini/linea.png)
 
+## 6.5 mettere tutto insieme
 
-https://virgilio.mib.infn.it/~chiesa/labinfo/
-
-
-
-- metodi di integrazione
-  - vegas algorithm?
-- determinazione degli zeri di una funzione
-- determinazione dei massimi di una funzione
-
-- connettere zeri, massimi e minimi al problema dell'integrazione
-  - determinare gli zeri = trovare se ci sono tratti negativi per integrare differentemente parti positive
-    e parti negative
-  - determinare i massimi e i minimi = potrebbe essere un modo per fare importance sampling grezzo,
-    cioe' inscatolare in box piccole vari sotto-intervalli di integrazione  
+  * esistono **molte tecniche** di ricerca di zeri ed estremanti di funzioni,
+    che sono spesso il nocciolo duro di software di analisi dati  
+  * una collezione di algoritmi si trova nel volume **[numerical recipes](http://numerical.recipes/)**
+  * oltre al problema locale di compiere operazioni in condizioni di buona regolarita',
+    algoritmi generici devono anche trovare il modo di
+    **ricondurre un problema generale a casi semplici**
+    * ad esempio, nel caso della ricerca di minimi 
+      bisogna evitare che gli algoritmi trovino minimi locali
+      e non identifichino il **minimo globale** di una funzione
+  * la funzionalita' di un algoritmo dipende criticamente dalla **dimensione
+    dello spazio di definizione** delle funzioni   
 
 ![linea](../immagini/linea.png)
 
-
-## 6.1  
-
-### 6.1.1 
-
-  | vantaggi |
-  | -------- |
-
-
-![linea](../immagini/linea.png)
-
-## 6.X ESERCIZI
+## 6.6 ESERCIZI
 
   * Gli esercizi relativi alla lezione si trovano [qui](ESERCIZI.md)
 

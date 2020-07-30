@@ -134,6 +134,13 @@ nell'intervallo *(-10, 10)*.
 Si svolga l'esercizio precedente utilizzando una funzione ricorsiva.
   * Quale delle due implementazioni e' piu' rapida?
 
+![linea](../immagini/linea.png)
+
+## Esercizio 6.16
+
+Si svolgano i due esercizi precedenti cercando il massimo di una funzione a scelta.
+
+
 
 
 
