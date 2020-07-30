@@ -22,6 +22,11 @@ implementando le funzioni definite nel prototipo presentato a lezione
   * Si ricordi di utilizzare correttamente l'allocazione dinamica della memoria
   * Si aggiungano alla classe anche metodi che permettano di accedere agli elementi della classe
     in caso vengano chiamati su un oggetto ```const```
+  * Si faccia in modo che i metodi di accesso al contenuto del ```SimpleArray``` 
+    controllino il valore dell'indice
+    prima di accedere all'array salvato in memoria  
+  * Si verifichi che la classe ```SimpleArray``` puo' essere templata sulla classe dei numeri complessi
+    sviluppata durante la Lezione 3
     
 ![linea](../immagini/linea.png)
 
@@ -38,16 +43,13 @@ un elemento in fondo all'array degli elementi gia' esistenti
 
 ## Esercizio 7.5
 
-
 ![linea](../immagini/linea.png)
 
 ## Esercizio 7.6
 
-
 ![linea](../immagini/linea.png)
 
 ## Esercizio 7.7
-
 
 ![linea](../immagini/linea.png)
 

@@ -181,6 +181,17 @@
 
 ## 7.4 ```template``` multipli
 
+  * E' possibile templare una funzione o una classe su **piu' di un tipo**
+  * Ad esempio, si potrebbe templare la funzione ```somma```
+    su due tipi differenti
+    ```cpp
+    template <typename T1, typename T2>
+    T2 somma (T1 a, T2 b)
+      {
+        return a + b ;
+      }
+    ```
+    
 ![linea](../immagini/linea.png)
 
 ## 7.5 la specializzazione dei ```template```
