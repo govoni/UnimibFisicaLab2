@@ -191,10 +191,26 @@
         return a + b ;
       }
     ```
-    
+
 ![linea](../immagini/linea.png)
 
 ## 7.5 la specializzazione dei ```template```
+
+  * talvolta puo' succedere che, 
+    per taluni tipi particolari,
+    l'**implementazione di una funzione templata
+    debba essere diversa** 
+    da quella prevista per la maggioranza dei tipi
+  * costruire una implementazione specifica per un determinato tipo
+    si chiama **specializzazione** di un ```template```
+    ```cpp
+    template<>
+    float somma (float a, float b)
+      {
+        std::cout << "SOMMA DI FLOAT" << std::endl ;
+        return a + b ;
+      }
+    ```  
 
 ![linea](../immagini/linea.png)
 

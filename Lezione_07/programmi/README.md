@@ -8,5 +8,5 @@
    | main_02.cpp   | esempio di funzione ```template``` scritta in un file ```.h``` |
    | simpleArray.h | esempio d classe ```template``` | 
    | main_03.cpp   | esempio d classe ```template``` |
-   | main_04.cpp   |  |
-   | main_05.cpp   |  |
+   | main_04.cpp   | esempio di ```template``` multipli |
+   | main_05.cpp   | esempio di specializzazione di un ```template``` |
