@@ -54,9 +54,10 @@
         return a + b ;
       }
     ```
-    * ```<typename T>``` **definisce il nome** scelto in questo caso per indicare il tipo generico
+    * ```<typename T>``` **definisce il nome** scelto in questo caso per indicare il tipo generico  
     * ```T somma (T a, T b)``` indica il **prototipo**: la funzione legge due variabili di tipo ```T``` 
       e restituisce una variabile di tipo ```T```
+    * la parola chiave ```typename``` puo' essere sempre sostituita dalla parola chiave ```class```
 
 ![linea](../immagini/linea.png)
 
@@ -123,6 +124,12 @@
 
 ## 7.3 classi ```template```
 
+  * come le funzioni,
+    anche le **classi** possono essere ```template```
+  * classi ```template``` sono un ottimo modo per **sviluppare strumenti generici**,
+    ad esempio un array che abbia il numero degli elementi definito a runtime
+    e che possa contenere qualunque tipo di oggetto
+
 ![linea](../immagini/linea.png)
 
 ### 7.3.1 definizione di una classe ```template```
@@ -134,9 +141,41 @@
 
 ### 7.3.2 implementazione di una classe ```template```
 
+  * anche in questo caso si utilizza la **parola chiave ```template```**
+    per indicare che la classe e' ```template``` 
+  * e la **parola chiave ```typename```** per definire il nome del tipo generico
+    da utilizzare nella scrittura della classe
+    ```cpp
+    template <typename T> 
+    class SimpleArray {
+    public:
+      // Costruttore
+      SimpleArray (const int & elementsNum) { /* implementazione */ }
+      // Distruttore
+      ~SimpleArray () { /* implementazione */ } 
+      T & element (const int& i)  { /* implementazione */ }
+      // Overloading di operator[]
+      T & operator[] (const int& i) { /* implementazione */ }
+    
+    private:
+    
+      int elementsNum_p;
+      T * elements_p;
+    } ;
+    ```
+
 ![linea](../immagini/linea.png)
 
 ### 7.3.3 utilizzo di una classe ```template```
+
+  * quando la classe ```SimpleArray``` viene utilizzata,
+    bisogna **indicare esplicitamente il tipo** sul quale 
+    e' templata al momento della definizione di ogni oggetto:
+    ```cpp
+    SimpleArray<int> contenitore (10) ;
+    for (int i = 0 ; i < 10 ; ++i)
+      contenitore[i] = 2 * i ;
+    ```
 
 ![linea](../immagini/linea.png)
 
@@ -144,19 +183,27 @@
 
 ![linea](../immagini/linea.png)
 
-## 7.5 ordine nelle librerie: i ```namespace```
+## 7.5 la specializzazione dei ```template```
 
 ![linea](../immagini/linea.png)
 
-### 7.5.1 costruzione di un ```namespace```
+## 7.6 ```template``` su valori di variabili
 
 ![linea](../immagini/linea.png)
 
-### 7.5.2 utilizzo di un ```namespace``` come default
+## 7.7 ordine nelle librerie: i ```namespace```
 
 ![linea](../immagini/linea.png)
 
-## 7.6 ESERCIZI
+### 7.7.1 costruzione di un ```namespace```
+
+![linea](../immagini/linea.png)
+
+### 7.7.2 utilizzo di un ```namespace``` come default
+
+![linea](../immagini/linea.png)
+
+## 7.8 ESERCIZI
 
   * Gli esercizi relativi alla lezione si trovano [qui](ESERCIZI.md)
 
