@@ -183,7 +183,7 @@
 
   * E' possibile templare una funzione o una classe su **piu' di un tipo**
   * Ad esempio, si potrebbe templare la funzione ```somma```
-    su due tipi differenti
+    su due tipi differenti:
     ```cpp
     template <typename T1, typename T2>
     T2 somma (T1 a, T2 b)
@@ -202,7 +202,7 @@
     debba essere diversa** 
     da quella prevista per la maggioranza dei tipi
   * costruire una implementazione specifica per un determinato tipo
-    si chiama **specializzazione** di un ```template```
+    si chiama **specializzazione** di un ```template```:
     ```cpp
     template<>
     float somma (float a, float b)
@@ -211,6 +211,8 @@
         return a + b ;
       }
     ```  
+  * il preambolo ```template<>``` segnala al ```C++``` che questa implementazione
+    e' una specializzazione della funzione templata ```somma```
 
 ![linea](../immagini/linea.png)
 
