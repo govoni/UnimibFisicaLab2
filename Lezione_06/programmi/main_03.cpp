@@ -6,8 +6,6 @@ c++ -o main_03 main_03.cpp
 #include <iostream>
 #include <cmath>
 
-//#include "../../Lezione_05/programmi/statistiche.h"
-
 
 float rand_range (float min, float max)
   {
@@ -17,7 +15,7 @@ float rand_range (float min, float max)
 
 double fsin (double x) 
   {
-    return 1. + sin(x) ; 
+    return 1. + sin (x) ; 
   }
 
 bool isBelow (double g (double), double xMin, double xMax,
@@ -41,11 +39,10 @@ int main (int argc, char ** argv)
   double yMin = 0. ; 
   double yMax = 2. ;
 
-  for (int i = 0; i < N; i++) 
+  for (int i = 0 ; i < N ; ++i) 
     {
       if (isBelow (fsin, xMin, xMax, yMin, yMax) == true) ++nHit ; 
     }
-
 
   double Area     = (xMax - xMin) * (yMax - yMin) ;
   double Integral = nHit * Area / static_cast<double> (N) ;
@@ -54,6 +51,6 @@ int main (int argc, char ** argv)
   double StdDev   = sqrt (Var) ;
   
   std::cout << "Integral = " << Integral
-            << " +/- " << StdDev << std::endl ;
+            << " +/- "       << StdDev << std::endl ;
   return 0 ;
 }
