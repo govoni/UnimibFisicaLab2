@@ -95,6 +95,30 @@
 
 ### 7.2.4 ```template``` e compilazione
 
+  * la risoluzione dei template avviene **in fase di compilazione** del programma
+  * questo significa che non si puo' separare la compilazione del ```main``` program 
+    da quella delle funzioni
+  * quindi tutti gli strumenti ```template```,
+    se vengono scritti in un file separato,
+    vanno implementati all'interno dell'```header```
+    ```cpp
+    #ifndef somma_h
+    #define somma_h
+    
+    template <typename T>
+    T somma (T a, T b)
+      {
+        return a + b ;
+      }
+    
+    #endif
+    ```
+  * durante la compilazione di strumenti ```template``` il ```C++``` 
+    porta a termine un **controllo sintattico accurato**
+  * la compilazione e' solitamente **lunga**
+  * **pochi errori** di scrittura possono tradursi in lunghe lamntele del compilatore
+    * cercate sempre **il primo errore** di compilazione!
+
 ![linea](../immagini/linea.png)
 
 ## 7.3 classi ```template```
