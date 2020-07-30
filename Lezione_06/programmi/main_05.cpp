@@ -14,7 +14,7 @@ double func (double x)
 
 
 double bisezione_ricorsiva (
-  double f (double),
+  double g (double),
   double xMin,
   double xMax,
   double precision = 0.0001
@@ -22,8 +22,8 @@ double bisezione_ricorsiva (
 {
   double xAve = 0.5 * (xMax + xMin) ;
   if ((xMax - xMin) < precision) return xAve ;
-  if (f (xAve) * f (xMin) > 0.) return bisezione_ricorsiva (f, xAve, xMax, precision) ;
-  else                          return bisezione_ricorsiva (f, xMin, xAve, precision) ;
+  if (g (xAve) * g (xMin) > 0.) return bisezione_ricorsiva (g, xAve, xMax, precision) ;
+  else                          return bisezione_ricorsiva (g, xMin, xAve, precision) ;
 }  
 
 

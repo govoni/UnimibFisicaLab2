@@ -102,12 +102,16 @@ in un generico intervallo *[a,b]*.
 
 Si calcoli con il metodo della bisezione lo zero della funzione *g(x) = cos(x)*
 nell'intervallo *(0, 4)*.
+  * Quali controlli sono stati omessi, 
+    nell'implementazione dell'algoritmo descritta nel testo della lezione,
+    che potrebbero accelerare il risultato?
 
 ![linea](../immagini/linea.png)
 
 ## Esercizio 6.12
 
 Si svolga l'esercizio precedente utilizzando una funzione ricorsiva.
+  * Quale delle due implementazioni e' piu' rapida?
 
 ![linea](../immagini/linea.png)
 

@@ -228,7 +228,7 @@
     dividendo le regioni da integrare in positiva e negativa
   * esistono tecniche per **trovare gli zeri** di una funzione  
   * ipotesi sempici:
-    * funzione *g(x)* **continua definita su un intervallo compatto e connesso** *[x<sub>0</sub>, x<sub>0</sub>]*
+    * funzione *g(x)* **continua definita su un intervallo compatto e connesso** *[x<sub>0</sub>, x<sub>1</sub>]*
     * la funzione ha **un solo zero** nell'intervallo
     * agli estremi dell'intervallo, i valori della funzione **hanno segno opposto**
     ![integrale_crude_res](immagini/funzione_con_zero.png)
@@ -256,7 +256,7 @@
     e si decide se lo zero stia alla sua destra o alla sua sinistra
     ```cpp
     double bisezione (
-      double f (double),
+      double g (double),
       double xMin,
       double xMax,
       double precision = 0.0001
@@ -266,7 +266,7 @@
       while ((xMax - xMin) > precision)
         {
           xAve = 0.5 * (xMax + xMin) ;
-          if (f (xAve) * f (xMin) > 0.) xMin = xAve ;
+          if (g (xAve) * g (xMin) > 0.) xMin = xAve ;
           else                          xMax = xAve ;
         }
       return xAve ;
@@ -284,7 +284,7 @@
     cioe' che invoca se stessa:  
     ```cpp
     double bisezione_ricorsiva (
-      double f (double),
+      double g (double),
       double xMin,
       double xMax,
       double precision = 0.0001
@@ -292,8 +292,8 @@
     {
       double xAve = 0.5 * (xMax + xMin) ;
       if ((xMax - xMin) < precision) return xAve ;
-      if (f (xAve) * f (xMin) > 0.) return bisezione_ricorsiva (f, xAve, xMax, precision) ;
-      else                          return bisezione_ricorsiva (f, xMin, xAve, precision) ;
+      if (g (xAve) * g (xMin) > 0.) return bisezione_ricorsiva (g, xAve, xMax, precision) ;
+      else                          return bisezione_ricorsiva (g, xMin, xAve, precision) ;
     }  
     ```
 

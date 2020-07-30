@@ -14,7 +14,7 @@ double func (double x)
 
 
 double bisezione (
-  double f (double),
+  double g (double),
   double xMin,
   double xMax,
   double precision = 0.0001
@@ -24,7 +24,7 @@ double bisezione (
   while ((xMax - xMin) > precision)
     {
       xAve = 0.5 * (xMax + xMin) ;
-      if (f (xAve) * f (xMin) > 0.) xMin = xAve ;
+      if (g (xAve) * g (xMin) > 0.) xMin = xAve ;
       else                          xMax = xAve ;
     }
   return xAve ;
