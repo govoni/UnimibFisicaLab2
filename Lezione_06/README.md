@@ -308,25 +308,61 @@
 
 ## 6.4 informazioni necessarie: gli estremi di una funzione
 
-  * il metodo di hit-or-miss necessita della **conoscenza del valore massimo e minimo**
-    che assume *g(x)* sull'intervallo di integrazione
-  * in generale,
-    l'identificazione di massimi e minimi di una funzione
-    e' un problema 
+  * il metodo di hit-or-miss necessita della **conoscenza del valore massimo**
+    che assume *g(x)* sull'intervallo di integrazione,
+    altrimenti non vengono generati punti in alcune zone
+    e la funzione effettivamente integrata e' diversa
+  * conoscere il **valore minimo** assunto dalla funzione permette di 
+    rendere l'algoritmo piu' efficiente,
+    evitando di generare punti in rettangoli sotto la funzione,
+    per i quali l'area si calcola banalmente
+    ![integrale_random_points_limits](immagini/integrale_random_points_limits.png)
 
+![linea](../immagini/linea.png)
 
-  * Per trovare il minimo di una funzione servono abbastanza punti da capirne la pendenza, 
+### 6.4.1 la ricerca di estremanti: il metodo della sezione aurea
+  
+  * ipotesi sempici:
+    * funzione *g(x)* **continua definita su un intervallo compatto e connesso** *[x<sub>0</sub>, x<sub>1</sub>]*
+    * la funzione ha **un solo estremante** nell'intervallo
+    ![funzione_con_minimo](immagini/funzione_con_minimo.png)
+  * anche in questo caso si procede per passi,
+    **restringendo ad ogni iterazione l'intervallo** che contiene l'estremante
+    fino a che diventa piu' piccolo di una precisione prefissata
+
+![linea](../immagini/linea.png)
+
+### 6.4.2 il criterio di restringimento
+  
+  * Per trovare il minimo di una funzione servono abbastanza punti da capirne la pendenza 
+    in diverse regioni dell'intervallo, 
     quindi se ne cercano quattro, che determinano tre intervalli
   * L'intervallo si stringe eliminando il tratto dove il minimo di sicuro non c'e'.
-  * Come per la trisezione, all'iterazione successiva si considera [0,r] se
-    f(1-r) < f(r) viceversa si sceglie l'intervallo [1-r,1]
-    All'iterazione successiva si vuole “riciclare” uno dei punti considerati in
-    quella precedente, perciò si impone la condizione:
+    ![sezione_aurea_pendenza](immagini/sezione_aurea_pendenza.png)
+  * l'iterazione successiva si restringe a
+    *[x<sub>3</sub>, x<sub>1</sub>]* se *g(x<sub>3</sub>) > g(x<sub>2</sub>)*,
+    altrimenti si restringe a *[x<sub>o</sub>, x<sub>2</sub>]*
+
+![linea](../immagini/linea.png)
+
+### 6.4.2 l'ottimizzazione della scelta dei punti
+  
+  * per ottimizzare il calcolo,
+    i punti *x<sub>2</sub>, x<sub>3</sub>* vengono scelti in modo
+    che uno dei due possa essere utilizzato anche nell'iterazione seguente,
+    garantendo la stessa proporzione di suddivisione dell'intervallo
+    ![sezione_aurea_r](immagini/sezione_aurea_r.png)
+  * perche' questo sia possibile deve valere:
+    ![sezione_aurea_r](immagini/sezione_aurea_formula.png)
+  * e dunque il processo iterativo si restringe intorno all'estremante della funzione:  
+    ![sezione_aurea_r](immagini/sezione_aurea.png)
+
+![linea](../immagini/linea.png)
+
 
 https://virgilio.mib.infn.it/~chiesa/labinfo/
 
 
-![linea](../immagini/linea.png)
 
 - metodi di integrazione
   - vegas algorithm?

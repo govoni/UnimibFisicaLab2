@@ -100,7 +100,7 @@ in un generico intervallo *[a,b]*.
 
 ## Esercizio 6.11
 
-Si calcoli con il metodo della bisezione lo zero della funzione *g(x) = cos(x)*
+Si determini con il metodo della bisezione lo zero della funzione *g(x) = cos(x)*
 nell'intervallo *(0, 4)*.
   * Quali controlli sono stati omessi, 
     nell'implementazione dell'algoritmo descritta nel testo della lezione,
@@ -119,5 +119,22 @@ Si svolga l'esercizio precedente utilizzando una funzione ricorsiva.
 
 Si implementi una funzione che calcola il fattoriale di un numero 
 utilizzando una funzione ricorsiva.
+
+![linea](../immagini/linea.png)
+
+## Esercizio 6.14
+
+Si determini con il metodo della sezione aurea il minimo della funzione *g(x) = x<sup>2</sup> + 7.3x + 4*
+nell'intervallo *(-10, 10)*.
+
+![linea](../immagini/linea.png)
+
+## Esercizio 6.15
+
+Si svolga l'esercizio precedente utilizzando una funzione ricorsiva.
+  * Quale delle due implementazioni e' piu' rapida?
+
+
+
 
 
