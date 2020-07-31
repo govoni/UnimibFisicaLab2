@@ -14,13 +14,14 @@
     definendoli soltanto una volta per una **classe madre**,
     facendo in modo che vengano ereditati da diverse **classi figlie**
   * le classi figlie, dunque, **adattano ed estendono comportamenti generali** 
-    definiti nella classe madre 
+    definiti nella classe madre
 
-### 8.1.1 
+### 8.1.1 Rappresentazione grafica
 
-  | vantaggi |
-  | -------- |
-
+  * il meccanismo di ereditarieta' introduce una **gerarchia fra classi**:
+    ogni classe derivata (figlia) e' un caso particolare della classe base.
+    Questo concetto e' noto come la **regola is-a**
+    ![gerarchia](../immagini/gerarchia.png)
 
 ![linea](../immagini/linea.png)
 
