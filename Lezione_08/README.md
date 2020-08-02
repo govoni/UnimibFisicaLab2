@@ -126,7 +126,7 @@
     cout << "area: " << forma_quadrata.area () << endl ;
     ```
   * la consistenza delle informazioni (ad esempio, che l'area sia calcolata correttamente)
-    dipende dalla bonta' dell'implementazione
+    dipende dalla **bonta' dell'implementazione**
 
 ![linea](../immagini/linea.png)
 
@@ -184,8 +184,8 @@
     nonostante dal punto di vista geometrico il quadrato sia un rettangolo con lati uguali
     * ad un rettangolo si puo' modificare la lunghezza di un lato e rimane un rettangolo,
       mentre se si modifica la lunghezza di un lato di un quadrato,
-      la forma geometrica diventa un rettangolo generico,
-  * quindi la classe ```quadrato``` non e' una specializzazione della classe ```rettangolo```,
+      la forma geometrica **diventa un rettangolo generico**
+  * quindi la classe ```quadrato``` **non e' una specializzazione** della classe ```rettangolo```,
     perche' non tutte le funzioni di ```rettangolo``` possono essere applicate a ```quadrato```
 
 ![linea](../immagini/linea.png)
