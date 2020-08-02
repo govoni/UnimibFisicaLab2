@@ -1,4 +1,4 @@
-# Lezione 7: programmazione ```template```
+# Lezione 7: programmazione ```template``` e Standard Template Library
 
 ![linea](../immagini/linea.png)
 
@@ -302,6 +302,151 @@
     ```
   * e' buona norma **non** invocare ```using namespace std ;``` all'interno di **header file**,
     perche' avrebbe effetto in tutti i programmi che includono quell'header
+
+![linea](../immagini/linea.png)
+
+## 7.9 Le Standard Template Library
+
+  * La generalita' di strumenti garantita dalla programmazione ```template```
+    viene grandemente utilizzata per creare **librerie di utilizzo generale**,
+    scritte da esperti e che non e' quindi necessario reimplementare
+  * Le **Standard Template Library (STL)** offrono diversi tipi di strumenti:
+    algoritmi, contenitori, funzioni, iteratori.
+  * come nel caso di ```ROOT```,
+    per utilizzare uno strumento STL bisogna **includerne l'header**. 
+  * A differenza di ```ROOT```, 
+    questa libreria e' gia' inclusa nel ```C++``` standard,
+    quindi **non e' necessario aggiungere opzioni** al comando di compilazione
+
+![linea](../immagini/linea.png)
+
+### 7.9.1 Programmazione a diversi livelli
+
+  * Si intende solitamente come **livello della programmazione**    
+    la distanza concettuale fra il codice sorgente ed il linguaggio macchina:
+    piu' le istruzioni scritte in un programma fanno uso di librerie esistenti,
+    piu' e' alto il livello di programmazione.
+  * Diversi livelli di programmazione richiedono una diversa comprensione
+    degli strumenti utilizzati.
+  * Tipicamente, **a basso livello** e' necessario prevedere quali problemi potrebbero sorgere
+    nell'utilizzo dell'hardware del calcolatore.  
+    Ad esempio, bisogna controllare che l'accesso ad un array avvenga
+    tramite un indice con valore positivo minore della dimensione dell'array.
+  * Ad **alto livello**, invece,
+    si assume solitamente che l'interazione con l'hardware sia ben gestita dalle librerie,
+    mentre e' necessario comprendere la loro logica ed il loro comportamento,
+    per utilizzarle al meglio.
+
+![linea](../immagini/linea.png)
+
+## 7.10 Contenitori STL
+
+  * I diversi contenitori delle STL 
+    sono **dedicati a diversi utilizzi**,
+    in funzione del tipo di salvataggio necessario 
+    e della frequenza di accesso ad ogni oggetto
+  * noi ne studiamo due molto utilizzati,
+    a titolo esempificativo
+  * documentazione piu' esaustiva si trova in internet,
+    ad esempio [qui](https://justinmeiners.github.io/sgi-stl-docs/stl_introduction.html)  
+
+![linea](../immagini/linea.png)
+
+### 7.10.1 La prima sequenza: ```std::vector```
+
+  * La classe ```vector```, che appartiene al namespace ```std```, 
+    e' templata sul tipo di oggetto che contiene.
+  * Un **```vector``` viene creato** vuoto (```v_1```), 
+    oppure composto da *N* elementi con il medesimo valore (```v_2```),
+    oppure a partire da un altro ```vector``` (```v_3```):
+    ```cpp
+    vector<double> v_1 ;
+    vector<double> v_2 (5, 0.) ;
+    vector<double> v_3 (v_2) ;
+    ```
+
+### 7.10.2 La lettura di un ```std::vector```
+
+  * Gli **elementi esistenti di un ```vector```** sono accessibli con l'```operator[]```,
+    oppure con il metodo ```vector::at (int)```:
+    ```cpp
+    cout << "elemento 1 di v_2 " << v_2[1] << endl ;
+    cout << "elemento 1 di v_2 " << v_2.at (1) << endl ;
+    ```
+    * il primo metodo funziona esattamente come per un array, 
+      quindi puo' creare **problemi di gestione della memoria**
+    * il secondo metodo controlla la validita' dell'indice rispetto alla dimensione del ```vector```
+      e **produce un errore di esecuzione**
+      nel caso in cui l'indice non indichi un elemento del ```vector```:
+      ```
+      libc++abi.dylib: terminating with uncaught exception of type std::out_of_range: vector
+      Abort trap: 6
+      ```
+
+### 7.10.3 Il riempimento di un ```std::vector```
+
+  * Ad un ```vector``` possono essere **aggiunti elementi alla fine** del suo contenuto, 
+    con il metodo ```vector::push_back (T element)```:
+    ```cpp
+    cout << v_1.size () << endl ;
+    v_1.push_back (3.) ; 
+    cout << v_1.size () << endl ;
+    ```
+    * il metodo ```vector::size ()``` restituisce il **numero di elementi** contenuti nel vector
+    * similmente,
+      si puo' **eliminare l'ultimo elemento** di un ```vector```
+      con il metodo ```vector::pop_back ()```:
+    ```cpp
+    v_1.pop_back () ; 
+    cout << v_1.size () << endl ;
+    ```
+
+### 7.10.4 ```std::vector``` ed array
+
+  * un ```vector``` **contiene un array** di elementi e fornisce l'interfaccia di accesso
+    e modifica
+  * per accedere direttamente all'array, e' sufficiente **dereferenziare il primo elemento** del ```vector```:
+    ```cpp
+    double * array_3 = & v_3.at (0) ;
+    cout << "elemento 2 di v_3 " << array_3[2] << endl ;
+    ```
+
+### 7.10.5 l'iterazione sugli elementi di un ```std::vector```
+
+  * per **iterare sugli elementi di un ```vector```**, 
+    si puo' utilizzare una sintassi analoga a quella che si userebbe per un array:
+    ```cpp
+    for (int i = 0 ; i < v_3.size () ; ++i)
+      cout << "elemento " << i << ": " << v_3.at (i) << "\n" ;
+    ```
+  * alternativamente, si possono utilizzare altri strumenti STL, 
+    gli iteratori:
+    ```cpp
+    for (vector<double>::const_iterator it = v_3.begin () ;
+         it != v_3.end () ;
+         ++it)
+      cout << "elemento " << it - v_3.begin () << ": " << *it << "\n" ;
+    ```
+    * un **iteratore** si comporta come puntatore ad un elemento di un contenitore
+      con in aggiunta metodi per spostarsi ad elementi contigui del contenitore
+    * di conseguenza, ```*it``` e' l'elemento contenuto in quell'elemento del ```vector```  
+    * il metodo **vector::begin ()** 
+      restituisce l'iteratore al **primo elemento** del ```vector```
+    * il metodo **vector::end ()** restituisce l'interatore alla locazione di memoria
+      **successiva all'ultimo elemento** del ```vector```,
+      dunque il ciclo non avviene se ```it``` e' uguale a ```v_3.end ()```
+    * gli iteratori **hanno una propria algebra**, 
+      per cui la differenza fra iteratori dello stesso contenitore  
+      indica il numero di elementi che intercorrono fra loro  
+
+
+![linea](../immagini/linea.png)
+
+## 7.8 ESERCIZI
+
+![linea](../immagini/linea.png)
+
+## 7.8 ESERCIZI
 
 ![linea](../immagini/linea.png)
 
