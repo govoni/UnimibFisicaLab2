@@ -352,7 +352,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 7.10.1 La prima sequenza: ```std::vector```
+### 7.10.1 Una sequenza di elementi: ```std::vector```
 
   * La classe ```vector```, che appartiene al namespace ```std```, 
     e' templata sul tipo di oggetto che contiene.
@@ -449,7 +449,66 @@
 
 ![linea](../immagini/linea.png)
 
-## 7.8 ESERCIZI
+### 7.10.6 ```std::vector``` di oggetti
+
+  * il comportamento dei tipi di default dei ```C++``` e' sempre ben regolato
+  * gli strumenti ```template``` possono essere utilizzati **con un qualunque tipo**,
+    dunque e' necessario che l'implementazione degli oggetti 
+    garantisca il buon funzionamento delle librerie STL
+  * in particolare, e' necessario che siano definiti il *copy constructor* e l'operatore di assegnazione
+    per il tipo ```T```
+
+![linea](../immagini/linea.png)
+
+### 7.10.7 Un contenitore associativo di elementi: ```std::map```
+
+![linea](../immagini/linea.png)
+
+### 7.10.8 Il riempimento di una ```std::map```
+
+![linea](../immagini/linea.png)
+
+### 7.10.9 La lettura di una ```std::map```
+
+![linea](../immagini/linea.png)
+
+### 7.10.10 Un singolo elemento: ```std::pair```
+
+![linea](../immagini/linea.png)
+
+### 7.10.11 L'iterazione sugli elementi di una ```std::map```
+
+![linea](../immagini/linea.png)
+
+### 7.10.12 ```std::map``` di oggetti
+
+![linea](../immagini/linea.png)
+
+## 7.11 ```std::string```
+
+![linea](../immagini/linea.png)
+
+## 7.12 algoritmi nelle STL
+
+![linea](../immagini/linea.png)
+
+### 7.12.1 ```std::sort```
+
+![linea](../immagini/linea.png)
+
+### 7.12.2 unary operators
+
+![linea](../immagini/linea.png)
+
+### 7.12.3 ordinamento al contrario
+
+![linea](../immagini/linea.png)
+
+### 7.12.4 find
+
+![linea](../immagini/linea.png)
+
+## 7.13 ESERCIZI
 
   * Gli esercizi relativi alla lezione si trovano [qui](ESERCIZI.md)
 

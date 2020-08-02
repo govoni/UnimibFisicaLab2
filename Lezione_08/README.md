@@ -324,6 +324,7 @@
   * Le classi puramente virtuali 
     dalle quali si eredita il comportamento desiderato sono dette **interfacce**.
 
+ 
 ![linea](../immagini/linea.png)
 
 ## 8.X ESERCIZI

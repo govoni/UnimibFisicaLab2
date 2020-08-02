@@ -61,7 +61,7 @@ definendo anche le operazioni fra matrici.
 
 ![linea](../immagini/linea.png)
 
-## Esercizio 7.6
+## Esercizio 7.7
 
 Si crei un ```std::vector``` vuoto e, tramite un ciclo ```for```, 
 lo si riempia con i primi 10 numeri della successione di Fibonacci.
@@ -69,5 +69,18 @@ lo si riempia con i primi 10 numeri della successione di Fibonacci.
     utilizzare una funzione esterna al ciclo per il calcolo dei numeri di Fibonacci?
   * Si stampi a schermo il suo contenuto utilizzando un ciclo su un numero intero,
     oppure utilizzando un iteratore.
+
+![linea](../immagini/linea.png)
+
+## Esercizio 7.8
+
+Si crei un ```std::vector``` vuoto e lo si riempia con cinque oggetti
+del tipo della classe ```complesso``` sviluppato durante la Lezione 3.
+  * Tramiti opportuni messaggi a schermo, 
+    si verifichi quando vengono chiamati costruttore,
+    *copy constructor*, operatore di assegnazione e distruttore
+    della classe ```complesso```
+
+
 
 
