@@ -23,7 +23,7 @@
   * il meccanismo di ereditarieta' ```public``` introduce una **gerarchia fra classi**:
     ogni classe derivata e' un caso particolare della classe base.
     Questo concetto e' noto come la **regola is-a**
-    ![gerarchia](../immagini/gerarchia.png)
+    ![gerarchia](immagini/gerarchia.png)
 
 ![linea](../immagini/linea.png)
 
@@ -192,6 +192,24 @@
 
 ## 8.3 ereditarieta' e polimorfismo
 
+  * quando due o piu' classi 
+    sono inserite in una gerarchia ereditaria,
+    un puntatore alla classe base
+    puo' essere utilizzato per **referenziare anche oggetti 
+    delle classi derivate**
+  * questo e' possibile dal fatto che la memoria dove sono salvati gli oggetti
+    viene utilizzata a fette (**memory slicing**), 
+    in modo che regioni separate della memoria corrispondano
+    a parti differenti dell'oggetto considerato:
+    ![memory_slicing](immagini/memory_slicing.png)
+    * nello spazio occupato in memoria dall'oggetto ```quadrato```,
+      la prima sezione (gialla) **contiene la parte ```forma```** dell'oggetto,
+    * la seconda (arancione) contiene **cio' che serve in piu' per realizzare il ```poligono regolare```**,
+    * la terza (rossa) contiene **cio' che serve in piu' rispetto al ```poligono regolare```
+      per realizzare il ```quadrato```**
+  * in questo modo, noto l'indirizzo della cella iniziale 
+    a seconda del tipo da considerare il ```C++``` e' in grado di ricostruire
+    l'oggetto corrispondente    
 
 
 ![linea](../immagini/linea.png)
