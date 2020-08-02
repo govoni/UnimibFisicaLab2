@@ -1,6 +1,6 @@
-# Esercizi per la lezione 9
+# Esercizi per la lezione 8
 
-## Esercizio 9.1
+## Esercizio 8.1
 
 Si definisca una semplice struttura di ereditarieta' delle forme geometriche,
 seguendo l'esempio presentato ad inizio lezione.
@@ -13,7 +13,7 @@ seguendo l'esempio presentato ad inizio lezione.
 
 ![linea](../immagini/linea.png)
 
-## Esercizio 9.2 
+## Esercizio 8.2 
 
 Si modifichi la struttura precedente aggiungendo la funzione ```calcola_area``` 
 in tutta la catena di ereditarieta'.
@@ -27,7 +27,7 @@ in tutta la catena di ereditarieta'.
 
 ![linea](../immagini/linea.png)
 
-## Esercizio 9.3
+## Esercizio 8.3
 
 Si implementino i generatori di numeri casuali scritti durante la Lezione 4
 come oggetti derivati della seguente classe puramente virtuale
@@ -57,24 +57,24 @@ class generatore
 
 ![linea](../immagini/linea.png)
 
-## Esercizio 9.8
+## Esercizio 8.8
 
 
 ![linea](../immagini/linea.png)
 
-## Esercizio 9.6
+## Esercizio 8.6
 
 
 ![linea](../immagini/linea.png)
 
-## Esercizio 9.7
+## Esercizio 8.7
 
 
 ![linea](../immagini/linea.png)
 
-## Esercizio 9.8
+## Esercizio 8.8
 
 
 ![linea](../immagini/linea.png)
 
-## Esercizio 9.9
+## Esercizio 8.9

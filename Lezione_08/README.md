@@ -1,8 +1,8 @@
-# Lezione 9: programmazione ad oggetti: l'ereditarieta' ```public```
+# Lezione 8: programmazione ad oggetti: l'ereditarieta' ```public```
 
 ![linea](../immagini/linea.png)
 
-## 9.1 Introduzione
+## 8.1 Introduzione
 
   * nella programmazione ad oggetti,
     la **traslazione dalle funzioni ai metodi delle funzionalita'** dei programmi
@@ -18,7 +18,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 9.1.1 Rappresentazione grafica
+### 8.1.1 Rappresentazione grafica
 
   * il meccanismo di ereditarieta' ```public``` introduce una **gerarchia fra classi**:
     ogni classe derivata e' un caso particolare della classe base.
@@ -27,7 +27,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 9.1.2 Problemi di privacy
+### 8.1.2 Problemi di privacy
 
   * nelle classi, 
     i membri ed i metodi sono divisi in parte ```public``` e parte ```private```:
@@ -40,11 +40,11 @@
 
 ![linea](../immagini/linea.png)
 
-## 9.2 Implementazione dell'esempio delle forme geometriche 
+## 8.2 Implementazione dell'esempio delle forme geometriche 
 
 ![linea](../immagini/linea.png)
 
-### 9.2.1 La classe base: ```forma```
+### 8.2.1 La classe base: ```forma```
 
   * la **classe base** per le forme geometriche ha un contenuto molto semplice:
     ```cpp
@@ -74,7 +74,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 9.2.2 Una classe derivata: ```quadrato```
+### 8.2.2 Una classe derivata: ```quadrato```
 
   * La sintassi per definire una **classe derivata pubblicamente** e' la seguente:
     ```cpp
@@ -112,7 +112,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 9.2.3 La classe derivata nel programma principale
+### 8.2.3 La classe derivata nel programma principale
 
   * nella funzione ```main```, 
     o in qualunque altra funzione dove venga utilizzato,
@@ -130,7 +130,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 9.2.4 Un'altra classe derivata: il ```rettangolo```
+### 8.2.4 Un'altra classe derivata: il ```rettangolo```
 
   * da una medesima classe base possono ereditare **diverse classi derivate**:
     ```cpp
@@ -175,7 +175,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 9.2.5 La regola is-a: una specializzazione
+### 8.2.5 La regola is-a: una specializzazione
 
   * L'ereditarieta' delle funzionalita' delle classi base nelle classi derivate
     e' un aspetto importante della progettazione del codice sorgente
@@ -190,7 +190,7 @@
 
 ![linea](../immagini/linea.png)
 
-## 9.3 ereditarieta' e polimorfismo
+## 8.3 ereditarieta' e polimorfismo
 
   * quando due o piu' classi 
     sono inserite in una gerarchia ereditaria,
@@ -213,7 +213,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 9.3.1 Compatibiita' fra tipi ereditariamente correlati
+### 8.3.1 Compatibiita' fra tipi ereditariamente correlati
 
   * Il *memory slicing* significa che sia lecito assegnare il puntatore di una classe derivata
     a **quello di una classe base**, 
@@ -227,7 +227,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 9.3.2 Il calcolo dell'area
+### 8.3.2 Il calcolo dell'area
 
   * Nell'implementazione delle funzioni ```rettangolo::cambia_lato_o (double)```, 
     ```rettangolo::cambia_lato_o (double)```, ```quadrato::cambia_lato (double)``` 
@@ -241,7 +241,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 9.3.3 *Dynamic binding*
+### 8.3.3 *Dynamic binding*
 
   * A partire da un puntatore ad una classe base,
     il ```C++``` e' in grado di **comprendere dinamicamente 
@@ -253,7 +253,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 9.3.4 Implementazione del metodo ```calcola_area```
+### 8.3.4 Implementazione del metodo ```calcola_area```
 
   * **Nella classe base**, la funzione ```calcola_area``` non ha informazioni sufficienti 
     per fare alcun conto, quindi e' implementata in modo banale in ```forma```:
@@ -276,7 +276,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 9.3.5 l'ulitizzo nel programma
+### 8.3.5 l'ulitizzo nel programma
 
   * Con questo accorgimento, grazie al *dynamic binding* 
     il programma **riconosce durante l'esecuzione**
@@ -291,7 +291,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 9.3.6 Il distruttore di una classe virtuale
+### 8.3.6 Il distruttore di una classe virtuale
 
   * Il *dynamic binding* si intreccia con il fatto che un puntatore potrebbe venire **allocato dinamicamente**,
     quindi poi distrutto con l'operatore ```delete```
@@ -302,7 +302,7 @@
 
 ![linea](../immagini/linea.png)
 
-## 9.4 Le interfacce e le classi puramente virtuali
+## 8.4 Le interfacce e le classi puramente virtuali
 
   * Una classe base in ```C++``` puo' essere utilizzata
     soltanto **per definire i comportamenti** di un insieme di classi derivate,
@@ -314,7 +314,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 9.4.1 Le interfacce
+### 8.4.1 Le interfacce
 
   * La definizione di una classe puramente virtuale
     che detti i comportamenti delle classi derivate
@@ -326,7 +326,7 @@
 
 ![linea](../immagini/linea.png)
 
-## 9.X ESERCIZI
+## 8.X ESERCIZI
 
   * Gli esercizi relativi alla lezione si trovano [qui](ESERCIZI.md)
 
