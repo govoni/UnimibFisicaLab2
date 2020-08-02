@@ -15,6 +15,15 @@ seguendo l'esempio presentato ad inizio lezione.
 
 ## Esercizio 8.2 
 
+Si modifichi la struttura precedente aggiungendo la funzione ```calcola_area``` 
+in tutta la catena di ereditarieta'.
+  * Si verifichi il comportamento polimorfico introdotto dal *dynamic binding*.
+  * Si verifichi che, eliminando la parola chiave ```virtual```, 
+    il *dynamic binding* non funziona.
+  * Si verifichi che il *dynamic binding* avviene in esecuzione e non in fase di compilazione,
+    implementando una funzione ```void stampa_area (forma * input)```
+    che stampa a schermo l'area di un oggetto di tipo ```rettangolo``` 
+    o ```quadrato``` a seconda della scelta dell'utente.
 
 ![linea](../immagini/linea.png)
 

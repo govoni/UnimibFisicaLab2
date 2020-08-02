@@ -22,7 +22,7 @@
 
   * il meccanismo di ereditarieta' ```public``` introduce una **gerarchia fra classi**:
     ogni classe derivata e' un caso particolare della classe base.
-    Questo concetto e' noto come la **regola is-a**
+    Questo concetto e' noto come la **regola is-a**.
     ![gerarchia](immagini/gerarchia.png)
 
 ![linea](../immagini/linea.png)
@@ -211,6 +211,81 @@
     a seconda del tipo da considerare il ```C++``` e' in grado di ricostruire
     l'oggetto corrispondente    
 
+![linea](../immagini/linea.png)
+
+## 8.3.1 Compatibiita' fra tipi ereditariamente correlati
+
+  * Il *memory slicing* significa che sia lecito assegnare il puntatore di una classe derivata
+    a **quello di una classe base**, 
+    senza incorrere il problemi di accesso alla memoria:
+    ```cpp
+    quadrato forma_quadrata (3.) ;
+    forma * puntatore = & forma_quadrata ;
+    ```
+  * Chiaramente l'opposto non e' ammissibile,
+    perche' l'oggetto ```quadrato``` occupa piu' posto in memoria dell'oggetto ```forma```
+
+![linea](../immagini/linea.png)
+
+### 8.3.2 Il calcolo dell'area
+
+  * Nell'implementazione delle funzioni ```rettangolo::cambia_lato_o (double)```, 
+    ```rettangolo::cambia_lato_o (double)```, ```quadrato::cambia_lato (double)``` 
+    l'area della forma geometrica **e' stata ricalcolata**,
+    perche' sono state modificate le caratteristiche geometriche della forma
+  * E' naturale **aggiungere un metodo ```calcola_area```** per tutte le forme geometriche,
+    in modo che per ciascuna di esse il calcolo venga fatto sempre allo stesso modo
+  * E' anche naturale immaginare che questo metodo sia parte della classe ```forma```, 
+    perche' esiste per ogni classe derivata, 
+    e venga poi **reimplementato** da ogni classe derivata
+
+![linea](../immagini/linea.png)
+
+### 8.3.3 *Dynamic binding*
+
+  * A partire da un puntatore ad una classe base,
+    il ```C++``` e' in grado di **comprendere dinamicamente 
+    di che tipo sia l'oggetto** referenziato dal puntatore
+    ed applicare il metodo corretto
+  * Per ottenere questo comportamento,
+    e' necessario definire i metodi da reimplementare 
+    con la parola chiave ```virtual```  
+
+![linea](../immagini/linea.png)
+
+### 8.3.4 Implementazione del metodo ```calcola_area```
+
+  * **Nella classe base**, la funzione ```calcola_area``` non ha informazioni sufficienti 
+    per fare alcun conto, quindi e' implementata in modo banale in ```forma```:
+    ```cpp
+    virtual double calcola_area () { return -1. ; } 
+    ```
+    * La parola chiave ```virtual``` anticipa al compilatore  
+      che le classi derivate **potrebbero reimplementare questo metodo**
+      e che bisogna scegliere quella giusta in fase di esecuzione,
+      a seconda del tipo effettivo di ciascun puntatore
+  * **Nella classe derivata** la funzione viene reimplementata 
+    con le informazioni necessarie, ad esempio per ```quadrato```:
+    ```cpp
+    virtual double calcola_area () 
+      { 
+        m_area = m_lato * m_lato ; 
+        return m_area ; 
+      }
+    ```
+
+### 8.3.5 l'ulitizzo nel programma
+
+  * Con questo accorgimento, grazie al *dynamic binding* 
+    il programma **riconosce durante l'esecuzione**
+    il tipo di oggetto da considerare.
+  * Le seguenti istruzioni:
+    ```cpp
+    quadrato forma_quadrata (3.) ;
+    forma * puntatore = & forma_quadrata ;   
+    cout << puntatore->calcola_area () << endl ;
+    ```
+    restituiranno a schermo il valore ```9```, invece che ```-1```.
 
 ![linea](../immagini/linea.png)
 

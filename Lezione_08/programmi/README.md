@@ -4,8 +4,9 @@
    | -------------| -------------|
    | forme.h       | esempio di ereditarieta' con forme geometriche |
    | main_00.cpp   | costruzione e chiamata di una funzione della classe base per diverse forme geometriche |
-   | main_01.cpp   |  |
-   | main_02.cpp   |  |
+   | main_01.cpp   | esempio di compatibilita' fra tipi in una catena ereditaria |
+   | forme_polim.h | esempio di ereditarieta' e polimorfismo con forme geometriche |
+   | main_02.cpp   | esempio di ereditarieta' e polimorfismo con forme geometriche |
    | main_03.cpp   |  |
    | main_04.cpp   |  |
    | main_05.cpp   |  |
