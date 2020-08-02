@@ -28,11 +28,11 @@
   * [Lezione 4](Lezione_04/README.md) : generazione di numeri casuali
   * [Lezione 5](Lezione_05/README.md) : visualizzazione dei dati con ROOT
   * [Lezione 6](Lezione_06/README.md) : esempi di applicazione di sequenze pseudo-casuali
-  * [Lezione 7](Lezione_07/README.md) : programmazione template
-  * [Lezione 8](Lezione_08/README.md) : standard template library
-  * [Lezione 9](Lezione_09/README.md) : programmazione ad oggetti: l'ereditarieta'
-  * [Lezione 10](Lezione_10/README.md) : fit di istogrammi e grafici, il metodo dei minimi quadrati
-  * [Lezione 11](Lezione_11/README.md) : il metodo della massima verosimiglianza
+  * [Lezione 7](Lezione_07/README.md) : programmazione template e standard template library
+  * [Lezione 9](Lezione_08/README.md) : programmazione ad oggetti: l'ereditarieta'
+  * [Lezione 10](Lezione_09/README.md) : fit di istogrammi e grafici, il metodo dei minimi quadrati
+  * [Lezione 11](Lezione_10/README.md) : il metodo della massima verosimiglianza
+  * [Lezione 12](Lezione_11/README.md) : test di ipotesi
   * [Lezione 12](Lezione_12/README.md) : test di ipotesi
 
 ![linea](immagini/linea.png)
