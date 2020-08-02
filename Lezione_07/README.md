@@ -365,6 +365,8 @@
     vector<double> v_3 (v_2) ;
     ```
 
+![linea](../immagini/linea.png)
+
 ### 7.10.2 La lettura di un ```std::vector```
 
   * Gli **elementi esistenti di un ```vector```** sono accessibli con l'```operator[]```,
@@ -382,6 +384,8 @@
       libc++abi.dylib: terminating with uncaught exception of type std::out_of_range: vector
       Abort trap: 6
       ```
+
+![linea](../immagini/linea.png)
 
 ### 7.10.3 Il riempimento di un ```std::vector```
 
@@ -401,6 +405,8 @@
     cout << v_1.size () << endl ;
     ```
 
+![linea](../immagini/linea.png)
+
 ### 7.10.4 ```std::vector``` ed array
 
   * un ```vector``` **contiene un array** di elementi e fornisce l'interfaccia di accesso
@@ -410,6 +416,8 @@
     double * array_3 = & v_3.at (0) ;
     cout << "elemento 2 di v_3 " << array_3[2] << endl ;
     ```
+
+![linea](../immagini/linea.png)
 
 ### 7.10.5 l'iterazione sugli elementi di un ```std::vector```
 
@@ -438,15 +446,6 @@
     * gli iteratori **hanno una propria algebra**, 
       per cui la differenza fra iteratori dello stesso contenitore  
       indica il numero di elementi che intercorrono fra loro  
-
-
-![linea](../immagini/linea.png)
-
-## 7.8 ESERCIZI
-
-![linea](../immagini/linea.png)
-
-## 7.8 ESERCIZI
 
 ![linea](../immagini/linea.png)
 
