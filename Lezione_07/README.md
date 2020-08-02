@@ -348,7 +348,7 @@
   * noi ne studiamo due molto utilizzati,
     a titolo esempificativo
   * documentazione piu' esaustiva si trova in internet,
-    ad esempio [qui](https://justinmeiners.github.io/sgi-stl-docs/stl_introduction.html)  
+    ad esempio [qui](https://justinmeiners.github.io/sgi-stl-docs)  
 
 ![linea](../immagini/linea.png)
 
@@ -462,25 +462,65 @@
 
 ### 7.10.7 Un contenitore associativo di elementi: ```std::map```
 
+  * Una ```map``` delle STL funziona **come un elenco telefonico**:
+    contiene una lista di valori (i numeri di telefono)
+    associati ad una chiave per ordinarli (cognomi e nomi),
+    dunque e' templata su due argomenti:
+    ```cpp
+    map <int, double> mappa_di_esempio ;
+    ```
+  * Per ogni chiave esiste **un solo valore** contenuto nella ```map```
+  * Il primo argomento (la chiave) **deve essere ordinabile**,
+    cioe' deve esistere l'```operator<``` per quel tipo o classe
+  * La ```map``` e' un **contenitore ordinato**,
+    cioe' gli elementi al suo interno su susseguono 
+    secondo la relazione d'ordine che esiste per le chiavi
+
 ![linea](../immagini/linea.png)
 
 ### 7.10.8 Il riempimento di una ```std::map```
+
+  * Il modo piu' semplice per riempire una ```map```
+    e' utilizzare l'```operator[]```, 
+    che ha un comportamento duplice:
+    se l'elemento corripondente ad una data chiave non esiste, 
+    viene creato, altrimenti viene restituito l'elemento esistente:
+    ```cpp
+    mappa_di_esempio[5] = 5.5 ;
+    mappa_di_esempio[3] = 3.3 ;
+    mappa_di_esempio[5] = 4.1 ;
+    mappa_di_esempio[12] = 7.9 ;
+    ```
+    * In questo caso, 
+      le prime due righe definiscono due nuovi elementi,
+      mentre la terza **sovrascrive** l'elemento associato alla chiave ```5```
+  * Per gli oggetti sui quali si templa una ```map``` devono aver definti 
+    un operatore di assgnazione ed un *copy constructor*
 
 ![linea](../immagini/linea.png)
 
 ### 7.10.9 La lettura di una ```std::map```
 
-![linea](../immagini/linea.png)
+  * per accedere ad un **singolo elemento esistente** in una ```map```
+    si utilizza l'```operator[]```
+  * ogni elemento della ```map``` e' tecnicamente una **coppia di oggetti**,
+    definita nelle STL come ```std::pair```,
+    che e' templata sui due stessi tipi della ```map```
+  * la classe ```pair``` ha due membri pubblici, chiamati **```first``` e ```second```**, 
+    che corrispodono al primo e secondo elemento della coppia rispettivamente    
+  * per **iterare su una ```map```** si utilizza l'iteratore STL corrispondente:
+    ```cpp
+    for (map<int, double>::const_iterator it = mappa_di_esempio.begin () ;
+         it != mappa_di_esempio.end () ;
+         ++it)
+      {
+        cout << "elemento " << it->first
+             << "\t-> "     << it->second << endl ;
+      }    
 
-### 7.10.10 Un singolo elemento: ```std::pair```
-
-![linea](../immagini/linea.png)
-
-### 7.10.11 L'iterazione sugli elementi di una ```std::map```
-
-![linea](../immagini/linea.png)
-
-### 7.10.12 ```std::map``` di oggetti
+    ```
+    * l'iteratore ```it``` si comporta, all'interno del ciclo,
+      come un puntatore al ```pair``` corrispondente ad ogni elemento della ```map```
 
 ![linea](../immagini/linea.png)
 

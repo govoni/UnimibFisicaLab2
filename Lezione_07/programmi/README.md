@@ -13,3 +13,4 @@
    | main_06.cpp   | esempio di una classe templata sul valore di una variabile |
    | main_07.cpp   | esempio di un namespace |
    | main_08.cpp   | esempio di uso di un ```vector``` |
+   | main_09.cpp   | esempio di uso di una ```map``` |

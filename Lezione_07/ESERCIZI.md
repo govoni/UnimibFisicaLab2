@@ -81,6 +81,14 @@ del tipo della classe ```complesso``` sviluppato durante la Lezione 3.
     *copy constructor*, operatore di assegnazione e distruttore
     della classe ```complesso```
 
+![linea](../immagini/linea.png)
+
+## Esercizio 7.9
+
+Si crei una ```std::map``` vuota e la si riempia con una sequenza di numeri complessi,
+utilizzando la norma dei numeri stessi come chiave di ordinamento della mappa.
+  * Si stampino quindi a schermo i numeri, ordinati per norma.
+
 
 
 
