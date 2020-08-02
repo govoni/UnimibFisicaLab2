@@ -2,7 +2,8 @@
 
    | programma | contenuto |
    | -------------| -------------|
-   | main_00.cpp   |  |
+   | forme.h       | esempio di ereditarieta' con forme geometriche |
+   | main_00.cpp   | costruzione e chiamata di una funzione della classe base per diverse forme geometriche |
    | main_01.cpp   |  |
    | main_02.cpp   |  |
    | main_03.cpp   |  |
