@@ -29,7 +29,27 @@ in tutta la catena di ereditarieta'.
 
 ## Esercizio 8.3
 
-    
+Si implementino i generatori di numeri casuali scritti durante la Lezione 4
+come oggetti derivati della seguente classe puramente virtuale
+e si verifichi il *dynamic binding*.
+```cpp
+class generatore
+{
+  public :
+
+    generatore (int seed = 1.) : m_seed (seed) {} 
+    virtual ~generatore () {} 
+    virtual void set_seed (int num) ; 
+    virtual double set_seed (int num) ; 
+    virtual double generate () ; 
+    int get_seed () const { return m_seed ; }
+
+  protected :  
+
+    int m_seed ;
+} ;
+```
+ 
 ![linea](../immagini/linea.png)
 
 ## Esercizio 6.4

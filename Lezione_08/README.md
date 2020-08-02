@@ -213,7 +213,7 @@
 
 ![linea](../immagini/linea.png)
 
-## 8.3.1 Compatibiita' fra tipi ereditariamente correlati
+### 8.3.1 Compatibiita' fra tipi ereditariamente correlati
 
   * Il *memory slicing* significa che sia lecito assegnare il puntatore di una classe derivata
     a **quello di una classe base**, 
@@ -274,6 +274,8 @@
       }
     ```
 
+![linea](../immagini/linea.png)
+
 ### 8.3.5 l'ulitizzo nel programma
 
   * Con questo accorgimento, grazie al *dynamic binding* 
@@ -286,6 +288,41 @@
     cout << puntatore->calcola_area () << endl ;
     ```
     restituiranno a schermo il valore ```9```, invece che ```-1```.
+
+![linea](../immagini/linea.png)
+
+### 8.3.6 Il distruttore di una classe virtuale
+
+  * Il *dynamic binding* si intreccia con il fatto che un puntatore potrebbe venire **allocato dinamicamente**,
+    quindi poi distrutto con l'operatore ```delete```
+  * Se l'operatore ```delete``` viene chiamato su un puntatore alla classe base,
+    per essere certi che venga chiamato anche il distruttore della classe derivata
+    e' necessario **dichiarare sempre il distruttore di tipo ```virtual```**
+    quando si utilizzi il polimorfismo
+
+![linea](../immagini/linea.png)
+
+## 8.4 Le interfacce e le classi puramente virtuali
+
+  * Una classe base in ```C++``` puo' essere utilizzata
+    soltanto **per definire i comportamenti** di un insieme di classi derivate,
+    deputanto l'implementazione alle classi derivate.
+  * Chiaramente, una classe senza implementazione **non puo' essere utilizzata**
+    per definire oggetti, 
+    perche' il tipo e' incompleto.
+  * Una classe di questo genere e' detta ```puramente virtuale```.
+
+![linea](../immagini/linea.png)
+
+### 8.4.1 Le interfacce
+
+  * La definizione di una classe puramente virtuale
+    che detti i comportamenti delle classi derivate
+    viene spesso utilizzata per garantire che oggetti definiti all'esterno di un programma
+    o di una libreria
+    **abbiano comportamenti compatibili** con il programma o la libreria stessi.
+  * Le classi puramente virtuali 
+    dalle quali si eredita il comportamento desiderato sono dette **interfacce**.
 
 ![linea](../immagini/linea.png)
 
