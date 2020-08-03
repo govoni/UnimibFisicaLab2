@@ -354,7 +354,7 @@
 
 ### 7.10.1 Una sequenza di elementi: ```std::vector```
 
-  * La classe ```vector```, che appartiene al namespace ```std```, 
+  * La classe [```vector```]( www.cplusplus.com/reference/vector/vector/), che appartiene al namespace ```std```, 
     e' templata sul tipo di oggetto che contiene.
   * Un **```vector``` viene creato** vuoto (```v_1```), 
     oppure composto da *N* elementi con il medesimo valore (```v_2```),
@@ -462,7 +462,8 @@
 
 ### 7.10.7 Un contenitore associativo di elementi: ```std::map```
 
-  * Una ```map``` delle STL funziona **come un elenco telefonico**:
+  * Una [```map```](http://www.cplusplus.com/reference/map/map/)
+    delle STL funziona **come un elenco telefonico**:
     contiene una lista di valori (i numeri di telefono)
     associati ad una chiave per ordinarli (cognomi e nomi),
     dunque e' templata su due argomenti:
@@ -525,6 +526,76 @@
 ![linea](../immagini/linea.png)
 
 ## 7.11 ```std::string```
+
+  * il ```C++``` offre uno strumento **dedicato alla gestione delle stringhe di caratteri**,
+    con il tipo [```string```](www.cplusplus.com/reference/string/string/)
+    ```cpp
+    #include <string>
+    using namespace std ;
+    int main (int argc, char ** argv) 
+      {
+        string s_1 ;
+        return 0 ;
+      }    
+    ```
+    * anche in questo caso, non sono necessarie opzioni di compilazione per usare la libreria ```string```
+  
+![linea](../immagini/linea.png)
+
+### 7.11.1 operazioni con stringhe
+
+  * La **somma** di due ```string``` restituisce la concatenazione del contenuto dei due oggetti sommati:
+    ```cpp
+    s_1 = "nel mezzo del cammin" ;
+    string s_2 = " di nostra vita" ;
+    string s_3 = s_1 + s_2 ;
+    cout << s_3 << endl ;
+    ```
+  * Il metodo ```string::length ()``` resituisce il **numero di caratteri** che compongono la ```string```
+    sul quale viene invocato
+  * L'uguaglianza fra due ```string``` si puo' verificare con l'```operator==()```.  
+
+![linea](../immagini/linea.png)
+
+### 7.11.2 ricerca di sotto-elementi in una ```string```
+
+  * In una ```string``` si possono **cercare sotto-```string```**:
+    ```cpp
+    int posizione = s_3.find (s_4) ;
+    cout << "La parola \"" << s_4 
+         << "\" inizia al carattere " << posizione 
+         << " della frase: \"" << s_3 
+         << "\"\n" ;
+    ```
+    * In caso la sotto-```string``` non venga trovata,
+      il metodo ```string::find``` ritorna *-1*.
+
+![linea](../immagini/linea.png)
+
+### 7.11.2 ```string``` e caratteri
+
+  * Una ```string``` contiene anche il **carattere che ne determina la fine**,
+    dunque ```'A'``` e' diverso da ```"A"```:
+    * ```'A'``` e' un **singolo carattere**, salvato il memoria come tale, occupa 1 byte in memoria.
+    * ```"A"``` e' una **stringa** composta da un carattere, 
+      occupa 8 byte in memoria in formato ```C```
+      e di piu' in formato ```string```, 
+      per via della struttura interna della classe ```string```
+      ```cpp
+      char A = 'A' ; 
+      cout << sizeof (A) << endl ;
+  
+      string S = "A" ;
+      cout << sizeof (S.c_str ()) << endl ;
+      cout << sizeof (S) << endl ;   
+      ```
+    * Per compatibilita' con funzioni implementate con lo stile ```C```,
+      il metodo ```string::c_str ()``` restituisce il **vettore di caratteri**
+      con il contenuto della variabile di tipo ```string```
+  * In generale e' preferibile **utilizzare ```string``` invece di ```char []```** nonappena possibile,
+    per via della migliore gestione della memoria,
+    oltre che per i diversi strumenti di manipolazione delle stringhe
+    disponibili per la classe ```string```.
 
 ![linea](../immagini/linea.png)
 

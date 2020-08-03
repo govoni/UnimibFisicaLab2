@@ -324,7 +324,11 @@
   * Le classi puramente virtuali 
     dalle quali si eredita il comportamento desiderato sono dette **interfacce**.
 
+![linea](../immagini/linea.png)
  
+- ereditarieta' ed STL
+- polimorfismo a compile-time vs. polimorfismo a run-time
+
 ![linea](../immagini/linea.png)
 
 ## 8.X ESERCIZI

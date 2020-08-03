@@ -14,3 +14,4 @@
    | main_07.cpp   | esempio di un namespace |
    | main_08.cpp   | esempio di uso di un ```vector``` |
    | main_09.cpp   | esempio di uso di una ```map``` |
+   | main_10.cpp   | esempio di uso di oggetti ```string``` |
