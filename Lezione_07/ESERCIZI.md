@@ -89,6 +89,14 @@ Si crei una ```std::map``` vuota e la si riempia con una sequenza di numeri comp
 utilizzando la norma dei numeri stessi come chiave di ordinamento della mappa.
   * Si stampino quindi a schermo i numeri, ordinati per norma.
 
+![linea](../immagini/linea.png)
 
+## Esercizio 7.10
+
+Si crei una ```std::string``` riempita con un periodo scelto a piacere.
+  * Si contino il numero di parole ed il numero di lettere (spazi esclusi)
+    che compongono il periodo.
+  * Si divida la stringa in singole parole,
+    ciascuna salvata con una stringa all'interno di un ```std::vector```.  
 
 
