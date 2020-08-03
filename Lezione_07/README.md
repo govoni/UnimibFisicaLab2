@@ -603,27 +603,7 @@
 
 ![linea](../immagini/linea.png)
 
-## 7.12 algoritmi nelle STL
-
-![linea](../immagini/linea.png)
-
-### 7.12.1 ```std::sort```
-
-![linea](../immagini/linea.png)
-
-### 7.12.2 unary operators
-
-![linea](../immagini/linea.png)
-
-### 7.12.3 ordinamento al contrario
-
-![linea](../immagini/linea.png)
-
-### 7.12.4 find
-
-![linea](../immagini/linea.png)
-
-## 7.13 ESERCIZI
+## 7.12 ESERCIZI
 
   * Gli esercizi relativi alla lezione si trovano [qui](ESERCIZI.md)
 

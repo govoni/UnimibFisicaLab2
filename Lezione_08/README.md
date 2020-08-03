@@ -325,13 +325,38 @@
     dalle quali si eredita il comportamento desiderato sono dette **interfacce**.
 
 ![linea](../immagini/linea.png)
- 
-- ereditarieta' ed STL
-- polimorfismo a compile-time vs. polimorfismo a run-time
+
+## 8.5 Il polimorfismo ed i contenitori STL
 
 ![linea](../immagini/linea.png)
 
-## 8.X ESERCIZI
+## 8.6 algoritmi nelle STL
+
+![linea](../immagini/linea.png)
+
+### 8.6.1 ```std::sort```
+
+![linea](../immagini/linea.png)
+
+### 8.6.2 unary operators
+
+![linea](../immagini/linea.png)
+
+### 8.6.3 ordinamento al contrario
+
+![linea](../immagini/linea.png)
+
+### 8.6.4 find
+
+![linea](../immagini/linea.png)
+
+## 8.7 Ereditarieta' e ```template```
+
+- polimorfismo run-time e polimorfismo compile-time
+
+![linea](../immagini/linea.png)
+
+## 8.8 ESERCIZI
 
   * Gli esercizi relativi alla lezione si trovano [qui](ESERCIZI.md)
 
