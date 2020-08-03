@@ -569,6 +569,10 @@
     ```
     * In caso la sotto-```string``` non venga trovata,
       il metodo ```string::find``` ritorna *-1*.
+    * Per **scrivere a schermo le virgolette**,
+      devono essere precedute dal carattere ```\``` 
+      quando poste all'interno di una stringa,
+      per non confondere il simbolo con la fine della stringa stessa  
 
 ![linea](../immagini/linea.png)
 
