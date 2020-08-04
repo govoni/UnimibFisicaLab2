@@ -330,6 +330,28 @@
 
 ![linea](../immagini/linea.png)
 
+  * il comportamento polimorfico di una catena di ereditarieta'
+    permette di **riempire contenitori STL con un insieme eterogeneo** di oggetti
+  * infatti, un contenitore di puntatori ad oggetti di una classe base
+    puo' essere **riempito con i puntatori ad oggetti di diverse classi derivate**
+    ed il ```C++``` capisce *run-time* quale funzione interpellare  
+    ```cpp
+    map<string, forma *> m_forme ; 
+    
+    forma forma_base ;
+    m_forme["base"] = & forma_base ; 
+    quadrato forma_quadrata (3.) ;
+    m_forme["quadrato"] = & forma_quadrata ; 
+      rettangolo forma_rettangolare (3., 2.) ;
+    m_forme["rettangolo"] = & forma_rettangolare ; 
+
+    for (map<string, forma *>::const_iterator it = m_forme.begin () ;
+         it != m_forme.end () ;
+         ++it)
+      cout << it->first << " ha area " << it->second->calcola_area () << endl ;
+  
+    ```
+
 ## 8.6 algoritmi nelle STL
 
 ![linea](../immagini/linea.png)

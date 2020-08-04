@@ -52,12 +52,17 @@ class generatore
  
 ![linea](../immagini/linea.png)
 
-## Esercizio 6.4
+## Esercizio 8.4
 
+Si inseriscano i generatori precedenti in una ```std::map``` 
+e si utilizzi un loop sugli elementi della mappa
+per verificare quanto tempo impieghi ciascun generatore, 
+in media,
+a generare un evento pseudo-casuale.
 
 ![linea](../immagini/linea.png)
 
-## Esercizio 8.8
+## Esercizio 8.5
 
 
 ![linea](../immagini/linea.png)
