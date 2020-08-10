@@ -42,7 +42,6 @@
 
 ## 9.2 La massima verosimiglianza: un ripasso veloce
 
-
 ![linea](../immagini/linea.png)
 
 ## 9.8 ESERCIZI
