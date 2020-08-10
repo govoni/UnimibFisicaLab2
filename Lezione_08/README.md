@@ -378,10 +378,29 @@
     * deve essere definito!
   * restituisce l'**iteratore** al primo elemento trovato uguale a ```val```
     * se **non trova nulla**, restituisce l'iteratore alla fine del contenitore
+  ```cpp
+  vector<float> v ;
+  for (int i = 0 ; i < 10 ; ++i) v.push_back (0.5 * i) ;
+
+  vector<float>::iterator risultato = 
+    find (v.begin (), v.end (), 3.5) ;
+
+  if (risultato != v.end ()) cout << "trovato " << *risultato << endl ;
+  ```
 
 ![linea](../immagini/linea.png)
 
 ### 8.6.2 ```std::sort```
+
+
+
+default (1) 
+template <class RandomAccessIterator>
+  void sort (RandomAccessIterator first, RandomAccessIterator last);
+custom (2)  
+template <class RandomAccessIterator, class Compare>
+  void sort (RandomAccessIterator first, RandomAccessIterator last, Compare comp);
+
 
 ![linea](../immagini/linea.png)
 
