@@ -30,8 +30,8 @@
   * [Lezione 6](Lezione_06/README.md) : esempi di applicazione di sequenze pseudo-casuali
   * [Lezione 7](Lezione_07/README.md) : programmazione template e standard template library
   * [Lezione 8](Lezione_08/README.md) : programmazione ad oggetti: l'ereditarieta'
-  * [Lezione 9](Lezione_09/README.md) : fit di istogrammi e grafici, il metodo dei minimi quadrati
-  * [Lezione 10](Lezione_10/README.md) : il metodo della massima verosimiglianza
+  * [Lezione 9](Lezione_09/README.md) : stima di parametri: il metodo della massima verosimiglianza
+  * [Lezione 10](Lezione_10/README.md) : stima di parametri: il metodo dei minimi quadrati
   * [Lezione 11](Lezione_11/README.md) : test di ipotesi
   * [Lezione 12](Lezione_12/README.md) : test di ipotesi
 
