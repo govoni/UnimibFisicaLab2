@@ -73,17 +73,8 @@ Si costriusca un ```vector``` di numeri interi contenente il doppo dei primi die
 
 ## Esercizio 8.6
 
-
-![linea](../immagini/linea.png)
-
-## Esercizio 8.7
-
-
-![linea](../immagini/linea.png)
-
-## Esercizio 8.8
-
-
-![linea](../immagini/linea.png)
-
-## Esercizio 8.9
+Si costruisca un ```vector``` che contenga cento numeri interi casuali generati fra -10 e 10.
+  * Si ordini il contenitore utilizzando l'algoritmo ```std::sort```.
+  * Si ordini il contenitore mettendo prima tutti i numeri positivi, ordinati fra di loro in ordine crescente, 
+    quindi tutti quelli negativi, ordinati in ordine decrescente,
+    utilizzando un oggetto come algoritmo di ordinamento.

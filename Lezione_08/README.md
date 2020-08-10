@@ -361,6 +361,8 @@
   * due operazoni importanti per maneggiare contenitori
     sono la **ricerca di un elemento al suo interno** e
     l'**ordinamento del suo contenuto**
+  * gli algoritmi diventano disponibili
+    ** includendo l'*header file* ```algorithm```**  
 
 ![linea](../immagini/linea.png)
 
@@ -376,6 +378,11 @@
     * per cercare su **tutto un contenitore** si passano come argomenti i suoi ```begin ()``` ed ```end ()```
   * utilizza l'**```operator==``` definito per il tipo ```T```** per la ricerca
     * deve essere definito!
+
+![linea](../immagini/linea.png)
+
+### 8.6.2 il risultato di ```std::find```
+
   * restituisce l'**iteratore** al primo elemento trovato uguale a ```val```
     * se **non trova nulla**, restituisce l'iteratore alla fine del contenitore
   ```cpp
@@ -390,31 +397,104 @@
 
 ![linea](../immagini/linea.png)
 
-### 8.6.2 ```std::sort```
+### 8.6.3 ```std::sort```
 
-
-
-default (1) 
-template <class RandomAccessIterator>
-  void sort (RandomAccessIterator first, RandomAccessIterator last);
-custom (2)  
-template <class RandomAccessIterator, class Compare>
-  void sort (RandomAccessIterator first, RandomAccessIterator last, Compare comp);
-
+  * esistono **due prototipi** per l'algoritmo di ordinamento
+  * quello comunemente utilizzato funziona similmente a ```find```,
+    perche' agisce su un contenitore **tramite i suoi iteratori**:
+    ```cpp
+    template <class RandomAccessIterator>
+    void sort (RandomAccessIterator first, RandomAccessIterator last);
+    ```
+  * utilizza l'**```operator<``` definito per il tipo ```T```** 
+    per ordinare in modo crescente il contenitore
+    * deve essere definito!
+  * per ordinare **tutto un contenitore** si passano 
+    come argomenti i suoi ```begin ()``` ed ```end ()```
 
 ![linea](../immagini/linea.png)
 
-### 8.6.3 unary operators
+### 8.6.4 risultato di ```std::sort```
+
+  * a partire da un ```vector``` riempito in questo modo:
+    ```
+    3, 2, 10, -1
+    ```
+  * la chiamata dell'algoritmo ```sort```:
+    ```cpp
+    sort (v.begin (), v.end ()) ;
+    ```
+    produce il seguente effetto sul contenuto del ```vector```:
+    ```
+    -1, 2, 3, 10
+    ```
 
 ![linea](../immagini/linea.png)
 
-### 8.6.4 ordinamento al contrario
+### 8.6.5 la relazione di ordine nell'ordinamento
+
+  * esiste un secondo prototipo di ```sort```,
+    che permette di **indicare la funzione da usare
+    per ordinare** il contenitore 
+    ```cpp
+    template <class RandomAccessIterator, class Compare>
+    void sort (RandomAccessIterator first, RandomAccessIterator last, Compare comp) ;
+    ```
+  * ```comp``` puo' essere una funzione o una classe
+    * nel caso sia una **funzione**, 
+      deve prendere in **input** (per copia o referenza) due argomenti del tipo 
+      contenuto nel contenitore e restituire in **output** un tipo compatibile con un ```bool```.
+    * nel caso sia una **classe**,
+      deve contenere un ```operator()``` che prenda in **input** (per copia o referenza) 
+      due argomenti del tipo contenuto nel contenitore 
+      e restituisca in **output** un tipo compatibile con un ```bool```.
+
+![linea](../immagini/linea.png)
+
+### 8.6.6 un esempio di utilizzo
+
+  * supponiamo di voler ordinare il vettore visto in precedenza
+    **anteponendo i numeri pari a quelli dispari**.
+    La funzione che deve sostituire la relazione di ```<``` e':
+    ```cpp
+    bool confronto (int i, int j) 
+      { 
+        if (i % 2 == 0) 
+          {
+            if (j % 2 != 0) return true ;
+            else return (i < j) ;
+          }
+        else
+          {
+            if (j % 2 == 0) return false ;
+            else return (i < j) ;
+          }
+      }
+    ```
+  * In questo modo, la seguente chiamata:
+    ```cpp
+    sort (v.begin (), v.end (), confronto) ;
+    ```
+    restituisce:
+    ```
+    2, 10, -1, 3
+    ```
 
 ![linea](../immagini/linea.png)
 
 ## 8.7 Ereditarieta' e ```template```
 
-- polimorfismo run-time e polimorfismo compile-time
+  * L'ereditarieta' e la programmazione ```template``` sono due tecniche
+    che permettono di implementare il polimorfismo nel ```C++```
+  * Entrambe le tecniche permettono infatti di **generalizzare il medesimo comportamento
+    per diversi tipi**, senza necessariamente dover scrivere piu' volte lo stesso codice sorgente  
+  * oltre al vantaggio pratico legato al tempo di scrittura dei programmi,
+    questo comporta che le funzionalita' vengono implementate meno volte,
+    **rendendo piu' difficile commettere errori** 
+    e produrre programmi inconsistenti
+  * le due tecniche sono complementari:
+    mentre l'ereditarieta' comporta polimorfismo **durante l'esecuzione del programma**,
+    la programmazione template lo implementa **durante la compilazione**
 
 ![linea](../immagini/linea.png)
 
