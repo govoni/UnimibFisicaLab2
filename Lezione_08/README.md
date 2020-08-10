@@ -352,23 +352,44 @@
   
     ```
 
+![linea](../immagini/linea.png)
+
 ## 8.6 algoritmi nelle STL
 
-![linea](../immagini/linea.png)
-
-### 8.6.1 ```std::sort```
-
-![linea](../immagini/linea.png)
-
-### 8.6.2 unary operators
+  * insieme a strumenti per contenere informazioni, 
+    le STL offrono **algoritmi per maneggiarle**
+  * due operazoni importanti per maneggiare contenitori
+    sono la **ricerca di un elemento al suo interno** e
+    l'**ordinamento del suo contenuto**
 
 ![linea](../immagini/linea.png)
 
-### 8.6.3 ordinamento al contrario
+### 8.6.1 ```std::find```
+
+  * il prototipo di questo algoritmo e' il seguente:
+    ```cpp
+    template <class InputIterator, class T>
+    InputIterator find (InputIterator first, InputIterator last, const T& val);
+    ```
+  * trova il **primo elemento** all'interno di un contenitore uguale a ```val```,
+    nell'intervallo delimitato da due iteratori ```[first, last)```
+    * per cercare su **tutto un contenitore** si passano come argomenti i suoi ```begin ()``` ed ```end ()```
+  * utilizza l'**```operator==``` definito per il tipo ```T```** per la ricerca
+    * deve essere definito!
+  * restituisce l'**iteratore** al primo elemento trovato uguale a ```val```
+    * se **non trova nulla**, restituisce l'iteratore alla fine del contenitore
 
 ![linea](../immagini/linea.png)
 
-### 8.6.4 find
+### 8.6.2 ```std::sort```
+
+![linea](../immagini/linea.png)
+
+### 8.6.3 unary operators
+
+![linea](../immagini/linea.png)
+
+### 8.6.4 ordinamento al contrario
 
 ![linea](../immagini/linea.png)
 

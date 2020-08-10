@@ -64,6 +64,10 @@ a generare un evento pseudo-casuale.
 
 ## Esercizio 8.5
 
+Si costriusca un ```vector``` di numeri interi contenente il doppo dei primi dieci numeri interi.
+  * Si mostri che l'algoritmo ```std::find``` non trova alcuno dei primi dieci numeri dispari al suo interno.
+  * Si trovi l'iteratore all'elemento che contiene il numero *6*.
+  * Si mostri che ognuno dei primi dieci numeri pari compare una volta sola all'interno del ```vector```.
 
 ![linea](../immagini/linea.png)
 
