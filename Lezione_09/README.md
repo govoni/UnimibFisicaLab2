@@ -1,4 +1,4 @@
-# Lezione 9: stima di parametri: il metodo della massima verosimiglianza
+# Lezione 9: stima di parametri con il metodo della massima verosimiglianza
 
 ![linea](../immagini/linea.png)
 
@@ -31,12 +31,12 @@
     indipendenti identicamente distribuiite,
     sappiamo che seguono una **data distribuzione di densita' probabilita'**, 
     indicata genericamente come *f(x, &theta;)*
-  * Questo significa che *f(x<sub>i</sub>, &theta;)* e' la densita' di probabilita'
+  * Questo significa che *f(x<sub>i</sub>, &theta;)* e' **la densita' di probabilita'**
     che la misura avvenga nel punto x<sub>i</sub> dell'insieme di definizione &Omega;.
-  * Il simbolo &theta; indica che la funzione di densita' di probabilita' *f*
+  * Il **simbolo &theta;** indica che la funzione di densita' di probabilita' *f*
     dipende da altre variabili oltre che *x*
     * &theta; puo' anche essere un vettore di parametri
-    * Ad esempio, una distribuzione Gaussiana ha due parametri aggiuntivi, &mu; e &sigma;
+    * Ad esempio, una **distribuzione Gaussiana** ha due parametri aggiuntivi, &mu; e &sigma;:
     ![gaussian](immagini/gaussian.png)
 
 ![linea](../immagini/linea.png)
