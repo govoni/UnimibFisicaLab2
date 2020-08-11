@@ -248,6 +248,36 @@
 
 ![linea](../immagini/linea.png)
 
+### 9.4.4 La sigma associata allo stimatore di &tau;
+
+  * Lo stimatore di &tau; e' una variabile casuale, 
+    cioe' ha una **proria distribuzione di probabilita'**
+  * Dunque oltre al avere associata una stima puntuale ricavata massimizzando
+    il logaritmo della verosimiglianza
+    **possiede anche una sigma**
+  * Si utilizza spesso un **metodo grafico** per determinare questa sigma,
+    che si basa sul fatto che asintoticamente la funzione di *likelihood* rispetto ai parametri e' Gaussiana,
+    dunque che la funzione di *log-likelihood* e' parabolica
+  * Si dimostra che **si trovano i due punti *&tau; - &sigma;<sub>&tau;</sub>* e *&tau; + &sigma;<sub>&tau;</sub>***
+    annullando la seguente funzione:
+![metodo_grafico_equazione](immagini/metodo_grafico_equazione.png)
+
+![linea](../immagini/linea.png)
+
+### 9.4.5 L'equivalente grafico
+
+  * **Disegnando la funzione *h(&tau;)*** si ottiene, 
+    al variare del numero di eventi utilizzati per calcolare la funzione *log-likelihood*:
+![loglikelihood_profile](immagini/loglikelihood_profile.png)
+  * al crescere del numero di eventi utilizzati,
+    la funzione *h(&tau;)* diventa piu' stretta,
+    cioe' **la sigma dello stimatore diminuisce**
+  * al crescere del numero di eventi utilizzati,
+    la funzione *h(&tau;)* diventa piu' simmetrica,
+    cioe' **assume comportamento asintotico**
+
+![linea](../immagini/linea.png)
+
 ### 9.X.Y Tabella riassuntiva 
 
 ![linea](../immagini/linea.png)
