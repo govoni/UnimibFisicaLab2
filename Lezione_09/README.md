@@ -97,22 +97,51 @@
   * Sono **consistenti**
   * Sono **asintoticamente non distorti**, 
     cioe' hanno bias nullo per il numero di misure *N* che tende all'infinito
-  * ono **asintoticamente efficienti**,
+  * Sono **asintoticamente efficienti**,
     cioe' hanno la varianza minima possibile 
     per il numero di misure *N* che tende all'infinito
 
 ![linea](../immagini/linea.png)
 
-### 9.3
+### 9.3 Un utile intermezzo: la lettura di un *file* di testo
 
+  * Puo' essere comodo **salvare informazioni semplici** su file di testo,
+    per poterle rileggere dai programmi di analisi dati
+  * La gestione dell'accesso a file di testo in ```C++``` e' **analoga
+    alla scrittura a schermo e lettura da tastiera**:
+    si utilizzano gli operatori di redirezione ```operator>>``` (per leggere)
+    ed ```operator<<``` (per scrivere) fra un oggetto che rappresenta il file
+    e le variabili
 
 ![linea](../immagini/linea.png)
 
-### 9.1.2 Diversi campioni 
+### 9.3.1 L'implementazione della lettura
 
-  * insieme di eventi, distribuzione non binnata
-  * insieme di eventi, distribuzione binnata
-  * relazione fra coppie di eventi *(x<sub>i</sub>, y<sub>i</sub>)* con relazione attesa *y = f(x, &theta;)*
+  * L'oggetto che rappresenta un file e' di tipo ```fstream```: 
+    ```ifstream``` per lettura (**input file stream**) ed
+    ```ofstream``` per scrittura (**output file stream**):
+    ```cpp
+    #include <fstream>
+    // ...
+    ifstream input_file ; 
+    input_file.open ("file.txt", ios::in) ;
+    // ...
+    vector<double> data ;
+    double input_val ;
+    while (true) 
+      {
+        input_file >> input_val ;
+        if (input_file.eof () == true) break ;
+        data.push_back (input_val) ;
+      } 
+    input_file.close () ;
+    ```
+    * In questo modo, una sequenza di numeri scritti nel file ```file.txt```
+      vengono letti uno ad uno, **trasferendone il valore nella variabile ```input_val```**
+    * Il valore della variabile, ad ogni lettura, viene aggiunto al ```vector``` chiamato ```data```
+    * All'interno del file di testo,
+      i valori sono seperati da spazi, tab o accapo.  
+    * Al termine della lettura, il *file* viene chiuso.
 
 ![linea](../immagini/linea.png)
 

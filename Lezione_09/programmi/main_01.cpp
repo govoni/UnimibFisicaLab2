@@ -1,10 +1,17 @@
 /*
-c++ -o main_00 main_00.cpp
+c++ -o main_01 `root-config --cflags --glibs` main_01.cpp
 */
 
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <cmath>
+
+#include "TH1F.h"
+#include "TCanvas.h"
+#include "TApplication.h"
+
+#include "statistiche_vector.h"
 
 using namespace std ;
 
@@ -36,6 +43,22 @@ int main (int argc, char ** argv)
     input_file.close () ;
 
     cout << "letti " << data.size () << " eventi" << endl ;
+
+    double media_v = media (data) ;
+    cout << "media = " << media_v << endl ; 
+
+    TApplication theapp ("theapp", 0, 0) ;
+    TH1F h_data ("h_data", "", 100, 0., 5 * media_v) ;
+    h_data.SetFillColor (kOrange + 1) ;
+    h_data.GetXaxis ()->SetTitle ("asse x") ;
+    h_data.GetYaxis ()->SetTitle ("conteggi per bin") ;    
+    TCanvas c1 ;
+
+    for (int i = 0 ; i < data.size () ; ++i) h_data.Fill (data.at (i)) ;
+
+    h_data.Draw () ;
+    theapp.Run () ;
+
 
     return 0 ;
 }
