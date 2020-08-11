@@ -17,7 +17,6 @@ double bisezione (
   double precision = 0.0001
 ) ;
 
-
 double sezione_aurea_max (
   double logl (const std::vector<double> & , double),
   double xMin,
