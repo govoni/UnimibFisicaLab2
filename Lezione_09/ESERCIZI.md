@@ -50,3 +50,12 @@ Si modifichi la funzione ```loglikelihood``` in modo che calcoli il logaritmo de
 dei valori della funzione di densita' di probabilita', piuttosto che la somma dei singoli logaritmi.
 Come cambia il comportamento dell'algoritmo?
 
+![linea](../immagini/linea.png)
+
+## Esercizio 9.7
+
+Si utilizzi il metodo della bisezione per trovare i due punti 
+*&tau; - &sigma;<sub>&tau;</sub>* e *&tau; + &sigma;<sub>&tau;</sub>* 
+nel caso dell'esercizio precedente.
+
+

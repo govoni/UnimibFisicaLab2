@@ -322,7 +322,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 9.4.7 L'utilizzo nel programma principale
+### 9.4.8 L'utilizzo nel programma principale
 
   * Su un intervallo relativamente ristretto intorno al massimo 
     della funzione *log-likelihood* sappiamo che
