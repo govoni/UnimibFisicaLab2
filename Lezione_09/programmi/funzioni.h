@@ -10,18 +10,26 @@ double loglikelihood (
   double param
 ) ;
 
-double bisezione (
-  double g (double),
-  double xMin,
-  double xMax,
-  double precision = 0.0001
-) ;
-
 double sezione_aurea_max (
   double logl (const std::vector<double> & , double),
   double xMin,
   double xMax,
   const std::vector<double> & data,
+  double precision = 0.0001
+) ;
+
+double h (
+  const std::vector<double> & data, 
+  double param,
+  double max
+) ;
+
+double bisezione (
+  double h (const std::vector<double> & , double, double),
+  double xMin,
+  double xMax,
+  const std::vector<double> & data,
+  double massimo,
   double precision = 0.0001
 ) ;
 

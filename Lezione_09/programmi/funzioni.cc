@@ -28,27 +28,6 @@ double loglikelihood (
 // ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- 
   
 
-double bisezione (
-  double g (double),
-  double xMin,
-  double xMax,
-  double precision
-)
-{
-  double xAve = xMin ;
-  while ((xMax - xMin) > precision)
-    {
-      xAve = 0.5 * (xMax + xMin) ;
-      if (g (xAve) * g (xMin) > 0.) xMin = xAve ;
-      else                          xMax = xAve ;
-    }
-  return xAve ;
-}
-
-
-// ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- 
-  
-
 double sezione_aurea_max (
   double logl (const vector<double> & , double),
   double xMin,
@@ -69,3 +48,41 @@ double sezione_aurea_max (
     }
   return 0.5 * (xMax + xMin) ;
 }
+
+
+// ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- 
+
+
+double h (
+  const vector<double> & data, 
+  double param,
+  double max
+)
+{
+  return loglikelihood (data, param) + 0.5 - loglikelihood (data, max) ;   
+}
+
+
+// ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- 
+  
+
+double bisezione (
+  double h (const vector<double> & , double, double),
+  double xMin,
+  double xMax,
+  const vector<double> & data,
+  double massimo,
+  double precision
+)
+{
+  double xAve = xMin ;
+  while ((xMax - xMin) > precision)
+    {
+      xAve = 0.5 * (xMax + xMin) ;
+      if (h (data, xAve, massimo) * h (data, xMin, massimo) > 0.) xMin = xAve ;
+      else                                                        xMax = xAve ;
+    }
+  return xAve ;
+}
+
+

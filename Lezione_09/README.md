@@ -278,6 +278,69 @@
 
 ![linea](../immagini/linea.png)
 
+### 9.4.6 L'implementazione della funzione *h(&tau;)* 
+
+  * Si puo' implementare la funzione *h(&tau;)*
+    **a partire dalla funzione ```loglikelihood```**:
+    ```cpp
+    double h (
+      const vector<double> & data, 
+      double param,
+      double max
+    )
+    {
+      return loglikelihood (data, param) + 0.5 - loglikelihood (data, max) ;   
+    }
+    ```  
+
+![linea](../immagini/linea.png)
+
+### 9.4.7 Il calcolo numerico dei punti di intersezione
+
+  * Si puo' **utilizzare il metodo della bisezione** per trovare
+    *&tau; - &sigma;<sub>&tau;</sub>* e *&tau; + &sigma;<sub>&tau;</sub>*   
+    ```cpp
+    double bisezione (
+      double h (const vector<double> & , double, double),
+      double xMin,
+      double xMax,
+      const vector<double> & data,
+      double massimo,
+      double precision
+    )
+    {
+      double xAve = xMin ;
+      while ((xMax - xMin) > precision)
+        {
+          xAve = 0.5 * (xMax + xMin) ;
+          if (h (data, xAve, massimo) * h (data, xMin, massimo) > 0.) xMin = xAve ;
+          else                                                        xMax = xAve ;
+        }
+      return xAve ;
+    }
+    ```
+
+![linea](../immagini/linea.png)
+
+### 9.4.7 L'utilizzo nel programma principale
+
+  * Su un intervallo relativamente ristretto intorno al massimo 
+    della funzione *log-likelihood* sappiamo che
+    **la funzione *h(&tau;)* ha due zeri**,
+    uno a destra ed uno a sinistra del suo massimo
+  * Richiamando la funzione ```bisezione``` **due volte**,
+    dunque, si possono calcolare i due punti desiderati:
+    ```cpp
+    double zero_sx = bisezione (h, 0.5 * media_v, massimo, data, massimo) ;
+    double zero_dx = bisezione (h, massimo, 1.5 * media_v, data, massimo) ;
+
+    cout << "zero_sx = " << zero_sx << endl ;
+    cout << "zero_dx = " << zero_dx << endl ;
+    cout << "sigma = " << 0.5 * (zero_dx - zero_sx) << endl ;
+    ```
+
+![linea](../immagini/linea.png)
+
 ### 9.X.Y Tabella riassuntiva 
 
 ![linea](../immagini/linea.png)

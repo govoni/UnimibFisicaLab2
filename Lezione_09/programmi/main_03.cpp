@@ -1,5 +1,5 @@
 /*
-c++ -o main_02 funzioni.cc main_02.cpp
+c++ -o main_03 funzioni.cc main_03.cpp
 */
 
 #include <iostream>
@@ -46,6 +46,14 @@ int main (int argc, char ** argv)
     double massimo = sezione_aurea_max (loglikelihood, 0.5 * media_v, 1.5 * media_v, data) ;
 
     cout << "massimo della likelihood = " << massimo << endl ; 
+
+    double zero_sx = bisezione (h, 0.5 * media_v, massimo, data, massimo) ;
+    double zero_dx = bisezione (h, massimo, 1.5 * media_v, data, massimo) ;
+
+    cout << "zero_sx = " << zero_sx << endl ;
+    cout << "zero_dx = " << zero_dx << endl ;
+
+    cout << "sigma = " << 0.5 * (zero_dx - zero_sx) << endl ;
 
     return 0 ;
 }
