@@ -63,12 +63,12 @@
   * La tecnica della massima verosimiglianza
     si basa sull'assunto che la stima dei parametri ricercati
     corrisponda al **valore 
-    che massimizza la likelihood**,
+    che massimizza la *likelihood***,
     definita come
     il prodotto del valore della distribuzione di densita' di probabilita'
     calcolata per ogni misura effettuata:
 ![likelihood](immagini/likelihood.png)
-  * La likelihood e' funzione sia delle misure che dei parametri, 
+  * La *likelihood* e' funzione sia delle misure che dei parametri, 
     tuttavia si **evidenzia la dipendenza dai parametri** perche'
     a misure finite i dati sono immutabili.
   * La funzione che stima i parametri dunque si ricava dall'equazione:
@@ -78,21 +78,36 @@
 
 ### 9.2.1 Il logaritmo della massima verosimiglianza
 
-  * Solitamente si utilizza il **logaritmo della funzione di likelihood**, 
+  * Solitamente si utilizza il **logaritmo della funzione di *likelihood***, 
     indicato con in lettera corsiva minuscola:.
 ![loglikelihood](immagini/loglikelihood.png)
   * Infatti, siccome il logaritmo e' una **funzione monotona crescente**,
     gli estremanti di una funzione e del suo logaritmo si trovano al medesimo posto
   * Il logaritmo di un prodotto di termini
     e' uguale alla somma dei logaritmi dei singoli termini,
-    quindi la ricerca degli estremanti del logaritmo della funzione di likelihood
-    e' **computazionalmente piu' semplice** rispetto alla 
-    ricerca degli estremanti della funzione di likelihood:
+    quindi l'operazione di derivata del logaritmo della funzione di *likelihood*
+    e' **piu' semplice** rispetto alla 
+    derivata della funzione di *likelihood*:
 ![maxLoglikelihood](immagini/maxLoglikelihood.png)
+  * Il logaritmo di un numero e' piu' piccolo del numero stesso
+    e varia su un intervallo minore rispetto alla variabilita' del numero stesso,
+    quindi **operazioni con i logaritmi sono piu' stabili numericamente**
 
 ![linea](../immagini/linea.png)
 
-### 9.2.2 Le proprieta' degli stimatori di massima verosimiglianza
+### 9.2.2 La sigma della distribuzione dei parametri stimati
+
+  * Sappiamo che esiste un **metodo grafico** 
+    per la determinazione della sigma associata ai parametri stimati con 
+    il metodo della massima verosimiglianza
+  * consiste nel deteminare i punti di intersezione 
+    fra la funzione di log-*likelihood* 
+    e la retta orizziontale con coordinata pari al **massimo di log-*likelihood* - 0.5**
+    e calcolarne la mezza distanza
+
+![linea](../immagini/linea.png)
+
+### 9.2.3 Le proprieta' degli stimatori di massima verosimiglianza
 
   * Sono **consistenti**
   * Sono **asintoticamente non distorti**, 
@@ -142,6 +157,94 @@
     * All'interno del file di testo,
       i valori sono seperati da spazi, tab o accapo.  
     * Al termine della lettura, il *file* viene chiuso.
+
+![linea](../immagini/linea.png)
+
+## 9.4 La costruzione di una *likelihood* e la determinazione di un parametro
+
+  * Si utilizzera' l'esempio della distribuzione esponenziale
+    per determinarne l'unico parametro &tau; tramite il metodo della massima verosimiglianza:
+![esponenziale](immagini/esponenziale.png)
+  * **Si dimostra analiticamente**
+    che la media artimetica dei dati e' uno stimatore del parametro &tau;,
+  * si vuole in questo caso **costruire lo stimatore numerico**
+    del parametro,
+    come esempio di un caso generale in cui il calcolo analitico non sia possibile.
+
+![linea](../immagini/linea.png)
+
+### 9.4.1 La distribuzione di probabilita' e la funzione di *likelihood*
+
+  * Sia la distribuzione di densita' di probabilita'
+    che il calcolo della *likelihood* vanno scritte in codice sorgente:
+    ```cpp
+    double esponenziale (double x, double tau)
+      {
+         if (tau == 0.) return 1. ;
+         return exp (-1. * x / tau) / tau ;
+      }
+    ```
+    * il primo ```if``` serve a **proteggere il programma** da risultati infiniti
+  * il calcolo della *likelihood* avra' in ingresso
+    sia i dati, che il parametro di interesse:
+    ```cpp
+    double loglikelihood (
+      const vector<double> & data, 
+      double param
+    )
+    {
+      double result = 0. ; 
+      for (int i = 0 ; i < data.size () ; ++i) result += log (esponenziale (data.at (i), param)) ;
+      return result ;   
+    }
+    ```
+    * in questo caso, 
+      si calcola il logaritmo del valore della densita' di probabilita' in ogni punto
+
+![linea](../immagini/linea.png)
+
+### 9.4.2 La determinazione del massimo del logaritmo della *likelihood*
+
+  * Si puo' utilizzare l'**algoritmo della sezione aurea** sviluppato durante la Lezione 6
+    per trovare il massimo della log-likelihood:
+    ```cpp
+    double sezione_aurea_max (
+      double logl (const vector<double> & , double),
+      double xMin,
+      double xMax,
+      const vector<double> & data,
+      double precision = 0.0001
+    )
+    ```
+    * Il programma va scritto in modo che si **cerchi il massimo** di una funzione
+    * I **parametri in ingresso** sono 
+      la funzione di cui trovare l'estremante (```logl```),
+      l'intervallo sul quale cercare il valore massimo **per il parametro &tau;**,
+      il ```vector``` contenente i dati
+      e la precisone alla quale arrestare il calcolo,
+      per la quale c'e' un valore di default.
+
+![linea](../immagini/linea.png)
+
+### 9.4.3 L'applicazione al caso in esame
+
+  * Dopo aver letto un file contenente numeri distribuiti secondo una densita' di probabilita' esponenziale,
+    che si puo' visualizzare con un ```TH1F``` di ```ROOT```:
+![istogramma_esponenziale](immagini/istogramma_esponenziale.png)
+  * Le funzioni sviluppate possono essere utilizzate 
+    con i numeri salvati in un ```vector```,
+    a partire da un **intervallo di ricerca del massimo scelto ragionevolmente**:
+    ```cpp
+    double massimo = sezione_aurea_max (loglikelihood, 0.5 * media_v, 1.5 * media_v, data) ;
+    ```
+  * Il risultato di questo algoritmo puo' essere **confrontato con la media aritmetica** 
+    dei numeri, che per questa particolare distribuzione di probabilita'
+    e' uno stimatore di &tau;:
+    ```
+    letti 100 eventi
+    media = 5.44364
+    massimo della likelihood = 5.44362
+    ```
 
 ![linea](../immagini/linea.png)
 
