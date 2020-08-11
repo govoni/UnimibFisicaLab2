@@ -27,7 +27,7 @@
   * [Lezione 3](Lezione_03/README.md) : programmazione ad oggetti: le classi
   * [Lezione 4](Lezione_04/README.md) : generazione di numeri casuali
   * [Lezione 5](Lezione_05/README.md) : visualizzazione dei dati con ROOT
-  * [Lezione 6](Lezione_06/README.md) : esempi di applicazione di sequenze pseudo-casuali
+  * [Lezione 6](Lezione_06/README.md) : esempi di applicazione di sequenze pseudo-casuali ed esmepi di calcolo numerico
   * [Lezione 7](Lezione_07/README.md) : programmazione template e standard template library
   * [Lezione 8](Lezione_08/README.md) : programmazione ad oggetti: l'ereditarieta'
   * [Lezione 9](Lezione_09/README.md) : stima di parametri: il metodo della massima verosimiglianza
