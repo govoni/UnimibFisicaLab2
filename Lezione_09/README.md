@@ -37,7 +37,7 @@
     dipende da altre variabili oltre che *x*
     * &theta; puo' anche essere un vettore di parametri
     * Ad esempio, una **distribuzione Gaussiana** ha due parametri aggiuntivi, &mu; e &sigma;:
-    ![gaussian](immagini/gaussian.png)
+![gaussian](immagini/gaussian.png)
 
 ![linea](../immagini/linea.png)
 
@@ -50,7 +50,7 @@
   * Le **stime** prodotte da uno stimatore **sono variabili casuali**, 
     perche' tramite gli stimatori sono funzioni di numeri casuali (i dati)
     * Hanno una propria distribuzione di probabilita'
-    ![gaussian](immagini/stime.png)
+![stime](immagini/stime.png)
   * Esistono programmi che svolgono il compito per noi. 
     Fra questi, ```ROOT``` contiene diversi algoritmi per farlo.
     In gergo, **l'operazione di determinazione dei parametri e' chiamata *fit***,
@@ -58,14 +58,53 @@
 
 ![linea](../immagini/linea.png)
 
-### 9.2 La massima verosimiglianza
+## 9.2 La massima verosimiglianza
+
+  * La tecnica della massima verosimiglianza
+    si basa sull'assunto che la stima dei parametri ricercati
+    corrisponda al **valore 
+    che massimizza la likelihood**,
+    definita come
+    il prodotto del valore della distribuzione di densita' di probabilita'
+    calcolata per ogni misura effettuata:
+![likelihood](immagini/likelihood.png)
+  * La likelihood e' funzione sia delle misure che dei parametri, 
+    tuttavia si **evidenzia la dipendenza dai parametri** perche'
+    a misure finite i dati sono immutabili.
+  * La funzione che stima i parametri dunque si ricava dall'equazione:
+![maxLikelihood](immagini/maxLikelihood.png)
 
 ![linea](../immagini/linea.png)
 
-### 9.1.1 Diversi strumenti per stimare parametri
+### 9.2.1 Il logaritmo della massima verosimiglianza
 
-  * basato sulla probabilita' dei dati dato il modello: massima verosimiglianza
-  * basato su una distanza fra dati e modello: minimi quadrati
+  * Solitamente si utilizza il **logaritmo della funzione di likelihood**, 
+    indicato con in lettera corsiva minuscola:.
+![loglikelihood](immagini/loglikelihood.png)
+  * Infatti, siccome il logaritmo e' una **funzione monotona crescente**,
+    gli estremanti di una funzione e del suo logaritmo si trovano al medesimo posto
+  * Il logaritmo di un prodotto di termini
+    e' uguale alla somma dei logaritmi dei singoli termini,
+    quindi la ricerca degli estremanti del logaritmo della funzione di likelihood
+    e' **computazionalmente piu' semplice** rispetto alla 
+    ricerca degli estremanti della funzione di likelihood:
+![maxLoglikelihood](immagini/maxLoglikelihood.png)
+
+![linea](../immagini/linea.png)
+
+### 9.2.2 Le proprieta' degli stimatori di massima verosimiglianza
+
+  * Sono **consistenti**
+  * Sono **asintoticamente non distorti**, 
+    cioe' hanno bias nullo per il numero di misure *N* che tende all'infinito
+  * ono **asintoticamente efficienti**,
+    cioe' hanno la varianza minima possibile 
+    per il numero di misure *N* che tende all'infinito
+
+![linea](../immagini/linea.png)
+
+### 9.3
+
 
 ![linea](../immagini/linea.png)
 
@@ -77,20 +116,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 9.1.2 Tabella riassuntiva 
-
-![linea](../immagini/linea.png)
-
-## 9.2 La massima verosimiglianza: un ripasso veloce
-
-  * come di scrive la likelihood
-  * il principio di massima verosimiglianza
-  * gli stimatori sono variabili casuali
-    * hanno una distribuzione attesa
-
-![linea](../immagini/linea.png)
-
-## 9.2 La massima verosimiglianza: un ripasso veloce
+### 9.X.Y Tabella riassuntiva 
 
 ![linea](../immagini/linea.png)
 
