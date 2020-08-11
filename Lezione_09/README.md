@@ -341,6 +341,22 @@
 
 ![linea](../immagini/linea.png)
 
+### 9.4.9 Il confronto con una stima analitica
+
+  * Si sa che nel caso della distribuzione esponenziale
+    la **varianza e' pari al quadrato della media**
+  * L'**incertezza sulla media** e' pari alla incertezza sulla singola misura,
+    cioe' la radice della varianza,
+    divisa per la radice del numero di eventi
+  * Dunque l'**incertezza sullo stimatore di &tau;**, 
+    indicato con il simbolo dell'accento circonflesso,
+    si puo' in questo caso stimare come:
+![sigma_calcolata](immagini/sigma_calcolata.png)
+  * Si puo' dunque confrontare il valore ottenuto dal metodo grafico
+    con quello calcolato a partire dalla media aritmetica.
+
+![linea](../immagini/linea.png)
+
 ### 9.X.Y Tabella riassuntiva 
 
 ![linea](../immagini/linea.png)

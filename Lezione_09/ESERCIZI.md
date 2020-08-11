@@ -57,5 +57,8 @@ Come cambia il comportamento dell'algoritmo?
 Si utilizzi il metodo della bisezione per trovare i due punti 
 *&tau; - &sigma;<sub>&tau;</sub>* e *&tau; + &sigma;<sub>&tau;</sub>* 
 nel caso dell'esercizio precedente.
+  * Si confronti il valore di *&sigma;<sub>&tau;</sub>* ottenuto in questo modo
+    con quello calcolato a partire dalla media aritmetica
+    dei numeri salvati nel ```vector```.
 
 

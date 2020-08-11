@@ -54,6 +54,7 @@ int main (int argc, char ** argv)
     cout << "zero_dx = " << zero_dx << endl ;
 
     cout << "sigma = " << 0.5 * (zero_dx - zero_sx) << endl ;
+    cout << "sigma stimata = " << media_v / sqrt (data.size ()) << endl ;
 
     return 0 ;
 }
