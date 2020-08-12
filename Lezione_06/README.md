@@ -40,7 +40,7 @@
         s_singleToy.reset () ;
       } // loop sui toy experiment
     ```
-    * **NOTA BENW**: l'oggetto ```s_singleToy``` viene vuotato al termine di ogni toy experiment
+    * **NOTA BENE**: l'oggetto ```s_singleToy``` viene vuotato al termine di ogni toy experiment
   * mentre l'oggetto ```s_singleToy``` raccoglie le **statistiche di ogni singolo toy experiment**
     e viene utilizzato per calcolarne la media,
     l'oggetto ```s_tot``` raccoglie il campione dei valori delle medie 
