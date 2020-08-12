@@ -5,10 +5,10 @@
 using namespace std ;
 
 double esponenziale (double x, double tau)
-  {
-     if (tau == 0.) return 1. ;
-     return exp (-1. * x / tau) / tau ;
-  }
+{
+   if (tau == 0.) return 1. ;
+   return exp (-1. * x / tau) / tau ;
+}
 
 
 // ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- 
@@ -86,3 +86,22 @@ double bisezione (
 }
 
 
+// ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- 
+  
+
+double rand_range (double min, double max)
+{
+  return min + (max - min) * rand () / RAND_MAX ;
+}
+
+
+// ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- 
+  
+
+// generazione numeri casuali con il metodo dell'inversa della funzione cumulativa
+double rand_IFC_Exp (double mu)
+{
+  double y = rand_range (0., 1.) ;
+  double x = -mu * log (1 - y) ;
+  return x ;
+}

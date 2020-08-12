@@ -61,4 +61,13 @@ nel caso dell'esercizio precedente.
     con quello calcolato a partire dalla media aritmetica
     dei numeri salvati nel ```vector```.
 
+![linea](../immagini/linea.png)
+
+## Esercizio 9.8
+
+Utilizzando il generatore di numeri pseudo-casuali secondo una pdf esponenziale
+sviluppato nella Lezione 4, si disegni la distribuzione di probabilita' dello stimatore di &tau;
+in funzione del numero di eventi a disposizione per la stima.
+
+
 

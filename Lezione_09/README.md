@@ -357,6 +357,78 @@
 
 ![linea](../immagini/linea.png)
 
+### 9.5 La distribuzione di probabilita' degli stimatori
+
+  * La distribuzione di probabilita' degli stimatori puo' essere **ricostruita in modo frequentista**,
+    simulando l'esperimento di raccolta degli eventi un gran numero di volte,
+    con la tecnica dei *toy experiment* descritta nella Lezione 6
+  * Per la generazione di un *toy experiment* bisogna ipotizzare
+    il **valore vero del parametro** (```mu_true``` nel caso trattato finora)
+    ed il **numero di eventi raccolto** (```numero_eventi```)
+  * Per costruire la distribuzione dello stimatore di &mu;
+    bisogna ripetere **due procedure** un gran numero di volte (```N_toy```):
+    * **Generazione** di un toy experiment
+    * **Calcolo dello stimatore** data quella generazione, come se fossero gli eventi misurati 
+      (nell'esempio di questa lezione, i numeri salvati in ```dati_esponenziali.txt```)
+
+![linea](../immagini/linea.png)
+
+### 9.5.1 La generazione di un *toy experiment*
+
+  * Per generare un *toy experiment* si ricorre solitamente a **numeri pseudo-casuali**,
+    utilizzando algoritmi esistenti adattati al caso in esame
+  * Per generare numeri pseudo-casuali secondo una distribuzione esponenziale,
+    si puo' utilizzare la tecnica dell'**inversa della funzione cumulativa**
+    sviluppata nella Lezione 4:
+    ```cpp
+    double rand_IFC_Exp (double mu) ;
+    ```
+    * La funzione **prende in input il valore vero di &mu;** e restituisce un numero pseudo-casuale
+      distribuito secondo la distribuzione di probabilita' esponenziale corrispondente
+  * Con questo algoritmo, 
+    si puo' riempire un ```vector``` con i numeri generati:
+    ```cpp
+    vector<double> data_loc ;
+    for (int i_sample = 0 ; i_sample < numero_eventi ; ++i_sample)
+      {
+        data_loc.push_back (rand_IFC_Exp (mu_true)) ;
+      } 
+    ```
+
+![linea](../immagini/linea.png)
+
+### 9.5.2 Il calcolo del parametro con il metodo della massima verosimiglianza
+
+  * A partire dal ```vector``` ```data_loc``` si puo' applicare il metodo della massima verosimiglianza
+    sviluppato precedentemente, ottenendo un risultato per ogni *toy experiment*
+    ```cpp
+    double media_v = media (data_loc) ;
+    double sigma_subsample = media_v / sqrt (data_loc.size ()) ;
+    double massimo = sezione_aurea_max (loglikelihood, 0.5 * media_v, 1.5 * media_v, data_loc) ;
+    ```
+
+![linea](../immagini/linea.png)
+
+### 9.5.3 Il risultato dello studio
+
+  * Entrambi i passaggi sono **inseriti in un ciclo generale**,
+    dove si puo' riempire un istogramma (o altri strumenti statistici) 
+    ```cpp
+    for (int i_toy = 0 ; i_toy < N_toys ; ++i_toy)
+      {
+        if (i_toy % 1000 == 0) cout << "running toy " << i_toy << endl ;
+        // generazione di un toy experiment
+        // calcolo della stima con lo stimatore della massima verosimiglianza
+        h_max.Fill (massimo) ;
+      }
+
+    ```
+  * Il risultato mostra chiaramente l'**evoluzione della distribuzione di probabilita'**
+    dello stimatore al crescere del numero di misure a disposizione:
+![pdf_stimatore.png](immagini/pdf_stimatore.png)
+
+![linea](../immagini/linea.png)
+
 ### 9.X.Y Tabella riassuntiva 
 
 ![linea](../immagini/linea.png)

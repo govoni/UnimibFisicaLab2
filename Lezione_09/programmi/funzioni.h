@@ -33,4 +33,8 @@ double bisezione (
   double precision = 0.0001
 ) ;
 
+double rand_range (double min, double max) ;
+
+double rand_IFC_Exp (double mu) ;
+
 #endif
