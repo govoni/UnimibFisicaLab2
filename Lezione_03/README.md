@@ -1,5 +1,38 @@
 # Lezione 3: programmazione ad oggetti, le classi
 
+## Indice
+
+  * [3.1 La generalizzazione del concetto di tipo](#31-la-generalizzazione-del-concetto-di-tipo)
+    * [3.1.1 Uno sguardo ravvicinato ai tipi predefiniti in ```C++```](#311-uno-sguardo-ravvicinato-ai-tipi-predefiniti-in-c)
+    * [3.1.2 Un esempio: i numeri complessi](#312-un-esempio-i-numeri-complessi)
+    * [3.1.3 Se i numeri complessi fossero un tipo di ```C++```](#313-se-i-numeri-complessi-fossero-un-tipo-di-c)
+  * [3.2 Si puo' fare! La classe dei numeri complessi](#32-si-puo-fare!-la-classe-dei-numeri-complessi)
+    * [3.2.1 La definizione della classe (il file ```complesso.h```)](#321-la-definizione-della-classe-il-file-complessoh)
+    * [3.2.2 un primo esempio di utilizzo](#322-un-primo-esempio-di-utilizzo)
+    * [3.2.3 I membri di una classe](#323-i-membri-di-una-classe)
+    * [3.2.4 I metodi di una classe](#324-i-metodi-di-una-classe)
+    * [3.2.5 Il campo ```private```](#325-il-campo-private)
+    * [3.2.6 Il campo ```public```](#326-il-campo-public)
+    * [3.2.7 L'implementazione della classe (il file ```complesso.cc```)](#327-limplementazione-della-classe-il-file-complessocc)
+    * [3.2.8 Un membro implicito di ogni classe: l'oggetto stesso](#328-un-membro-implicito-di-ogni-classe-loggetto-stesso)
+  * [3.3 Funzioni speciali di una classe](#33-funzioni-speciali-di-una-classe)
+    * [3.3.1 Il costruttore](#331-il-costruttore)
+    * [3.3.2 La lista di inizializzazione](#332-la-lista-di-inizializzazione)
+    * [3.3.3 overloading del costruttore](#333-overloading-del-costruttore)
+    * [3.3.4 Il costruttore di default](#334-il-costruttore-di-default)
+    * [3.3.5 Il costruttore di copia, o copy constructor](#335-il-costruttore-di-copia-o-copy-constructor)
+    * [3.3.6 Il distruttore](#336-il-distruttore)
+  * [3.4 La ridefinizione di operatori, overloading](#34-la-ridefinizione-di-operatori-overloading)
+    * [3.4.1 L'operatore di assegnazione per tipi predefiniti](#341-loperatore-di-assegnazione-per-tipi-predefiniti)
+    * [3.4.2 L'operatore di assegnazione per una classe](#342-loperatore-di-assegnazione-per-una-classe)
+    * [3.4.3 L'operatore di somma](#343-loperatore-di-somma)
+    * [3.4.4 Definizione al di fuori della classe](#344-definizione-al-di-fuori-della-classe)
+  * [3.5 L'attributo ```const```](#35-lattributo-const)
+    * [3.5.1 Esempi di utilizzo di ```const``` con i tipi predefiniti](#351-esempi-di-utilizzo-di-const-con-i-tipi-predefiniti)
+    * [3.5.2 Oggetti definiti ```const```](#352-oggetti-definiti-const)
+  * [3.6 Classi e puntatori](#36-classi-e-puntatori)
+  * [3.7 ESERCIZI](#37-esercizi)
+
 ![linea](../immagini/linea.png)
 
 ## 3.1 La generalizzazione del concetto di tipo
@@ -14,7 +47,7 @@
 
 ![linea](../immagini/linea.png)
 
-## 3.1.1 Uno sguardo ravvicinato ai tipi predefiniti in ```C++```
+### 3.1.1 Uno sguardo ravvicinato ai tipi predefiniti in ```C++```
 
   * un qualunque tipo predefinito e' caratterizzato da una serie di **proprieta'**:
   * funzioni per la **gestione della memoria**:
@@ -62,7 +95,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 3.2 Si puo' fare! La classe dei numeri complessi
+## 3.2 Si puo' fare! La classe dei numeri complessi
 
   * una classe e' di fatto la **definizione di un nuovo tipo**:
     il caso ideale per la costruzione di una libreria, 
@@ -95,7 +128,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 3.2.1 un primo esempio di utilizzo
+### 3.2.2 un primo esempio di utilizzo
 
   * in un qualunque punto del codice sorgente,
     si puo' quindi creare un numero complesso:
@@ -109,7 +142,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 3.2.2 I membri di una classe
+### 3.2.3 I membri di una classe
 
   * le variabili definite all'interno della definizione della classe
     sono dette **membri della classe**:
@@ -128,7 +161,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 3.2.3 I metodi di una classe
+### 3.2.4 I metodi di una classe
 
   * le funzioni che sono definite all'interno di una classe sono chiamate **metodi** della classe
   * hanno automaticamente **accesso ai membri** dell'oggetto sul quale operano
@@ -160,7 +193,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 3.2.4 Il campo ```public```
+### 3.2.6 Il campo ```public```
 
   * i metodi ed i membri definiti **dopo la parola chiave ```public```**
     sono accessibili nel codice sorgente al di fuori della classe
@@ -176,7 +209,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 3.2.5 L'implementazione della classe (il file ```complesso.cc```)
+### 3.2.7 L'implementazione della classe (il file ```complesso.cc```)
 
   * i metodi di una classe possono essere **implementati** 
     direttamente nello scope di definizione 
@@ -194,7 +227,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 3.2.6 Un membro implicito di ogni classe: l'oggetto stesso
+### 3.2.8 Un membro implicito di ogni classe: l'oggetto stesso
 
   * per ogni classe, 
     e' sempre definito il **puntatore all'oggetto corrente**,
@@ -212,7 +245,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 3.3 Funzioni speciali di una classe
+## 3.3 Funzioni speciali di una classe
 
   * oltre a quelle che servono per maneggiare le variabili, 
     ogni tipo predefinito possiede funzioni dedicate alla 
@@ -364,7 +397,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 3.3.1 L'operatore di assegnazione per tipi predefiniti
+### 3.4.1 L'operatore di assegnazione per tipi predefiniti
 
   * una operazione solitamente fattibile con tipi predefiniti e' 
     l'assegnazione a partire da una altra variabile esistente:
@@ -376,7 +409,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 3.3.2 L'operatore di assegnazione per una classe
+### 3.4.2 L'operatore di assegnazione per una classe
 
   * il comportamento dell'operatore di assegnazione **va definito** per una classe
     ```cpp
@@ -398,7 +431,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 3.3.3 L'operatore di somma
+### 3.4.3 L'operatore di somma
 
   * vogliamo che l'operazione di somma fra numeri complessi si possa scrivere come:
     ```cpp
@@ -428,7 +461,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 3.3.4 Definizione al di fuori della classe
+### 3.4.4 Definizione al di fuori della classe
 
   * la funzione ```operator+``` puo' essere definita anche **al di fuori della classe**
     * in questo caso ha due argomenti, che sono entrambi gli addendi
@@ -514,7 +547,7 @@
     
 ![linea](../immagini/linea.png)
 
-## 3.4 Classi e puntatori
+## 3.6 Classi e puntatori
 
   * come abbiamo gia' visto, 
     esistono **puntatori e referenze ad oggetti**,
@@ -530,7 +563,7 @@
 
 ![linea](../immagini/linea.png)
 
-## 3.5 ESERCIZI
+## 3.7 ESERCIZI
 
   * Gli esercizi relativi alla lezione si trovano [qui](ESERCIZI.md)
 

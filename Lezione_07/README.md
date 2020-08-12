@@ -1,5 +1,42 @@
 # Lezione 7: programmazione ```template``` e Standard Template Library
 
+## Indice
+
+  * [7.1 introduzione](#71-introduzione)
+    * [7.1.1 ripasso: l'*overloading* delle funzioni](#711-ripasso-loverloading-delle-funzioni)
+    * [7.1.2 se potessimo lavorare meno...](#712-se-potessimo-lavorare-meno)
+  * [7.2 funzioni ```template```](#72-funzioni-template)
+    * [7.2.1 definizione di una funzione ```template```](#721-definizione-di-una-funzione-template)
+    * [7.2.2 utilizzo di una fuzione ```template```](#722-utilizzo-di-una-fuzione-template)
+    * [7.2.3 attenzione ai dettagli](#723-attenzione-ai-dettagli)
+    * [7.2.4 ```template``` e compilazione](#724-template-e-compilazione)
+  * [7.3 classi ```template```](#73-classi-template)
+    * [7.3.1 definizione di una classe ```template```](#731-definizione-di-una-classe-template)
+    * [7.3.2 implementazione di una classe ```template```](#732-implementazione-di-una-classe-template)
+    * [7.3.3 utilizzo di una classe ```template```](#733-utilizzo-di-una-classe-template)
+  * [7.4 ```template``` multipli](#74-template-multipli)
+  * [7.5 la specializzazione dei ```template```](#75-la-specializzazione-dei-template)
+  * [7.6 ```template``` su valori di variabili intere](#76-template-su-valori-di-variabili-intere)
+  * [7.7 ordine nelle librerie: i ```namespace```](#77-ordine-nelle-librerie-i-namespace)
+    * [7.7.1 un ```namespace``` familiare: ```std```](#771-un-namespace-familiare-std)
+  * [7.8 Le Standard Template Library](#78-le-standard-template-library)
+    * [7.8.1 Programmazione a diversi livelli](#781-programmazione-a-diversi-livelli)
+  * [7.9 Contenitori STL](#79-contenitori-stl)
+    * [7.9.1 Una sequenza di elementi: ```std::vector```](#791-una-sequenza-di-elementi-stdvector)
+    * [7.9.2 La lettura di un ```std::vector```](#792-la-lettura-di-un-stdvector)
+    * [7.9.3 Il riempimento di un ```std::vector```](#793-il-riempimento-di-un-stdvector)
+    * [7.9.4 ```std::vector``` ed array](#794-stdvector-ed-array)
+    * [7.9.5 l'iterazione sugli elementi di un ```std::vector```](#795-literazione-sugli-elementi-di-un-stdvector)
+    * [7.9.6 ```std::vector``` di oggetti](#796-stdvector-di-oggetti)
+    * [7.9.7 Un contenitore associativo di elementi: ```std::map```](#797-un-contenitore-associativo-di-elementi-stdmap)
+    * [7.9.8 Il riempimento di una ```std::map```](#798-il-riempimento-di-una-stdmap)
+    * [7.9.9 La lettura di una ```std::map```](#799-la-lettura-di-una-stdmap)
+  * [7.10 ```std::string```](#710-stdstring)
+    * [7.10.1 operazioni con stringhe](#7101-operazioni-con-stringhe)
+    * [7.10.2 ricerca di sotto-elementi in una ```string```](#7102-ricerca-di-sotto-elementi-in-una-string)
+    * [7.10.3 ```string``` e caratteri](#7103-string-e-caratteri)
+  * [7.11 ESERCIZI](#711-esercizi)
+
 ![linea](../immagini/linea.png)
 
 ## 7.1 introduzione
@@ -28,7 +65,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 7.1.1 se potessimo lavorare meno...
+### 7.1.2 se potessimo lavorare meno...
 
   * nonostante le due funzioni abbiano la medesima implementazione,
     e' stato necessario **scriverle entrambe**
@@ -305,7 +342,7 @@
 
 ![linea](../immagini/linea.png)
 
-## 7.9 Le Standard Template Library
+## 7.8 Le Standard Template Library
 
   * La generalita' di strumenti garantita dalla programmazione ```template```
     viene grandemente utilizzata per creare **librerie di utilizzo generale**,
@@ -320,7 +357,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 7.9.1 Programmazione a diversi livelli
+### 7.8.1 Programmazione a diversi livelli
 
   * Si intende solitamente come **livello della programmazione**    
     la distanza concettuale fra il codice sorgente ed il linguaggio macchina:
@@ -339,7 +376,7 @@
 
 ![linea](../immagini/linea.png)
 
-## 7.10 Contenitori STL
+## 7.9 Contenitori STL
 
   * I diversi contenitori delle STL 
     sono **dedicati a diversi utilizzi**,
@@ -352,7 +389,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 7.10.1 Una sequenza di elementi: ```std::vector```
+### 7.9.1 Una sequenza di elementi: ```std::vector```
 
   * La classe [```vector```]( www.cplusplus.com/reference/vector/vector/), che appartiene al namespace ```std```, 
     e' templata sul tipo di oggetto che contiene.
@@ -367,7 +404,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 7.10.2 La lettura di un ```std::vector```
+### 7.9.2 La lettura di un ```std::vector```
 
   * Gli **elementi esistenti di un ```vector```** sono accessibli con l'```operator[]```,
     oppure con il metodo ```vector::at (int)```:
@@ -387,7 +424,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 7.10.3 Il riempimento di un ```std::vector```
+### 7.9.3 Il riempimento di un ```std::vector```
 
   * Ad un ```vector``` possono essere **aggiunti elementi alla fine** del suo contenuto, 
     con il metodo ```vector::push_back (T element)```:
@@ -407,7 +444,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 7.10.4 ```std::vector``` ed array
+### 7.9.4 ```std::vector``` ed array
 
   * un ```vector``` **contiene un array** di elementi e fornisce l'interfaccia di accesso
     e modifica
@@ -419,7 +456,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 7.10.5 l'iterazione sugli elementi di un ```std::vector```
+### 7.9.5 l'iterazione sugli elementi di un ```std::vector```
 
   * per **iterare sugli elementi di un ```vector```**, 
     si puo' utilizzare una sintassi analoga a quella che si userebbe per un array:
@@ -449,7 +486,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 7.10.6 ```std::vector``` di oggetti
+### 7.9.6 ```std::vector``` di oggetti
 
   * il comportamento dei tipi di default dei ```C++``` e' sempre ben regolato
   * gli strumenti ```template``` possono essere utilizzati **con un qualunque tipo**,
@@ -460,7 +497,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 7.10.7 Un contenitore associativo di elementi: ```std::map```
+### 7.9.7 Un contenitore associativo di elementi: ```std::map```
 
   * Una [```map```](http://www.cplusplus.com/reference/map/map/)
     delle STL funziona **come un elenco telefonico**:
@@ -479,7 +516,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 7.10.8 Il riempimento di una ```std::map```
+### 7.9.8 Il riempimento di una ```std::map```
 
   * Il modo piu' semplice per riempire una ```map```
     e' utilizzare l'```operator[]```, 
@@ -490,7 +527,7 @@
     mappa_di_esempio[5] = 5.5 ;
     mappa_di_esempio[3] = 3.3 ;
     mappa_di_esempio[5] = 4.1 ;
-    mappa_di_esempio[12] = 7.9 ;
+    mappa_di_esempio[12] = 7.8 ;
     ```
     * In questo caso, 
       le prime due righe definiscono due nuovi elementi,
@@ -500,7 +537,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 7.10.9 La lettura di una ```std::map```
+### 7.9.9 La lettura di una ```std::map```
 
   * per accedere ad un **singolo elemento esistente** in una ```map```
     si utilizza l'```operator[]```
@@ -525,7 +562,7 @@
 
 ![linea](../immagini/linea.png)
 
-## 7.11 ```std::string```
+## 7.10 ```std::string```
 
   * il ```C++``` offre uno strumento **dedicato alla gestione delle stringhe di caratteri**,
     con il tipo [```string```](www.cplusplus.com/reference/string/string/)
@@ -542,7 +579,7 @@
   
 ![linea](../immagini/linea.png)
 
-### 7.11.1 operazioni con stringhe
+### 7.10.1 operazioni con stringhe
 
   * La **somma** di due ```string``` restituisce la concatenazione del contenuto dei due oggetti sommati:
     ```cpp
@@ -557,7 +594,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 7.11.2 ricerca di sotto-elementi in una ```string```
+### 7.10.2 ricerca di sotto-elementi in una ```string```
 
   * In una ```string``` si possono **cercare sotto-```string```**:
     ```cpp
@@ -576,7 +613,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 7.11.2 ```string``` e caratteri
+### 7.10.3 ```string``` e caratteri
 
   * Una ```string``` contiene anche il **carattere che ne determina la fine**,
     dunque ```'A'``` e' diverso da ```"A"```:
@@ -603,7 +640,7 @@
 
 ![linea](../immagini/linea.png)
 
-## 7.12 ESERCIZI
+## 7.11 ESERCIZI
 
   * Gli esercizi relativi alla lezione si trovano [qui](ESERCIZI.md)
 

@@ -1,5 +1,48 @@
 # Lezione 2: ripasso di ```C``` ed introduzione al ```C++```, parte 2
 
+## Indice
+
+  * [2.1 Variabili e puntatori](#21-variabili-e-puntatori)
+    * [2.1.1 La gestione delle variabili nel calcolatore](#211-la-gestione-delle-variabili-nel-calcolatore)
+    * [2.1.2 Lo spazio occupato dalle variabili](#212-lo-spazio-occupato-dalle-variabili)
+    * [2.1.3 Le dimensioni tipiche di alcuni tipi](#213-le-dimensioni-tipiche-di-alcuni-tipi)
+    * [2.1.4 L'indirizzo di memoria di una variabile](#214-lindirizzo-di-memoria-di-una-variabile)
+    * [2.1.5 Salvare l'indirizzo di memoria: i puntatori](#215-salvare-lindirizzo-di-memoria-i-puntatori)
+    * [2.1.6 Dalla variabile al puntatore e viceversa](#216-dalla-variabile-al-puntatore-e-viceversa)
+    * [2.1.7 Puntatori non inizializzati](#217-puntatori-non-inizializzati)
+    * [2.1.8 I puntatori sono variabili](#218-i-puntatori-sono-variabili)
+    * [2.1.9 Inizializzare una variabile a partire da un puntatore](#219-inizializzare-una-variabile-a-partire-da-un-puntatore)
+    * [2.1.10 Puntatori di puntatori](#2110-puntatori-di-puntatori)
+    * [2.1.11 risalire la caterna di indirizzi](#2111-risalire-la-caterna-di-indirizzi)
+    * [2.1.12 Puntatori ed array](#2112-puntatori-ed-array)
+    * [2.1.13 Gli elementi di un array](#2113-gli-elementi-di-un-array)
+    * [2.1.14 L'algebra dei puntatori](#2114-lalgebra-dei-puntatori)
+    * [2.1.15 Le referenze](#2115-le-referenze)
+    * [2.1.16 Riepilogo sui puntatori](#2116-riepilogo-sui-puntatori)
+  * [2.2 Il passaggio di parametri alle funzioni](#22-il-passaggio-di-parametri-alle-funzioni)
+    * [2.2.1 Passaggio per valore](#221-passaggio-per-valore)
+    * [2.2.2 Passaggio per puntatore](#222-passaggio-per-puntatore)
+    * [2.2.3 Passaggio per referenza](#223-passaggio-per-referenza)
+    * [2.2.4 L'output di una funzione](#224-loutput-di-una-funzione)
+    * [2.2.5 Come reagisce il compilatore nel caso di una referenza](#225-come-reagisce-il-compilatore-nel-caso-di-una-referenza)
+    * [2.2.6 Come reagisce il compilatore nel caso di un puntatore](#226-come-reagisce-il-compilatore-nel-caso-di-un-puntatore)
+  * [2.3 La gestione dinamica della memoria](#23-la-gestione-dinamica-della-memoria)
+    * [2.3.1 Heap and Stack](#231-heap-and-stack)
+    * [2.3.2 Allocazione di una variabile nella Stack](#232-allocazione-di-una-variabile-nella-stack)
+    * [2.3.3 Allocazione di una variabile nella Heap](#233-allocazione-di-una-variabile-nella-heap)
+    * [2.3.4 Esempio di allocazione dinamica: utilizzo in una funzione](#234-esempio-di-allocazione-dinamica-utilizzo-in-una-funzione)
+    * [2.3.5 Un errore pernicioso](#235-un-errore-pernicioso)
+    * [2.3.5 Allocazione dinamica ed array](#235-allocazione-dinamica-ed-array)
+    * [2.3.6 Non bisogna perdere il puntatore!](#236-non-bisogna-perdere-il-puntatore)
+    * [2.3.7 Trova l'errore, 1](#237-trova-lerrore-1)
+    * [2.3.8 Trova l'errore, 2](#238-trova-lerrore-2)
+    * [2.3.9 Trova l'errore, 3](#239-trova-lerrore-3)
+    * [2.3.10 Trova l'errore, 4](#2310-trova-lerrore-4)
+    * [2.3.11 Trova l'errore, 5](#2311-trova-lerrore-5)
+  * [2.4 ESERCIZI](#24-esercizi)
+
+![linea](../immagini/linea.png)
+
 ## 2.1 Variabili e puntatori
 
 ![linea](../immagini/linea.png)

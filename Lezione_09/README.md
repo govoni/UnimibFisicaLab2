@@ -1,5 +1,34 @@
 # Lezione 9: stima di parametri con il metodo della massima verosimiglianza
 
+## Indice
+
+  * [9.1 Introduzione](#91-introduzione)
+    * [9.1.1 Un modello che descrive i dati](#911-un-modello-che-descrive-i-dati)
+    * [9.1.2 Distribuzioni di probabilita'](#912-distribuzioni-di-probabilita)
+    * [9.1.3 La determinazione dei parametri](#913-la-determinazione-dei-parametri)
+  * [9.2 La massima verosimiglianza](#92-la-massima-verosimiglianza)
+    * [9.2.1 Il logaritmo della massima verosimiglianza](#921-il-logaritmo-della-massima-verosimiglianza)
+    * [9.2.2 La sigma della distribuzione dei parametri stimati](#922-la-sigma-della-distribuzione-dei-parametri-stimati)
+    * [9.2.3 Le proprieta' degli stimatori di massima verosimiglianza](#923-le-proprieta-degli-stimatori-di-massima-verosimiglianza)
+  * [9.3 Un utile intermezzo: la lettura di un *file* di testo](#93-un-utile-intermezzo-la-lettura-di-un-file-di-testo)
+    * [9.3.1 L'implementazione della lettura](#931-limplementazione-della-lettura)
+  * [9.4 La costruzione di una *likelihood* e la determinazione di un parametro](#94-la-costruzione-di-una-likelihood-e-la-determinazione-di-un-parametro)
+    * [9.4.1 La distribuzione di probabilita' e la funzione di *likelihood*](#941-la-distribuzione-di-probabilita-e-la-funzione-di-likelihood)
+    * [9.4.2 La determinazione del massimo del logaritmo della *likelihood*](#942-la-determinazione-del-massimo-del-logaritmo-della-likelihood)
+    * [9.4.3 L'applicazione al caso in esame](#943-lapplicazione-al-caso-in-esame)
+    * [9.4.4 La sigma associata allo stimatore di &tau;](#944-la-sigma-associata-allo-stimatore-di-tau)
+    * [9.4.5 L'equivalente grafico](#945-lequivalente-grafico)
+    * [9.4.6 L'implementazione della funzione *h(&tau;)*](#946-limplementazione-della-funzione-htau)
+    * [9.4.7 Il calcolo numerico dei punti di intersezione](#947-il-calcolo-numerico-dei-punti-di-intersezione)
+    * [9.4.8 L'utilizzo nel programma principale](#948-lutilizzo-nel-programma-principale)
+    * [9.4.9 Il confronto con una stima analitica](#949-il-confronto-con-una-stima-analitica)
+  * [9.5 La distribuzione di probabilita' degli stimatori](#95-la-distribuzione-di-probabilita-degli-stimatori)
+    * [9.5.1 La generazione di un *toy experiment*](#951-la-generazione-di-un-toy-experiment)
+    * [9.5.2 Il calcolo del parametro con il metodo della massima verosimiglianza](#952-il-calcolo-del-parametro-con-il-metodo-della-massima-verosimiglianza)
+    * [9.5.3 Il risultato dello studio](#953-il-risultato-dello-studio)
+    * [9.5.4 La copertura dell'intervallo di confidenza](#954-la-copertura-dellintervallo-di-confidenza)
+  * [9.6 ESERCIZI](#96-esercizi)
+
 ![linea](../immagini/linea.png)
 
 ## 9.1 Introduzione
@@ -118,7 +147,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 9.3 Un utile intermezzo: la lettura di un *file* di testo
+## 9.3 Un utile intermezzo: la lettura di un *file* di testo
 
   * Puo' essere comodo **salvare informazioni semplici** su file di testo,
     per poterle rileggere dai programmi di analisi dati
@@ -359,7 +388,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 9.5 La distribuzione di probabilita' degli stimatori
+## 9.5 La distribuzione di probabilita' degli stimatori
 
   * La distribuzione di probabilita' degli stimatori puo' essere **ricostruita in modo frequentista**,
     simulando l'esperimento di raccolta degli eventi un gran numero di volte,

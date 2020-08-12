@@ -1,5 +1,36 @@
 # Lezione 8: programmazione ad oggetti: l'ereditarieta' ```public```
 
+## Indice
+
+  * [8.1 Introduzione](#81-introduzione)
+    * [8.1.1 Rappresentazione grafica](#811-rappresentazione-grafica)
+    * [8.1.2 Problemi di privacy](#812-problemi-di-privacy)
+  * [8.2 Implementazione dell'esempio delle forme geometriche](#82-implementazione-dellesempio-delle-forme-geometriche)
+    * [8.2.1 La classe base: ```forma```](#821-la-classe-base-forma)
+    * [8.2.2 Una classe derivata: ```quadrato```](#822-una-classe-derivata-quadrato)
+    * [8.2.3 La classe derivata nel programma principale](#823-la-classe-derivata-nel-programma-principale)
+    * [8.2.4 Un'altra classe derivata: il ```rettangolo```](#824-unaltra-classe-derivata-il-rettangolo)
+    * [8.2.5 La regola is-a: una specializzazione](#825-la-regola-is-a-una-specializzazione)
+  * [8.3 ereditarieta' e polimorfismo](#83-ereditarieta-e-polimorfismo)
+    * [8.3.1 Compatibiita' fra tipi ereditariamente correlati](#831-compatibiita-fra-tipi-ereditariamente-correlati)
+    * [8.3.2 Il calcolo dell'area](#832-il-calcolo-dellarea)
+    * [8.3.3 *Dynamic binding*](#833-dynamic-binding)
+    * [8.3.4 Implementazione del metodo ```calcola_area```](#834-implementazione-del-metodo-calcola_area)
+    * [8.3.5 l'ulitizzo nel programma](#835-lulitizzo-nel-programma)
+    * [8.3.6 Il distruttore di una classe virtuale](#836-il-distruttore-di-una-classe-virtuale)
+  * [8.4 Le interfacce e le classi puramente virtuali](#84-le-interfacce-e-le-classi-puramente-virtuali)
+    * [8.4.1 Le interfacce](#841-le-interfacce)
+  * [8.5 Il polimorfismo ed i contenitori STL](#85-il-polimorfismo-ed-i-contenitori-stl)
+  * [8.6 algoritmi nelle STL](#86-algoritmi-nelle-stl)
+    * [8.6.1 ```std::find```](#861-stdfind)
+    * [8.6.2 il risultato di ```std::find```](#862-il-risultato-di-stdfind)
+    * [8.6.3 ```std::sort```](#863-stdsort)
+    * [8.6.4 risultato di ```std::sort```](#864-risultato-di-stdsort)
+    * [8.6.5 la relazione di ordine nell'ordinamento](#865-la-relazione-di-ordine-nellordinamento)
+    * [8.6.6 un esempio di utilizzo](#866-un-esempio-di-utilizzo)
+  * [8.7 Ereditarieta' e ```template```](#87-ereditarieta-e-template)
+  * [8.8 ESERCIZI](#88-esercizi)
+
 ![linea](../immagini/linea.png)
 
 ## 8.1 Introduzione

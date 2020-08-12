@@ -1,5 +1,36 @@
 # Lezione 5: the data visualisation with ROOT
 
+## Indice
+
+  * [5.1 Introduzione](#51-introduzione)
+    * [5.1.1 l'organizzazione delle librerie di ```ROOT```](#511-lorganizzazione-delle-librerie-di-root)
+    * [5.1.2 prerquisiti per utilizzare ```ROOT```](#512-prerquisiti-per-utilizzare-root)
+    * [5.1.3 come compilare un programma che include classi di ```ROOT```](#513-come-compilare-un-programma-che-include-classi-di-root)
+  * [5.2 ```TH1F```: istogrammi monodimensionali](#52-th1f-istogrammi-monodimensionali)
+    * [5.2.1 i bin di un istogramma](#521-i-bin-di-un-istogramma)
+    * [5.2.2 istogrammi monodimensionali e distribuzioni di densita' di probabilita'](#522-istogrammi-monodimensionali-e-distribuzioni-di-densita-di-probabilita)
+    * [5.2.3 istogrammi monodimensionali in ```ROOT```](#523-istogrammi-monodimensionali-in-root)
+    * [5.2.4 riempimento di un ```TH1F```](#524-riempimento-di-un-th1f)
+    * [5.2.5 visualizzazione di un ```TH1F```](#525-visualizzazione-di-un-th1f)
+    * [5.2.6 opzioni grafiche](#526-opzioni-grafiche)
+    * [5.2.7 un esempio: la forma funzionale Gaussiana](#527-un-esempio-la-forma-funzionale-gaussiana)
+    * [5.2.8 scale logaritmiche](#528-scale-logaritmiche)
+    * [5.2.9 le statistiche di un istogramma](#529-le-statistiche-di-un-istogramma)
+  * [5.3 una piccoola digressione: la varianza di una distribuzione](#53-una-piccoola-digressione-la-varianza-di-una-distribuzione)
+    * [5.3.1 la varianza e la dimensione del campione](#531-la-varianza-e-la-dimensione-del-campione)
+    * [5.3.2 varianza e misure (o numeri pseudo-casuali)](#532-varianza-e-misure-o-numeri-pseudo-casuali)
+    * [5.3.3 incertezza sulla media](#533-incertezza-sulla-media)
+  * [5.4 rappresentazione di andamenti *y* vs *x*: i ```TGraph```](#54-rappresentazione-di-andamenti-y-vs-x-i-tgraph)
+    * [5.4.1 definizione di un ```TGraph```](#541-definizione-di-un-tgraph)
+    * [5.4.2 riempimento di un ```TGraph```](#542-riempimento-di-un-tgraph)
+    * [5.4.3 disegno di un ```TGraph```](#543-disegno-di-un-tgraph)
+    * [5.4.4 qualche opzione grafica](#544-qualche-opzione-grafica)
+    * [5.4.5 il risultato del disegno](#545-il-risultato-del-disegno)
+  * [5.5 TH2F: istogrammi bidimnesionali](#55-th2f-istogrammi-bidimnesionali)
+  * [5.6 L'interfaccia interattiva di ```ROOT```: la classe ```TApplication```](#56-linterfaccia-interattiva-di-root-la-classe-tapplication)
+  * [5.7 Una gestione furba del testo: ```TString```](#57-una-gestione-furba-del-testo-tstring)
+  * [5.8 ESERCIZI](#58-esercizi)
+
 ![linea](../immagini/linea.png)
 
 ## 5.1 Introduzione
@@ -314,7 +345,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 5.4.1 riempimento di un ```TGraph```
+### 5.4.2 riempimento di un ```TGraph```
 
   * un ```TGraph``` viene **riempito** con il metodo ```TGraph::SetPoint (Int_t i, Double_t x, Double_t y)```,
     che prende in input:
@@ -333,7 +364,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 5.4.2 disegno di un ```TGraph```
+### 5.4.3 disegno di un ```TGraph```
 
   * come nel caso di ```TH1F```, un ```TGraph``` si **disegna su un ```TCanvas```**:
     ```cpp
@@ -349,7 +380,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 5.4.3 qualche opzione grafica
+### 5.4.4 qualche opzione grafica
 
   * anche per un ```TGraph```, 
     si possono impostare diversi parametri grafici:
@@ -367,7 +398,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 5.4.4 il risultato del disegno
+### 5.4.5 il risultato del disegno
 
   * nel caso dell'andamento della **deviazione standard**
     e della **deviazione standard della media**,
