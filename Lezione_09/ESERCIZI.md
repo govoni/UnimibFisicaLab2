@@ -82,5 +82,20 @@ ed il valore della copertura sull'asse verticale.
   * Si scriva tutto nel medesimo programma, 
     facendo il modo che i punti lungo l'asse orizzontale vengano campionati in modo logaritmico.
 
+![linea](../immagini/linea.png)
+
+## Esercizio 9.10
+
+In regime asintotico,
+la distribuzione degli scarti *(&tau; - &tau;<sub>vero</sub>) / &sigma;<sub>&tau;</sub>* 
+ha forma Normale.
+  * Si utilizzi il metodo dei *toy experiment* per riempire l'istogramma degli scarti, 
+    dato un numero di eventi per *toy experiment*.
+  * Si calcoli la media e la sigma della distribuzione degli scarti
+    e se ne disegni il valore al variare del numero di eventi a disposizione per la stima,
+    riempiendo un ```TGraph``` con il numero di eventi a disposizione sull'asse orizziontale
+    ed il valore del parametro sull'asse verticale.
+
+
 
 

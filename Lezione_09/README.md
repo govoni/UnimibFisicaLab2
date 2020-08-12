@@ -431,7 +431,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 9.5.6 La copertura dell'intervallo di confidenza
+### 9.5.4 La copertura dell'intervallo di confidenza
 
   * Secondo la formulazione frequstista della probabilita',
     la **copertura** e' la frazione di volte in cui l'intervallo 
@@ -458,11 +458,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 9.X.Y Tabella riassuntiva 
-
-![linea](../immagini/linea.png)
-
-## 9.8 ESERCIZI
+## 9.6 ESERCIZI
 
   * Gli esercizi relativi alla lezione si trovano [qui](ESERCIZI.md)
 
