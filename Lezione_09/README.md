@@ -338,6 +338,8 @@
     cout << "zero_dx = " << zero_dx << endl ;
     cout << "sigma = " << 0.5 * (zero_dx - zero_sx) << endl ;
     ```
+  * L'intervallo compreso fra i due punti di intersezione ```zero_sx``` e ```zero_dx```
+    e' l'**intervallo di confidenza** associato allo stimatore ottenuto
 
 ![linea](../immagini/linea.png)
 
@@ -365,7 +367,7 @@
   * Per la generazione di un *toy experiment* bisogna ipotizzare
     il **valore vero del parametro** (```mu_true``` nel caso trattato finora)
     ed il **numero di eventi raccolto** (```numero_eventi```)
-  * Per costruire la distribuzione dello stimatore di &mu;
+  * Per costruire la distribuzione dello stimatore di &tau;
     bisogna ripetere **due procedure** un gran numero di volte (```N_toy```):
     * **Generazione** di un toy experiment
     * **Calcolo dello stimatore** data quella generazione, come se fossero gli eventi misurati 
@@ -383,7 +385,7 @@
     ```cpp
     double rand_IFC_Exp (double mu) ;
     ```
-    * La funzione **prende in input il valore vero di &mu;** e restituisce un numero pseudo-casuale
+    * La funzione **prende in input il valore vero di &tau;** e restituisce un numero pseudo-casuale
       distribuito secondo la distribuzione di probabilita' esponenziale corrispondente
   * Con questo algoritmo, 
     si puo' riempire un ```vector``` con i numeri generati:
@@ -426,6 +428,33 @@
   * Il risultato mostra chiaramente l'**evoluzione della distribuzione di probabilita'**
     dello stimatore al crescere del numero di misure a disposizione:
 ![pdf_stimatore.png](immagini/pdf_stimatore.png)
+
+![linea](../immagini/linea.png)
+
+### 9.5.6 La copertura dell'intervallo di confidenza
+
+  * Secondo la formulazione frequstista della probabilita',
+    la **copertura** e' la frazione di volte in cui l'intervallo 
+    *&tau; - &sigma;<sub>&tau;</sub>* e *&tau; + &sigma;<sub>&tau;</sub>*
+    contiene il valor vero
+  * Anche questa quantita' si puo' **verificare con il metodo dei *toy experiment***,
+    calcolando per ogni *toy experiment*
+    l'intervallo di confidenza associato ad uno stimatore
+    e verificando la posizione del valore vero rispetto a questo intervallo
+    ```cpp
+    int contatore_copertura = 0 ;
+    for (int i_toy = 0 ; i_toy < N_toys ; ++i_toy)
+      {
+        if (i_toy % 1000 == 0) cout << "running toy " << i_toy << endl ;
+        // generazione di un toy experiment
+        // calcolo della stima con lo stimatore della massima verosimiglianza
+        double zero_sx = bisezione (h, 0.5 * media_v, massimo, data_loc, massimo) ;
+        double zero_dx = bisezione (h, massimo, 1.5 * media_v, data_loc, massimo) ;
+        if (mu_true > zero_sx && mu_true < zero_dx) ++contatore_copertura ;
+      }
+    cout << "copertura : " << static_cast<double> (contatore_copertura) / N_toys << endl ;
+
+    ```
 
 ![linea](../immagini/linea.png)
 

@@ -69,5 +69,18 @@ Utilizzando il generatore di numeri pseudo-casuali secondo una pdf esponenziale
 sviluppato nella Lezione 4, si disegni la distribuzione di probabilita' dello stimatore di &tau;
 in funzione del numero di eventi a disposizione per la stima.
 
+![linea](../immagini/linea.png)
+
+## Esercizio 9.9
+
+Utilizzando il generatore di numeri pseudo-casuali secondo una pdf esponenziale
+sviluppato nella Lezione 4, 
+si calcoli la copertura dello stimatore di &tau;
+e se ne disegni il valore al variare del numero di eventi a disposizione per la stima,
+riempiendo un ```TGraph``` con il numero di eventi a disposizione sull'asse orizziontale
+ed il valore della copertura sull'asse verticale.
+  * Si scriva tutto nel medesimo programma, 
+    facendo il modo che i punti lungo l'asse orizzontale vengano campionati in modo logaritmico.
+
 
 

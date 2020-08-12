@@ -9,5 +9,5 @@
    | main_02.cpp           | esempio di massimizzazione di *likelihood* |
    | main_03.cpp           | esempio di ricerca della sigma di uno stimatore di *likelihood* con il metodo grafico |
    | main_04.cpp           | esempio di studio della pdf di uno stimatore con la tecnica dei *toy experiment* |
-   | main_05.cpp           |  |
+   | main_05.cpp           | esempio di determinazione della copertura uno stimatore con la tecnica dei *toy experiment* |
    | main_06.cpp           |  |
