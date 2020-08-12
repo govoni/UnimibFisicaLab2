@@ -1,6 +1,82 @@
 # Lezione 1: ripasso di ```C``` ed introduzione al ```C++```, parte 1
 
+## Indice
+
+  * [## 1.1 Introduzione](#11-introduzione)
+    * [### 1.1.1 Linguaggio di programmazione e linguaggio macchina](#111-linguaggio-di-programmazione-e-linguaggio-macchina)
+    * [### 1.1.2 linguaggi intepretati o compilati](#112-linguaggi-intepretati-o-compilati)
+    * [### 1.1.3 ```C``` e ```C++```](#113-c-e-c)
+  * [## 1.2 Un primo programma](#12-un-primo-programma)
+    * [### 1.2.1 Il codice sorgente](#121-il-codice-sorgente)
+    * [### 1.2.2 Uno scheletro vuoto](#122-uno-scheletro-vuoto)
+    * [### 1.2.3 La prima compilazione](#123-la-prima-compilazione)
+    * [### 1.2.4 Scrivere a schermo](#124-scrivere-a-schermo)
+    * [### 1.2.5 Il lavoro del compilatore](#125-il-lavoro-del-compilatore)
+    * [### 1.2.6 Parametri passati a linea di comando](#126-parametri-passati-a-linea-di-comando)
+    * [### 1.2.7 Parametri chiesti all'utente del programma](#127-parametri-chiesti-all'utente-del-programma)
+  * [## 1.3 le variabili](#13-le-variabili)
+    * [### 1.3.1 la loro inizializzazione](#131-la-loro-inizializzazione)
+    * [### 1.3.2 l'attributo ```const```](#132-l'attributo-const)
+    * [### 1.3.3 gli array di variabili](#133-gli-array-di-variabili)
+    * [### 1.3.4 gli indici degli array](#134-gli-indici-degli-array)
+    * [### 1.3.5 definizione di un array con il contenuto](#135-definizione-di-un-array-con-il-contenuto)
+    * [### 1.3.6 il casting fra diversi tipi](#136-il-casting-fra-diversi-tipi)
+    * [### 1.3.7 il casting in ```C++```](#137-il-casting-in-c)
+  * [## 1.4 gli operatori](#14-gli-operatori)
+    * [### 1.4.1 l'operatore di assegnazione](#141-l'operatore-di-assegnazione)
+    * [### 1.4.2 operatori aritmetici](#142-operatori-aritmetici)
+    * [### 1.4.3 operatori aritmetici composti con assegnazione](#143-operatori-aritmetici-composti-con-assegnazione)
+    * [### 1.4.4 operatori di incremento](#144-operatori-di-incremento)
+    * [### 1.4.5 pre-incremento e post-incremento](#145-pre-incremento-e-post-incremento)
+    * [### 1.4.6 operatori relationali](#146-operatori-relationali)
+    * [### 1.4.7 operatori logici](#147-operatori-logici)
+    * [### 1.4.8 le precedenze fra operatori](#148-le-precedenze-fra-operatori)
+  * [## 1.5 le strutture di controllo](#15-le-strutture-di-controllo)
+    * [### 1.5.1 gli scope](#151-gli-scope)
+    * [### 1.5.2 ```if ... else```](#152-if--else)
+    * [### 1.5.3 switch](#153-switch)
+    * [### 1.5.4 il ciclo ```for```](#154-il-ciclo-for)
+    * [### 1.5.5 il ciclo ```while```](#155-il-ciclo-while)
+    * [### 1.5.6 il ciclo ```do ... while```](#156-il-ciclo-do--while)
+    * [### 1.5.7 l'interruzione di un ciclo](#157-l'interruzione-di-un-ciclo)
+  * [## 1.6 le funzioni](#16-le-funzioni)
+    * [### 1.6.1 un primo esempio](#161-un-primo-esempio)
+    * [### 1.6.2 funzioni senza tipo di ritorno](#162-funzioni-senza-tipo-di-ritorno)
+    * [### 1.6.3 funzoni ed omonimia](#163-funzoni-ed-omonimia)
+    * [### 1.6.4 il prototipo di una funzione e la sua implementazione](#164-il-prototipo-di-una-funzione-e-la-sua-implementazione)
+    * [### 1.6.5 valori di default degli argomenti di una funzione](#165-valori-di-default-degli-argomenti-di-una-funzione)
+    * [### 1.6.6 l'esportazione delle funzioni in librerie](#166-l'esportazione-delle-funzioni-in-librerie)
+    * [### 1.6.7 il file ```libreria.h```](#167-il-file-libreriah)
+    * [### 1.6.8 il file ```libreria.cc```](#168-il-file-libreriacc)
+    * [### 1.6.9 il file ```main.cpp```](#169-il-file-maincpp)
+    * [### 1.6.10 librerie in ```C++```](#1610-librerie-in-c)
+    * [### 1.6.11 le funzioni ```inline```](#1611-le-funzioni-inline)
+    * [### 1.6.12 funzioni matematiche](#1612-funzioni-matematiche)
+    * [### 1.6.13 un esempio: radice quadrata ed elevamento a potenza](#1613-un-esempio:-radice-quadrata-ed-elevamento-a-potenza)
+    * [### 1.6.14 accesso all'orologio del computer](#1614-accesso-all'orologio-del-computer)
+    * [### 1.6.15 un test di performance](#1615-un-test-di-performance)
+  * [## 1.7 direttive al preprocessore](#17-direttive-al-preprocessore)
+    * [### 1.7.1 la direttiva ```#include```](#171-la-direttiva-#include)
+    * [### 1.7.2 variabili del preprocessore](#172-variabili-del-preprocessore)
+    * [### 1.7.3 le macro del preprocessore](#173-le-macro-del-preprocessore)
+  * [## 1.8 la scrittura del proprio programma](#18-la-scrittura-del-proprio-programma)
+    * [### 1.8.1 la nomenclatura di variabili e funzioni](#181-la-nomenclatura-di-variabili-e-funzioni)
+    * [### 1.8.2 la dimensione degli scope](#182-la-dimensione-degli-scope)
+    * [### 1.8.3 utilizzare i commenti nel codice sorgente](#183-utilizzare-i-commenti-nel-codice-sorgente)
+    * [### 1.8.4 l'indentazione del codice sorgente](#184-l'indentazione-del-codice-sorgente)
+    * [### 1.8.5 la fattorizzazione di un programma](#185-la-fattorizzazione-di-un-programma)
+    * [### 1.8.6 dettagli](#186-dettagli)
+    * [### 1.8.7 unit testing](#187-unit-testing)
+  * [## 1.9 le opzioni di compilazione](#19-le-opzioni-di-compilazione)
+    * [### 1.9.1 il caso di librerie non di default](#191-il-caso-di-librerie-non-di-default)
+  * [## 1.10 gli errori di compilazione](#110-gli-errori-di-compilazione)
+  * [## 1.11 ESERCIZI](#111-esercizi)
+
+![linea](../immagini/linea.png)
+
 ## 1.1 Introduzione
+
+![linea](../immagini/linea.png)
 
 ### 1.1.1 Linguaggio di programmazione e linguaggio macchina
 
@@ -299,7 +375,7 @@
 
 ![linea](../immagini/linea.png)
 
-## 1.3.1 la loro inizializzazione 
+### 1.3.1 la loro inizializzazione 
 
   * le variabili si inizializzano utilizzando le keyword indicate in tabella:
     ```cpp
@@ -790,7 +866,7 @@
 
  ![linea](../immagini/linea.png)
  
-## 1.5.7 l'interruzione di un ciclo
+### 1.5.7 l'interruzione di un ciclo
 
   * oltre a sfruttare la condizione controllata da un ciclo,
     **la sua esecuzione puo' essere interrotta** con due comandi:
@@ -814,7 +890,7 @@
 
 ![linea](../immagini/linea.png)
  
-## 1.6.1 un primo esempio
+### 1.6.1 un primo esempio
 
   * le funzioni vanno **definite prima di essere chiamate**
     ```cpp
@@ -836,7 +912,7 @@
 
 ![linea](../immagini/linea.png)
  
-## 1.6.2 funzioni senza tipo di ritorno
+### 1.6.2 funzioni senza tipo di ritorno
 
   * una funzione che non restituisce alcun valore si definisce 
     con la parola chiave ```void``` come tipo di ritorno
@@ -866,7 +942,7 @@
 
 ![linea](../immagini/linea.png)
  
-## 1.6.3 funzoni ed omonimia
+### 1.6.3 funzoni ed omonimia
 
   * il nome di una funzione, insieme ai suoi tipi in ingresso,
     la **identifica univocamente**, dunque non possono esistere due funzioni
@@ -1136,7 +1212,7 @@ tempo di esecuzione per i*i: 3.91943 secondi
 
 ![linea](../immagini/linea.png)
 
-## 1.8 direttive al preprocessore
+## 1.7 direttive al preprocessore
 
   * L'insieme di istruzioni che iniziano con il simbolo ```#``` si chiamano
     **direttive al preprocessore** perche' vengono lette ed interpretate
@@ -1147,7 +1223,7 @@ tempo di esecuzione per i*i: 3.91943 secondi
 
 ![linea](../immagini/linea.png)
 
-## 1.8.1 la direttiva ```#include```
+### 1.7.1 la direttiva ```#include```
 
   * come abbiamo gia' visto,
     questa istruzione viene utilizzata quando si scrivono **librerie di funzioni**
@@ -1157,7 +1233,7 @@ tempo di esecuzione per i*i: 3.91943 secondi
 
 ![linea](../immagini/linea.png)
 
-## 1.8.2 variabili del preprocessore
+### 1.7.2 variabili del preprocessore
 
   * la direttiva ```#define``` **definisce variabili** del preprocessore
   * viene estensivamente utilizzata per impedire la doppia definizione del prototipo di una funzione
@@ -1188,7 +1264,7 @@ tempo di esecuzione per i*i: 3.91943 secondi
 
 ![linea](../immagini/linea.png)
 
-### 1.8.3 le macro del preprocessore 
+### 1.7.3 le macro del preprocessore 
 
   * si possono anche definire **macro del preprocessore**,
     che sono espressioni che richiamano in forma il comportamento delle funzioni del ```C++```
@@ -1215,7 +1291,7 @@ tempo di esecuzione per i*i: 3.91943 secondi
 
 ![linea](../immagini/linea.png)
 
-## 1.9 la scrittura del proprio programma
+## 1.8 la scrittura del proprio programma
 
   * perche' un codice sorgente **compili**, 
     bisogna rispettare sintassi e grammatica del ```C++```
@@ -1227,7 +1303,7 @@ tempo di esecuzione per i*i: 3.91943 secondi
 
 ![linea](../immagini/linea.png)
 
-### 1.9.1 la nomenclatura di variabili e funzioni
+### 1.8.1 la nomenclatura di variabili e funzioni
 
   * scegliete nomi di funzioni e variabili **lunghi ed autoesplicativi**
   * scegliete nomi che riguardino il ruolo effettivo di variabili e funzioni:
@@ -1242,7 +1318,7 @@ tempo di esecuzione per i*i: 3.91943 secondi
 
 ![linea](../immagini/linea.png)
 
-### 1.9.2 la dimensione degli scope
+### 1.8.2 la dimensione degli scope
 
   * scegliete di scrivere **scope piccoli**: 
     se il numero di istruzioni in uno scope e' molto alto,
@@ -1252,7 +1328,7 @@ tempo di esecuzione per i*i: 3.91943 secondi
 
 ![linea](../immagini/linea.png)
 
-### 1.9.3 utilizzare i commenti nel codice sorgente
+### 1.8.3 utilizzare i commenti nel codice sorgente
 
   * molti commenti nel codice sorgente aiutano a **capire cosa facciano** funzioni e variabili,
     descrivendo il loro contenuto o la loro funzionalita'
@@ -1277,7 +1353,7 @@ tempo di esecuzione per i*i: 3.91943 secondi
 
 ![linea](../immagini/linea.png)
 
-### 1.9.4 l'indentazione del codice sorgente
+### 1.8.4 l'indentazione del codice sorgente
 
   * indentare il codice coerentemente aiuta enormemente la lettura del codice sorgente
   * **tutte le istruzioni di uno stesso scope** devono inizare alla medesima colonna
@@ -1293,7 +1369,7 @@ tempo di esecuzione per i*i: 3.91943 secondi
 
 ![linea](../immagini/linea.png)
 
-### 1.9.5 la fattorizzazione di un programma
+### 1.8.5 la fattorizzazione di un programma
 
   * molto spesso **pezzi di codice sorgente vengono riciclati** copiandoli da programmi vecchi
     ed incollandoli in programmi nuovi
@@ -1306,7 +1382,7 @@ tempo di esecuzione per i*i: 3.91943 secondi
 
 ![linea](../immagini/linea.png)
 
-### 1.9.6 dettagli
+### 1.8.6 dettagli
 
   * il ```C++``` **distingue maiuscole da minuscole**, 
     quindi ```num``` e ```Num``` sono due variabili diverse
@@ -1318,7 +1394,7 @@ tempo di esecuzione per i*i: 3.91943 secondi
 
 ![linea](../immagini/linea.png)
 
-### 1.9.6 unit testing
+### 1.8.7 unit testing
 
   * quando si scrive un nuovo programma,
     e' utile **compilare il codice sorgente** molto spesso
@@ -1341,7 +1417,7 @@ tempo di esecuzione per i*i: 3.91943 secondi
 
 ![linea](../immagini/linea.png)
 
-## 1.10 le opzioni di compilazione
+## 1.9 le opzioni di compilazione
 
   * durante la compilazione di un codice sorgente,
     il compilatore (```c++```) prende in ingresso **diversi parametri**. 
@@ -1361,7 +1437,7 @@ tempo di esecuzione per i*i: 3.91943 secondi
 
 ![linea](../immagini/linea.png)
 
-### 1.10.1 il caso di librerie non di default
+### 1.9.1 il caso di librerie non di default
 
   * nel caso si utilizzino **librerie non di default**, 
     si puo' istruire il compilatore riguardo alla loro posizione nel computer:
@@ -1376,7 +1452,7 @@ tempo di esecuzione per i*i: 3.91943 secondi
 
 ![linea](../immagini/linea.png)
 
-## 1.11 gli errori di compilazione
+## 1.10 gli errori di compilazione
 
   * in caso di errore di compilazione, 
     il compilatore mostra a schemo la **descrizione degli errori** che ha riscontrato
@@ -1400,7 +1476,7 @@ tempo di esecuzione per i*i: 3.91943 secondi
 
 ![linea](../immagini/linea.png)
 
-## 1.12 ESERCIZI
+## 1.11 ESERCIZI
 
   * Gli esercizi relativi alla lezione si trovano [qui](ESERCIZI.md)
 
