@@ -58,6 +58,30 @@ templata sulla dimensione delle matrici,
 definendo anche le operazioni fra matrici.
   * Si definiscano gli operatori di moltiplicazione fra matrici e vettori,
     utilizzando anche la classe ```vettore```.
+  * Si verifichi il funzionamento dell'algoritmo creato costruendo un esempio
+    basato sulle rotazioni nel piano. 
+  * Si scriva un metodo per il calcolo del determinante di una matrice nel caso sia quadrata,
+    sfruttando la formula di Laplace ed una funzione ricorsiva.
+  * Si ricordi che, 
+    in ogni caso di ricorsivita',
+    oltre alla formula iterativa va aggiunto anche il metodo che restituisce il determinate
+    nel caso della matrice piu' piccola possibile, cioe' quella composta da un unico numero.
+    Quindi, oltre al metodo:
+    ```cpp
+    double determinante () 
+      {
+        // implementazione
+      }
+    ```  
+    e' necessario anche aggiungere, al di fuori della definizione della classe ```matrice```,
+    la specializzazione al caso di dimensione ```1```:
+    ```cpp
+    template<>
+    double matrice<1,1>::determinante () { return elementi[0][0] ; }
+    ```
+  * Si scriva un metodo che calcola la matrice inversa, nel caso di una matrice quadrata
+    e che ritorna una matrice nulla se la matrice orginale non e' quadrata
+    o ha determinante nullo.
 
 ![linea](../immagini/linea.png)
 
