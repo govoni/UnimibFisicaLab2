@@ -4,6 +4,8 @@
 #include <cmath>
 #include <vector>
 
+class matrice ;
+
 class vettore 
 {
   public:
@@ -13,12 +15,13 @@ class vettore
     vettore & operator = (const vettore & orig) ;
     ~vettore () ;
 
-    void   setCoord (int i, double val) ;
-    double norm () const ;
-    int    N () const ;
-    double at (int i) const ;
-    void   stampa () const ;
-    double operator[] (int i) const ;
+    void    setCoord (int i, double val) ;
+    double  norm () const ;
+    int     N () const ;
+    double  at (int i) const ;
+    void    stampa () const ;
+    double  operator[] (int i) const ;
+    double  dot (const vettore & v) const ;
 
   private:
     double * m_elementi ;
@@ -65,7 +68,7 @@ class matrice
 // ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
 
 
-vettore operator* (const matrice & M, const vettore v) ;
+vettore operator* (const matrice & M, const vettore & v) ;
 matrice operator* (const matrice & M1, const matrice & M2) ;
 
 

@@ -20,7 +20,7 @@ int main (int argc, char ** argv)
   {
     if (argc < 3)
       {
-        cout << "usage: " << argv[0] << " sigma_y nomefile.txt [Npoints = tutti]" << endl ;
+        cout << "usage: " << argv[0] << " sigma_y nomefile.txt" << endl ;
         exit (1) ;
       }
 
@@ -45,7 +45,6 @@ int main (int argc, char ** argv)
     input_file.close () ;
 
     int Npoints = asse_x.size () ; 
-    if (argc > 3) Npoints = atoi (argv[3]) ;
 
     // creazione delle matrici del metodo dei minimi quadrati
     // -------------------------

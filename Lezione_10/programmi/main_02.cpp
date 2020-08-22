@@ -10,6 +10,7 @@ c++ -o main_02 `root-config --glibs --cflags` algebra_2.cc main_02.cpp
 
 #include "TH1F.h"
 #include "TCanvas.h"
+#include "TH2F.h"
 
 #include "algebra_2.h"
 #include "generazione.h"
@@ -45,15 +46,17 @@ int main (int argc, char ** argv)
     TH1F h_b ("h_b", "coefficiente angolare", 
               100, 2. * (1. - 1. * sigma), 2. * (1. + 1. * sigma) ) ;
 
-    // istogrammi per il disegno dei risultati del fit
-    TH1F h_sa ("h_sa", "sigma termine noto", 
-              100, 0., 3.14 * 2. * sigma) ;
-    TH1F h_sb ("h_sb", "sigma coefficiente angolare", 
-              100, 0., 2. * 2. * sigma) ;
+    TH2F h_ab ("h_ab", "parametri", 
+              50, 3.14 * (1. - 1. * sigma), 3.14 * (1. + 1. * sigma),
+              50, 2. * (1. - 1. * sigma), 2. * (1. + 1. * sigma) ) ;
+    h_ab.GetXaxis ()->SetTitle ("termine noto") ;
+    h_ab.GetYaxis ()->SetTitle ("coefficiente angolare") ;
+    h_ab.SetStats (0) ;
 
     // contatori per la determinazione dell'intervallo di copertura
-    int cont_a = 0 ;
-    int cont_b = 0 ;
+    int cont_a  = 0 ;
+    int cont_b  = 0 ;
+    int cont_ab = 0 ;
 
     // generazione dei toy experiment e calcolo del fit per ciascuno di essi
     // ----------------------------------------
@@ -93,9 +96,7 @@ int main (int argc, char ** argv)
 
         h_a.Fill (theta.at (0)) ;
         h_b.Fill (theta.at (1)) ;
-
-        h_sa.Fill (sqrt (theta_v.at (0,0))) ;
-        h_sb.Fill (sqrt (theta_v.at (1,1))) ;
+        h_ab.Fill (theta.at (0), theta.at (1)) ;
 
         if (fabs (theta.at (0) - 3.14) < sqrt (theta_v.at (0,0))) ++cont_a ;
         if (fabs (theta.at (1) - 2.  ) < sqrt (theta_v.at (1,1))) ++cont_b ;
@@ -104,18 +105,18 @@ int main (int argc, char ** argv)
 
     cout << "copertura parametro a: " << static_cast<double> (cont_a) / N_toys << endl ;
     cout << "copertura parametro b: " << static_cast<double> (cont_b) / N_toys << endl ;
+    cout << "copertura ellisse:     " << static_cast<double> (cont_ab) / N_toys << endl ;
 
-    TCanvas c1 ;
+    TCanvas c1 ("c1", "", 800, 800) ;
+    c1.SetRightMargin (0.15) ;
     h_a.Draw ("hist") ;
     c1.Print ("parametro_a.png", "png") ;
  
     h_b.Draw ("hist") ;
     c1.Print ("parametro_b.png", "png") ;
 
-    h_sa.Draw ("hist") ;
-    c1.Print ("parametro_a_var.png", "png") ;
- 
-    h_sb.Draw ("hist") ;
-    c1.Print ("parametro_b_var.png", "png") ;
+    h_ab.Draw ("colz") ;
+    c1.Print ("parametri_2D.png", "png") ;
+
     return 0 ;
   }

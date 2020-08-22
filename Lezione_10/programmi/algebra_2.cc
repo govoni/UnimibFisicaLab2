@@ -89,6 +89,20 @@ double vettore::operator[] (int i) const
     return m_elementi[i] ;
   }
 
+// .... .... .... .... .... .... .... .... .... .... .... .... .... ....
+
+double vettore::dot (const vettore & v) const
+  {
+    if (m_N != v.N ())
+      {
+        cerr << "prodotto scalare fra vettori di dimensione diversa" << endl ;
+        exit (1) ;
+      }
+    double result = 0 ;
+    for (int i = 0 ; i < m_N ; ++i) result += this->at (i) * v.at (i) ; 
+    return result ;
+  }
+
 // ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
 
 matrice::matrice (int R) :
@@ -287,7 +301,7 @@ double matrice::determinante () const
 
 // ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
 
-vettore operator* (const matrice & M, const vettore v)
+vettore operator* (const matrice & M, const vettore & v)
   {
     if (M.N_colonne () != v.N ())
       {
