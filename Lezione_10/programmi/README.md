@@ -1,0 +1,13 @@
+# contenuto della cartella
+
+   | programma | contenuto |
+   | -------------| -------------|
+   | main_00.cpp  | generazione di coppie di punti secondo una legge funzionale *y = g(x)*, con dispersione gaussiana lungo *y* |
+   | algebra_2.h  | libreria per l'algebra di matrici e vettori, creati con allocazione dinamica della memoria |
+   | algebra_2.cc | libreria per l'algebra di matrici e vettori, creati con allocazione dinamica della memoria |
+   | main_01.cpp  | determinazione dei parametri di una funzione lineare *y = a + bx* con il metodo dei minimi quadrati |
+   | main_02.cpp  |  |
+   | main_03.cpp  |  |
+   | main_04.cpp  |  |
+   | main_05.cpp  |  |
+   | main_06.cpp  |  |
