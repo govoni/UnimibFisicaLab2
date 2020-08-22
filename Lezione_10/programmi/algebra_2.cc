@@ -91,6 +91,36 @@ double vettore::operator[] (int i) const
 
 // .... .... .... .... .... .... .... .... .... .... .... .... .... ....
 
+vettore vettore::operator+ (const vettore & v) const 
+  {
+    vettore result (*this) ;
+    for (int i = 0 ; i < m_N ; ++i) 
+      result.setCoord (i, result.at (i) + v.at (i)) ;
+    return result ;
+  }
+
+// .... .... .... .... .... .... .... .... .... .... .... .... .... ....
+
+vettore vettore::operator- (const vettore & v) const 
+  {
+    vettore result (*this) ;
+    for (int i = 0 ; i < m_N ; ++i) 
+      result.setCoord (i, result.at (i) - v.at (i)) ;
+    return result ;
+  }
+
+// .... .... .... .... .... .... .... .... .... .... .... .... .... ....
+
+vettore vettore::operator* (double val) const 
+  {
+    vettore result (*this) ;
+    for (int i = 0 ; i < m_N ; ++i) 
+      result.setCoord (i, result.at (i) * val) ;
+    return result ;
+  }
+
+// .... .... .... .... .... .... .... .... .... .... .... .... .... ....
+
 double vettore::dot (const vettore & v) const
   {
     if (m_N != v.N ())
@@ -297,6 +327,17 @@ double matrice::determinante () const
         det += this->at (0,i) * pow (-1, i + 2) * this->minore (0,i).determinante () ;
       }
     return det ; 
+  }
+
+// .... .... .... .... .... .... .... .... .... .... .... .... .... ....
+
+void matrice::operator*= (double val)
+  {
+    for (int i = 0 ; i < m_R * m_C ; ++i)
+      {
+        m_elementi[i] *= val ;
+      }
+    return ; 
   }
 
 // ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----

@@ -1,5 +1,5 @@
 /*
-c++ -o main_01 algebra_2.cc main_01.cpp
+c++ -o main_03 algebra_2.cc main_03.cpp
 */
 
 #include <cstdlib>
@@ -44,13 +44,13 @@ int main (int argc, char ** argv)
       } 
     input_file.close () ;
 
-    int Npoints = asse_x.size () ; 
+    int N_points = asse_x.size () ; 
 
     // creazione delle matrici del metodo dei minimi quadrati
     // -------------------------
 
-    matrice H (Npoints, 2) ;
-    for (int i = 0 ; i < Npoints ; ++i)
+    matrice H (N_points, 2) ;
+    for (int i = 0 ; i < N_points ; ++i)
       {
         H.setCoord (i, 0, 1) ;
         H.setCoord (i, 1, asse_x.at (i)) ;
@@ -58,8 +58,8 @@ int main (int argc, char ** argv)
     vettore y (asse_y) ;
 
     // ipotesi: incertezza costante su tutti i valori
-    matrice V (Npoints) ;
-    for (int i = 0 ; i < Npoints ; ++i) V.setCoord (i, i, sigma * sigma) ;
+    matrice V (N_points) ;
+    for (int i = 0 ; i < N_points ; ++i) V.setCoord (i, i, 1.) ;
 
     // calcolo dei parametri di interesse
     // -------------------------
@@ -71,6 +71,14 @@ int main (int argc, char ** argv)
     vettore theta = (theta_v * (H.trasposta () * V_inv)) * y ;
     cout << "parametri risultanti dai mimimi quadrati: \n" ;
     theta.stampa () ;
+
+    //Metzger, cap. 8.5.2, eq. 8.117
+    double Q2min = (y - H * theta).dot (V_inv * (y - H * theta)) ;
+    //Metzger, cap. 8.5.2, eq. 8.118
+    double sigmaSq_calc = Q2min / (N_points - 2) ;
+    cout << "varianza dei valori iniziali: " << sigmaSq_calc << endl ;
+ 
+    theta_v *= sigmaSq_calc ;
     cout << "matrice di covarianza dei parametri risultanti dai mimimi quadrati: \n" ;
     theta_v.stampa () ;
     cout << "termine noto: " << theta.at (0) << " +- " << sqrt (theta_v.at (0, 0)) << endl ;

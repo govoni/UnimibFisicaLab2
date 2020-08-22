@@ -21,6 +21,9 @@ class vettore
     double  at (int i) const ;
     void    stampa () const ;
     double  operator[] (int i) const ;
+    vettore operator+ (const vettore & v) const ;
+    vettore operator- (const vettore & v) const ;
+    vettore operator* (double val) const ;
     double  dot (const vettore & v) const ;
 
   private:
@@ -54,6 +57,7 @@ class matrice
     matrice inversa () const ;
     matrice trasposta () const ;
     double  determinante () const ;
+    void    operator*= (double val) ;
 
   private:
 
