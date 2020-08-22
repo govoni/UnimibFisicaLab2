@@ -18,17 +18,18 @@ using namespace std ;
 
 int main (int argc, char ** argv)
   {
-    if (argc < 2)
+    if (argc < 3)
       {
-        cout << "usage: " << argv[0] << " nomefile.txt [Npoints = tutti]" << endl ;
+        cout << "usage: " << argv[0] << " sigma_y nomefile.txt [Npoints = tutti]" << endl ;
         exit (1) ;
       }
 
     // lettura del file di input
     // -------------------------
 
+    double sigma = atof (argv[1]) ;
     ifstream input_file ;
-    input_file.open (argv[1]) ;
+    input_file.open (argv[2]) ;
     vector<double> asse_x ;
     vector<double> asse_y ;
     while (true) 
@@ -44,7 +45,7 @@ int main (int argc, char ** argv)
     input_file.close () ;
 
     int Npoints = asse_x.size () ; 
-    if (argc > 2) Npoints = atoi (argv[2]) ;
+    if (argc > 3) Npoints = atoi (argv[3]) ;
 
     // creazione delle matrici del metodo dei minimi quadrati
     // -------------------------
@@ -55,20 +56,22 @@ int main (int argc, char ** argv)
         H.setCoord (i, 0, 1) ;
         H.setCoord (i, 1, asse_x.at (i)) ;
       }
-    vettore y (Npoints) ;
-    for (int i = 0 ; i < Npoints ; ++i) y.setCoord (i, asse_y.at (i)) ;
+    vettore y (asse_y) ;
 
     // ipotesi: incertezza costante su tutti i valori
     matrice V (Npoints) ;
-    for (int i = 0 ; i < Npoints ; ++i) V.setCoord (i, i, 1.) ;
+    for (int i = 0 ; i < Npoints ; ++i) V.setCoord (i, i, sigma * sigma) ;
 
-    matrice blocco = (H.trasposta () * (V * H)).inversa () * (H.trasposta () * V.inversa ()) ;
+    // calcolo dei parametri di interesse
+    // -------------------------
+
+    matrice V_inv = V.inversa () ;
+    //Metzger, cap. 8.5.2, eq. 8.116
+    matrice theta_v = (H.trasposta () * V_inv * H).inversa () ;
     //Metzger, cap. 8.5.2, eq. 8.112
-    vettore theta = blocco * y ;
+    vettore theta = (theta_v * (H.trasposta () * V_inv)) * y ;
     cout << "parametri risultanti dai mimimi quadrati: \n" ;
     theta.stampa () ;
-    //Metzger, cap. 8.5.2, eq. 8.113
-    matrice theta_v = blocco * V * blocco.trasposta () ;
     cout << "matrice di covarianza dei parametri risultanti dai mimimi quadrati: \n" ;
     theta_v.stampa () ;
 

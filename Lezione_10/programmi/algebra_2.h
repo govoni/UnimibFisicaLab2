@@ -2,11 +2,13 @@
 #define algebra_2_h
 
 #include <cmath>
+#include <vector>
 
 class vettore 
 {
   public:
     vettore (int N) ;
+    vettore (const std::vector<double> & v) ;
     vettore (const vettore & orig) ;
     vettore & operator = (const vettore & orig) ;
     ~vettore () ;

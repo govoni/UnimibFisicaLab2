@@ -13,6 +13,15 @@ vettore::vettore (int N) :
 
 // .... .... .... .... .... .... .... .... .... .... .... .... .... ....
 
+vettore::vettore (const std::vector<double> & v) :
+  m_N (v.size ()),
+  m_elementi (new double[v.size ()])
+  {
+    for (int i = 0 ; i < m_N ; ++i) m_elementi[i] = v.at (i) ;
+  }
+
+// .... .... .... .... .... .... .... .... .... .... .... .... .... ....
+
 vettore::vettore (const vettore & orig) : 
   m_N (orig.m_N),
   m_elementi (new double[orig.m_N])
