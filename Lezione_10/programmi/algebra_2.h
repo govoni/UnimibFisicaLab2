@@ -60,12 +60,10 @@ class matrice
     void    operator*= (double val) ;
 
   private:
-
     int index (int i, int j) const ;
     int m_R ;
     int m_C ;
     double * m_elementi ;
-
 } ;
 
 
