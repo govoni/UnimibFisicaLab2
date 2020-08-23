@@ -24,7 +24,7 @@
 
   * La stessa metrica viene spesso utilizzata
     per fare **regressioni sui dati**, chiamata anche *fit*
-  * Siano date *N* coppie di misure indipendenti del tipo *(x<sub>i</sub>, y<sub>i</sub>)*,
+  * Siano date *N* coppie di misure indipendenti del tipo *(x<sub>i</sub>, y<sub>i</sub> )*,
     per le quali:
     * l'incertezza sul valore *x<sub>i</sub>* sia **nulla o trascuarbile**
     * **l'incertezza sul valore *y<sub>i</sub>*** sia &sigma;<sub>i</sub>
@@ -56,7 +56,7 @@
     il minimo della funzione *Q<sup>2</sup>(&theta;)*
     e' distribuito secondo una **distribuzione di probabilia' &Chi;<sup>2</sup>**
     con *N-k* gradi di liberta',
-    * dove *N* e' il **numero di coppie** *(x<sub>i</sub>, y<sub>i</sub>)*
+    * dove *N* e' il **numero di coppie** *(x<sub>i</sub>, y<sub>i</sub> )*
       e *k* il **numero di parametri stimati** con i minimi quadrati
 
 ![linea](../immagini/linea.png)
@@ -81,7 +81,7 @@
 ### 10.2.1 La formulazione matriciale
 
   * Nel caso generale, 
-    le *N* coppie di misure *(x<sub>i</sub>, y<sub>i</sub>)* 
+    le *N* coppie di misure *(x<sub>i</sub>, y<sub>i</sub> )* 
     e *k* parametri *&theta;<sub>j</sub>*
     si possono **rappresentare in forma vettoriale**
   * Per comodita' di scrittura,
@@ -96,7 +96,7 @@
     per la deteminazione dei parametri *&theta;<sub>j</sub>* 
     sono i seguenti:
 ![espressioni_mtr](immagini/espressioni_mtr.png)
-  * Dove *V* e' la matrice di covarianza delle misure *y<sub>i</sub>)*,
+  * Dove *V* e' la matrice di covarianza delle misure *y<sub>i</sub>*,
     che e' diagonale perche' le misure sono indipendenti fra loro
 
 ![linea](../immagini/linea.png)
@@ -105,7 +105,7 @@
 
   * Il risultato delle operazioni di minimizzazione e' il seguente:
 ![modello_lineare](immagini/modello_lineare.png)
-  * *V<sup>-1</sup>* indica l'**inversa** della matrice di covarianza delle misure *y<sub>i</sub>)*
+  * *V<sup>-1</sup>* indica l'**inversa** della matrice di covarianza delle misure *y<sub>i</sub>*
   * *<sup>t</sup>H* indica la **trasposta** della matrice *H*
   * La notazione che indica il risultato dell'algoritmo dei minimi quadrati
     con un accento circonflesso sulla lettera &theta;
@@ -258,7 +258,7 @@
     ```cpp
     vettore y (asse_y) ;
     ```
-  * la **matrice V** di covarianza delle misure *y<sub>i</sub>)*:
+  * la **matrice V** di covarianza delle misure *y<sub>i</sub>*:
     ```cpp
     matrice V (Npoints) ;
     for (int i = 0 ; i < Npoints ; ++i) V.setCoord (i, i, sigma * sigma) ;
@@ -274,9 +274,7 @@
     **minimizzando il numero di singole operazioni**:
     ```cpp
     matrice V_inv = V.inversa () ;
-    //Metzger, cap. 8.5.2, eq. 8.116
     matrice theta_v = (H.trasposta () * V_inv * H).inversa () ;
-    //Metzger, cap. 8.5.2, eq. 8.112
     vettore theta = (theta_v * (H.trasposta () * V_inv)) * y ;
 
     ```
