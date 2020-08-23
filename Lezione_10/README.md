@@ -236,6 +236,8 @@
         asse_y.push_back (g (i_point) + epsilon) ;
       }
     ```
+    * In questo caso, la funzione ```rand_TAC``` e' stata modificata,
+      con una implementazione **dedicata al problema**
 
 ![linea](../immagini/linea.png)
 
@@ -297,9 +299,10 @@
 
 ![linea](../immagini/linea.png)
 
-## 10.4 La distribuzione di probabilita' degli stimatori
+## 10.4 Le proprieta' statistiche degli stimatori
 
 - i toy experiment
+- la visualizzazione della correlazione
 - test di bias
 
 ![linea](../immagini/linea.png)
