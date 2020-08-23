@@ -46,7 +46,7 @@
 ## 10.6 La stima di una incertezza ignota
 
 - dopo i tanti toy
-- nel singolo fit?
+- nel singolo fit (varianza unbiased, sigma no)
 
 ![linea](../immagini/linea.png)
 
@@ -59,7 +59,6 @@
  |                                | 
  | OPEN POINTS                    | 
  |                                | 
- | - rimane il problema del chi2! | 
  | - estrapolazioni               | 
  | - goodness of fit              | 
  |                                | 

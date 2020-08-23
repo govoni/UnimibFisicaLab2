@@ -42,8 +42,9 @@ int main (int argc, char ** argv)
 
     // istogrammi per il disegno dei risultati del fit
 
-//    TH1F h_sigma ("h_sigma", "sigma calcolata", 50, 0., 2 * sigma) ;
     TH1F h_scarti ("h_scarti", "scarti", 200, 0., 5 * N_points) ;
+    TH1F h_varianza ("h_varianza", "varianza calcolata", 50, 0., 10 * sigma) ;
+    TH1F h_sigma ("h_sigma", "sigma calcolata", 50, 0., 3 * sigma) ;
 
     // generazione dei toy experiment e calcolo del fit per ciascuno di essi
     // ----------------------------------------
@@ -85,32 +86,25 @@ int main (int argc, char ** argv)
         double Q2min = (y - H * theta).dot (V_inv * (y - H * theta)) ;
         h_scarti.Fill (Q2min) ;
 
-      } //loop over toys
+        double varianza = Q2min / (N_points - 2) ;
+        h_varianza.Fill (varianza) ;
+        h_sigma.Fill (sigma) ;
 
-    // cout << sigma << " " 
-    //      << h_sigma.GetMean () << " += " << h_sigma.GetRMS () / sqrt (N_toys) 
-    //      << " " << h_sigma.GetBinCenter (h_sigma.GetMaximumBin ())
-    //      << endl ;
+      } //loop over toys
 
     cout << "sigma = "
          << sqrt (h_scarti.GetMean () / (N_points - 2))
          << endl ;
          
-// PG FIXME da capire quest'ultimo passaggio
-        // double sigmaSq_calc = Q2min / (N_points - 2) ; //PG il -2 sembra dare un numero biasato!
-        // h_sigma.Fill (sqrt (sigmaSq_calc)) ;
-
-    // h_sigma.Draw ("hist") ;
-    // c1.Print ("sigma_calc.png", "png") ;
- 
     TCanvas c1 ("c1", "", 800, 800) ;
     c1.SetRightMargin (0.15) ;
     h_scarti.Draw ("hist") ;
     c1.Print ("scarti.png", "png") ;
  
     TFile f_out ("main_03.root", "recreate") ;
-//    h_sigma.Write () ;
     h_scarti.Write () ;
+    h_sigma.Write () ;
+    h_varianza.Write () ;
     f_out.Close () ;
 
 
