@@ -1,5 +1,5 @@
 /*
-c++ -o main_03 algebra_2.cc main_03.cpp
+c++ -o main_03 `root-config --glibs --cflags` algebra_2.cc main_03.cpp
 */
 
 #include <cstdlib>
@@ -8,7 +8,19 @@ c++ -o main_03 algebra_2.cc main_03.cpp
 #include <fstream>
 #include <vector>
 
+#include "TH1F.h"
+#include "TCanvas.h"
+#include "TH2F.h"
+#include "TFile.h"
+
 #include "algebra_2.h"
+#include "generazione.h"
+
+// retta con termine noto non nullo
+double g (double x)
+  {
+     return 3.14 + 2 * x ;
+  }
 
 using namespace std ;
 
@@ -18,71 +30,91 @@ using namespace std ;
 
 int main (int argc, char ** argv)
   {
-    if (argc < 3)
+    if (argc < 4)
       {
-        cout << "usage: " << argv[0] << " sigma_y nomefile.txt" << endl ;
+        cout << "usage: " << argv[0] << " sigma_y N_points Ntoys" << endl ;
         exit (1) ;
       }
 
-    // lettura del file di input
-    // -------------------------
+    double sigma  = atof (argv[1]) ;
+    int N_points  = atoi (argv[2]) ;
+    int N_toys    = atoi (argv[3]) ;
 
-    double sigma = atof (argv[1]) ;
-    ifstream input_file ;
-    input_file.open (argv[2]) ;
-    vector<double> asse_x ;
-    vector<double> asse_y ;
-    while (true) 
+    // istogrammi per il disegno dei risultati del fit
+
+//    TH1F h_sigma ("h_sigma", "sigma calcolata", 50, 0., 2 * sigma) ;
+    TH1F h_scarti ("h_scarti", "scarti", 200, 0., 5 * N_points) ;
+
+    // generazione dei toy experiment e calcolo del fit per ciascuno di essi
+    // ----------------------------------------
+
+    //loop over toys
+    for (int i_toy = 0 ; i_toy < N_toys ; ++i_toy)
       {
-        double dummy_x = 0. ; 
-        double dummy_y = 0. ; 
-        input_file >> dummy_x ;
-        input_file >> dummy_y ;
-        if (input_file.eof () == true) break ;
-        asse_x.push_back (dummy_x) ;
-        asse_y.push_back (dummy_y) ;
-      } 
-    input_file.close () ;
+        vector<double> asse_x ;
+        vector<double> asse_y ;
 
-    int N_points = asse_x.size () ; 
+        // generare il sample
+        // --------------------
 
-    // creazione delle matrici del metodo dei minimi quadrati
-    // -------------------------
+        for (int i_point = 0 ; i_point < N_points ; ++i_point)
+          {
+            double epsilon = rand_TAC_gaus (sigma) ; 
+            asse_x.push_back (i_point) ;
+            asse_y.push_back (g (i_point) + epsilon) ;
+          }
 
-    matrice H (N_points, 2) ;
-    for (int i = 0 ; i < N_points ; ++i)
-      {
-        H.setCoord (i, 0, 1) ;
-        H.setCoord (i, 1, asse_x.at (i)) ;
-      }
-    vettore y (asse_y) ;
+        // trovare i parametri
+        // --------------------
 
-    // ipotesi: incertezza costante su tutti i valori
-    matrice V (N_points) ;
-    for (int i = 0 ; i < N_points ; ++i) V.setCoord (i, i, 1.) ;
+        matrice H (N_points, 2) ;
+        for (int i = 0 ; i < N_points ; ++i)
+          {
+            H.setCoord (i, 0, 1) ;
+            H.setCoord (i, 1, asse_x.at (i)) ;
+          }
+        vettore y (asse_y) ;
+        matrice V (N_points) ;
+        for (int i = 0 ; i < N_points ; ++i) V.setCoord (i, i, 1.) ;
+    
+        matrice V_inv = V.inversa () ;
+        matrice theta_v = (H.trasposta () * V_inv * H).inversa () ;
+        vettore theta = (theta_v * (H.trasposta () * V_inv)) * y ;
 
-    // calcolo dei parametri di interesse
-    // -------------------------
+        // calcolo la somma degli scarti quadratici normalizzati per l'incertezza
+        double Q2min = (y - H * theta).dot (V_inv * (y - H * theta)) ;
+        h_scarti.Fill (Q2min) ;
 
-    matrice V_inv = V.inversa () ;
-    //Metzger, cap. 8.5.2, eq. 8.116
-    matrice theta_v = (H.trasposta () * V_inv * H).inversa () ;
-    //Metzger, cap. 8.5.2, eq. 8.112
-    vettore theta = (theta_v * (H.trasposta () * V_inv)) * y ;
-    cout << "parametri risultanti dai mimimi quadrati: \n" ;
-    theta.stampa () ;
+      } //loop over toys
 
-    //Metzger, cap. 8.5.2, eq. 8.117
-    double Q2min = (y - H * theta).dot (V_inv * (y - H * theta)) ;
-    //Metzger, cap. 8.5.2, eq. 8.118
-    double sigmaSq_calc = Q2min / (N_points - 2) ;
-    cout << "varianza dei valori iniziali: " << sigmaSq_calc << endl ;
+    // cout << sigma << " " 
+    //      << h_sigma.GetMean () << " += " << h_sigma.GetRMS () / sqrt (N_toys) 
+    //      << " " << h_sigma.GetBinCenter (h_sigma.GetMaximumBin ())
+    //      << endl ;
+
+    cout << "sigma = "
+         << sqrt (h_scarti.GetMean () / (N_points - 2))
+         << endl ;
+         
+// PG FIXME da capire quest'ultimo passaggio
+        // double sigmaSq_calc = Q2min / (N_points - 2) ; //PG il -2 sembra dare un numero biasato!
+        // h_sigma.Fill (sqrt (sigmaSq_calc)) ;
+
+    // h_sigma.Draw ("hist") ;
+    // c1.Print ("sigma_calc.png", "png") ;
  
-    theta_v *= sigmaSq_calc ;
-    cout << "matrice di covarianza dei parametri risultanti dai mimimi quadrati: \n" ;
-    theta_v.stampa () ;
-    cout << "termine noto: " << theta.at (0) << " +- " << sqrt (theta_v.at (0, 0)) << endl ;
-    cout << "pendenza:     " << theta.at (1) << " +- " << sqrt (theta_v.at (1, 1)) << endl ;
+    TCanvas c1 ("c1", "", 800, 800) ;
+    c1.SetRightMargin (0.15) ;
+    h_scarti.Draw ("hist") ;
+    c1.Print ("scarti.png", "png") ;
+ 
+    TFile f_out ("main_03.root", "recreate") ;
+//    h_sigma.Write () ;
+    h_scarti.Write () ;
+    f_out.Close () ;
+
+
+
 
     return 0 ;
   }

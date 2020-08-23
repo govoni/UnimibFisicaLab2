@@ -35,9 +35,33 @@
 
 ![linea](../immagini/linea.png)
 
+## 10.5 Una parentesi utile: il salvataggio degli oggetti di ROOT
+
+- salvare istogrammi in un TFile
+- rileggere un TFile
+- macro di ROOT
+
+![linea](../immagini/linea.png)
+
+## 10.6 La stima di una incertezza ignota
+
+- dopo i tanti toy
+- nel singolo fit?
+
+![linea](../immagini/linea.png)
+
 ## 10.5 ESERCIZI
 
   * Gli esercizi relativi alla lezione si trovano [qui](ESERCIZI.md)
 
-
+                                                                                                               
+ +--------------------------------+
+ |                                | 
+ | OPEN POINTS                    | 
+ |                                | 
+ | - rimane il problema del chi2! | 
+ | - estrapolazioni               | 
+ | - goodness of fit              | 
+ |                                | 
+ +--------------------------------+
 
