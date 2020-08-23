@@ -69,14 +69,15 @@ int main (int argc, char ** argv)
         // --------------------
 
         matrice H (N_points, 2) ;
-        for (int i = 0 ; i < N_points ; ++i)
+        for (int i_point = 0 ; i_point < N_points ; ++i_point)
           {
-            H.setCoord (i, 0, 1) ;
-            H.setCoord (i, 1, asse_x.at (i)) ;
+            H.setCoord (i_point, 0, 1) ;
+            H.setCoord (i_point, 1, asse_x.at (i_point)) ;
           }
         vettore y (asse_y) ;
         matrice V (N_points) ;
-        for (int i = 0 ; i < N_points ; ++i) V.setCoord (i, i, 1.) ;
+        for (int i_point = 0 ; i_point < N_points ; ++i_point) 
+          V.setCoord (i_point, i_point, 1.) ;
     
         matrice V_inv = V.inversa () ;
         matrice theta_v = (H.trasposta () * V_inv * H).inversa () ;

@@ -44,22 +44,23 @@ int main (int argc, char ** argv)
       } 
     input_file.close () ;
 
-    int Npoints = asse_x.size () ; 
+    int N_points = asse_x.size () ; 
 
     // creazione delle matrici del metodo dei minimi quadrati
     // -------------------------
 
-    matrice H (Npoints, 2) ;
-    for (int i = 0 ; i < Npoints ; ++i)
+    matrice H (N_points, 2) ;
+    for (int i_point = 0 ; i_point < N_points ; ++i_point)
       {
-        H.setCoord (i, 0, 1) ;
-        H.setCoord (i, 1, asse_x.at (i)) ;
+        H.setCoord (i_point, 0, 1) ;
+        H.setCoord (i_point, 1, asse_x.at (i_point)) ;
       }
     vettore y (asse_y) ;
 
     // ipotesi: incertezza costante su tutti i valori
-    matrice V (Npoints) ;
-    for (int i = 0 ; i < Npoints ; ++i) V.setCoord (i, i, sigma * sigma) ;
+    matrice V (N_points) ;
+    for (int i_point = 0 ; i_point < N_points ; ++i_point) 
+      V.setCoord (i_point, i_point, sigma * sigma) ;
 
     // calcolo dei parametri di interesse
     // -------------------------

@@ -248,10 +248,10 @@
     per tutti i punti:
     ```cpp
     matrice H (Npoints, 2) ;
-    for (int i = 0 ; i < Npoints ; ++i)
+    for (int i_point = 0 ; i_point < N_points ; ++i_point)
       {
-        H.setCoord (i, 0, 1) ;
-        H.setCoord (i, 1, asse_x.at (i)) ;
+        H.setCoord (i_point, 0, 1) ;
+        H.setCoord (i_point, 1, asse_x.at (i_point)) ;
       }
     ```
   * il **vettore y** (con un costruttore apposito che riceve in input uno ```std::vector```:
@@ -261,8 +261,10 @@
   * la **matrice V** di covarianza delle misure *y<sub>i</sub>*:
     ```cpp
     matrice V (Npoints) ;
-    for (int i = 0 ; i < Npoints ; ++i) V.setCoord (i, i, sigma * sigma) ;
+    for (int i_point = 0 ; i_point < N_points ; ++i_point) 
+      V.setCoord (i_point, i_point, sigma * sigma) ;
     ```
+    * assumendo **nota ```sigma```**
 
 ![linea](../immagini/linea.png)
 
