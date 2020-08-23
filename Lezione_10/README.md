@@ -35,7 +35,7 @@
 
 ![linea](../immagini/linea.png)
 
-## 10.8 ESERCIZI
+## 10.5 ESERCIZI
 
   * Gli esercizi relativi alla lezione si trovano [qui](ESERCIZI.md)
 
