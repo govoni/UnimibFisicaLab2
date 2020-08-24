@@ -520,7 +520,7 @@
     si esegue da ```SHELL``` il comando **```root```**:
     ```
     > root
-   root [0] 
+   root \[0\] 
    ```
   * In questa linea di comando,
     ```ROOT``` fornisce un **interprete di istruzioni ```C++```** 
