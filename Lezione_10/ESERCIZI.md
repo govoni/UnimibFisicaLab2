@@ -44,11 +44,8 @@ Si inserisca il processo di generazione di coppie di eventi pseudo-casuali
 in un ciclo di simulazione di *toy experiment*.
   * Si generi la distribuzione di densita' di probabilita' delle stime *&theta;<sub>1</sub>* e *&theta;<sub>2</sub>*
     e si verifichi se il loro stimatore sia o meno distorto.
-  * Si generi la distribuzione di densita' di probabilita' di *Q<sup>2</sup><sub>min</sub>* nei due casi
+  * Si generi la distribuzione di densita' di probabilita' di *Q<sup>2</sup><sub>min</sub>*
   * Si salvino tutti questi istogrammi in un file di tipo ```.root```
-  * Si verifichi se lo stimatore di *&theta;<sub>1</sub>* e *&theta;<sub>2</sub>* 
-    sia o meno distorto variando la distribuzione di probabilita'
-    utilizzata per la generazione dei numeri pseudo-casuali *&epsilon;<sub>i</sub>*
   * Si confronti la distribuzione di *Q<sup>2</sup><sub>min</sub>* con la distribuzione di probabilita'
     *f(x) = &Chi;<sup>2</sup>(x, N-k)*, essendo *N* il numero di punti *x<sub>i</sub>, y<sub>i</sub> )*
     e *k* il numero di parametri *&theta;<sub>j</sub>* ricavati dal fit.
@@ -56,6 +53,13 @@ in un ciclo di simulazione di *toy experiment*.
 ![linea](../immagini/linea.png)
 
 ## Esercizio 10.5
+
+Si ripeta l'esercizio precedente utilizzando una distribuzione di probabilita' uniforme
+per generare gli scarti *&epsilon;<sub>i</sub>*.
+  * Si determini se lo stimatore dei parametri *&theta;<sub>j</sub>* sia o meno distorto.
+  * Si confronti la distribuzione di *Q<sup>2</sup><sub>min</sub>* con la distribuzione di probabilita'
+    *f(x) = &Chi;<sup>2</sup>(x, N-k)*, essendo *N* il numero di punti *x<sub>i</sub>, y<sub>i</sub> )*
+    e *k* il numero di parametri *&theta;<sub>j</sub>* ricavati dal fit.
 
 ![linea](../immagini/linea.png)
 
