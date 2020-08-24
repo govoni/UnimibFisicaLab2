@@ -115,7 +115,7 @@
 
 ## 10.3 Un esempio: il fit di una retta
 
-  * L'implementazione di una regressione di un modello *g(x,&theta;) = &theta;<sub>1</sub>+*&theta;<sub>2</sub>x*
+  * L'implementazione di una regressione di un modello *g(x,&theta;) = &theta;<sub>1</sub>+&theta;<sub>2</sub>x*
     in ```C++``` e' un utile esercizio di **programmazione e comprensione della statistica**
   * ... ricordando che esistono **librerie per l'analisi dati** (come ```ROOT```) con gia' implementati questi algoritmi
     * strumenti **piu' generici**: 

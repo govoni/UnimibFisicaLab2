@@ -33,4 +33,14 @@ double rand_TAC_gaus (double sigma)
     return x ; 
   }
 
+
+// ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
+
+
+double rand_TAC_uniform (double sigma)
+  {
+//    sqrt (3) = 1.7320508076
+    return rand_range (-1.7320508076 * sigma, 1.7320508076 * sigma) ; 
+  }
+
 #endif
