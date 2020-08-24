@@ -9,5 +9,6 @@
    | main_02.cpp  | studio del risultato del fit con *toy experiment* |
    | main_03.cpp  | esempio di salvataggio di oggetti di ROOT |
    | main_04.cpp  | determinazione della varianza degli scarti delle singole misure *y<sub>i</sub>* |
+   | macro_04.cpp | esempio di istruzioni a linea di comando di ```ROOT``` |
    | main_05.cpp  |  |
    | main_06.cpp  |  |
