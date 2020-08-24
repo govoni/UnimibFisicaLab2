@@ -242,7 +242,7 @@
 ### 10.3.4 La preparazione di matrici e vettori
 
   * a partire dalle coppie di punti, si costruiscono:
-  * la **matrice H** dei valori delle funzioni *h<sub>j<sub>(x)*
+  * la **matrice H** dei valori delle funzioni *h<sub>j</sub>(x)*
     per tutti i punti:
     ```cpp
     matrice H (Npoints, 2) ;
