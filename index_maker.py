@@ -30,6 +30,7 @@ if __name__ == "__main__":
   title_links = [line.replace ('!', '') for line in title_links]
   title_links = [line.replace ('?', '') for line in title_links]
   title_links = [line.replace ('\'', '') for line in title_links]
+  title_links = [line.replace ('/', '') for line in title_links]
   title_links = [line.replace ('<', '') for line in title_links]
   title_links = [line.replace ('>', '') for line in title_links]
   title_links = [line.replace ('&', '') for line in title_links]

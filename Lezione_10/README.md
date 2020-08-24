@@ -564,8 +564,59 @@
 
 ## 10.6 La stima di una incertezza ignota
 
-- dopo i tanti toy
-- nel singolo fit (varianza unbiased, sigma no)
+  * Se gli scarti *&epsilon;<sub>i</sub>* sono distribuiti secondo una distribuzione di probabilita' Gaussiana,
+    il minimo della funzione *Q<sup>2</sup>(&theta;)* al variare di &theta;, *Q<sup>2</sup><sub>min</sub>*,
+    e' distribuito secondo una **distribuzione di probabilia' &Chi;<sup>2</sup>**
+    con *N-k* gradi di liberta',
+    * dove *N* e' il **numero di coppie** *(x<sub>i</sub>, y<sub>i</sub> )*
+      e *k* il **numero di parametri stimati** con i minimi quadrati
+  * Il **valore di *Q<sup>2</sup>(&theta;)<sub>min</sub>*** e' dato dal prodotto:
+![qsq_formula](immagini/qsq_formula.png)
+  * Che nel programma scritto finora **si calcola** a partire dalla informazioni gia' esistenti:
+    ```cpp
+    double Q2min = (y - H * theta).dot (V_inv * (y - H * theta)) ;
+    ```
+
+![linea](../immagini/linea.png)
+
+### 10.6.1 La distribuzione attesa di *Q<sup>2</sup><sub>min</sub>*
+
+  * Se la varianza dei singoli punti *y<sub>i</sub>* e' nota,
+    allora si puo' riempire un istogramma contenente i valori di *Q<sup>2</sup><sub>min</sub>*
+    per i *toy experiment* generati
+    e confrontarla con la distribuzione di probabilia' &Chi;<sup>2</sup>
+    dopo il termine del ciclo: 
+![qsq_chisq](immagini/qsq_chisq.png)
+
+![linea](../immagini/linea.png)
+
+### 10.6.2 Il calcolo della varianza di *y<sub>i</sub>*
+
+  * Se la varianza delle misure *y<sub>i</sub>* e' ignota, invece,
+    si puo' portare a termine la stima di &theta; e della sua matrice di covarianza
+    assumendo che **la matrice di covarianza delle misure sia una identita'**
+  * Ricordando che la media di una distribuzione di &Chi;<sup>2</sup>
+    e' uguale al numero di gradi di liberta',
+    se nel calcolo di *Q<sup>2</sup><sub>min</sub>*
+    manca **il valore di &sigma;<sup>2</sup> 
+    si puo' ricavare con la formula**:
+![varianza_formula](immagini/varianza_formula.png)
+  * Che, dati ```N_toys``` *toy experiment*,
+    si traduce in:
+    ```cpp
+    TH1F h_scarti ("h_scarti", "scarti", 200, 0., 5 * N_points) ;
+
+    //loop over toys
+    for (int i_toy = 0 ; i_toy < N_toys ; ++i_toy)
+      {
+        // ...
+        h_scarti.Fill (Q2min) ;
+      } //loop over toys
+    cout << "sigma = "
+         << sqrt (h_scarti.GetMean () / (N_points - 2))
+         << endl ;         
+    ```
+    * Questo calcolo della varianza vale anche **per ogni singolo *toy experiment***
 
 ![linea](../immagini/linea.png)
 

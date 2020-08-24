@@ -108,8 +108,5 @@ int main (int argc, char ** argv)
     h_varianza.Write () ;
     f_out.Close () ;
 
-
-
-
     return 0 ;
   }
