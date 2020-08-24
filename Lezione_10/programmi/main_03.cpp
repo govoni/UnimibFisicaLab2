@@ -10,7 +10,6 @@ c++ -o main_03 `root-config --glibs --cflags` algebra_2.cc main_03.cpp
 
 #include "TH1F.h"
 #include "TCanvas.h"
-#include "TH2F.h"
 #include "TFile.h"
 
 #include "algebra_2.h"
@@ -77,7 +76,7 @@ int main (int argc, char ** argv)
         vettore y (asse_y) ;
         matrice V (N_points) ;
         for (int i_point = 0 ; i_point < N_points ; ++i_point) 
-          V.setCoord (i_point, i_point, 1.) ;
+          V.setCoord (i_point, i_point, sigma * sigma) ;
     
         matrice V_inv = V.inversa () ;
         matrice theta_v = (H.trasposta () * V_inv * H).inversa () ;
@@ -107,9 +106,6 @@ int main (int argc, char ** argv)
     h_sigma.Write () ;
     h_varianza.Write () ;
     f_out.Close () ;
-
-
-
 
     return 0 ;
   }

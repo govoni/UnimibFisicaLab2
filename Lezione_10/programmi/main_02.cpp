@@ -9,8 +9,8 @@ c++ -o main_02 `root-config --glibs --cflags` algebra_2.cc main_02.cpp
 #include <vector>
 
 #include "TH1F.h"
-#include "TCanvas.h"
 #include "TH2F.h"
+#include "TCanvas.h"
 
 #include "algebra_2.h"
 #include "generazione.h"
@@ -56,7 +56,6 @@ int main (int argc, char ** argv)
     // contatori per la determinazione dell'intervallo di copertura
     int cont_a  = 0 ;
     int cont_b  = 0 ;
-    int cont_ab = 0 ;
 
     // generazione dei toy experiment e calcolo del fit per ciascuno di essi
     // ----------------------------------------
@@ -94,6 +93,9 @@ int main (int argc, char ** argv)
         matrice theta_v = (H.trasposta () * V_inv * H).inversa () ;
         vettore theta = (theta_v * (H.trasposta () * V_inv)) * y ;
 
+        // riempire istogrammi e contatori
+        // --------------------
+
         h_a.Fill (theta.at (0)) ;
         h_b.Fill (theta.at (1)) ;
         h_ab.Fill (theta.at (0), theta.at (1)) ;
@@ -105,14 +107,17 @@ int main (int argc, char ** argv)
 
     cout << "copertura parametro a: " << static_cast<double> (cont_a) / N_toys << endl ;
     cout << "copertura parametro b: " << static_cast<double> (cont_b) / N_toys << endl ;
-    cout << "copertura ellisse:     " << static_cast<double> (cont_ab) / N_toys << endl ;
 
     TCanvas c1 ("c1", "", 800, 800) ;
     c1.SetRightMargin (0.15) ;
+    h_a.SetFillColor (kOrange + 1) ;
+    h_a.SetLineColor (kGray + 1) ;
     h_a.Draw ("hist") ;
     c1.Print ("parametro_a.png", "png") ;
  
     h_b.Draw ("hist") ;
+    h_b.SetFillColor (kOrange + 1) ;
+    h_b.SetLineColor (kGray + 1) ;
     c1.Print ("parametro_b.png", "png") ;
 
     h_ab.Draw ("colz") ;

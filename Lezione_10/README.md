@@ -166,7 +166,6 @@
         double * m_elementi ;
         int m_N ;
     } ;
-
     ```      
   * Una classe **```matrice```**:
     ```cpp
@@ -200,7 +199,6 @@
         int m_C ;
         double * m_elementi ;
     } ;
-
     ```
   * **operazioni** fra i due tipi:
     ```cpp
@@ -278,7 +276,6 @@
     matrice V_inv = V.inversa () ;
     matrice theta_v = (H.trasposta () * V_inv * H).inversa () ;
     vettore theta = (theta_v * (H.trasposta () * V_inv)) * y ;
-
     ```
     * L'**inversione della matrice *V*** e' fatta una sola volta
     * La **matrice di covarianza** di &theta;,
@@ -301,9 +298,180 @@
 
 ## 10.4 Le proprieta' statistiche degli stimatori
 
-- i toy experiment
-- la visualizzazione della correlazione
-- test di bias
+  * Per studiare le **proprieta' statistiche delle stime** 
+    ottenute con lo stimatore dei minimi quadrati,
+    si utilizza la tecnica dei *toy montecarlo*
+  * **Riprodurre molte volte** (```N_toys```) lo stesso fit 
+    fatto su un determinato numero di punti (```N_point```), 
+    ciascuno generato in modo pseudo-casuale
+  * La procedura di fit viene quindi inserita in un ciclo aggiuntivo:
+    ```cpp
+    //loop over toys
+    for (int i_toy = 0 ; i_toy < N_toys ; ++i_toy)
+      {
+        // generare il sample
+        // trovare i parametri
+        // riempire istogrammi e contatori
+      } //loop over toys
+    ```
+
+![linea](../immagini/linea.png)
+
+### 10.4.1 Gli elementi del ciclo
+
+  * Il ciclo e' composto di tre fasi:
+    * La **generazione degli eventi**, come e' stato fatto in precedenza
+    * Il **calcolo del valore dei parametri**, con lo stesso programma utilizzato in precedenza
+    * Il **riempimento di istogrammi e contatori**
+      per la determinazione delle proprieta' delle stime ottenute
+
+![linea](../immagini/linea.png)
+
+### 10.4.2 La distribuzione delle stime
+
+  * Le proprieta' dello stimatore dei minimi quadrati 
+    si verificano osservando la **distribuzione di probabilita' delle stime** ottenute
+  * Queste distribuzioni si determinano attraverso **istogrammi**,
+    che vanno creati prima del ciclo sui toy:
+    ```cpp
+    // istogrammi per il disegno dei risultati del fit
+    TH1F h_a ("h_a", "termine noto", 
+              100, 3.14 * (1. - 1. * sigma), 3.14 * (1. + 1. * sigma) ) ;
+    TH1F h_b ("h_b", "coefficiente angolare", 
+              100, 2. * (1. - 1. * sigma), 2. * (1. + 1. * sigma) ) ;
+    ```  
+  * Gli istogrammi vanno poi **riempiti** nel ciclo:
+    ```cpp
+    //loop over toys
+    for (int i_toy = 0 ; i_toy < N_toys ; ++i_toy)
+      {
+        // ...
+        h_a.Fill (theta.at (0)) ;
+        h_b.Fill (theta.at (1)) ;
+      } //loop over toys
+    ```
+
+![linea](../immagini/linea.png)
+
+### 10.4.3 Il risultato ottenuto
+
+  * Infine, gli istogrammi vanno **visualizzati** dopo il termine del ciclo:
+    ```cpp
+    TCanvas c1 ("c1", "", 800, 800) ;
+    c1.SetRightMargin (0.15) ;
+    h_a.SetFillColor (kOrange + 1) ;
+    h_a.SetLineColor (kGray + 1) ;
+    h_a.Draw ("hist") ;
+    c1.Print ("parametro_a.png", "png") ;
+ 
+    h_b.Draw ("hist") ;
+    h_b.SetFillColor (kOrange + 1) ;
+    h_b.SetLineColor (kGray + 1) ;
+    c1.Print ("parametro_b.png", "png") ;
+    ```
+  * Ottenendo le seguenti distribuzioni:
+![distrib_parametri](immagini/distrib_parametri.png)
+
+![linea](../immagini/linea.png)
+
+### 10.4.4 La copertura dell'intervallo di confidenza
+
+  * Oltre al valore centrale, 
+    per ogni parametro lo stimatore dei minimi quadrati
+    produce anche una **stima della sua varianza**
+  * Per verificare che l'intervallo &theta;<sub>j</sub> &plusmn; &sigma;<sub>j</sub>
+    abbia la **copertura attesa del 68%**,
+    si contano i *toy experiment* per cui il valor vero e' contenuto nell'intervallo:
+    ```cpp
+    int cont_a  = 0 ;
+    int cont_b  = 0 ;
+
+    //loop over toys
+    for (int i_toy = 0 ; i_toy < N_toys ; ++i_toy)
+      {
+        //...
+        if (fabs (theta.at (0) - 3.14) < sqrt (theta_v.at (0,0))) ++cont_a ;
+        if (fabs (theta.at (1) - 2.  ) < sqrt (theta_v.at (1,1))) ++cont_b ;
+      } //loop over toys
+    ```
+
+![linea](../immagini/linea.png)
+
+### 10.4.5 Il risultato del test
+
+  * Dividendo il numero di volte in cui il valor vero e' contenuto nell'intervallo
+    per il numero totale di *toy experiment*:
+    ```cpp
+    cout << "copertura parametro a: " << static_cast<double> (cont_a) / N_toys << endl ;
+    cout << "copertura parametro b: " << static_cast<double> (cont_b) / N_toys << endl ;
+    ```
+  * Si ottiene il valore ricercato:
+    ```
+    copertura parametro a: 0.6829
+    copertura parametro b: 0.68
+    ```  
+
+![linea](../immagini/linea.png)
+
+### 10.4.6 La correlazione fra i parametri
+
+  * Il metodo dei minimi quadrati produce la **matrice di covarianza**
+    dei parametri stimati, che non e' necessariamente diagonale
+  * Questo significa che i **parametri stimati possono essere correlati fra loro**:
+    se &theta;<sub>j</sub> e' maggiore del suo valor vero, 
+    puo' succedere che in media anche &theta;<sub>k</sub> sia maggiore del proprio valor vero,
+    o viceversa
+  * I **termini fuori diagonale** della matrice di covarianza dei parametri 
+    indicano la correlazione fra i parametri
+
+![linea](../immagini/linea.png)
+
+### 10.4.7 La visualizzazione della correlazione
+
+  * Anche in questo caso, 
+    si sfruttano i *toy experiment* per visualizzare la correlazione,
+    utilizzando un istogramma bi-dimensionale, 
+    che mostri cioe' il numero di *toy experiment* **in funzione di due variabili**
+  * La classe di ```ROOT``` che si utilizza si chiama ```TH2F```:
+    ```cpp
+    TH2F h_ab ("h_ab", "parametri", 
+              50, 3.14 * (1. - 1. * sigma), 3.14 * (1. + 1. * sigma),
+              50, 2. * (1. - 1. * sigma), 2. * (1. + 1. * sigma) ) ;
+    h_ab.GetXaxis ()->SetTitle ("termine noto") ;
+    h_ab.GetYaxis ()->SetTitle ("coefficiente angolare") ;
+    h_ab.SetStats (0) ;
+    ```  
+    * come nel caso di un ```TH1F```, 
+      il costruttore prende in ingresso un **nome ed un titolo**
+    * essendoci due variabili fisiche,
+      il **numero di bin, minimo e massimo** vanno indicati per ciascuna variabile  
+
+![linea](../immagini/linea.png)
+
+### 10.4.8 Il riempimento dell'istogramma
+
+  * All'interno del ciclo sui *toy experiment*,
+    l'istogramma bi-dimensionale va **riempito con le due variabili**:
+    ```cpp
+    //loop over toys
+    for (int i_toy = 0 ; i_toy < N_toys ; ++i_toy)
+      {
+        //...
+        h_ab.Fill (theta.at (0), theta.at (1)) ;
+      } //loop over toys
+    ```
+  * Quindi, al termine del ciclo,
+    **disegnato** su un oggetto di tipo ```TCanvas```    
+    ```cpp
+    TCanvas c1 ("c1", "", 800, 800) ;
+    c1.SetRightMargin (0.15) ;
+    h_ab.Draw ("colz") ;
+    c1.Print ("parametri_2D.png", "png") ;
+    ```
+    * Diverse **opzioni grafiche** producono varie visualizzazioni,
+      come descritto nella [documentazione](https://root.cern/root/htmldoc/guides/users-guide/ROOTUsersGuide.html#drawing-histograms)
+      di ```ROOT```
+![correlaz_parametri](immagini/correlaz_parametri.png)
 
 ![linea](../immagini/linea.png)
 
