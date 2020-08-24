@@ -1,17 +1,1 @@
-# Lezione 11: 
-
-![linea](../immagini/linea.png)
-
-## 11.1 Introduzione
-
-![linea](../immagini/linea.png)
-
-### 11.1.1 Rappresentazione grafica
-
-![linea](../immagini/linea.png)
-
-## 11.8 ESERCIZI
-
-  * Gli esercizi relativi alla lezione si trovano [qui](ESERCIZI.md)
-
-
+# Lezione 10: stima di parametri con il metodo dei minimi quadrati## 10.1 Introduzione### 10.1.1 Un esempio immediato### 10.1.2 Il caso *y=g(x)*### 10.1.3 La determinazione dei parametri &theta;### 10.1.4 Le proprieta' del metodo## 10.2 Il caso lineare### 10.2.1 La formulazione matriciale### 10.2.2 Le espressioni dei singoli elementi### 10.2.3 Il valore dei parametri e della loro incertezza## 10.3 Un esempio: il fit di una retta### 10.3.1 L'algebra delle matrici### 10.3.2 Gli strumenti a disposizione### 10.3.3 La generazione dei punti da interpolare### 10.3.4 La preparazione di matrici e vettori### 10.3.5 La stima dei parametri &theta;### 10.3.6 La stampa del risultato## 10.4 Le proprieta' statistiche degli stimatori### 10.4.1 Gli elementi del ciclo### 10.4.2 La distribuzione delle stime### 10.4.3 Il risultato ottenuto### 10.4.4 La copertura dell'intervallo di confidenza### 10.4.5 Il risultato del test### 10.4.6 La correlazione fra i parametri### 10.4.7 La visualizzazione della correlazione### 10.4.8 Il riempimento dell'istogramma## 10.5 Una parentesi utile: il salvataggio degli oggetti di ROOT### 10.5.1 La scrittura di un oggetto su un file### 10.5.2 Come aprire un terminale di ```ROOT```### 10.5.3 Come guardare dentro ad un file## 10.6 La stima di una incertezza ignota### 10.6.1 La distribuzione attesa di *Q<sup>2</sup><sub>min</sub>*### 10.6.2 Il calcolo della varianza di *y<sub>i</sub>*## 10.5 ESERCIZI
