@@ -65,3 +65,8 @@ per generare gli scarti *&epsilon;<sub>i</sub>*.
 
 ## Esercizio 10.6
 
+Si modifichi il risultato dell'Esercizio 10.4 in modo che il fit venga effettuato utilizzando
+una matrice unitaria in vece della matrice di covarianza dei valori *y<sub>i</sub>*
+e si determini quindi il valore della loro sigma 
+a partire dall'ipotesi che gli scarti siano distribuiti secondo una densita' di probabilita' Gaussiana.
+
