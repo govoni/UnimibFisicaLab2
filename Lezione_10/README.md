@@ -519,17 +519,17 @@
   * Per aprire la linea di comando,
     si esegue da ```SHELL``` il comando **```root```**:
     ```
-     root
-    ------------------------------------------------------------------
-   | Welcome to ROOT 6.20/04                        https://root.cern |
-   | (c) 1995-2020, The ROOT Team; conception: R. Brun, F. Rademakers |
-   | Built for macosx64 on Apr 01 2020, 08:28:48                      |
-   | From tags/v6-20-04@v6-20-04                                      |
-   | Try '.help', '.demo', '.license', '.credits', '.quit'/'.q'       |
-    ------------------------------------------------------------------
+    > root
+     ------------------------------------------------------------------
+    | Welcome to ROOT 6.20/04                        https://root.cern |
+    | (c) 1995-2020, The ROOT Team; conception: R. Brun, F. Rademakers |
+    | Built for macosx64 on Apr 01 2020, 08:28:48                      |
+    | From tags/v6-20-04@v6-20-04                                      |
+    | Try '.help', '.demo', '.license', '.credits', '.quit'/'.q'       |
+     ------------------------------------------------------------------
  
-   root [0] 
-   ```
+    root [0] 
+    ```
   * In questa linea di comando,
     ```ROOT``` fornisce un **interprete di istruzioni ```C++```** 
     che possono essere inserite a mano
