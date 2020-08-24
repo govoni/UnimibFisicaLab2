@@ -67,11 +67,11 @@
     le equazioni di minimizzazione possono essere risolte analiticamente
 ![g_lineare](immagini/g_lineare.png)
   * Un esempio di funzione lineare e' **la retta 
-    *g(x,&theta;) = &theta;<sub>1</sub>+*&theta;<sub>2</sub>x***:
+    *g(x,&theta;) = &theta;<sub>1</sub> + &theta;<sub>2</sub> x***:
     * *h<sub>1</sub>(x) = 1*
     * *h<sub>2</sub>(x) = x*
   * Un altro esempio di funzione lineare e' **una parabola 
-    *g(x,&theta;) = *&theta;<sub>1</sub> + *&theta;<sub>2</sub>x + *&theta;<sub>3</sub>x<sup>2</sup>***:
+    *g(x,&theta;) = &theta;<sub>1</sub> + &theta;<sub>2</sub> x + &theta;<sub>3</sub> x<sup>2</sup>***:
     * *h<sub>1</sub>(x) = 1*
     * *h<sub>2</sub>(x) = x*
     * *h<sub>3</sub>(x) = x<sup>2</sup>*
@@ -115,7 +115,7 @@
 
 ## 10.3 Un esempio: il fit di una retta
 
-  * L'implementazione di una regressione di un modello *g(x,&theta;) = &theta;<sub>1</sub>+&theta;<sub>2</sub>x*
+  * L'implementazione di una regressione di un modello *g(x,&theta;) = &theta;<sub>1</sub> + &theta;<sub>2</sub> x*
     in ```C++``` e' un utile esercizio di **programmazione e comprensione della statistica**
   * ... ricordando che esistono **librerie per l'analisi dati** (come ```ROOT```) con gia' implementati questi algoritmi
     * strumenti **piu' generici**: 
@@ -216,7 +216,7 @@
     si possono **generare valori degli scarti *&epsilon;<sub>i</sub>***
     per ogni punto *x<sub>i</sub>*,
     tali per cui:
-    *y<sub>i</sub> = g(x<sub>i</sub>, &theta;) + &epsilon;<sub>i</sub>*
+    *y<sub>i</sub> = g(x<sub>i</sub> , &theta;) + &epsilon;<sub>i</sub>*
   * Assumendo una **distribuzione Gaussiana** per *&epsilon;<sub>i</sub>*,
     centrata in ```0``` e con &sigma; scelta a piacere:
     ```cpp
@@ -242,7 +242,7 @@
 ### 10.3.4 La preparazione di matrici e vettori
 
   * a partire dalle coppie di punti, si costruiscono:
-  * la **matrice H** dei valori delle funzioni *h<sub>j</sub>(x)*
+  * la **matrice H** dei valori delle funzioni *h<sub>j</sub> (x)*
     per tutti i punti:
     ```cpp
     matrice H (Npoints, 2) ;
@@ -256,7 +256,7 @@
     ```cpp
     vettore y (asse_y) ;
     ```
-  * la **matrice V** di covarianza delle misure *y<sub>i</sub>*:
+  * la **matrice V** di covarianza delle misure *y<sub>i</sub>* :
     ```cpp
     matrice V (Npoints) ;
     for (int i_point = 0 ; i_point < N_points ; ++i_point) 
@@ -287,7 +287,7 @@
 ### 10.3.6 La stampa del risultato
 
   * Sapendo che i **termini diagonali della matrice di covarianza**
-    corrispondono alle varianze dei vari &theta;<sub>i</sub>,
+    corrispondono alle varianze dei vari &theta;<sub>i</sub> ,
     il risultato del fit e':
     ```cpp
     cout << "termine noto: " << theta.at (0) << " +- " << sqrt (theta_v.at (0, 0)) << endl ;
@@ -332,7 +332,7 @@
   * Le proprieta' dello stimatore dei minimi quadrati 
     si verificano osservando la **distribuzione di probabilita' delle stime** ottenute
   * Queste distribuzioni si determinano attraverso **istogrammi**,
-    che vanno creati prima del ciclo sui toy:
+    che vanno creati prima del ciclo sui *toy experiment*:
     ```cpp
     // istogrammi per il disegno dei risultati del fit
     TH1F h_a ("h_a", "termine noto", 
@@ -381,7 +381,7 @@
     produce anche una **stima della sua varianza**
   * Per verificare che l'intervallo &theta;<sub>j</sub> &plusmn; &sigma;<sub>j</sub>
     abbia la **copertura attesa del 68%**,
-    si contano i *toy experiment* per cui il valor vero e' contenuto nell'intervallo:
+    si contano i *toy experiment* per cui il valore vero e' contenuto nell'intervallo:
     ```cpp
     int cont_a  = 0 ;
     int cont_b  = 0 ;
@@ -399,7 +399,7 @@
 
 ### 10.4.5 Il risultato del test
 
-  * Dividendo il numero di volte in cui il valor vero e' contenuto nell'intervallo
+  * Dividendo il numero di volte in cui il valore vero e' contenuto nell'intervallo
     per il numero totale di *toy experiment*:
     ```cpp
     cout << "copertura parametro a: " << static_cast<double> (cont_a) / N_toys << endl ;
@@ -418,8 +418,8 @@
   * Il metodo dei minimi quadrati produce la **matrice di covarianza**
     dei parametri stimati, che non e' necessariamente diagonale
   * Questo significa che i **parametri stimati possono essere correlati fra loro**:
-    se &theta;<sub>j</sub> e' maggiore del suo valor vero, 
-    puo' succedere che in media anche &theta;<sub>k</sub> sia maggiore del proprio valor vero,
+    se &theta;<sub>j</sub> e' maggiore del suo valore vero, 
+    puo' succedere che in media anche &theta;<sub>k</sub> sia maggiore del proprio valore vero,
     o viceversa
   * I **termini fuori diagonale** della matrice di covarianza dei parametri 
     indicano la correlazione fra i parametri
