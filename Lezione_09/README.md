@@ -4,16 +4,16 @@
 
   * [9.1 Introduzione](#91-introduzione)
     * [9.1.1 Un modello che descrive i dati](#911-un-modello-che-descrive-i-dati)
-    * [9.1.2 Distribuzioni di probabilita'](#912-distribuzioni-di-probabilita)
+    * [9.1.2 Distribuzioni di probabilità](#912-distribuzioni-di-probabilità)
     * [9.1.3 La determinazione dei parametri](#913-la-determinazione-dei-parametri)
   * [9.2 La massima verosimiglianza](#92-la-massima-verosimiglianza)
     * [9.2.1 Il logaritmo della massima verosimiglianza](#921-il-logaritmo-della-massima-verosimiglianza)
     * [9.2.2 La sigma della distribuzione dei parametri stimati](#922-la-sigma-della-distribuzione-dei-parametri-stimati)
-    * [9.2.3 Le proprieta' degli stimatori di massima verosimiglianza](#923-le-proprieta-degli-stimatori-di-massima-verosimiglianza)
+    * [9.2.3 Le proprietà degli stimatori di massima verosimiglianza](#923-le-proprietà-degli-stimatori-di-massima-verosimiglianza)
   * [9.3 Un utile intermezzo: la lettura di un *file* di testo](#93-un-utile-intermezzo-la-lettura-di-un-file-di-testo)
     * [9.3.1 L'implementazione della lettura](#931-limplementazione-della-lettura)
   * [9.4 La costruzione di una *likelihood* e la determinazione di un parametro](#94-la-costruzione-di-una-likelihood-e-la-determinazione-di-un-parametro)
-    * [9.4.1 La distribuzione di probabilita' e la funzione di *likelihood*](#941-la-distribuzione-di-probabilita-e-la-funzione-di-likelihood)
+    * [9.4.1 La distribuzione di probabilità e la funzione di *likelihood*](#941-la-distribuzione-di-probabilità-e-la-funzione-di-likelihood)
     * [9.4.2 La determinazione del massimo del logaritmo della *likelihood*](#942-la-determinazione-del-massimo-del-logaritmo-della-likelihood)
     * [9.4.3 L'applicazione al caso in esame](#943-lapplicazione-al-caso-in-esame)
     * [9.4.4 La sigma associata allo stimatore di &tau;](#944-la-sigma-associata-allo-stimatore-di-tau)
@@ -22,7 +22,7 @@
     * [9.4.7 Il calcolo numerico dei punti di intersezione](#947-il-calcolo-numerico-dei-punti-di-intersezione)
     * [9.4.8 L'utilizzo nel programma principale](#948-lutilizzo-nel-programma-principale)
     * [9.4.9 Il confronto con una stima analitica](#949-il-confronto-con-una-stima-analitica)
-  * [9.5 La distribuzione di probabilita' degli stimatori](#95-la-distribuzione-di-probabilita-degli-stimatori)
+  * [9.5 La distribuzione di probabilità degli stimatori](#95-la-distribuzione-di-probabilità-degli-stimatori)
     * [9.5.1 La generazione di un *toy experiment*](#951-la-generazione-di-un-toy-experiment)
     * [9.5.2 Il calcolo del parametro con il metodo della massima verosimiglianza](#952-il-calcolo-del-parametro-con-il-metodo-della-massima-verosimiglianza)
     * [9.5.3 Il risultato dello studio](#953-il-risultato-dello-studio)
@@ -34,17 +34,17 @@
 ## 9.1 Introduzione
 
   * Studiamo la statistica nel **paradigma frequentista**,
-    secondo il quale la probabilita' e' definita operativamente 
+    secondo il quale la probabilità è definita operativamente 
     come la frazione di volte in cui una misura ha un determinato risultato, 
     rispetto ad un totale molto grande
   * Il **risultato di un esperimento** di misura
-    e' uno dei possibili risultati date le configurazioni iniziali
+    è uno dei possibili risultati date le configurazioni iniziali
 
 ![linea](../immagini/linea.png)
 
 ### 9.1.1 Un modello che descrive i dati
 
-  * Un **modello** e' una distribuzione di probabilita' *f*
+  * Un **modello** è una distribuzione di probabilità *f*
     o una legge *g* alla quale ci si aspetta che le misure obbediscano.
   * I **risultati delle misure** sono ovviamente variabili 
     rispetto alle quali il modello dipende
@@ -54,17 +54,17 @@
 
 ![linea](../immagini/linea.png)
 
-### 9.1.2 Distribuzioni di probabilita'
+### 9.1.2 Distribuzioni di probabilità
 
   * Dato un insieme di misure reali *x<sub>i</sub>* definite su un insieme &Omega; 
     indipendenti identicamente distribuiite,
-    sappiamo che seguono una **data distribuzione di densita' probabilita'**, 
+    sappiamo che seguono una **data distribuzione di densità probabilità**, 
     indicata genericamente come *f(x, &theta;)*
-  * Questo significa che *f(x<sub>i</sub>, &theta;)* e' **la densita' di probabilita'**
+  * Questo significa che *f(x<sub>i</sub>, &theta;)* è **la densità di probabilità**
     che la misura avvenga nel punto x<sub>i</sub> dell'insieme di definizione &Omega;.
-  * Il **simbolo &theta;** indica che la funzione di densita' di probabilita' *f*
+  * Il **simbolo &theta;** indica che la funzione di densità di probabilità *f*
     dipende da altre variabili oltre che *x*
-    * &theta; puo' anche essere un vettore di parametri
+    * &theta; può anche essere un vettore di parametri
     * Ad esempio, una **distribuzione Gaussiana** ha due parametri aggiuntivi, &mu; e &sigma;:
 ![gaussian](immagini/gaussian.png)
 
@@ -72,18 +72,18 @@
 
 ### 9.1.3 La determinazione dei parametri
 
-  * Spesso l'obiettivo di un esperimento e' la **stima dei parametri** di un modello
+  * Spesso l'obiettivo di un esperimento è la **stima dei parametri** di un modello
   * Per ottenere questo risultato, 
     si **raccolgono molti dati** *x<sub>i</sub>* e si utilizzano come input
     ad algoritmi, detti **stimatori**, che stimino i parametri di interesse
   * Le **stime** prodotte da uno stimatore **sono variabili casuali**, 
-    perche' tramite gli stimatori sono funzioni di numeri casuali (i dati)
-    * Hanno una propria distribuzione di probabilita'
+    perché tramite gli stimatori sono funzioni di numeri casuali (i dati)
+    * Hanno una propria distribuzione di probabilità
 ![stime](immagini/stime.png)
   * Esistono programmi che svolgono il compito per noi. 
     Fra questi, ```ROOT``` contiene diversi algoritmi per farlo.
-    In gergo, **l'operazione di determinazione dei parametri e' chiamata *fit***,
-    cioe' adatattamento.
+    In gergo, **l'operazione di determinazione dei parametri è chiamata *fit***,
+    cioè adatattamento.
 
 ![linea](../immagini/linea.png)
 
@@ -94,11 +94,11 @@
     corrisponda al **valore 
     che massimizza la *likelihood***,
     definita come
-    il prodotto del valore della distribuzione di densita' di probabilita'
+    il prodotto del valore della distribuzione di densità di probabilità
     calcolata per ogni misura effettuata:
 ![likelihood](immagini/likelihood.png)
-  * La *likelihood* e' funzione sia delle misure che dei parametri, 
-    tuttavia si **evidenzia la dipendenza dai parametri** perche'
+  * La *likelihood* è funzione sia delle misure che dei parametri, 
+    tuttavia si **evidenzia la dipendenza dai parametri** perché
     a misure finite i dati sono immutabili.
   * La funzione che stima i parametri dunque si ricava dall'equazione:
 ![maxLikelihood](immagini/maxLikelihood.png)
@@ -110,17 +110,17 @@
   * Solitamente si utilizza il **logaritmo della funzione di *likelihood***, 
     indicato con in lettera corsiva minuscola:.
 ![loglikelihood](immagini/loglikelihood.png)
-  * Infatti, siccome il logaritmo e' una **funzione monotona crescente**,
+  * Infatti, siccome il logaritmo è una **funzione monotona crescente**,
     gli estremanti di una funzione e del suo logaritmo si trovano al medesimo posto
   * Il logaritmo di un prodotto di termini
-    e' uguale alla somma dei logaritmi dei singoli termini,
+    è uguale alla somma dei logaritmi dei singoli termini,
     quindi l'operazione di derivata del logaritmo della funzione di *likelihood*
-    e' **piu' semplice** rispetto alla 
+    è **più semplice** rispetto alla 
     derivata della funzione di *likelihood*:
 ![maxLoglikelihood](immagini/maxLoglikelihood.png)
-  * Il logaritmo di un numero e' piu' piccolo del numero stesso
-    e varia su un intervallo minore rispetto alla variabilita' del numero stesso,
-    quindi **operazioni con i logaritmi sono piu' stabili numericamente**
+  * Il logaritmo di un numero è più piccolo del numero stesso
+    e varia su un intervallo minore rispetto alla variabilità del numero stesso,
+    quindi **operazioni con i logaritmi sono più stabili numericamente**
 
 ![linea](../immagini/linea.png)
 
@@ -136,22 +136,22 @@
 
 ![linea](../immagini/linea.png)
 
-### 9.2.3 Le proprieta' degli stimatori di massima verosimiglianza
+### 9.2.3 Le proprietà degli stimatori di massima verosimiglianza
 
   * Sono **consistenti**
   * Sono **asintoticamente non distorti**, 
-    cioe' hanno bias nullo per il numero di misure *N* che tende all'infinito
+    cioè hanno bias nullo per il numero di misure *N* che tende all'infinito
   * Sono **asintoticamente efficienti**,
-    cioe' hanno la varianza minima possibile 
+    cioè hanno la varianza minima possibile 
     per il numero di misure *N* che tende all'infinito
 
 ![linea](../immagini/linea.png)
 
 ## 9.3 Un utile intermezzo: la lettura di un *file* di testo
 
-  * Puo' essere comodo **salvare informazioni semplici** su file di testo,
+  * Può essere comodo **salvare informazioni semplici** su file di testo,
     per poterle rileggere dai programmi di analisi dati
-  * La gestione dell'accesso a file di testo in ```C++``` e' **analoga
+  * La gestione dell'accesso a file di testo in ```C++``` è **analoga
     alla scrittura a schermo e lettura da tastiera**:
     si utilizzano gli operatori di redirezione ```operator>>``` (per leggere)
     ed ```operator<<``` (per scrivere) fra un oggetto che rappresenta il file
@@ -161,7 +161,7 @@
 
 ### 9.3.1 L'implementazione della lettura
 
-  * L'oggetto che rappresenta un file e' di tipo ```fstream```: 
+  * L'oggetto che rappresenta un file è di tipo ```fstream```: 
     ```ifstream``` per lettura (**input file stream**) ed
     ```ofstream``` per scrittura (**output file stream**):
     ```cpp
@@ -191,20 +191,20 @@
 
 ## 9.4 La costruzione di una *likelihood* e la determinazione di un parametro
 
-  * Si utilizzera' l'esempio della distribuzione esponenziale
+  * Si utilizzerà l'esempio della distribuzione esponenziale
     per determinarne l'unico parametro &tau; tramite il metodo della massima verosimiglianza:
 ![esponenziale](immagini/esponenziale.png)
   * **Si dimostra analiticamente**
-    che la media artimetica dei dati e' uno stimatore del parametro &tau;,
+    che la media artimetica dei dati è uno stimatore del parametro &tau;,
   * si vuole in questo caso **costruire lo stimatore numerico**
     del parametro,
     come esempio di un caso generale in cui il calcolo analitico non sia possibile.
 
 ![linea](../immagini/linea.png)
 
-### 9.4.1 La distribuzione di probabilita' e la funzione di *likelihood*
+### 9.4.1 La distribuzione di probabilità e la funzione di *likelihood*
 
-  * Sia la distribuzione di densita' di probabilita'
+  * Sia la distribuzione di densità di probabilità
     che il calcolo della *likelihood* vanno scritte in codice sorgente:
     ```cpp
     double esponenziale (double x, double tau)
@@ -214,7 +214,7 @@
       }
     ```
     * il primo ```if``` serve a **proteggere il programma** da risultati infiniti
-  * il calcolo della *likelihood* avra' in ingresso
+  * il calcolo della *likelihood* avrà in ingresso
     sia i dati, che il parametro di interesse:
     ```cpp
     double loglikelihood (
@@ -228,13 +228,13 @@
     }
     ```
     * in questo caso, 
-      si calcola il logaritmo del valore della densita' di probabilita' in ogni punto
+      si calcola il logaritmo del valore della densità di probabilità in ogni punto
 
 ![linea](../immagini/linea.png)
 
 ### 9.4.2 La determinazione del massimo del logaritmo della *likelihood*
 
-  * Si puo' utilizzare l'**algoritmo della sezione aurea** sviluppato durante la Lezione 6
+  * Si può utilizzare l'**algoritmo della sezione aurea** sviluppato durante la Lezione 6
     per trovare il massimo della log-likelihood:
     ```cpp
     double sezione_aurea_max (
@@ -251,14 +251,14 @@
       l'intervallo sul quale cercare il valore massimo **per il parametro &tau;**,
       il ```vector``` contenente i dati
       e la precisone alla quale arrestare il calcolo,
-      per la quale c'e' un valore di default.
+      per la quale c'è un valore di default.
 
 ![linea](../immagini/linea.png)
 
 ### 9.4.3 L'applicazione al caso in esame
 
-  * Dopo aver letto un file contenente numeri distribuiti secondo una densita' di probabilita' esponenziale,
-    che si puo' visualizzare con un ```TH1F``` di ```ROOT```:
+  * Dopo aver letto un file contenente numeri distribuiti secondo una densità di probabilità esponenziale,
+    che si può visualizzare con un ```TH1F``` di ```ROOT```:
 ![istogramma_esponenziale](immagini/istogramma_esponenziale.png)
   * Le funzioni sviluppate possono essere utilizzate 
     con i numeri salvati in un ```vector```,
@@ -266,9 +266,9 @@
     ```cpp
     double massimo = sezione_aurea_max (loglikelihood, 0.5 * media_v, 1.5 * media_v, data) ;
     ```
-  * Il risultato di questo algoritmo puo' essere **confrontato con la media aritmetica** 
-    dei numeri, che per questa particolare distribuzione di probabilita'
-    e' uno stimatore di &tau;:
+  * Il risultato di questo algoritmo può essere **confrontato con la media aritmetica** 
+    dei numeri, che per questa particolare distribuzione di probabilità
+    è uno stimatore di &tau;:
     ```
     letti 100 eventi
     media = 5.44364
@@ -279,14 +279,14 @@
 
 ### 9.4.4 La sigma associata allo stimatore di &tau;
 
-  * Lo stimatore di &tau; e' una variabile casuale, 
-    cioe' ha una **proria distribuzione di probabilita'**
+  * Lo stimatore di &tau; è una variabile casuale, 
+    cioè ha una **proria distribuzione di probabilità**
   * Dunque oltre al avere associata una stima puntuale ricavata massimizzando
     il logaritmo della verosimiglianza
     **possiede anche una sigma**
   * Si utilizza spesso un **metodo grafico** per determinare questa sigma,
-    che si basa sul fatto che asintoticamente la funzione di *likelihood* rispetto ai parametri e' Gaussiana,
-    dunque che la funzione di *log-likelihood* e' parabolica
+    che si basa sul fatto che asintoticamente la funzione di *likelihood* rispetto ai parametri è Gaussiana,
+    dunque che la funzione di *log-likelihood* è parabolica
   * Si dimostra che **si trovano i due punti *&tau; - &sigma;<sub>&tau;</sub>* e *&tau; + &sigma;<sub>&tau;</sub>***
     annullando la seguente funzione:
 ![metodo_grafico_equazione](immagini/metodo_grafico_equazione.png)
@@ -299,17 +299,17 @@
     al variare del numero di eventi utilizzati per calcolare la funzione *log-likelihood*:
 ![loglikelihood_profile](immagini/loglikelihood_profile.png)
   * al crescere del numero di eventi utilizzati,
-    la funzione *h(&tau;)* diventa piu' stretta,
-    cioe' **la sigma dello stimatore diminuisce**
+    la funzione *h(&tau;)* diventa più stretta,
+    cioè **la sigma dello stimatore diminuisce**
   * al crescere del numero di eventi utilizzati,
-    la funzione *h(&tau;)* diventa piu' simmetrica,
-    cioe' **assume comportamento asintotico**
+    la funzione *h(&tau;)* diventa più simmetrica,
+    cioè **assume comportamento asintotico**
 
 ![linea](../immagini/linea.png)
 
 ### 9.4.6 L'implementazione della funzione *h(&tau;)* 
 
-  * Si puo' implementare la funzione *h(&tau;)*
+  * Si può implementare la funzione *h(&tau;)*
     **a partire dalla funzione ```loglikelihood```**:
     ```cpp
     double h (
@@ -326,7 +326,7 @@
 
 ### 9.4.7 Il calcolo numerico dei punti di intersezione
 
-  * Si puo' **utilizzare il metodo della bisezione** per trovare
+  * Si può **utilizzare il metodo della bisezione** per trovare
     *&tau; - &sigma;<sub>&tau;</sub>* e *&tau; + &sigma;<sub>&tau;</sub>*   
     ```cpp
     double bisezione (
@@ -368,29 +368,29 @@
     cout << "sigma = " << 0.5 * (zero_dx - zero_sx) << endl ;
     ```
   * L'intervallo compreso fra i due punti di intersezione ```zero_sx``` e ```zero_dx```
-    e' l'**intervallo di confidenza** associato allo stimatore ottenuto
+    è l'**intervallo di confidenza** associato allo stimatore ottenuto
 
 ![linea](../immagini/linea.png)
 
 ### 9.4.9 Il confronto con una stima analitica
 
   * Si sa che nel caso della distribuzione esponenziale
-    la **varianza e' pari al quadrato della media**
-  * L'**incertezza sulla media** e' pari alla incertezza sulla singola misura,
-    cioe' la radice della varianza,
+    la **varianza è pari al quadrato della media**
+  * L'**incertezza sulla media** è pari alla incertezza sulla singola misura,
+    cioè la radice della varianza,
     divisa per la radice del numero di eventi
   * Dunque l'**incertezza sullo stimatore di &tau;**, 
     indicato con il simbolo dell'accento circonflesso,
-    si puo' in questo caso stimare come:
+    si può in questo caso stimare come:
 ![sigma_calcolata](immagini/sigma_calcolata.png)
-  * Si puo' dunque confrontare il valore ottenuto dal metodo grafico
+  * Si può dunque confrontare il valore ottenuto dal metodo grafico
     con quello calcolato a partire dalla media aritmetica.
 
 ![linea](../immagini/linea.png)
 
-## 9.5 La distribuzione di probabilita' degli stimatori
+## 9.5 La distribuzione di probabilità degli stimatori
 
-  * La distribuzione di probabilita' degli stimatori puo' essere **ricostruita in modo frequentista**,
+  * La distribuzione di probabilità degli stimatori può essere **ricostruita in modo frequentista**,
     simulando l'esperimento di raccolta degli eventi un gran numero di volte,
     con la tecnica dei *toy experiment* descritta nella Lezione 6
   * Per la generazione di un *toy experiment* bisogna ipotizzare
@@ -409,15 +409,15 @@
   * Per generare un *toy experiment* si ricorre solitamente a **numeri pseudo-casuali**,
     utilizzando algoritmi esistenti adattati al caso in esame
   * Per generare numeri pseudo-casuali secondo una distribuzione esponenziale,
-    si puo' utilizzare la tecnica dell'**inversa della funzione cumulativa**
+    si può utilizzare la tecnica dell'**inversa della funzione cumulativa**
     sviluppata nella Lezione 4:
     ```cpp
     double rand_IFC_Exp (double mu) ;
     ```
     * La funzione **prende in input il valore vero di &tau;** e restituisce un numero pseudo-casuale
-      distribuito secondo la distribuzione di probabilita' esponenziale corrispondente
+      distribuito secondo la distribuzione di probabilità esponenziale corrispondente
   * Con questo algoritmo, 
-    si puo' riempire un ```vector``` con i numeri generati:
+    si può riempire un ```vector``` con i numeri generati:
     ```cpp
     vector<double> data_loc ;
     for (int i_sample = 0 ; i_sample < numero_eventi ; ++i_sample)
@@ -430,7 +430,7 @@
 
 ### 9.5.2 Il calcolo del parametro con il metodo della massima verosimiglianza
 
-  * A partire dal ```vector``` ```data_loc``` si puo' applicare il metodo della massima verosimiglianza
+  * A partire dal ```vector``` ```data_loc``` si può applicare il metodo della massima verosimiglianza
     sviluppato precedentemente, ottenendo un risultato per ogni *toy experiment*
     ```cpp
     double media_v = media (data_loc) ;
@@ -443,7 +443,7 @@
 ### 9.5.3 Il risultato dello studio
 
   * Entrambi i passaggi sono **inseriti in un ciclo generale**,
-    dove si puo' riempire un istogramma (o altri strumenti statistici) 
+    dove si può riempire un istogramma (o altri strumenti statistici) 
     ```cpp
     for (int i_toy = 0 ; i_toy < N_toys ; ++i_toy)
       {
@@ -454,7 +454,7 @@
       }
 
     ```
-  * Il risultato mostra chiaramente l'**evoluzione della distribuzione di probabilita'**
+  * Il risultato mostra chiaramente l'**evoluzione della distribuzione di probabilità**
     dello stimatore al crescere del numero di misure a disposizione:
 ![pdf_stimatore.png](immagini/pdf_stimatore.png)
 
@@ -462,11 +462,11 @@
 
 ### 9.5.4 La copertura dell'intervallo di confidenza
 
-  * Secondo la formulazione frequstista della probabilita',
-    la **copertura** e' la frazione di volte in cui l'intervallo 
+  * Secondo la formulazione frequstista della probabilità,
+    la **copertura** è la frazione di volte in cui l'intervallo 
     *&tau; - &sigma;<sub>&tau;</sub>* e *&tau; + &sigma;<sub>&tau;</sub>*
     contiene il valor vero
-  * Anche questa quantita' si puo' **verificare con il metodo dei *toy experiment***,
+  * Anche questa quantità si può **verificare con il metodo dei *toy experiment***,
     calcolando per ogni *toy experiment*
     l'intervallo di confidenza associato ad uno stimatore
     e verificando la posizione del valore vero rispetto a questo intervallo
