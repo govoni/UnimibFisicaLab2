@@ -6,7 +6,7 @@
     * [10.1.1 Un esempio immediato](#1011-un-esempio-immediato)
     * [10.1.2 Il caso *y=g(x)*](#1012-il-caso-ygx)
     * [10.1.3 La determinazione dei parametri &theta;](#1013-la-determinazione-dei-parametri-theta)
-    * [10.1.4 Le proprieta' del metodo](#1014-le-proprieta-del-metodo)
+    * [10.1.4 Le proprietà del metodo](#1014-le-proprietà-del-metodo)
   * [10.2 Il caso lineare](#102-il-caso-lineare)
     * [10.2.1 La formulazione matriciale](#1021-la-formulazione-matriciale)
     * [10.2.2 Le espressioni dei singoli elementi](#1022-le-espressioni-dei-singoli-elementi)
@@ -18,7 +18,7 @@
     * [10.3.4 La preparazione di matrici e vettori](#1034-la-preparazione-di-matrici-e-vettori)
     * [10.3.5 La stima dei parametri &theta;](#1035-la-stima-dei-parametri-theta)
     * [10.3.6 La stampa del risultato](#1036-la-stampa-del-risultato)
-  * [10.4 Le proprieta' statistiche degli stimatori](#104-le-proprieta-statistiche-degli-stimatori)
+  * [10.4 Le proprietà statistiche degli stimatori](#104-le-proprietà-statistiche-degli-stimatori)
     * [10.4.1 Gli elementi del ciclo](#1041-gli-elementi-del-ciclo)
     * [10.4.2 La distribuzione delle stime](#1042-la-distribuzione-delle-stime)
     * [10.4.3 Il risultato ottenuto](#1043-il-risultato-ottenuto)
@@ -51,7 +51,7 @@
 ### 10.1.1 Un esempio immediato
 
   * Per determinare la media &mu; di un insieme di misure *x<sub>i</sub>*
-    si pu&ograve; minimizzare la funzione:
+    si può minimizzare la funzione:
 ![Q_media](immagini/Q_media.png)
 
 ![linea](../immagini/linea.png)
@@ -73,26 +73,26 @@
 
 ### 10.1.3 La determinazione dei parametri &theta;
 
-  * In questo caso, i parametri &theta; (che pu&ograve; essere un vettore)
+  * In questo caso, i parametri &theta; (che può essere un vettore)
     si determinano **trovando il minimo della funzione *Q(&theta;)***:
 ![Q_funzione](immagini/Q_derivata.png)
   * esistono diverse tecniche numeriche per trovare il minimo della funzione
 
 ![linea](../immagini/linea.png)
 
-### 10.1.4 Le proprieta' del metodo
+### 10.1.4 Le proprietà del metodo
 
   * Se gli scarti *&epsilon;<sub>i</sub>* di *y<sub>i</sub>* rispetto a *g(x<sub>i</sub>,&theta;)*
     hanno **valore di aspettazione nullo e varianza finita e fissa**,
-    cio&egrave; non dipendente da *y*, allora 
-    * il metodo dei minimi quadrati &egrave; uno **stimatore non distorto** dei parametri &theta;
+    cioè non dipendente da *y*, allora 
+    * il metodo dei minimi quadrati è uno **stimatore non distorto** dei parametri &theta;
     * ed ha la **varianza minima** fra tutti gli stimatori non distorti lineari (in *y*), 
-      indipendentemente dalla distribuzione di probabilit&agrave; degli scarti
-  * Se gli scarti *&epsilon;<sub>i</sub>* sono distribuiti secondo una distribuzione di probabilit&agrave; Gaussiana,
+      indipendentemente dalla distribuzione di probabilità degli scarti
+  * Se gli scarti *&epsilon;<sub>i</sub>* sono distribuiti secondo una distribuzione di probabilità Gaussiana,
     il minimo della funzione *Q<sup>2</sup>(&theta;)*
-    &egrave; distribuito secondo una **distribuzione di probabili&agrave; &Chi;<sup>2</sup>**
-    con *N-k* gradi di libert&agrave;,
-    * dove *N* &egrave; il **numero di coppie** *(x<sub>i</sub>, y<sub>i</sub> )*
+    è distribuito secondo una **distribuzione di probabilià &Chi;<sup>2</sup>**
+    con *N-k* gradi di libertà,
+    * dove *N* è il **numero di coppie** *(x<sub>i</sub>, y<sub>i</sub> )*
       e *k* il **numero di parametri stimati** con i minimi quadrati
 
 ![linea](../immagini/linea.png)
@@ -102,11 +102,11 @@
   * Nel caso in cui la funzione *g(x)* sia **lineare nei parametri &theta;**,
     le equazioni di minimizzazione possono essere risolte analiticamente
 ![g_lineare](immagini/g_lineare.png)
-  * Un esempio di funzione lineare &egrave; **la retta 
+  * Un esempio di funzione lineare è **la retta 
     *g(x,&theta;) = &theta;<sub>1</sub> + &theta;<sub>2</sub> x***:
     * *h<sub>1</sub>(x) = 1*
     * *h<sub>2</sub>(x) = x*
-  * Un altro esempio di funzione lineare &egrave; **una parabola 
+  * Un altro esempio di funzione lineare è **una parabola 
     *g(x,&theta;) = &theta;<sub>1</sub> + &theta;<sub>2</sub> x + &theta;<sub>3</sub> x<sup>2</sup>***:
     * *h<sub>1</sub>(x) = 1*
     * *h<sub>2</sub>(x) = x*
@@ -120,7 +120,7 @@
     le *N* coppie di misure *(x<sub>i</sub>, y<sub>i</sub> )* 
     e *k* parametri *&theta;<sub>j</sub>*
     si possono **rappresentare in forma vettoriale**
-  * Per comodit&agrave; di scrittura,
+  * Per comodità di scrittura,
     la determinazione del minimo della funzione *Q<sup>2</sup>(&theta;)*
     viene **svolta in forma matriciale**
 
@@ -132,14 +132,14 @@
     per la deteminazione dei parametri *&theta;<sub>j</sub>* 
     sono i seguenti:
 ![espressioni_mtr](immagini/espressioni_mtr.png)
-  * Dove *V* &egrave; la matrice di covarianza delle misure *y<sub>i</sub>*,
-    che &egrave; diagonale perch&eacute; le misure sono indipendenti fra loro
+  * Dove *V* è la matrice di covarianza delle misure *y<sub>i</sub>*,
+    che è diagonale perché le misure sono indipendenti fra loro
 
 ![linea](../immagini/linea.png)
 
 ### 10.2.3 Il valore dei parametri e della loro incertezza
 
-  * Il risultato delle operazioni di minimizzazione &egrave; il seguente:
+  * Il risultato delle operazioni di minimizzazione è il seguente:
 ![modello_lineare](immagini/modello_lineare.png)
   * *V<sup>-1</sup>* indica l'**inversa** della matrice di covarianza delle misure *y<sub>i</sub>*
   * *<sup>t</sup>H* indica la **trasposta** della matrice *H*
@@ -152,13 +152,13 @@
 ## 10.3 Un esempio: il fit di una retta
 
   * L'implementazione di una regressione di un modello *g(x,&theta;) = &theta;<sub>1</sub> + &theta;<sub>2</sub> x*
-    in ```C++``` &egrave; un utile esercizio di **programmazione e comprensione della statistica**
-  * ... ricordando che esistono **librerie per l'analisi dati** (come ```ROOT```) con gi&agrave; implementati questi algoritmi
-    * strumenti **pi&ugrave; generici**: 
+    in ```C++``` è un utile esercizio di **programmazione e comprensione della statistica**
+  * ... ricordando che esistono **librerie per l'analisi dati** (come ```ROOT```) con già implementati questi algoritmi
+    * strumenti **più generici**: 
       implementano il metodo dei minimi quadrati sia per un modello lineare generico
       che per modelli non lineari
-    * strumenti **pi&ugrave; efficaci**:
-      implementano algoritmi di minimizzazione tipicamente pi&ugrave; potenti di quelli 
+    * strumenti **più efficaci**:
+      implementano algoritmi di minimizzazione tipicamente più potenti di quelli 
       che possiamo scrivere in una lezione  
 
 ![linea](../immagini/linea.png)
@@ -170,7 +170,7 @@
     (per scaricare o copiare il file sorgente conviene visualizzarlo in versione ```Raw```)
     * Rispetto a quella scritta per esercizio nella Lezione 7, 
       in questo caso non si utilizzano ```template```
-      perch&eacute; risuta pi&ugrave; comodo **decidere a *runtime*** la dimensione delle matrici
+      perché risuta più comodo **decidere a *runtime*** la dimensione delle matrici
 
 ![linea](../immagini/linea.png)
 
@@ -270,7 +270,7 @@
         asse_y.push_back (g (i_point) + epsilon) ;
       }
     ```
-    * In questo caso, la funzione ```rand_TAC``` &egrave; stata modificata,
+    * In questo caso, la funzione ```rand_TAC``` è stata modificata,
       con una implementazione **dedicata al problema**
 
 ![linea](../immagini/linea.png)
@@ -313,7 +313,7 @@
     matrice theta_v = (H.trasposta () * V_inv * H).inversa () ;
     vettore theta = (theta_v * (H.trasposta () * V_inv)) * y ;
     ```
-    * L'**inversione della matrice *V*** &egrave; fatta una sola volta
+    * L'**inversione della matrice *V*** è fatta una sola volta
     * La **matrice di covarianza** di &theta;,
       che entra anche nel calcolo del suo valore centrale,
       viene calcolata una sola volta
@@ -324,7 +324,7 @@
 
   * Sapendo che i **termini diagonali della matrice di covarianza**
     corrispondono alle varianze dei vari &theta;<sub>i</sub> ,
-    il risultato del fit &egrave;:
+    il risultato del fit è:
     ```cpp
     cout << "termine noto: " << theta.at (0) << " +- " << sqrt (theta_v.at (0, 0)) << endl ;
     cout << "pendenza:     " << theta.at (1) << " +- " << sqrt (theta_v.at (1, 1)) << endl ;
@@ -332,9 +332,9 @@
 
 ![linea](../immagini/linea.png)
 
-## 10.4 Le proprieta' statistiche degli stimatori
+## 10.4 Le proprietà statistiche degli stimatori
 
-  * Per studiare le **propriet&agrave; statistiche delle stime** 
+  * Per studiare le **proprietà statistiche delle stime** 
     ottenute con lo stimatore dei minimi quadrati,
     si utilizza la tecnica dei *toy montecarlo*
   * **Riprodurre molte volte** (```N_toys```) lo stesso fit 
@@ -355,18 +355,18 @@
 
 ### 10.4.1 Gli elementi del ciclo
 
-  * Il ciclo &egrave; composto di tre fasi:
-    * La **generazione degli eventi**, come &egrave; stato fatto in precedenza
+  * Il ciclo è composto di tre fasi:
+    * La **generazione degli eventi**, come è stato fatto in precedenza
     * Il **calcolo del valore dei parametri**, con lo stesso programma utilizzato in precedenza
     * Il **riempimento di istogrammi e contatori**
-      per la determinazione delle propriet&agrave; delle stime ottenute
+      per la determinazione delle proprietà delle stime ottenute
 
 ![linea](../immagini/linea.png)
 
 ### 10.4.2 La distribuzione delle stime
 
-  * Le propriet&agrave; dello stimatore dei minimi quadrati 
-    si verificano osservando la **distribuzione di probabilit&agrave; delle stime** ottenute
+  * Le proprietà dello stimatore dei minimi quadrati 
+    si verificano osservando la **distribuzione di probabilità delle stime** ottenute
   * Queste distribuzioni si determinano attraverso **istogrammi**,
     che vanno creati prima del ciclo sui *toy experiment*:
     ```cpp
@@ -417,7 +417,7 @@
     produce anche una **stima della sua varianza**
   * Per verificare che l'intervallo &theta;<sub>j</sub> &plusmn; &sigma;<sub>j</sub>
     abbia la **copertura attesa del 68%**,
-    si contano i *toy experiment* per cui il valore vero &egrave; contenuto nell'intervallo:
+    si contano i *toy experiment* per cui il valore vero è contenuto nell'intervallo:
     ```cpp
     int cont_a  = 0 ;
     int cont_b  = 0 ;
@@ -435,7 +435,7 @@
 
 ### 10.4.5 Il risultato del test
 
-  * Dividendo il numero di volte in cui il valore vero &egrave; contenuto nell'intervallo
+  * Dividendo il numero di volte in cui il valore vero è contenuto nell'intervallo
     per il numero totale di *toy experiment*:
     ```cpp
     cout << "copertura parametro a: " << static_cast<double> (cont_a) / N_toys << endl ;
@@ -452,10 +452,10 @@
 ### 10.4.6 La correlazione fra i parametri
 
   * Il metodo dei minimi quadrati produce la **matrice di covarianza**
-    dei parametri stimati, che non &egrave; necessariamente diagonale
+    dei parametri stimati, che non è necessariamente diagonale
   * Questo significa che i **parametri stimati possono essere correlati fra loro**:
-    se &theta;<sub>j</sub> &egrave; maggiore del suo valore vero, 
-    pu&ograve; succedere che in media anche &theta;<sub>k</sub> sia maggiore del proprio valore vero,
+    se &theta;<sub>j</sub> è maggiore del suo valore vero, 
+    può succedere che in media anche &theta;<sub>k</sub> sia maggiore del proprio valore vero,
     o viceversa
   * I **termini fuori diagonale** della matrice di covarianza dei parametri 
     indicano la correlazione fra i parametri
@@ -467,7 +467,7 @@
   * Anche in questo caso, 
     si sfruttano i *toy experiment* per visualizzare la correlazione,
     utilizzando un istogramma bi-dimensionale, 
-    che mostri cio&egrave; il numero di *toy experiment* **in funzione di due variabili**
+    che mostri cioè il numero di *toy experiment* **in funzione di due variabili**
   * La classe di ```ROOT``` che si utilizza si chiama ```TH2F```:
     ```cpp
     TH2F h_ab ("h_ab", "parametri", 
@@ -514,7 +514,7 @@
 ## 10.5 Una parentesi utile: il salvataggio degli oggetti di ROOT
 
   * Un oggetto utilizzato per fare analisi dati in ```ROOT```
-    tipicamente pu&ograve; essere **salvato in un file binario** di tipo ```.root```
+    tipicamente può essere **salvato in un file binario** di tipo ```.root```
   * Analogamente al salvataggio su file di testo, 
     si utilizza una **classe dedicata alla gestione del file**:
     in questo caso, ```TFile```:
@@ -523,10 +523,10 @@
     //...
     TFile f_out ("main_03.root", "recreate") ;
     ```
-    * il **primo argomento** &egrave; il nome del file da salvare su disco
-    * il **secondo argomento** &egrave; la modalit&agrave; di apertura del file:
+    * il **primo argomento** è il nome del file da salvare su disco
+    * il **secondo argomento** è la modalità di apertura del file:
       ```recreate``` apre il file in scrittura e ne cancella il contenuto,
-      se il file &egrave; gi&agrave; esistente
+      se il file è già esistente
 
 ![linea](../immagini/linea.png)
 
@@ -551,7 +551,7 @@
 
 ### 10.5.2 Come aprire un terminale di ```ROOT```
 
-  * Un file di tipo ```.root``` pu&ograve; essere **letto dalla linea di comando di ```ROOT```**
+  * Un file di tipo ```.root``` può essere **letto dalla linea di comando di ```ROOT```**
   * Per aprire la linea di comando,
     si esegue da ```SHELL``` il comando **```root```**:
     ```
@@ -561,7 +561,7 @@
     | (c) 1995-2020, The ROOT Team; conception: R. Brun, F. Rademakers |
     | Built for macosx64 on Apr 01 2020, 08:28:48                      |
     | From tags/v6-20-04@v6-20-04                                      |
-    | Try '.help', '.dem&ograve;, '.licens&egrave;, '.credits', '.quit'/'.q'       |
+    | Try '.help', '.demò, '.licensè, '.credits', '.quit'/'.q'       |
      ------------------------------------------------------------------
  
     root [0] 
@@ -569,7 +569,7 @@
   * In questa linea di comando,
     ```ROOT``` fornisce un **interprete di istruzioni ```C++```** 
     che possono essere inserite a mano
-    * Essendo interpretate, sono tipicamente molto **pi&ugrave; lente** di un programma compilato
+    * Essendo interpretate, sono tipicamente molto **più lente** di un programma compilato
 
 ![linea](../immagini/linea.png)
 
@@ -585,7 +585,7 @@
     root [1] 
     ```
   * A questo punto, 
-    &egrave; possibile **operare sugli oggetti** contenuti nel ```TFile```, 
+    è possibile **operare sugli oggetti** contenuti nel ```TFile```, 
     come se fossero puntatori:
     ```
     root [1] _file0->ls ()
@@ -600,15 +600,15 @@
 
 ## 10.6 La stima di una incertezza ignota
 
-  * Se gli scarti *&epsilon;<sub>i</sub>* sono distribuiti secondo una distribuzione di probabilit&agrave; Gaussiana,
+  * Se gli scarti *&epsilon;<sub>i</sub>* sono distribuiti secondo una distribuzione di probabilità Gaussiana,
     il minimo della funzione *Q<sup>2</sup>(&theta;)* al variare di &theta;, *Q<sup>2</sup><sub>min</sub>*,
-    &egrave; distribuito secondo una **distribuzione di probabili&agrave; &Chi;<sup>2</sup>**
-    con *N-k* gradi di libert&agrave;,
-    * dove *N* &egrave; il **numero di coppie** *(x<sub>i</sub>, y<sub>i</sub> )*
+    è distribuito secondo una **distribuzione di probabilià &Chi;<sup>2</sup>**
+    con *N-k* gradi di libertà,
+    * dove *N* è il **numero di coppie** *(x<sub>i</sub>, y<sub>i</sub> )*
       e *k* il **numero di parametri stimati** con i minimi quadrati
-  * Il **valore di *Q<sup>2</sup>(&theta;)<sub>min</sub>*** &egrave; dato dal prodotto:
+  * Il **valore di *Q<sup>2</sup>(&theta;)<sub>min</sub>*** è dato dal prodotto:
 ![qsq_formula](immagini/qsq_formula.png)
-  * Che nel programma scritto finora **si calcola** a partire dalla informazioni gi&agrave; esistenti:
+  * Che nel programma scritto finora **si calcola** a partire dalla informazioni già esistenti:
     ```cpp
     double Q2min = (y - H * theta).dot (V_inv * (y - H * theta)) ;
     ```
@@ -617,10 +617,10 @@
 
 ### 10.6.1 La distribuzione attesa di *Q<sup>2</sup><sub>min</sub>*
 
-  * Se la varianza dei singoli punti *y<sub>i</sub>* &egrave; nota,
-    allora si pu&ograve; riempire un istogramma contenente i valori di *Q<sup>2</sup><sub>min</sub>*
+  * Se la varianza dei singoli punti *y<sub>i</sub>* è nota,
+    allora si può riempire un istogramma contenente i valori di *Q<sup>2</sup><sub>min</sub>*
     per i *toy experiment* generati
-    e confrontarla con la distribuzione di probabili&agrave; &Chi;<sup>2</sup>
+    e confrontarla con la distribuzione di probabilià &Chi;<sup>2</sup>
     dopo il termine del ciclo: 
 ![qsq_chisq](immagini/qsq_chisq.png)
 
@@ -628,14 +628,14 @@
 
 ### 10.6.2 Il calcolo della varianza di *y<sub>i</sub>*
 
-  * Se la varianza delle misure *y<sub>i</sub>* &egrave; ignota, invece,
-    si pu&ograve; portare a termine la stima di &theta; e della sua matrice di covarianza
-    assumendo che **la matrice di covarianza delle misure sia una identit&agrave;**
+  * Se la varianza delle misure *y<sub>i</sub>* è ignota, invece,
+    si può portare a termine la stima di &theta; e della sua matrice di covarianza
+    assumendo che **la matrice di covarianza delle misure sia una identità**
   * Ricordando che la media di una distribuzione di &Chi;<sup>2</sup>
-    &egrave; uguale al numero di gradi di libert&agrave;,
+    è uguale al numero di gradi di libertà,
     se nel calcolo di *Q<sup>2</sup><sub>min</sub>*
     manca **il valore di &sigma;<sup>2</sup> 
-    si pu&ograve; ricavare con la formula**:
+    si può ricavare con la formula**:
 ![varianza_formula](immagini/varianza_formula.png)
   * Che, dati ```N_toys``` *toy experiment*,
     si traduce in:
