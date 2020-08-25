@@ -25,7 +25,7 @@ int main (int argc, char ** argv)
     double p4 = 2. ;          // sigma del segnale
 
     // The total is the sum of the three, each has 3 parameters
-    TF1 model ("model", "expo(0) + gaus(2)",0, 20) ;
+    TF1 model ("model", "expo(0) + gaus(2)", 0., 20.) ;
     model.SetParameter (0, p0) ;
     model.SetParameter (1, p1) ;
     model.SetParameter (2, p2) ;
@@ -36,7 +36,7 @@ int main (int argc, char ** argv)
     model.SetLineStyle (1) ;
 
     // The total is the sum of the three, each has 3 parameters
-    TF1 segnale ("segnale", "gaus(0)",0, 20) ;
+    TF1 segnale ("segnale", "gaus(0)", 0., 20.) ;
     segnale.SetParameter (0, p2) ;
     segnale.SetParameter (1, p3) ;
     segnale.SetParameter (2, p4) ;
@@ -45,7 +45,7 @@ int main (int argc, char ** argv)
     segnale.SetLineStyle (7) ;
 
     // The total is the sum of the three, each has 3 parameters
-    TF1 fondo ("fondo", "expo(0)",0, 20) ;
+    TF1 fondo ("fondo", "expo(0)", 0., 20.) ;
     fondo.SetParameter (0, p0) ;
     fondo.SetParameter (1, p1) ;
     fondo.SetLineColor (kGray + 2) ;

@@ -73,7 +73,7 @@ int main (int argc, char ** argv)
     // preparazione del modello per il fit
     // --------------------------  
 
-    TF1 model ("model", "expo(0) + gaus(2)",0, 20) ;
+    TF1 model ("model", "expo(0) + gaus(2)", 0., 20.) ;
     model.SetLineColor (kBlue + 2) ;
     model.SetLineWidth (4) ;
     model.SetLineStyle (1) ;
@@ -90,13 +90,13 @@ int main (int argc, char ** argv)
     double p4 = h_eventi.GetRMS () ;      // sigma del segnale
 
     // prima stima di p0 e p1 con un fit in zona di solo fondo
-    TF1 fondo ("fondo", "expo(0)",0, 20) ;
+    TF1 fondo ("fondo", "expo(0)", 0., 20.) ;
     fondo.SetParameter (0, p0) ;
     fondo.SetParameter (1, p1) ;
     h_eventi.Fit ("fondo", "Q", "", 0., 4.) ;
 
     // prima stima di p2, p3 e p4 con un fit in zona di solo fondo
-    TF1 segnale ("segnale", "gaus(0)",0, 20) ;
+    TF1 segnale ("segnale", "gaus(0)", 0., 20.) ;
     segnale.SetParameter (0, p2) ;
     segnale.SetParameter (1, p3) ;
     segnale.SetParameter (2, p4) ;

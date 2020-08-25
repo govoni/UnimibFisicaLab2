@@ -65,12 +65,15 @@ int main (int argc, char ** argv)
     vector<TGraphErrors *> trend_parametri ;
     for (int i = 0 ; i < 5 ; ++i) trend_parametri.push_back (new TGraphErrors ()) ;
 
+    vector<TGraph *> trend_incertezza_par ;
+    for (int i = 0 ; i < 5 ; ++i) trend_incertezza_par.push_back (new TGraph ()) ;
+
     TCanvas c1 ("c1", "", 800, 800) ;
     c1.SetLeftMargin (0.15) ;
 
     int point = 0 ;
     // ciclo su diverse dimensioni del campione
-    for (int i_Nmax = v_eventi.size () ; i_Nmax > 200 ; i_Nmax /= 2)
+    for (int i_Nmax = v_eventi.size () ; i_Nmax > 500 ; i_Nmax /= 2)
       {
         double min = floor (*min_element (v_eventi.begin (), v_eventi.begin () + i_Nmax)) ;
         double max = floor (*max_element (v_eventi.begin (), v_eventi.begin () + i_Nmax)) ;
@@ -78,7 +81,7 @@ int main (int argc, char ** argv)
     
         TH1F * h_eventi = new TH1F ("h_eventi", "", N_bin, min, max) ;
         for (int i = 0 ; i < i_Nmax ; ++i) h_eventi->Fill (v_eventi.at (i)) ;
-        TF1 * model = new TF1 ("model", "expo(0) + gaus(2)",0, 20) ;
+        TF1 * model = new TF1 ("model", "expo(0) + gaus(2)", 0., 20.) ;
         
         // determinazione dei parametri iniziali del fit
         // --------------------------  
@@ -91,13 +94,13 @@ int main (int argc, char ** argv)
         double p4 = h_eventi->GetRMS () / 2.; // sigma del segnale
     
         // prima stima di p0 e p1 con un fit in zona di solo fondo
-        TF1 * fondo = new TF1 ("fondo", "expo(0)",0, 20) ;
+        TF1 * fondo = new TF1 ("fondo", "expo(0)", 0., 20.) ;
         fondo->SetParameter (0, p0) ;
         fondo->SetParameter (1, p1) ;
         h_eventi->Fit ("fondo", "Q", "", 0., 4.) ;
     
         // prima stima di p2, p3 e p4 con un fit in zona di solo fondo
-        TF1 * segnale = new TF1 ("segnale", "gaus(0)",0, 20) ;
+        TF1 * segnale = new TF1 ("segnale", "gaus(0)", 0., 20.) ;
         segnale->SetParameter (0, p2) ;
         segnale->SetParameter (1, p3) ;
         segnale->SetParameter (2, p4) ;
@@ -121,14 +124,15 @@ int main (int argc, char ** argv)
           {
             trend_parametri.at (i)->SetPoint (point, i_Nmax, model->GetParameter (i)) ;
             trend_parametri.at (i)->SetPointError (point, 0., model->GetParError (i)) ;
+            trend_incertezza_par.at (i)->SetPoint (point, i_Nmax, model->GetParError (i)) ;
           }
         ++point ;
 
-        TString file_name = "fit_" ;
-        file_name += i_Nmax ;
-        file_name += ".png" ;
+        TString testo = "fit_" ;
+        testo += i_Nmax ;
+        testo += ".png" ;
         h_eventi->Draw () ;
-        c1.Print (file_name, "png") ;
+        c1.Print (testo, "png") ;
         
         delete model ;
         delete fondo ;
@@ -140,13 +144,35 @@ int main (int argc, char ** argv)
 
     for (int i = 0 ; i < 5 ; ++i) 
       {
-        TString file_name = "parameter_" ;
-        file_name += i ;
-        file_name += ".png" ;
+        TString testo ;
         trend_parametri.at (i)->SetMarkerStyle (20) ;
         trend_parametri.at (i)->SetMarkerColor (kBlue + 2) ;
         trend_parametri.at (i)->Draw ("AP") ;
-        c1.Print (file_name, "png") ;
+        trend_parametri.at (i)->GetXaxis ()->SetTitle ("numero di eventi") ;
+        testo = "parametro " ;
+        testo += i ;
+        trend_parametri.at (i)->GetYaxis ()->SetTitle (testo) ;
+        trend_parametri.at (i)->Draw ("AP") ;
+        testo = "parametro_" ;
+        testo += i ;
+        testo += ".png" ;
+        c1.Print (testo, "png") ;
+
+        c1.SetLogy () ;
+        trend_incertezza_par.at (i)->SetMarkerStyle (20) ;
+        trend_incertezza_par.at (i)->SetMarkerColor (kRed) ;
+        trend_incertezza_par.at (i)->Draw ("AP") ;
+        trend_incertezza_par.at (i)->GetXaxis ()->SetTitle ("numero di eventi") ;
+        testo = "incertezza sul parametro " ;
+        testo += i ;
+        trend_incertezza_par.at (i)->GetYaxis ()->SetTitle (testo) ;
+        trend_incertezza_par.at (i)->Draw ("AP") ;
+        testo = "incertezza_" ;
+        testo += i ;
+        testo += ".png" ;
+        c1.Print (testo, "png") ;
+        c1.SetLogy (false) ;
+
       }
 
     return 0 ;
