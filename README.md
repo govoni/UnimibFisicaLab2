@@ -32,7 +32,7 @@
   * [Lezione 8](Lezione_08/README.md) : programmazione ad oggetti: l'ereditarietà
   * [Lezione 9](Lezione_09/README.md) : stima di parametri con il metodo della massima verosimiglianza
   * [Lezione 10](Lezione_10/README.md) : stima di parametri con il metodo dei minimi quadrati
-  * [Lezione 11](Lezione_11/README.md) : stima di parametri con con ```ROOT```: i fit
+  * [Lezione 11](Lezione_11/README.md) : fit di distribuzioni binnate con ```ROOT```
   * [Lezione 12](Lezione_12/README.md) : test di ipotesi
 
 ![linea](immagini/linea.png)
