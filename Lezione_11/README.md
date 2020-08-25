@@ -53,11 +53,14 @@
 
 ## 11.2 Un esercizio di regressione
 
-
-
-
-
-https://root.cern.ch/root/htmldoc/guides/users-guide/FittingHistograms.html
+  - prima il fit giusto e completo con il metodo del chi2 e ML
+    - rem come ottenere la matrice di covarianza
+  - poi casi speciali
+    - statistica piu' bassa => test del chi2 non vale più
+    - andamento risultato vs statistica totale => TGraphErrors e fit di quello
+    - (andamento risultato vs. numero di bin)
+  - ricavare il valore dei parametri da sideband?
+  - https://root.cern.ch/root/htmldoc/guides/users-guide/FittingHistograms.html
 
 ![linea](../immagini/linea.png)
 
