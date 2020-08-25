@@ -1,7 +1,9 @@
 #!/Usr/bin/env python 
+# coding=utf-8
 
 import argparse 
 import re
+import os
 
 if __name__ == "__main__":
 
@@ -13,17 +15,17 @@ if __name__ == "__main__":
   newlines = []
   with open (readme, 'r') as f :
     for line in f.readlines () :
-      if line.startswith ("#") : newlines.append (line)
-      else :
-        line = line.replace ("a'", "&agrave;")
-        line = line.replace ("che'", "ch&eacute;")
-        line = line.replace ("e'", "&egrave;")
-        line = line.replace ("i'", "&igrave;")
-        line = line.replace ("o'", "&ograve;")
-        line = line.replace ("u'", "&ugrave;")
-        newlines.append (line)
+      line = line.replace ("a'", "à")
+      line = line.replace ("che'", "ché")
+      line = line.replace ("e'", "è")
+      line = line.replace ("i'", "ì")
+      line = line.replace ("o'", "ò")
+      line = line.replace ("u'", "ù")
+      newlines.append (line)
 
-  f = open (readme + "acc.md", "w")
+  f = open (readme + '.accenti', 'w')
+  os.rename (readme, readme + '.old')
+  os.rename (readme + '.accenti', readme)
   for line in newlines :
     f.write (line)
   f.close ()
