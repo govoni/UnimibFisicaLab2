@@ -1,12 +1,12 @@
 # Lezione 10: stima di parametri con il metodo dei minimi quadrati
 
-## Indice à
+## Indice
 
   * [10.1 Introduzione](#101-introduzione)
     * [10.1.1 Un esempio immediato](#1011-un-esempio-immediato)
     * [10.1.2 Il caso *y=g(x)*](#1012-il-caso-ygx)
     * [10.1.3 La determinazione dei parametri &theta;](#1013-la-determinazione-dei-parametri-theta)
-    * [10.1.4 Le propriet&agrave; del metodo](#1014-le-proprietagrave-del-metodo)
+    * [10.1.4 Le proprieta' del metodo](#1014-le-proprieta-del-metodo)
   * [10.2 Il caso lineare](#102-il-caso-lineare)
     * [10.2.1 La formulazione matriciale](#1021-la-formulazione-matriciale)
     * [10.2.2 Le espressioni dei singoli elementi](#1022-le-espressioni-dei-singoli-elementi)
@@ -18,7 +18,7 @@
     * [10.3.4 La preparazione di matrici e vettori](#1034-la-preparazione-di-matrici-e-vettori)
     * [10.3.5 La stima dei parametri &theta;](#1035-la-stima-dei-parametri-theta)
     * [10.3.6 La stampa del risultato](#1036-la-stampa-del-risultato)
-  * [10.4 Le propriet&agrave; statistiche degli stimatori](#104-le-proprietagrave-statistiche-degli-stimatori)
+  * [10.4 Le proprieta' statistiche degli stimatori](#104-le-proprieta-statistiche-degli-stimatori)
     * [10.4.1 Gli elementi del ciclo](#1041-gli-elementi-del-ciclo)
     * [10.4.2 La distribuzione delle stime](#1042-la-distribuzione-delle-stime)
     * [10.4.3 Il risultato ottenuto](#1043-il-risultato-ottenuto)
@@ -80,7 +80,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 10.1.4 Le propriet&agrave; del metodo
+### 10.1.4 Le proprieta' del metodo
 
   * Se gli scarti *&epsilon;<sub>i</sub>* di *y<sub>i</sub>* rispetto a *g(x<sub>i</sub>,&theta;)*
     hanno **valore di aspettazione nullo e varianza finita e fissa**,
@@ -332,7 +332,7 @@
 
 ![linea](../immagini/linea.png)
 
-## 10.4 Le propriet&agrave; statistiche degli stimatori
+## 10.4 Le proprieta' statistiche degli stimatori
 
   * Per studiare le **propriet&agrave; statistiche delle stime** 
     ottenute con lo stimatore dei minimi quadrati,
