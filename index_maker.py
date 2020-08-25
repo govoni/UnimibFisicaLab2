@@ -61,12 +61,3 @@ if __name__ == "__main__":
   for text_line in final_text: print text_line
 
   print "\n![linea](../immagini/linea.png)\n"
-
-
-
-# https://github.com/govoni/UnimibFisicaLab2/blob/master/Lezione_00/README.md#la-macchina-virtuale-e-lambiente-linux
-# https://github.com/govoni/UnimibFisicaLab2/tree/master/Lezione_01#113-c-e-c
-# https://github.com/govoni/UnimibFisicaLab2/tree/master/Lezione_01#121-il-codice-sorgente
-# https://github.com/govoni/UnimibFisicaLab2/tree/master/Lezione_01#125-il-lavoro-del-compilatore
-# https://github.com/govoni/UnimibFisicaLab2/tree/master/Lezione_01#169-il-file-maincpp
-# https://github.com/govoni/UnimibFisicaLab2/tree/master/Lezione_01#152-if--else
