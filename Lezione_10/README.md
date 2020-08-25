@@ -52,7 +52,7 @@
 
   * Per determinare la media &mu; di un insieme di misure *x<sub>i</sub>*
     si può minimizzare la funzione:
-![Q_media](immagini/Q_media.png)
+![Q_media](immagini/Q_media_2.png)
 
 ![linea](../immagini/linea.png)
 
