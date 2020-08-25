@@ -67,7 +67,7 @@
   * Sia data l'ipotesi che le due variabili *x<sub>i</sub>* e *y<sub>i</sub>*
     siano in **relazione fra loro secondo una funzione *g*** tale per cui *y=g(x,&theta;)*
   * Si definisce la **funzione *Q<sup>2</sup>(&theta;)*** come:
-![Q_funzione](immagini/Q_funzione.png)
+![Q_funzione_2](immagini/Q_funzione_2.png)
 
 ![linea](../immagini/linea.png)
 
