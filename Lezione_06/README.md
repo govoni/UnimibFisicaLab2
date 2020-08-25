@@ -33,14 +33,14 @@
     per **simulare il comportamento statistico di un esperimento** di misura,
     o per **eseguire integrazioni numeriche**
   * Secondo il paradigma frequentista della statistica,
-    le incertezze di una misura si ricavano dalla sua distribuzione di densita' di probabilita',
+    le incertezze di una misura si ricavano dalla sua distribuzione di densità di probabilità,
     assumendo che l'esperimento utilizzato per compiere quella misura
     sia **ripetuto un grande numero di volte**
   * Operativamente, 
-    l'esperimento che porta al risultato finale di una misura e' unico,
+    l'esperimento che porta al risultato finale di una misura è unico,
     dunque alcuni comportamenti statistici
     si possono **solamente simulare** 
-  * La simulazione di un esperimento di misura e' detta **toy experiment**
+  * La simulazione di un esperimento di misura è detta **toy experiment**
 
 ![linea](../immagini/linea.png)
 
@@ -48,7 +48,7 @@
 
   * Per determinare la precisione sulla media di una campione,
     quindi,
-    e' necessario effettuare la generazione del campione molte volte,
+    è necessario effettuare la generazione del campione molte volte,
     per vedere la distribuzione dei valori della media:
     ```cpp
     // loop sui toy experiment
@@ -57,7 +57,7 @@
     for (int iToy = 0 ; iToy < NToys ; ++iToy)
       {
         int i = 0 ;
-        // il loop seguente e' un singolo toy experiment
+        // il loop seguente è un singolo toy experiment
         while (i++ < NMAX) s_singleToy.addEvent (rand_range (-3., 3.)) ;
         s_tot.addEvent (s_singleToy.getMean ()) ;
         s_singleToy.reset () ;
@@ -73,9 +73,9 @@
 
 ### 6.1.2 la visualizzazione della distribuzione delle medie
 
-  * La media delle misure e' una funzione di variabili casuali,
-    quindi e' una **variabile casuale** a sua volta
-  * La sua distribuzione di probabilita' si ottiene **per campionamento** con i toy experiment,
+  * La media delle misure è una funzione di variabili casuali,
+    quindi è una **variabile casuale** a sua volta
+  * La sua distribuzione di probabilità si ottiene **per campionamento** con i toy experiment,
     ad esempio riempiendo un istogramma all'interno del ciclo sui toy:
     ```cpp
 
@@ -84,7 +84,7 @@
     for (int iToy = 0 ; iToy < NToys ; ++iToy)
       {
         int i = 0 ;
-        // il loop seguente e' un singolo toy experiment
+        // il loop seguente è un singolo toy experiment
         while (i++ < NMAX) s_singleToy.addEvent (rand_range (-3., 3.)) ;
         h_medie.Fill (s_singleToy.getMean ()) ;
     ```
@@ -99,7 +99,7 @@
     deve quindi corrispondere
     alla **deviazione standard** del campione delle medie
   * Per controllare questa corrispondenza,
-    si puo' utilizzare la classe ```statistiche```
+    si può utilizzare la classe ```statistiche```
     ```cpp
     stats s_singleToy ;
     stats s_tot ;
@@ -108,7 +108,7 @@
     for (int iToy = 0 ; iToy < NToys ; ++iToy)
       {
         int i = 0 ;
-        // il loop seguente e' un singolo toy experiment
+        // il loop seguente è un singolo toy experiment
         while (i++ < NMAX) s_singleToy.addEvent (rand_range (-3., 3.)) ;
         s_tot.addEvent (s_singleToy.getMean ()) ;
         s_incertezzaMedia.addEvent (s_singleToy.getSigmaMean ()) ;
@@ -128,9 +128,9 @@
   * Le sequenze di numeri pseudo-casuali possono essere utilizzate efficacemente
     anche per **calcolare aree** sottese da funzioni
   * I metodi che sfruttano numeri pseudo-casuali prendono il nome di tecniche **Monte Carlo**,
-    derivando questa definizione dall'omonimo casino',
+    derivando questa definizione dall'omonimo casinò,
     regno della dea bendata
-  * L'utilizzo di queste tecniche in fisica e' **molto vasto**,
+  * L'utilizzo di queste tecniche in fisica è **molto vasto**,
     ad esempio nel calcolo di integrali in meccanica quantistica e teoria quantistica dei campi,
     per la simulazione di apparati di misura, et cetera
     
@@ -156,7 +156,7 @@
   * Si generano *N* coppie numeri pseudo-casuali nel piano che contiene il disegno della funzione
     e si conta il **numero di eventi** *n<sub>hit</sub>* che cascano nell'area sottesa dalla funzione 
   ![integrale_RP](immagini/integrale_random_points.png)
-  * Di conseguenza, se *A* e' l'area del rettangolo dove sono stati generati gli eventi 
+  * Di conseguenza, se *A* è l'area del rettangolo dove sono stati generati gli eventi 
     ed *m* ed *M* gli estremi di integrazione:
   ![integrale_HOM](immagini/integrale_HOM_2.png)
 
@@ -165,16 +165,16 @@
 ### 6.2.3 la precisione del metodo
 
   * Non si possono generare infiniti numeri pseudo-casuali, 
-    dunque il **risultato sara' approssimato**:
+    dunque il **risultato sarà approssimato**:
   ![integrale_HOM](immagini/integrale_HOM_real_3.png)
-  * La quantita' *I* e' il *risultato dell'integrale* per il metodo hit-or-miss
-  * Essendo funzione di numeri pseudo-casuali, e' a sua volta un **numero pseudo-casuale**
+  * La quantità *I* è il *risultato dell'integrale* per il metodo hit-or-miss
+  * Essendo funzione di numeri pseudo-casuali, è a sua volta un **numero pseudo-casuale**
   * Ha un valore atteso ed una varianza
-    quest'ultima e' **l'incetezza numerica** nel calcolo dell'integrale
+    quest'ultima è **l'incetezza numerica** nel calcolo dell'integrale
     * *A* ed *N* sono **noti senza incertezza**
     * *n<sub>hit</sub>* ha invece **distribuzione binomiale**,
       associando al successo il fatto che un punto generato si trovi sotto la funzione da integrare,
-      con **probabilita' *p = n<sub>hit</sub> / N***
+      con **probabilità *p = n<sub>hit</sub> / N***
 
 ![linea](../immagini/linea.png)
 
@@ -186,7 +186,7 @@
   ![integrale_HOM](immagini/integrale_HOM_exp_var.png)
   * Di conseguenza, 
     l'incertezza numerica sul calcolo dell'integrale
-    e' data dalla **radice della varianza**
+    è data dalla **radice della varianza**
 
 ![linea](../immagini/linea.png)
 
@@ -228,18 +228,18 @@
 ### 6.2.6 il metodo del *crude Monte Carlo*
 
   * L'agoritmo *crude Monte Carlo* 
-    sfrutta le proprieta' del **valore di aspettazione** di una funzione
+    sfrutta le proprietà del **valore di aspettazione** di una funzione
   * Dato un insieme di numeri pseudo-casuali *x<sub>i</sub>* 
-    generati secondo una distribuzione di probabilita' uniforme *f(x)*, 
+    generati secondo una distribuzione di probabilità uniforme *f(x)*, 
     il **valore di aspettazione della funzione *g(x)***
     risulta essere:
     ![integrale_crude](immagini/integrale_crude.png)
-    per definizione della distribuzione di probabilita' uniforme
-  * *E[g(x)]* e' stimabile con la **media dei valori *g(x<sub>i</sub>)***
-    e la varianza di *g(x)* e' stimabile con la 
+    per definizione della distribuzione di probabilità uniforme
+  * *E[g(x)]* è stimabile con la **media dei valori *g(x<sub>i</sub>)***
+    e la varianza di *g(x)* è stimabile con la 
     **deviazione standard della media dei valori *g(x<sub>i</sub>)***,
     che si calcola a partire dalla varianza *V[g(x)]*
-  * Dunque si puo' calcolare una stima dell'integrale di *g(x)* e della sua incertezza:
+  * Dunque si può calcolare una stima dell'integrale di *g(x)* e della sua incertezza:
     ![integrale_crude_res](immagini/integrale_crude_res.png)
 
 ![linea](../immagini/linea.png)
@@ -262,12 +262,12 @@
 
   * Il programma non vede la funzione nella sua interezza,
     quindi l'unico modo che ha per determinare dove sia lo zero 
-    e' **stimare la funzione in singoli punti**
+    è **stimare la funzione in singoli punti**
   * Date le ipotesi iniziali,
     lo zero della funzione si trova sicuramente fra due punti tali per cui
     la funzione **assume valore con segno opposto** fra questi due punti  
   * La tecnica della bisezione **restringe iterativamente questo intervallo**  
-    fino a che non diventa piu' piccolo di una risoluzione fissata
+    fino a che non diventa più piccolo di una risoluzione fissata
     ![integrale_crude_res](immagini/bisezione.png)
 
 ![linea](../immagini/linea.png)
@@ -302,9 +302,9 @@
 
   * L'algoritmo di bisezione effettua ripetutamente la **stessa operazione**
     in maniera ricorsiva
-  * Questo comportamento si puo' anche implementare in ```C++```, 
+  * Questo comportamento si può anche implementare in ```C++```, 
     scrivendo una **funzione ricorsiva**,
-    cioe' che invoca se stessa:  
+    cioè che invoca se stessa:  
     ```cpp
     double bisezione_ricorsiva (
       double g (double),
@@ -334,9 +334,9 @@
   * Il metodo di hit-or-miss necessita della **conoscenza del valore massimo**
     che assume *g(x)* sull'intervallo di integrazione,
     altrimenti non vengono generati punti in alcune zone
-    e la funzione effettivamente integrata e' diversa
+    e la funzione effettivamente integrata è diversa
   * Conoscere il **valore minimo** assunto dalla funzione permette di 
-    rendere l'algoritmo piu' efficiente,
+    rendere l'algoritmo più efficiente,
     evitando di generare punti in rettangoli sotto la funzione,
     per i quali l'area si calcola banalmente
     ![integrale_random_points_limits](immagini/integrale_random_points_limits.png)
@@ -351,7 +351,7 @@
     ![funzione_con_minimo](immagini/funzione_con_minimo.png)
   * Anche in questo caso si procede per passi,
     **restringendo ad ogni iterazione l'intervallo** che contiene l'estremante
-    fino a che diventa piu' piccolo di una precisione prefissata
+    fino a che diventa più piccolo di una precisione prefissata
 
 ![linea](../immagini/linea.png)
 
@@ -360,7 +360,7 @@
   * Per trovare il minimo di una funzione servono abbastanza punti da **capirne la pendenza** 
     in diverse regioni dell'intervallo, 
     quindi se ne cercano quattro, che determinano tre intervalli
-  * L'intervallo si stringe **eliminando il tratto dove il minimo di sicuro non c'e'**.
+  * L'intervallo si stringe **eliminando il tratto dove il minimo di sicuro non c'è**.
     ![sezione_aurea_pendenza](immagini/sezione_aurea_pendenza.png)
   * L'iterazione successiva si restringe a
     *[x<sub>3</sub>, x<sub>1</sub>]* se *g(x<sub>3</sub>) > g(x<sub>2</sub>)*,
@@ -375,7 +375,7 @@
     che uno dei due possa essere **utilizzato anche nell'iterazione seguente**,
     garantendo la stessa proporzione di suddivisione dell'intervallo
     ![sezione_aurea_r](immagini/sezione_aurea_r.png)
-  * Perche' questo sia possibile deve valere:
+  * Perché questo sia possibile deve valere:
     ![sezione_aurea_r](immagini/sezione_aurea_formula.png)
   * Dunque **il processo iterativo si restringe** intorno all'estremante della funzione:  
     ![sezione_aurea_r](immagini/sezione_aurea.png)
@@ -387,13 +387,13 @@
   * Esistono **molte tecniche** di ricerca di zeri ed estremanti di funzioni,
     che sono spesso il nocciolo duro di software di analisi dati  
   * Una collezione di algoritmi si trova nel volume **[numerical recipes](http://numerical.recipes/)**
-  * Oltre al problema locale di compiere operazioni in condizioni di buona regolarita',
+  * Oltre al problema locale di compiere operazioni in condizioni di buona regolarità,
     algoritmi generici devono anche trovare il modo di
     **ricondurre un problema generale a casi semplici**
     * Ad esempio, nel caso della ricerca di minimi 
       bisogna evitare che gli algoritmi trovino minimi locali
       e non identifichino il **minimo globale** di una funzione
-  * La funzionalita' di un algoritmo dipende criticamente dalla **dimensione
+  * La funzionalità di un algoritmo dipende criticamente dalla **dimensione
     dello spazio di definizione** delle funzioni   
 
 ![linea](../immagini/linea.png)
