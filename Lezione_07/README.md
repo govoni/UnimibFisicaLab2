@@ -47,7 +47,7 @@
   
   * in ```C++```, una funzione o un operatore vengono identificati univocamente
     dall'insieme di **nome e tipi in ingresso**,
-  * quindi e' possibile **utilizzare lo stesso nome** per operatori o funzioni 
+  * quindi è possibile **utilizzare lo stesso nome** per operatori o funzioni 
     con tipi in ingresso differenti:  
     ```cpp
     int somma (int a, int b)
@@ -60,7 +60,7 @@
         return a + b ;
       }
     ```
-  * durante l'esecuzione di un programma, il ```C++``` e' in grado di **scegliere 
+  * durante l'esecuzione di un programma, il ```C++``` è in grado di **scegliere 
     la funzione corretta** da utilizzare
 
 ![linea](../immagini/linea.png)
@@ -68,7 +68,7 @@
 ### 7.1.2 se potessimo lavorare meno...
 
   * nonostante le due funzioni abbiano la medesima implementazione,
-    e' stato necessario **scriverle entrambe**
+    è stato necessario **scriverle entrambe**
   * la programmazione ```template``` mira ad **evitare di riscrivere per tipi diversi**
     funzioni che hanno identica implementazione
   
@@ -94,7 +94,7 @@
     * ```<typename T>``` **definisce il nome** scelto in questo caso per indicare il tipo generico  
     * ```T somma (T a, T b)``` indica il **prototipo**: la funzione legge due variabili di tipo ```T``` 
       e restituisce una variabile di tipo ```T```
-    * la parola chiave ```typename``` puo' essere sempre sostituita dalla parola chiave ```class```
+    * la parola chiave ```typename``` può essere sempre sostituita dalla parola chiave ```class```
 
 ![linea](../immagini/linea.png)
 
@@ -134,7 +134,7 @@
 ### 7.2.4 ```template``` e compilazione
 
   * la risoluzione dei template avviene **in fase di compilazione** del programma
-  * questo significa che non si puo' separare la compilazione del ```main``` program 
+  * questo significa che non si può separare la compilazione del ```main``` program 
     da quella delle funzioni
   * quindi tutti gli strumenti ```template```,
     se vengono scritti in un file separato,
@@ -153,7 +153,7 @@
     ```
   * durante la compilazione di strumenti ```template``` il ```C++``` 
     porta a termine un **controllo sintattico accurato**
-  * la compilazione e' solitamente **lunga**
+  * la compilazione è solitamente **lunga**
   * **pochi errori** di scrittura possono tradursi in lunghe lamntele del compilatore
     * cercate sempre **il primo errore** di compilazione!
 
@@ -179,7 +179,7 @@
 ### 7.3.2 implementazione di una classe ```template```
 
   * anche in questo caso si utilizza la **parola chiave ```template```**
-    per indicare che la classe e' ```template``` 
+    per indicare che la classe è ```template``` 
   * e la **parola chiave ```typename```** per definire il nome del tipo generico
     da utilizzare nella scrittura della classe
     ```cpp
@@ -207,7 +207,7 @@
 
   * quando la classe ```SimpleArray``` viene utilizzata,
     bisogna **indicare esplicitamente il tipo** sul quale 
-    e' templata al momento della definizione di ogni oggetto:
+    è templata al momento della definizione di ogni oggetto:
     ```cpp
     SimpleArray<int> contenitore (10) ;
     for (int i = 0 ; i < 10 ; ++i)
@@ -218,7 +218,7 @@
 
 ## 7.4 ```template``` multipli
 
-  * E' possibile templare una funzione o una classe su **piu' di un tipo**
+  * E' possibile templare una funzione o una classe su **più di un tipo**
   * Ad esempio, si potrebbe templare la funzione ```somma```
     su due tipi differenti:
     ```cpp
@@ -233,7 +233,7 @@
 
 ## 7.5 la specializzazione dei ```template```
 
-  * talvolta puo' succedere che, 
+  * talvolta può succedere che, 
     per taluni tipi particolari,
     l'**implementazione di una funzione templata
     debba essere diversa** 
@@ -249,14 +249,14 @@
       }
     ```  
   * il preambolo ```template<>``` segnala al ```C++``` che questa implementazione
-    e' una specializzazione della funzione templata ```somma```
+    è una specializzazione della funzione templata ```somma```
 
 ![linea](../immagini/linea.png)
 
 ## 7.6 ```template``` su valori di variabili intere
 
   * oltre che su tipi di variabili,
-    si puo' templare una funzione o una classe
+    si può templare una funzione o una classe
     anche **sul valore di una variabile intera**
   * ad esempio,
     se si volessero definire elementi di uno spazio vettoriale
@@ -276,7 +276,7 @@
     } ;
 
     ```
-    e questo ```vettore``` si potrebbe utilizzare cosi':
+    e questo ```vettore``` si potrebbe utilizzare così:
     ```cpp
     vettore<2> v1 ;
     v1.setCoord (0, 3.) ;
@@ -284,8 +284,8 @@
     std::cout << v1.norm () << std::endl ;
     ```
   * essendo la classe templata, 
-    il valore di *N* e' noto al **momento della compilazione**,
-    quindi e' lecito utilizzare l'allocazione automatica della memoria
+    il valore di *N* è noto al **momento della compilazione**,
+    quindi è lecito utilizzare l'allocazione automatica della memoria
     per definire l'array ```elementi```
 
 ![linea](../immagini/linea.png)
@@ -293,10 +293,10 @@
 ## 7.7 ordine nelle librerie: i ```namespace```
 
   * Al crescere delle dimensioni di una libreria,
-    puo' essere comodo incorporarne gli strumenti (siano essi classi o funzioni)
+    può essere comodo incorporarne gli strumenti (siano essi classi o funzioni)
     all'interno di un **contenitore**,
     che permetta di identificarne la provenienza
-  * Un ```namespace``` fornisce questa possibilita'
+  * Un ```namespace``` fornisce questa possibilità
   * si potrebbe ad esempio raggruppare le varie funzioni ```somma``` 
     nel modo seguente:
     ```cpp
@@ -325,9 +325,9 @@
 
   * gli **strumenti standard** di ```C++``` sono definiti all'interno del ```namespace``` ```std```
     (ad esempio ```std::cout```)
-  * si puo' istruire il compilatore a **cercare automaticamente** uno strumento
+  * si può istruire il compilatore a **cercare automaticamente** uno strumento
     all'interno di un determinato ```namespace```, 
-    evitando cosi' di indicarlo esplicitamente:
+    evitando così di indicarlo esplicitamente:
     ```cpp
     using namespace std ;
     int main (int argc, char ** argv)
@@ -337,23 +337,23 @@
       }
 
     ```
-  * e' buona norma **non** invocare ```using namespace std ;``` all'interno di **header file**,
-    perche' avrebbe effetto in tutti i programmi che includono quell'header
+  * è buona norma **non** invocare ```using namespace std ;``` all'interno di **header file**,
+    perché avrebbe effetto in tutti i programmi che includono quell'header
 
 ![linea](../immagini/linea.png)
 
 ## 7.8 Le Standard Template Library
 
-  * La generalita' di strumenti garantita dalla programmazione ```template```
+  * La generalità di strumenti garantita dalla programmazione ```template```
     viene grandemente utilizzata per creare **librerie di utilizzo generale**,
-    scritte da esperti e che non e' quindi necessario reimplementare
+    scritte da esperti e che non è quindi necessario reimplementare
   * Le **Standard Template Library (STL)** offrono diversi tipi di strumenti:
     algoritmi, contenitori, funzioni, iteratori.
   * come nel caso di ```ROOT```,
     per utilizzare uno strumento STL bisogna **includerne l'header**. 
   * A differenza di ```ROOT```, 
-    questa libreria e' gia' inclusa nel ```C++``` standard,
-    quindi **non e' necessario aggiungere opzioni** al comando di compilazione
+    questa libreria è già inclusa nel ```C++``` standard,
+    quindi **non è necessario aggiungere opzioni** al comando di compilazione
 
 ![linea](../immagini/linea.png)
 
@@ -361,17 +361,17 @@
 
   * Si intende solitamente come **livello della programmazione**    
     la distanza concettuale fra il codice sorgente ed il linguaggio macchina:
-    piu' le istruzioni scritte in un programma fanno uso di librerie esistenti,
-    piu' e' alto il livello di programmazione.
+    più le istruzioni scritte in un programma fanno uso di librerie esistenti,
+    più è alto il livello di programmazione.
   * Diversi livelli di programmazione richiedono una diversa comprensione
     degli strumenti utilizzati.
-  * Tipicamente, **a basso livello** e' necessario prevedere quali problemi potrebbero sorgere
+  * Tipicamente, **a basso livello** è necessario prevedere quali problemi potrebbero sorgere
     nell'utilizzo dell'hardware del calcolatore.  
     Ad esempio, bisogna controllare che l'accesso ad un array avvenga
     tramite un indice con valore positivo minore della dimensione dell'array.
   * Ad **alto livello**, invece,
     si assume solitamente che l'interazione con l'hardware sia ben gestita dalle librerie,
-    mentre e' necessario comprendere la loro logica ed il loro comportamento,
+    mentre è necessario comprendere la loro logica ed il loro comportamento,
     per utilizzarle al meglio.
 
 ![linea](../immagini/linea.png)
@@ -384,7 +384,7 @@
     e della frequenza di accesso ad ogni oggetto
   * noi ne studiamo due molto utilizzati,
     a titolo esempificativo
-  * documentazione piu' esaustiva si trova in internet,
+  * documentazione più esaustiva si trova in internet,
     ad esempio [qui](https://justinmeiners.github.io/sgi-stl-docs)  
 
 ![linea](../immagini/linea.png)
@@ -392,7 +392,7 @@
 ### 7.9.1 Una sequenza di elementi: ```std::vector```
 
   * La classe [```vector```]( www.cplusplus.com/reference/vector/vector/), che appartiene al namespace ```std```, 
-    e' templata sul tipo di oggetto che contiene.
+    è templata sul tipo di oggetto che contiene.
   * Un **```vector``` viene creato** vuoto (```v_1```), 
     oppure composto da *N* elementi con il medesimo valore (```v_2```),
     oppure a partire da un altro ```vector``` (```v_3```):
@@ -413,8 +413,8 @@
     cout << "elemento 1 di v_2 " << v_2.at (1) << endl ;
     ```
     * il primo metodo funziona esattamente come per un array, 
-      quindi puo' creare **problemi di gestione della memoria**
-    * il secondo metodo controlla la validita' dell'indice rispetto alla dimensione del ```vector```
+      quindi può creare **problemi di gestione della memoria**
+    * il secondo metodo controlla la validità dell'indice rispetto alla dimensione del ```vector```
       e **produce un errore di esecuzione**
       nel caso in cui l'indice non indichi un elemento del ```vector```:
       ```
@@ -435,7 +435,7 @@
     ```
     * il metodo ```vector::size ()``` restituisce il **numero di elementi** contenuti nel vector
     * similmente,
-      si puo' **eliminare l'ultimo elemento** di un ```vector```
+      si può **eliminare l'ultimo elemento** di un ```vector```
       con il metodo ```vector::pop_back ()```:
     ```cpp
     v_1.pop_back () ; 
@@ -448,7 +448,7 @@
 
   * un ```vector``` **contiene un array** di elementi e fornisce l'interfaccia di accesso
     e modifica
-  * per accedere direttamente all'array, e' sufficiente **dereferenziare il primo elemento** del ```vector```:
+  * per accedere direttamente all'array, è sufficiente **dereferenziare il primo elemento** del ```vector```:
     ```cpp
     double * array_3 = & v_3.at (0) ;
     cout << "elemento 2 di v_3 " << array_3[2] << endl ;
@@ -459,7 +459,7 @@
 ### 7.9.5 l'iterazione sugli elementi di un ```std::vector```
 
   * per **iterare sugli elementi di un ```vector```**, 
-    si puo' utilizzare una sintassi analoga a quella che si userebbe per un array:
+    si può utilizzare una sintassi analoga a quella che si userebbe per un array:
     ```cpp
     for (int i = 0 ; i < v_3.size () ; ++i)
       cout << "elemento " << i << ": " << v_3.at (i) << "\n" ;
@@ -474,12 +474,12 @@
     ```
     * un **iteratore** si comporta come puntatore ad un elemento di un contenitore
       con in aggiunta metodi per spostarsi ad elementi contigui del contenitore
-    * di conseguenza, ```*it``` e' l'elemento contenuto in quell'elemento del ```vector```  
+    * di conseguenza, ```*it``` è l'elemento contenuto in quell'elemento del ```vector```  
     * il metodo **vector::begin ()** 
       restituisce l'iteratore al **primo elemento** del ```vector```
     * il metodo **vector::end ()** restituisce l'interatore alla locazione di memoria
       **successiva all'ultimo elemento** del ```vector```,
-      dunque il ciclo non avviene se ```it``` e' uguale a ```v_3.end ()```
+      dunque il ciclo non avviene se ```it``` è uguale a ```v_3.end ()```
     * gli iteratori **hanno una propria algebra**, 
       per cui la differenza fra iteratori dello stesso contenitore  
       indica il numero di elementi che intercorrono fra loro  
@@ -488,11 +488,11 @@
 
 ### 7.9.6 ```std::vector``` di oggetti
 
-  * il comportamento dei tipi di default dei ```C++``` e' sempre ben regolato
+  * il comportamento dei tipi di default dei ```C++``` è sempre ben regolato
   * gli strumenti ```template``` possono essere utilizzati **con un qualunque tipo**,
-    dunque e' necessario che l'implementazione degli oggetti 
+    dunque è necessario che l'implementazione degli oggetti 
     garantisca il buon funzionamento delle librerie STL
-  * in particolare, e' necessario che siano definiti il *copy constructor* e l'operatore di assegnazione
+  * in particolare, è necessario che siano definiti il *copy constructor* e l'operatore di assegnazione
     per il tipo ```T```
 
 ![linea](../immagini/linea.png)
@@ -503,23 +503,23 @@
     delle STL funziona **come un elenco telefonico**:
     contiene una lista di valori (i numeri di telefono)
     associati ad una chiave per ordinarli (cognomi e nomi),
-    dunque e' templata su due argomenti:
+    dunque è templata su due argomenti:
     ```cpp
     map <int, double> mappa_di_esempio ;
     ```
   * Per ogni chiave esiste **un solo valore** contenuto nella ```map```
   * Il primo argomento (la chiave) **deve essere ordinabile**,
-    cioe' deve esistere l'```operator<``` per quel tipo o classe
-  * La ```map``` e' un **contenitore ordinato**,
-    cioe' gli elementi al suo interno su susseguono 
+    cioè deve esistere l'```operator<``` per quel tipo o classe
+  * La ```map``` è un **contenitore ordinato**,
+    cioè gli elementi al suo interno su susseguono 
     secondo la relazione d'ordine che esiste per le chiavi
 
 ![linea](../immagini/linea.png)
 
 ### 7.9.8 Il riempimento di una ```std::map```
 
-  * Il modo piu' semplice per riempire una ```map```
-    e' utilizzare l'```operator[]```, 
+  * Il modo più semplice per riempire una ```map```
+    è utilizzare l'```operator[]```, 
     che ha un comportamento duplice:
     se l'elemento corripondente ad una data chiave non esiste, 
     viene creato, altrimenti viene restituito l'elemento esistente:
@@ -541,9 +541,9 @@
 
   * per accedere ad un **singolo elemento esistente** in una ```map```
     si utilizza l'```operator[]```
-  * ogni elemento della ```map``` e' tecnicamente una **coppia di oggetti**,
+  * ogni elemento della ```map``` è tecnicamente una **coppia di oggetti**,
     definita nelle STL come ```std::pair```,
-    che e' templata sui due stessi tipi della ```map```
+    che è templata sui due stessi tipi della ```map```
   * la classe ```pair``` ha due membri pubblici, chiamati **```first``` e ```second```**, 
     che corrispodono al primo e secondo elemento della coppia rispettivamente    
   * per **iterare su una ```map```** si utilizza l'iteratore STL corrispondente:
@@ -590,7 +590,7 @@
     ```
   * Il metodo ```string::length ()``` resituisce il **numero di caratteri** che compongono la ```string```
     sul quale viene invocato
-  * L'uguaglianza fra due ```string``` si puo' verificare con l'```operator==()```.  
+  * L'uguaglianza fra due ```string``` si può verificare con l'```operator==()```.  
 
 ![linea](../immagini/linea.png)
 
@@ -616,11 +616,11 @@
 ### 7.10.3 ```string``` e caratteri
 
   * Una ```string``` contiene anche il **carattere che ne determina la fine**,
-    dunque ```'A'``` e' diverso da ```"A"```:
-    * ```'A'``` e' un **singolo carattere**, salvato il memoria come tale, occupa 1 byte in memoria.
-    * ```"A"``` e' una **stringa** composta da un carattere, 
+    dunque ```'A'``` è diverso da ```"A"```:
+    * ```'A'``` è un **singolo carattere**, salvato il memoria come tale, occupa 1 byte in memoria.
+    * ```"A"``` è una **stringa** composta da un carattere, 
       occupa 8 byte in memoria in formato ```C```
-      e di piu' in formato ```string```, 
+      e di più in formato ```string```, 
       per via della struttura interna della classe ```string```
       ```cpp
       char A = 'A' ; 
@@ -630,10 +630,10 @@
       cout << sizeof (S.c_str ()) << endl ;
       cout << sizeof (S) << endl ;   
       ```
-    * Per compatibilita' con funzioni implementate con lo stile ```C```,
+    * Per compatibilità con funzioni implementate con lo stile ```C```,
       il metodo ```string::c_str ()``` restituisce il **vettore di caratteri**
       con il contenuto della variabile di tipo ```string```
-  * In generale e' preferibile **utilizzare ```string``` invece di ```char []```** nonappena possibile,
+  * In generale è preferibile **utilizzare ```string``` invece di ```char []```** nonappena possibile,
     per via della migliore gestione della memoria,
     oltre che per i diversi strumenti di manipolazione delle stringhe
     disponibili per la classe ```string```.
