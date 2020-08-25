@@ -8,7 +8,7 @@
     * [5.1.3 come compilare un programma che include classi di ```ROOT```](#513-come-compilare-un-programma-che-include-classi-di-root)
   * [5.2 ```TH1F```: istogrammi monodimensionali](#52-th1f-istogrammi-monodimensionali)
     * [5.2.1 i bin di un istogramma](#521-i-bin-di-un-istogramma)
-    * [5.2.2 istogrammi monodimensionali e distribuzioni di densita' di probabilita'](#522-istogrammi-monodimensionali-e-distribuzioni-di-densita-di-probabilita)
+    * [5.2.2 istogrammi monodimensionali e distribuzioni di densità di probabilità](#522-istogrammi-monodimensionali-e-distribuzioni-di-densità-di-probabilità)
     * [5.2.3 istogrammi monodimensionali in ```ROOT```](#523-istogrammi-monodimensionali-in-root)
     * [5.2.4 riempimento di un ```TH1F```](#524-riempimento-di-un-th1f)
     * [5.2.5 visualizzazione di un ```TH1F```](#525-visualizzazione-di-un-th1f)
@@ -44,8 +44,8 @@
     che si presenta nella forma di una linea di comando,
     dove istruzioni scritte in ```C++``` vengono interpretate
     da un parser dedicato
-  * In questo corso vi mostriamo alcune funzionalita' di ```ROOT```, 
-    la descrizione completa di quello che puo' fare
+  * In questo corso vi mostriamo alcune funzionalità di ```ROOT```, 
+    la descrizione completa di quello che può fare
     si trova nella documentazione on-line 
 
 ![linea](../immagini/linea.png)
@@ -66,7 +66,7 @@
         return 0 ;
       }
     ```
-  * la **visualizzazione** degli strumenti statistici e' un aspetto fondamentale del programma,
+  * la **visualizzazione** degli strumenti statistici è un aspetto fondamentale del programma,
     quindi molte opzioni grafiche sono integrate negli oggetti statistici
 
 ![linea](../immagini/linea.png)
@@ -76,11 +76,11 @@
   * dopo l'installazione, le librerie di ```ROOT``` sono salvate nel disco fisso
     solitamente in una cartella dedicata
   * per avviare l'interfaccia interattiva e per conoscere dove stiano le librerie,
-    **e' necessario che:** 
+    **è necessario che:** 
       * la cartella che contiene l'eseguibile ```root```
         faccia parte della lista di indirizzi salvati nella variabile d'ambiente della SHELL
         ```$PATH```
-      * la cartella che contiene le librerie precompilate f
+      * la cartella che contiene le librerie precompilate
         faccia parte della lista di indirizzi salvati nella variabile d'ambiente della SHELL
         ```$LD_LIBRARY_PATH```
   * esiste lo script ```thisroot.sh``` nelle cartelle di installazione che va richiamato
@@ -93,14 +93,14 @@
 
 ### 5.1.3 come compilare un programma che include classi di ```ROOT```
 
-  * e' necessario **fornire al compilatore opzioni aggiuntive** perche' sia in grado di trovare
+  * è necessario **fornire al compilatore opzioni aggiuntive** perché sia in grado di trovare
     tutti i file da includere e tutte le librerie da compilare
   * la lista di opzioni aggiuntive si **visualizza** con il seguente comando di SHELL:
     ```
     > root-config --cflags --glibs  
     ```
   * per evitare di copiare ed incollare il suo output nel comando di compilazione,
-    si puo' **includere la sua chiamata direttamente nel programma di compilazione**,
+    si può **includere la sua chiamata direttamente nel programma di compilazione**,
     utilizzando gli apici inversi:
     ```
     > c++ -o main_00 `root-config --glibs --cflags` main_00.cpp
@@ -115,7 +115,7 @@
     che chiamiamo **eventi**
   * si parte quindi da **un campione di eventi *{x<sub>i</sub>}<sub>i=1,..,N</sub>***
     * un esempio di un campione di eventi
-      e' **l'insieme delle misure raccolte durante un esperimento**,
+      è **l'insieme delle misure raccolte durante un esperimento**,
       oppure una **sequenza di numeri pseudo-casuali**
 
 ![linea](../immagini/linea.png)
@@ -124,9 +124,9 @@
 
   * per una variabile casuale di interesse *x*, si suddivide il suo intervallo di definizione
     in **sotto-intervalli adiacenti e disgiunti** delimitati da *{x<sub>k</sub>}*
-    * l'intervallo *k*-esimo e' limitato fra x<sub>k</sub> ed x<sub>k+1</sub>
+    * l'intervallo *k*-esimo è limitato fra x<sub>k</sub> ed x<sub>k+1</sub>
     * solitamente gli intervalli sono chiamati **bin**
-  * un istogramma e' l'**insieme dei conteggi degli eventi che cascano in ogni intervallo** 
+  * un istogramma è l'**insieme dei conteggi degli eventi che cascano in ogni intervallo** 
 ![istogramma](immagini/istogramma_solo.png)
   * la visualizzazione di un istogramma mono-dimensionale mostra tipicamente:
     * sull'**asse orizzontale** l'intervallo di definizione della variabile *x*
@@ -135,15 +135,15 @@
 
 ![linea](../immagini/linea.png)
 
-### 5.2.2 istogrammi monodimensionali e distribuzioni di densita' di probabilita'
+### 5.2.2 istogrammi monodimensionali e distribuzioni di densità di probabilità
 
   * al **limite per la dimensione dei bin che diventa infinitesima**,
     un istogramma diventa una funzione continua
 ![istogramma_pdf](immagini/istogramma_e_pdf.png)
   * se si dividesse il contenuto di ogni bin per il numero totale di eventi *N*,
-    questa funzione e' normalizzata, 
+    questa funzione è normalizzata, 
     quindi un istogramma diventa l'approssimazione di una 
-    distribuzione di densita' di probabilita'
+    distribuzione di densità di probabilità
 
 ![linea](../immagini/linea.png)
 
@@ -154,7 +154,7 @@
     TH1F istogramma ("istogramma", "titolo", 10, -5., 5.) ;
     ```
   * il costruttore di ```TH1F``` prende come input:
-    * un **nome**: e' saggio usare il medesimo della variabile
+    * un **nome**: è saggio usare il medesimo della variabile
     * un **titolo**, che viene scritto sopra l'istogramma
     * il **numero di bin** (```10``` in questo caso) in cui dividere l'intervallo di definizione della variabile
     * l'**intervallo di definizione** della variabile (```-5., 5.``` in questo caso)
@@ -163,8 +163,8 @@
 
 ### 5.2.4 riempimento di un ```TH1F```
 
-  * un oggetto della classe ```TH1F``` viene creato, **e' vuoto**,
-    cioe'  i conteggi di ogni singolo bin sono nulli 
+  * un oggetto della classe ```TH1F``` viene creato, **è vuoto**,
+    cioè  i conteggi di ogni singolo bin sono nulli 
   * per riempire l'istogramma,
     si utilizza il suo metodo ```Fill```,
     che viene chiamato per ogni evento:  
@@ -183,8 +183,8 @@
 
   * per visualizzare un istogramma, serve istanziare un oggetto grafico
     della classe ```TCanvas```,
-    che e' la tela dove l'istogramma viene disegnato
-      * e' necessario includere ```TCanvas.h``` perche' il programma compili
+    che è la tela dove l'istogramma viene disegnato
+      * è necessario includere ```TCanvas.h``` perché il programma compili
     ```cpp
     TCanvas c1 ;
     istogramma.Draw () ;
@@ -199,28 +199,28 @@
 
 ### 5.2.6 opzioni grafiche
 
-  * perche' l'informazione sull'istogramma sia completa,
-    e' necessario aggiungere informazioni riguardo il **significato degli assi**,
+  * perché l'informazione sull'istogramma sia completa,
+    è necessario aggiungere informazioni riguardo il **significato degli assi**,
     prima di invocare il metodo ```Draw```:
     ```cpp
     istogramma.SetFillColor (kOrange + 1) ;
     istogramma.GetXaxis ()->SetTitle ("asse x") ;
     istogramma.GetYaxis ()->SetTitle ("conteggi per bin") ;
     ```
-  * inoltre, e' possibile cambiare il colore di riempimento di un istogramma:
+  * inoltre, è possibile cambiare il colore di riempimento di un istogramma:
     ```cpp
     istogramma.SetFillColor (kOrange + 1) ;
     ```
 ![istogramma](immagini/primo_TH1F_col.png)
-  * la descrizione dettagliata di tutte le funzionalita'
+  * la descrizione dettagliata di tutte le funzionalità
     ed opzioni di disegno degli istogrammi
-    e' **documentata nella relativa [guida per l'utente](https://root.cern.ch/root/htmldoc/guides/users-guide/Histograms.html)**
+    è **documentata nella relativa [guida per l'utente](https://root.cern.ch/root/htmldoc/guides/users-guide/Histograms.html)**
 
 ![linea](../immagini/linea.png)
 
 ### 5.2.7 un esempio: la forma funzionale Gaussiana
 
-  * si puo' utilizzare un oggetto di tipo ```TH1F```
+  * si può utilizzare un oggetto di tipo ```TH1F```
     per **visualizzare la distribuzione di eventi pseudo-casuali** generati
     con gli algoritmi scritti nella lezione precedente
   * assumendo che la **funzione che genera numeri casuali**
@@ -229,7 +229,7 @@
     ```cpp
     float rand_TCL (float xMin, float xMax, int N = 10)
     ```
-  * si puo' rimepire un istograma di test dell'algoritmo in questo modo:
+  * si può rimepire un istograma di test dell'algoritmo in questo modo:
     ```cpp
     TH1F h ("h", "eventi pseudo-casuali Gaussiani", 200, -1.5, 1.5) ;
     for (int j = 0 ; j < 1000000 ; ++j)
@@ -243,23 +243,23 @@
 ### 5.2.8 scale logaritmiche
 
   * quando i valori in diversi bin cambiano considerevolmente,
-    puo' essere comodo **visuallizzare gli istogrammi in scala logaritmica**
+    può essere comodo **visuallizzare gli istogrammi in scala logaritmica**
     (lungo l'asse orizzontale o verticale),
-    per migliorare la leggibilita' del risultato
+    per migliorare la leggibilità del risultato
   * essendo una diversa visualizzazione dello stesso contenuto,
-    e' un'operazione che si fa con un metodo della classe ```TCanvas```
+    è un'operazione che si fa con un metodo della classe ```TCanvas```
     ```cpp
     c1.SetLogy () ;
     c1.Print ("Gaussian.png", "png") ;
     ```
-    * chiaramente, lo zero dell'asse in scala logaritmica non puo' comparire nelle immagini
+    * chiaramente, lo zero dell'asse in scala logaritmica non può comparire nelle immagini
 ![gaussiana](immagini/Gaussian_TH1F_log.png)
 
 ![linea](../immagini/linea.png)
 
 ### 5.2.9 le statistiche di un istogramma
 
-  * e' possibile estrarre i valori della **media e della deviazione standard**
+  * è possibile estrarre i valori della **media e della deviazione standard**
     degli eventi salvati in un istogramma:
     ```cpp
     std::cout << "numero di eventi:    " << h.GetEntries () << std::endl ;
@@ -273,12 +273,12 @@
 
   * dato un campione di variabili casualu *{x<sub>i</sub>}<sub>i=1,..,N</sub>***
     indipendenti identicamente distribuiti,
-    **la varianza della distribuzione e' la media degli scarti quadratici dalla media**
-  * si dimostra che la varianza di un campione e' uguale alla **media dei quadrati meno il quadrato della media**:
+    **la varianza della distribuzione è la media degli scarti quadratici dalla media**
+  * si dimostra che la varianza di un campione è uguale alla **media dei quadrati meno il quadrato della media**:
     *V = E[x<sup>2</sup>]-E[x]<sup>2</sup>* 
-    (*E[f]* e' il valore di aspettazione di f sul campione in esame)
-  * la radice della varianza e' detta **sigma, o deviazione standard**
-    ed e' una stima della dispersione del campione attorno alla sua media
+    (*E[f]* è il valore di aspettazione di f sul campione in esame)
+  * la radice della varianza è detta **sigma, o deviazione standard**
+    ed è una stima della dispersione del campione attorno alla sua media
 
 ![linea](../immagini/linea.png)
 
@@ -287,7 +287,7 @@
   * all'aumentare del numero di eventi nel campione,
     la dispersone degli eventi non cambia, quindi **la varianza rimane costante**
     per variabili identicamente distribuite
-  * chiaramente, siccome ogni campione e' finito,
+  * chiaramente, siccome ogni campione è finito,
     i valori della varianza ottenuti con campioni diversi non sono identici, 
     ma ci si aspetta che siano **compatibili fra loro**
   * di conseguenza, 
@@ -299,10 +299,10 @@
 
   * se si conosce media e varianza di un campione, 
     si ha un'idea di **dove ci si aspetta di trovare l'evento successivo** di quel campione
-  * se il campione e' un insieme di misure,
+  * se il campione è un insieme di misure,
     la deviazione standard dice quanto distante ci si aspetta di trovare la **prossima misura**
     dalla media delle misure raccolte
-  * dunque, la deviazione standard e' associata all'**incertezza sulla singola misura**  
+  * dunque, la deviazione standard è associata all'**incertezza sulla singola misura**  
 
 ![linea](../immagini/linea.png)
 
@@ -312,15 +312,15 @@
     con la quale si conosce la media** del campione
   * la **deviazione standard della media**,
     definita come la deviazione standard divisa per la radice del numero di eventi nel campione,
-    e' una stima dell'**incertezza sulla media**
+    è una stima dell'**incertezza sulla media**
 
 ![linea](../immagini/linea.png)
 
 ## 5.4 rappresentazione di andamenti *y* vs *x*: i ```TGraph```
 
   * gli istogrammi mostrano una **singola variabile fisica**
-  * talvolta e' utile visualizzare **coppie di misure** *(x,y)*
-  * in ```ROOT``` la classe che si utilizza per farlo e' il ```TGraph```
+  * talvolta è utile visualizzare **coppie di misure** *(x,y)*
+  * in ```ROOT``` la classe che si utilizza per farlo è il ```TGraph```
 
 ![linea](../immagini/linea.png)
 
@@ -338,10 +338,10 @@
     ```cpp
     TGraph g_sigma ;
     ```
-    * l'oggetto e' **vuoto**: non contiene alcuna variabile
+    * l'oggetto è **vuoto**: non contiene alcuna variabile
     * esistono **altri costruttori** oltre a quello di default,
       che permettono di inizializzare un ```TGraph``` con un insieme di coppie di punti nulli
-      oppure a partire da array gia' riempiti
+      oppure a partire da array già riempiti
 
 ![linea](../immagini/linea.png)
 
@@ -349,18 +349,18 @@
 
   * un ```TGraph``` viene **riempito** con il metodo ```TGraph::SetPoint (Int_t i, Double_t x, Double_t y)```,
     che prende in input:
-    * l'**indice del punto da riempire**, che per il primo punto e' *0*
+    * l'**indice del punto da riempire**, che per il primo punto è *0*
     * il **valore della variabile *x***
     * il **valore della variabile *y***
     ```cpp
     g_sigma.SetPoint (g_sigma.GetN (), 11.5, 7.4) ;
     ```
     * in questo caso, come primo argomento si utilizza il metodo stesso ```TGraph::GetN ()```,
-      perche' per un ```TGraph``` che contiene ```N``` elementi
-      l'indice dell'ultimo elemento salvato e' ```N-1```
+      perché per un ```TGraph``` che contiene ```N``` elementi
+      l'indice dell'ultimo elemento salvato è ```N-1```
   * si noti che ```ROOT``` ridefinisce le variabili numeriche del ```C++```
     (sostituendo ```int``` con ```Int_t``` e ```double``` con ```Double_t``` in questo caso),
-    perche' le variaibli definite internamente da ```ROOT``` hanno una dimensione in byte convenzionale
+    perché le variaibli definite internamente da ```ROOT``` hanno una dimensione in byte convenzionale
 
 ![linea](../immagini/linea.png)
 
@@ -407,12 +407,12 @@
     mentre l'altra diminuisce all'aumentare del numero di eventi
     presenti nel campione
 ![deviazione_standard](immagini/sigma_trends.png)
-  * il campionamento di punti sull'asse *x* e' fatto
+  * il campionamento di punti sull'asse *x* è fatto
     **con ragione logaritmica**,
-    perche' l'andamento atteso e' lento
+    perché l'andamento atteso è lento
     (proporzionale a radice di *N*)
   * la **scala logaritmica sull'asse *x***
-    aiuta a visualizzare in modo piu' efficace queste variazioni
+    aiuta a visualizzare in modo più efficace queste variazioni
 
 ![linea](../immagini/linea.png)
 
@@ -420,7 +420,7 @@
 
   * il concetto di istogramma monodimensionale si applica facilmente anche al **caso bidimensionale**
   * l'oggetto di ```ROOT``` associato a questo concetto si chiama ```TH2F```
-  * nel costruttore, e' necessario inserire numero di bin ed estremi per due direzioni
+  * nel costruttore, è necessario inserire numero di bin ed estremi per due direzioni
     ```cpp
     TH2F h2 ("h2", "eventi pseudo-casuali Gaussiani", 200, -1.5, 1.5, 200, -1.5, 1.5) ;
     ```
@@ -434,11 +434,11 @@
 
 ## 5.6 L'interfaccia interattiva di ```ROOT```: la classe ```TApplication```
 
-  * i ```TCanvas``` di ```ROOT``` sono dotati di diverse **funzionalita' interattive**
+  * i ```TCanvas``` di ```ROOT``` sono dotati di diverse **funzionalità interattive**
     alle quali si accede con menu a tendina o contestuali 
     (accessibili con il pulsante destro del mouse)
-  * per **abilitare queste funzionalita'** in un programma compilato,
-    e' necessario utilizzare un oggetto della classe **TApplication**
+  * per **abilitare queste funzionalità** in un programma compilato,
+    è necessario utilizzare un oggetto della classe **TApplication**
     ```cpp
     TApplication theApp ("theApp", &argc, argv) ;
     TCanvas c1 ;
@@ -454,7 +454,7 @@
       theApp.Run () ;
       ```
       va incluso tutto il codice che si vuole interattivo
-    * puo' esistere un solo oggetto di tipo ```TApplication``` in ogni programma
+    * può esistere un solo oggetto di tipo ```TApplication``` in ogni programma
     * per terminare l'esecuzione del programma, 
       da un qualunque ```TCanvas``` bisogna utilizzare il menu ```File->Quit ROOT```
 
@@ -463,7 +463,7 @@
 ## 5.7 Una gestione furba del testo: ```TString```
 
   * ```ROOT``` fornisce un oggetto che serve per **maneggiare stringhe**
-    che puo' essere utilizzato come argomento nei metodi delle sue classi
+    che può essere utilizzato come argomento nei metodi delle sue classi
   * le ```TString``` hanno definite una serie di operazioni
     che permettono di **combinare velocemente testo con altre variabili**
     ```cpp
