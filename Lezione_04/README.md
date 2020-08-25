@@ -12,14 +12,14 @@
     * [4.1.7 come cambiare il seed di generazione](#417-come-cambiare-il-seed-di-generazione)
   * [4.2 generare numeri pseudo-casuali con distribuzione uniforme](#42-generare-numeri-pseudo-casuali-con-distribuzione-uniforme)
     * [4.2.1 una distribuzione uniforme di numeri razionali pseudo-casuali](#421-una-distribuzione-uniforme-di-numeri-razionali-pseudo-casuali)
-  * [4.3 altre distribuzioni di probabilita': try-and-catch](#43-altre-distribuzioni-di-probabilita-try-and-catch)
+  * [4.3 altre distribuzioni di probabilità: try-and-catch](#43-altre-distribuzioni-di-probabilità-try-and-catch)
     * [4.3.1 l'algoritmo try-and-catch (TAC)](#431-lalgoritmo-try-and-catch-tac)
     * [4.3.2 l'implementazione dell'algoritmo try-and-catch](#432-limplementazione-dellalgoritmo-try-and-catch)
     * [4.3.3 vantaggi e svantaggi dell'algoritmo try-and-catch](#433-vantaggi-e-svantaggi-dellalgoritmo-try-and-catch)
-  * [4.4 altre distribuzioni di probabilita': la funzione inversa](#44-altre-distribuzioni-di-probabilita-la-funzione-inversa)
+  * [4.4 altre distribuzioni di probabilità: la funzione inversa](#44-altre-distribuzioni-di-probabilità-la-funzione-inversa)
     * [4.4.1 l'algoritmo della funzione inversa](#441-lalgoritmo-della-funzione-inversa)
     * [4.4.2 vantaggi e svantaggi dell'algoritmo della funzione inversa](#442-vantaggi-e-svantaggi-dellalgoritmo-della-funzione-inversa)
-  * [4.5 distribuzioni di probabilita' Gaussiane: il teorema centrale del limite](#45-distribuzioni-di-probabilita-gaussiane-il-teorema-centrale-del-limite)
+  * [4.5 distribuzioni di probabilità Gaussiane: il teorema centrale del limite](#45-distribuzioni-di-probabilità-gaussiane-il-teorema-centrale-del-limite)
     * [4.5.1 l'implementazione dell'algoritmo](#451-limplementazione-dellalgoritmo)
     * [4.5.2 vantaggi e svantaggi dell'algoritmo della funzione inversa](#452-vantaggi-e-svantaggi-dellalgoritmo-della-funzione-inversa)
   * [4.6 ESERCIZI](#46-esercizi)
@@ -32,7 +32,7 @@
     si porta a termine il **confronto fra i dati raccolti e un modello della natura**
     * per **falsificare il modello**, oppure
     * per **determinare il valore (e l'incertezza** associata) di uno dei suoi parametri
-  * e' cruciale saper **calcolare le previsioni** di un modello
+  * è cruciale saper **calcolare le previsioni** di un modello
     * spesso **non si conosce** il modello in forma analitica 
       e si ricorre a **metodi computazionali alternativi** per ottenere le previsioni 
       da confrontare con le misure
@@ -46,8 +46,8 @@
 
   * un **processo casuale, o stocastico**,
     produce una successione di numeri distribuiti casualmente 
-    secondo una distribuzione di probabilita' fissata
-  * la probabilita' che un determinato numero compaia in qualunque punto della successione
+    secondo una distribuzione di probabilità fissata
+  * la probabilità che un determinato numero compaia in qualunque punto della successione
     **non dipende dai numeri che lo precedono o che lo seguono**
   * ad esempio:
     * il **tempo di arrivo di raggi cosmici** su un rivelatore di muoni
@@ -62,13 +62,13 @@
   * esistono programmi e librerie, 
     detti in generale **generatori di numeri pseudo-casuali**,
     che producono successioni di numeri tali da **sembrare** numeri casuali
-  * la sequenza dei numeri nelle successioni e' deterministica,
+  * la sequenza dei numeri nelle successioni è deterministica,
     e le funzioni utilizzate per la generazione sono costruite per 
     **mimare il comportamento di successioni casuali**
   * il primo numero di una successione (o sequenza) di numeri pseudo-casuali
     si chiama *seed*,
-    perche' noto quel numero e l'algoritmo di generazione 
-    si puo' riprodurre l'intera sequenza
+    perché noto quel numero e l'algoritmo di generazione 
+    si può riprodurre l'intera sequenza
     * chiaramente, da diversi seed iniziano sequenze di numeri pseudo-casuali diverse
 
 ![linea](../immagini/linea.png)
@@ -76,11 +76,11 @@
 ### 4.1.3 il generatore lineare congruenziale
 
   * un esempio di formula per **calcolare l'elemento successivo**
-    di una sequenza pseudo-casuale dato un qualunque numero e' il seguente:
+    di una sequenza pseudo-casuale dato un qualunque numero è il seguente:
 ![lineare-congruenziale](immagini/lineare_congruenziale.png)
   * con:
 ![lineare-congruenziale_condizioni](immagini/lineare_congruenziale_condizioni.png)
-  * il **primo elemento della sequenza**, con indice zero, e' il seed
+  * il **primo elemento della sequenza**, con indice zero, è il seed
   * questo algoritmo genera per costruzione **numeri compresi fra 0 ed M**
 
 ![linea](../immagini/linea.png)
@@ -88,13 +88,13 @@
 ### 4.1.4 le problematiche dei generatori di numeri pseudo-casuali
 
   * la dipendenza funzionale fra due numeri pseudo-casuali consecutivi **non deve essere visibile**
-  * se in una sequenza di numeri pseudo-casuali ricompare un numero gia' visto,
+  * se in una sequenza di numeri pseudo-casuali ricompare un numero già visto,
     la sequenza inizia a ripetersi da quel punto: 
-    si tratta della **periodicita' del generatore**.
-  * il periodo deve essere **molto maggiore** della quantita' di numeri pseudo-casuali generati
+    si tratta della **periodicità del generatore**.
+  * il periodo deve essere **molto maggiore** della quantità di numeri pseudo-casuali generati
     e non dipendere dalla scelta del seed
   * tipicamente i generatori di numeri casuali seguono una distribuzione uniforme:
-    la **non-uniformita'** della distribuzione e' un altro difetto tipico
+    la **non-uniformità** della distribuzione è un altro difetto tipico
     che si vuole evitare
   * un **esempio** del risultato di un generaore di numeri pseudo-casuali poco performante
     si trova [qui](https://boallen.com/random-numbers.html)
@@ -104,7 +104,7 @@
 
 ### 4.1.5 un generatore di numeri casuali in ```C++```
 
-  * nella libreria ```cstdlib``` e' presente un generatore di numeri pseudo-casuali:
+  * nella libreria ```cstdlib``` è presente un generatore di numeri pseudo-casuali:
     ```cpp
     #include <cstdlib>
     #include <iostream>
@@ -133,7 +133,7 @@
 ### 4.1.6 le caratteristiche di ```rand ()```
 
   * numeri interi pseudo-casuali distribuiti uniformemente fra ```0``` e ```RAND_MAX```,
-    che e' una variabile definita all'interno della libreria ```cstdlib```
+    che è una variabile definita all'interno della libreria ```cstdlib```
   * il generatore **inizia sempre dallo stesso seed** per generare gli eventi,
     quindi se si rigira il programma si ottiene sempre la medesima sequenza numerica
 
@@ -148,10 +148,10 @@
     for (int i = 0 ; i < 5 ; ++i)
       std::cout << "indice " << i << " --> " << rand () << "\n" ;
     ```
-  * e' importante poter riprodurre una sequenza di numeri pseudo-casuali
+  * è importante poter riprodurre una sequenza di numeri pseudo-casuali
     **a scopo di test**
   * se invece si vuole produrre **ad ogni esecuzione una sequenza differente**,
-    si puo' utilizzare il tempo di esecuzione come seed di generazione,
+    si può utilizzare il tempo di esecuzione come seed di generazione,
     utilizzando la funzione ```time ()``` della libreria ```ctime```:  
     ```cpp
     #include <ctime>
@@ -169,10 +169,10 @@
 ## 4.2 generare numeri pseudo-casuali con distribuzione uniforme
 
   * una sequenza di numeri interi compresi fra ```0``` e ```RAND_MAX```
-    non e' in generale ben adattata ad un suo uso generico
+    non è in generale ben adattata ad un suo uso generico
   * ci interessa produrre sequenze di numeri pseudo-casuali 
     che seguano distribuzioni differenti
-  * le densita' di probabilita' dei numeri pseudo-casuali generati
+  * le densità di probabilità dei numeri pseudo-casuali generati
     avranno sempre **dominio limitato**, 
     per via delle limitazioni intrinseche dei calcolatori  
 
@@ -180,10 +180,10 @@
 
 ### 4.2.1 una distribuzione uniforme di numeri razionali pseudo-casuali
 
-  * una distribuzione uniforme di numeri casuali e' **definita su un insieme limitato**
-    per costruzione, perche' altrimenti il suo integrale sarebbe divergente
-  * l'obiettivo e' produrre numeri casuali compresi nell'intervallo ```min, max```,
-    **partendo dalle risorse che abbiamo**, cioe' ```rand ()```
+  * una distribuzione uniforme di numeri casuali è **definita su un insieme limitato**
+    per costruzione, perché altrimenti il suo integrale sarebbe divergente
+  * l'obiettivo è produrre numeri casuali compresi nell'intervallo ```min, max```,
+    **partendo dalle risorse che abbiamo**, cioè ```rand ()```
     1. **distribuzione uniforme fra ``0`` ed ``1``** : 
        ```cpp
        rand () / static_cast<float> RAND_RANGE ;
@@ -202,12 +202,12 @@
 
 ![linea](../immagini/linea.png)
 
-## 4.3 altre distribuzioni di probabilita': try-and-catch
+## 4.3 altre distribuzioni di probabilità: try-and-catch
 
-  * secondo la distribuzione di densita' di probabilita' (pdf) uniforme,
-    la probabilita' che eventi pseudo-casuali vengano generati in un dato intervallo
+  * secondo la distribuzione di densità di probabilità (pdf) uniforme,
+    la probabilità che eventi pseudo-casuali vengano generati in un dato intervallo
     **non dipende dalla posizione** dell'intervallo
-  * per pdf non uniformi questo **non e' vero**
+  * per pdf non uniformi questo **non è vero**
 
 ![distribuzione_non_uniforme](immagini/try_and_catch_0_due.png)
 
@@ -229,7 +229,7 @@
 
 ### 4.3.2 l'implementazione dell'algoritmo try-and-catch
 
-  * per ripetere la generazione fino a che la condizione ```y < f(x)``` non e' soddisfatta,
+  * per ripetere la generazione fino a che la condizione ```y < f(x)``` non è soddisfatta,
     si utilizza un ciclo:
     ```cpp
     float rand_TAC (float f (float), float xMin, float xMax, float yMax)
@@ -243,10 +243,10 @@
         return x ; 
       }
     ```
-  * la funzione ```rand_TAC``` ha bisogno di piu' argomenti rispetto a ```rand_range```:
+  * la funzione ```rand_TAC``` ha bisogno di più argomenti rispetto a ```rand_range```:
     * un **limite superiore per l'asse verticale**: ```yMax```
     * la **forma funzionale** da usare come pdf: 
-      come vedete anche una funzione puo' essere passata come argomento
+      come vedete anche una funzione può essere passata come argomento
       ad un'altra funzione, descrivendone il prototipo
 
 ![linea](../immagini/linea.png)
@@ -257,8 +257,8 @@
   | -------- |
 
   * **nota la forma funzionale** della pdf, l'algoritmo funziona
-  * **non e' necessario che sia nota analiticamente**,
-      e' sufficiente che si possa scrivere come funzione di ```C++```
+  * **non è necessario che sia nota analiticamente**,
+      è sufficiente che si possa scrivere come funzione di ```C++```
   * facilmente **generalizzabile a N dimensioni** 
 
   | svantaggi |
@@ -267,11 +267,11 @@
   * bisogna essere certi di **conoscere il massimo** (```yMax```) della funzione
   * ha **bassa efficienza**:
     * per ottenere un numero casuale, bisogna generarne di sicuro **almeno due**
-    * spesso **molti di piu'**, perche' molti punti sul piano vengono scartati
+    * spesso **molti di più**, perché molti punti sul piano vengono scartati
 
 ![linea](../immagini/linea.png)
 
-## 4.4 altre distribuzioni di probabilita': la funzione inversa
+## 4.4 altre distribuzioni di probabilità: la funzione inversa
 
   * **Sia x una variabile casuale con pdf *f(x)* continua e cumulante *F(x)* strettamente crescente.
     Allora la variabile *y = F(x)* ha distribuzione uniforme**
@@ -288,12 +288,12 @@
 
   * si **generano numeri pseudo-casuali y<sub>i</sub> con distribuzione uniforme** fra *0* ed *1* lungo l'asse *y*
   * per ogni evento generato, si calcola *x<sub>i</sub> = F <sup>-1</sup>(y<sub>i</sub>)*
-  * dove *f(x)* e' piu' alta *F(x)* e' piu' ripida, 
+  * dove *f(x)* è più alta *F(x)* è più ripida, 
     quindi il numero di numeri pseudo-casuali generati nei due intervalli 
     *&Delta;y<sub>1<sub>* e *&Delta;y<sub>2<sub>*
     risulta proporzionale all'area sottesa dalla curva *f(x)*
     supra i due intervalli con dimensione *&Delta;x*, rispettivamente,
-    che e' l'obiettivo che si vuole ottenere.
+    che è l'obiettivo che si vuole ottenere.
 
 ![linea](../immagini/linea.png)
 
@@ -302,8 +302,8 @@
   | vantaggi |
   | -------- |
 
-  * e' **efficiente** nella generazione dei numeri pseudo-casuali, 
-    perche' ogni numero viene utilizzato
+  * è **efficiente** nella generazione dei numeri pseudo-casuali, 
+    perché ogni numero viene utilizzato
 
   | svantaggi |
   | --------- |
@@ -314,12 +314,12 @@
 
 ![linea](../immagini/linea.png)
 
-## 4.5 distribuzioni di probabilita' Gaussiane: il teorema centrale del limite
+## 4.5 distribuzioni di probabilità Gaussiane: il teorema centrale del limite
 
-  * Il **teorema centrale del limite** puo' essere utilizzato
-    per generare distribuzioni di probabilita' con forma Gaussiana
+  * Il **teorema centrale del limite** può essere utilizzato
+    per generare distribuzioni di probabilità con forma Gaussiana
 
-  | Siano date *N* variabili casuali *x<sub>i</sub>* indipendenti ed identicamente distribuite secondo una distribuzione di probabilita' *f(x)* con media &mu; e varianza &sigma;<sup>2</sup>. Allora la variabile *y = &lang;x<sub>i</sub>&rang;* e' distribuita, per *N* grande, come una Gaussiana con media &mu; e varianza &sigma;<sup>2</sup>. |
+  | Siano date *N* variabili casuali *x<sub>i</sub>* indipendenti ed identicamente distribuite secondo una distribuzione di probabilità *f(x)* con media &mu; e varianza &sigma;<sup>2</sup>. Allora la variabile *y = &lang;x<sub>i</sub>&rang;* è distribuita, per *N* grande, come una Gaussiana con media &mu; e varianza &sigma;<sup>2</sup>. |
   | --------- |
 
 ![linea](../immagini/linea.png)
@@ -330,9 +330,9 @@
     si parte da **genartori di numeri pseudo-casuali noti**: 
     la distribuzione uniforme
   * per produrre un singolo numero pseudo-casuale distribuito secondo una Gaussiana, 
-    e' necessario **generare *N* numeri pseudo-casuali** secondo la distribuzione uniforme
+    è necessario **generare *N* numeri pseudo-casuali** secondo la distribuzione uniforme
     e calcolarne la media
-  * al **crescere di *N*** la distribuzione finale si avvicina sempre piu' al limite Gaussiano:
+  * al **crescere di *N*** la distribuzione finale si avvicina sempre più al limite Gaussiano:
 
 ![funzione_inversa](immagini/teorema_centrale_limite.png)
 
@@ -343,8 +343,8 @@
   | vantaggi |
   | -------- |
 
-  * e' basato su un **ben noto teorema** e permette di verificare che il teorema stesso funzioni
-  * non e' necessario descrivere analiticamente la forma funzionale della Gaussiana
+  * è basato su un **ben noto teorema** e permette di verificare che il teorema stesso funzioni
+  * non è necessario descrivere analiticamente la forma funzionale della Gaussiana
 
   | svantaggi |
   | --------- |
