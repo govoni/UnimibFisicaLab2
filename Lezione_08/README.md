@@ -1,4 +1,4 @@
-# Lezione 8: programmazione ad oggetti: l'ereditarieta' ```public```
+# Lezione 8: programmazione ad oggetti: l'ereditarietà ```public```
 
 ## Indice
 
@@ -11,8 +11,8 @@
     * [8.2.3 La classe derivata nel programma principale](#823-la-classe-derivata-nel-programma-principale)
     * [8.2.4 Un'altra classe derivata: il ```rettangolo```](#824-unaltra-classe-derivata-il-rettangolo)
     * [8.2.5 La regola is-a: una specializzazione](#825-la-regola-is-a-una-specializzazione)
-  * [8.3 ereditarieta' e polimorfismo](#83-ereditarieta-e-polimorfismo)
-    * [8.3.1 Compatibiita' fra tipi ereditariamente correlati](#831-compatibiita-fra-tipi-ereditariamente-correlati)
+  * [8.3 ereditarietà e polimorfismo](#83-ereditarietà-e-polimorfismo)
+    * [8.3.1 Compatibiità fra tipi ereditariamente correlati](#831-compatibiità-fra-tipi-ereditariamente-correlati)
     * [8.3.2 Il calcolo dell'area](#832-il-calcolo-dellarea)
     * [8.3.3 *Dynamic binding*](#833-dynamic-binding)
     * [8.3.4 Implementazione del metodo ```calcola_area```](#834-implementazione-del-metodo-calcola_area)
@@ -28,7 +28,7 @@
     * [8.6.4 risultato di ```std::sort```](#864-risultato-di-stdsort)
     * [8.6.5 la relazione di ordine nell'ordinamento](#865-la-relazione-di-ordine-nellordinamento)
     * [8.6.6 un esempio di utilizzo](#866-un-esempio-di-utilizzo)
-  * [8.7 Ereditarieta' e ```template```](#87-ereditarieta-e-template)
+  * [8.7 Ereditarietà e ```template```](#87-ereditarietà-e-template)
   * [8.8 ESERCIZI](#88-esercizi)
 
 ![linea](../immagini/linea.png)
@@ -36,12 +36,12 @@
 ## 8.1 Introduzione
 
   * nella programmazione ad oggetti,
-    la **traslazione dalle funzioni ai metodi delle funzionalita'** dei programmi
+    la **traslazione dalle funzioni ai metodi delle funzionalità** dei programmi
     produce necessariamente una proliferazione di classi
     per svolgere i compiti dei programmi
   * spesso succede che classi simili **implentino comportamenti comuni**
     insieme a comportamenti specifici per ciascuna di esse  
-  * il meccanismo dell'ereditarieta' permette di **evitare di reimplementare comportamenti comuni**,
+  * il meccanismo dell'ereditarietà permette di **evitare di reimplementare comportamenti comuni**,
     definendoli soltanto una volta per una **classe base**,
     facendo in modo che vengano ereditati da diverse **classi derivate**
   * le classi derivate, dunque, **adattano ed estendono comportamenti generali** 
@@ -51,9 +51,9 @@
 
 ### 8.1.1 Rappresentazione grafica
 
-  * il meccanismo di ereditarieta' ```public``` introduce una **gerarchia fra classi**:
-    ogni classe derivata e' un caso particolare della classe base.
-    Questo concetto e' noto come la **regola is-a**.
+  * il meccanismo di ereditarietà ```public``` introduce una **gerarchia fra classi**:
+    ogni classe derivata è un caso particolare della classe base.
+    Questo concetto è noto come la **regola is-a**.
     ![gerarchia](immagini/gerarchia.png)
 
 ![linea](../immagini/linea.png)
@@ -62,7 +62,7 @@
 
   * nelle classi, 
     i membri ed i metodi sono divisi in parte ```public``` e parte ```private```:
-    **come funziona l'accesso** nel caso dell'ereditarieta'?  
+    **come funziona l'accesso** nel caso dell'ereditarietà?  
   * i membri e metodi ```public``` delle classi base **sono accessibili** alle classi derivate
   * i membri e metodi ```private``` delle classi base **non sono accessibili** alle classi derivate
   * esiste una terza catergoria: 
@@ -94,10 +94,10 @@
     } ;
 
     ```
-    * il membro ```m_area``` e' ```protected``` perche' sia accessibile
+    * il membro ```m_area``` è ```protected``` perché sia accessibile
       anche alle classi derivate
     * in questo caso non ci sono ```private```, ma si potrebbero mettere  
-  * un oggetto di tipo ```forma``` puo' essere istanziato in un programma ```C++``` 
+  * un oggetto di tipo ```forma``` può essere istanziato in un programma ```C++``` 
     ```cpp
     forma forma_base ;
     cout << forma_base.area () << endl ;
@@ -107,7 +107,7 @@
 
 ### 8.2.2 Una classe derivata: ```quadrato```
 
-  * La sintassi per definire una **classe derivata pubblicamente** e' la seguente:
+  * La sintassi per definire una **classe derivata pubblicamente** è la seguente:
     ```cpp
     class quadrato : public forma 
     {
@@ -134,12 +134,12 @@
     } ;
 
     ```
-    * il membro ```m_lato``` e' **dichiarato ```private```** 
-      perche' nella progettazione della struttura di ereditarieta' 
+    * il membro ```m_lato``` è **dichiarato ```private```** 
+      perché nella progettazione della struttura di ereditarietà 
       non ci sono classi derivate che debbano accedervi
     * i metodi specifici della classe quadrato   
       **si aggiungono** a quelli della classe base
-    * il membro **```m_area``` e' accessibile** anche dalla classe ```quadrato```  
+    * il membro **```m_area``` è accessibile** anche dalla classe ```quadrato```  
 
 ![linea](../immagini/linea.png)
 
@@ -157,7 +157,7 @@
     cout << "area: " << forma_quadrata.area () << endl ;
     ```
   * la consistenza delle informazioni (ad esempio, che l'area sia calcolata correttamente)
-    dipende dalla **bonta' dell'implementazione**
+    dipende dalla **bontà dell'implementazione**
 
 ![linea](../immagini/linea.png)
 
@@ -201,50 +201,50 @@
     } ;
   
     ```
-  * in questo caso, **sono necessari piu' metodi e piu' membri**
-    per descrivere le proprieta' del rettangolo
+  * in questo caso, **sono necessari più metodi e più membri**
+    per descrivere le proprietà del rettangolo
 
 ![linea](../immagini/linea.png)
 
 ### 8.2.5 La regola is-a: una specializzazione
 
-  * L'ereditarieta' delle funzionalita' delle classi base nelle classi derivate
-    e' un aspetto importante della progettazione del codice sorgente
+  * L'ereditarietà delle funzionalità delle classi base nelle classi derivate
+    è un aspetto importante della progettazione del codice sorgente
     e **riguarda il comportamento** di una classe
-  * ad esempio, per il ```C++``` un quadrato **non** e' una specilizzazione di un rettangolo,
+  * ad esempio, per il ```C++``` un quadrato **non** è una specilizzazione di un rettangolo,
     nonostante dal punto di vista geometrico il quadrato sia un rettangolo con lati uguali
-    * ad un rettangolo si puo' modificare la lunghezza di un lato e rimane un rettangolo,
+    * ad un rettangolo si può modificare la lunghezza di un lato e rimane un rettangolo,
       mentre se si modifica la lunghezza di un lato di un quadrato,
       la forma geometrica **diventa un rettangolo generico**
-  * quindi la classe ```quadrato``` **non e' una specializzazione** della classe ```rettangolo```,
-    perche' non tutte le funzioni di ```rettangolo``` possono essere applicate a ```quadrato```
+  * quindi la classe ```quadrato``` **non è una specializzazione** della classe ```rettangolo```,
+    perché non tutte le funzioni di ```rettangolo``` possono essere applicate a ```quadrato```
 
 ![linea](../immagini/linea.png)
 
-## 8.3 ereditarieta' e polimorfismo
+## 8.3 ereditarietà e polimorfismo
 
-  * quando due o piu' classi 
+  * quando due o più classi 
     sono inserite in una gerarchia ereditaria,
     un puntatore alla classe base
-    puo' essere utilizzato per **referenziare anche oggetti 
+    può essere utilizzato per **referenziare anche oggetti 
     delle classi derivate**
-  * questo e' possibile dal fatto che la memoria dove sono salvati gli oggetti
+  * questo è possibile dal fatto che la memoria dove sono salvati gli oggetti
     viene utilizzata a fette (**memory slicing**), 
     in modo che regioni separate della memoria corrispondano
     a parti differenti dell'oggetto considerato:
     ![memory_slicing](immagini/memory_slicing.png)
     * nello spazio occupato in memoria dall'oggetto ```quadrato```,
       la prima sezione (gialla) **contiene la parte ```forma```** dell'oggetto,
-    * la seconda (arancione) contiene **cio' che serve in piu' per realizzare il ```poligono regolare```**,
-    * la terza (rossa) contiene **cio' che serve in piu' rispetto al ```poligono regolare```
+    * la seconda (arancione) contiene **ciò che serve in più per realizzare il ```poligono regolare```**,
+    * la terza (rossa) contiene **ciò che serve in più rispetto al ```poligono regolare```
       per realizzare il ```quadrato```**
   * in questo modo, noto l'indirizzo della cella iniziale 
-    a seconda del tipo da considerare il ```C++``` e' in grado di ricostruire
+    a seconda del tipo da considerare il ```C++``` è in grado di ricostruire
     l'oggetto corrispondente    
 
 ![linea](../immagini/linea.png)
 
-### 8.3.1 Compatibiita' fra tipi ereditariamente correlati
+### 8.3.1 Compatibiità fra tipi ereditariamente correlati
 
   * Il *memory slicing* significa che sia lecito assegnare il puntatore di una classe derivata
     a **quello di una classe base**, 
@@ -253,8 +253,8 @@
     quadrato forma_quadrata (3.) ;
     forma * puntatore = & forma_quadrata ;
     ```
-  * Chiaramente l'opposto non e' ammissibile,
-    perche' l'oggetto ```quadrato``` occupa piu' posto in memoria dell'oggetto ```forma```
+  * Chiaramente l'opposto non è ammissibile,
+    perché l'oggetto ```quadrato``` occupa più posto in memoria dell'oggetto ```forma```
 
 ![linea](../immagini/linea.png)
 
@@ -262,12 +262,12 @@
 
   * Nell'implementazione delle funzioni ```rettangolo::cambia_lato_o (double)```, 
     ```rettangolo::cambia_lato_o (double)```, ```quadrato::cambia_lato (double)``` 
-    l'area della forma geometrica **e' stata ricalcolata**,
-    perche' sono state modificate le caratteristiche geometriche della forma
+    l'area della forma geometrica **è stata ricalcolata**,
+    perché sono state modificate le caratteristiche geometriche della forma
   * E' naturale **aggiungere un metodo ```calcola_area```** per tutte le forme geometriche,
     in modo che per ciascuna di esse il calcolo venga fatto sempre allo stesso modo
   * E' anche naturale immaginare che questo metodo sia parte della classe ```forma```, 
-    perche' esiste per ogni classe derivata, 
+    perché esiste per ogni classe derivata, 
     e venga poi **reimplementato** da ogni classe derivata
 
 ![linea](../immagini/linea.png)
@@ -275,11 +275,11 @@
 ### 8.3.3 *Dynamic binding*
 
   * A partire da un puntatore ad una classe base,
-    il ```C++``` e' in grado di **comprendere dinamicamente 
+    il ```C++``` è in grado di **comprendere dinamicamente 
     di che tipo sia l'oggetto** referenziato dal puntatore
     ed applicare il metodo corretto
   * Per ottenere questo comportamento,
-    e' necessario definire i metodi da reimplementare 
+    è necessario definire i metodi da reimplementare 
     con la parola chiave ```virtual```  
 
 ![linea](../immagini/linea.png)
@@ -287,7 +287,7 @@
 ### 8.3.4 Implementazione del metodo ```calcola_area```
 
   * **Nella classe base**, la funzione ```calcola_area``` non ha informazioni sufficienti 
-    per fare alcun conto, quindi e' implementata in modo banale in ```forma```:
+    per fare alcun conto, quindi è implementata in modo banale in ```forma```:
     ```cpp
     virtual double calcola_area () { return -1. ; } 
     ```
@@ -328,20 +328,20 @@
     quindi poi distrutto con l'operatore ```delete```
   * Se l'operatore ```delete``` viene chiamato su un puntatore alla classe base,
     per essere certi che venga chiamato anche il distruttore della classe derivata
-    e' necessario **dichiarare sempre il distruttore di tipo ```virtual```**
+    è necessario **dichiarare sempre il distruttore di tipo ```virtual```**
     quando si utilizzi il polimorfismo
 
 ![linea](../immagini/linea.png)
 
 ## 8.4 Le interfacce e le classi puramente virtuali
 
-  * Una classe base in ```C++``` puo' essere utilizzata
+  * Una classe base in ```C++``` può essere utilizzata
     soltanto **per definire i comportamenti** di un insieme di classi derivate,
     deputanto l'implementazione alle classi derivate.
-  * Chiaramente, una classe senza implementazione **non puo' essere utilizzata**
+  * Chiaramente, una classe senza implementazione **non può essere utilizzata**
     per definire oggetti, 
-    perche' il tipo e' incompleto.
-  * Una classe di questo genere e' detta ```puramente virtuale```.
+    perché il tipo è incompleto.
+  * Una classe di questo genere è detta ```puramente virtuale```.
 
 ![linea](../immagini/linea.png)
 
@@ -361,10 +361,10 @@
 
 ![linea](../immagini/linea.png)
 
-  * il comportamento polimorfico di una catena di ereditarieta'
+  * il comportamento polimorfico di una catena di ereditarietà
     permette di **riempire contenitori STL con un insieme eterogeneo** di oggetti
   * infatti, un contenitore di puntatori ad oggetti di una classe base
-    puo' essere **riempito con i puntatori ad oggetti di diverse classi derivate**
+    può essere **riempito con i puntatori ad oggetti di diverse classi derivate**
     ed il ```C++``` capisce *run-time* quale funzione interpellare  
     ```cpp
     map<string, forma *> m_forme ; 
@@ -399,7 +399,7 @@
 
 ### 8.6.1 ```std::find```
 
-  * il prototipo di questo algoritmo e' il seguente:
+  * il prototipo di questo algoritmo è il seguente:
     ```cpp
     template <class InputIterator, class T>
     InputIterator find (InputIterator first, InputIterator last, const T& val);
@@ -432,7 +432,7 @@
 
   * esistono **due prototipi** per l'algoritmo di ordinamento
   * quello comunemente utilizzato funziona similmente a ```find```,
-    perche' agisce su un contenitore **tramite i suoi iteratori**:
+    perché agisce su un contenitore **tramite i suoi iteratori**:
     ```cpp
     template <class RandomAccessIterator>
     void sort (RandomAccessIterator first, RandomAccessIterator last);
@@ -471,7 +471,7 @@
     template <class RandomAccessIterator, class Compare>
     void sort (RandomAccessIterator first, RandomAccessIterator last, Compare comp) ;
     ```
-  * ```comp``` puo' essere una funzione o una classe
+  * ```comp``` può essere una funzione o una classe
     * nel caso sia una **funzione**, 
       deve prendere in **input** (per copia o referenza) due argomenti del tipo 
       contenuto nel contenitore e restituire in **output** un tipo compatibile con un ```bool```.
@@ -486,7 +486,7 @@
 
   * supponiamo di voler ordinare il vettore visto in precedenza
     **anteponendo i numeri pari a quelli dispari**.
-    La funzione che deve sostituire la relazione di ```<``` e':
+    La funzione che deve sostituire la relazione di ```<``` è:
     ```cpp
     bool confronto (int i, int j) 
       { 
@@ -513,18 +513,18 @@
 
 ![linea](../immagini/linea.png)
 
-## 8.7 Ereditarieta' e ```template```
+## 8.7 Ereditarietà e ```template```
 
-  * L'ereditarieta' e la programmazione ```template``` sono due tecniche
+  * L'ereditarietà e la programmazione ```template``` sono due tecniche
     che permettono di implementare il polimorfismo nel ```C++```
   * Entrambe le tecniche permettono infatti di **generalizzare il medesimo comportamento
-    per diversi tipi**, senza necessariamente dover scrivere piu' volte lo stesso codice sorgente  
+    per diversi tipi**, senza necessariamente dover scrivere più volte lo stesso codice sorgente  
   * oltre al vantaggio pratico legato al tempo di scrittura dei programmi,
-    questo comporta che le funzionalita' vengono implementate meno volte,
-    **rendendo piu' difficile commettere errori** 
+    questo comporta che le funzionalità vengono implementate meno volte,
+    **rendendo più difficile commettere errori** 
     e produrre programmi inconsistenti
   * le due tecniche sono complementari:
-    mentre l'ereditarieta' comporta polimorfismo **durante l'esecuzione del programma**,
+    mentre l'ereditarietà comporta polimorfismo **durante l'esecuzione del programma**,
     la programmazione template lo implementa **durante la compilazione**
 
 ![linea](../immagini/linea.png)
