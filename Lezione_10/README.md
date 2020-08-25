@@ -1,6 +1,6 @@
 # Lezione 10: stima di parametri con il metodo dei minimi quadrati
 
-## Indice
+## Indice à
 
   * [10.1 Introduzione](#101-introduzione)
     * [10.1.1 Un esempio immediato](#1011-un-esempio-immediato)
