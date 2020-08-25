@@ -6,7 +6,7 @@
     * [3.1.1 Uno sguardo ravvicinato ai tipi predefiniti in ```C++```](#311-uno-sguardo-ravvicinato-ai-tipi-predefiniti-in-c)
     * [3.1.2 Un esempio: i numeri complessi](#312-un-esempio-i-numeri-complessi)
     * [3.1.3 Se i numeri complessi fossero un tipo di ```C++```](#313-se-i-numeri-complessi-fossero-un-tipo-di-c)
-  * [3.2 Si puo' fare! La classe dei numeri complessi](#32-si-puo-fare!-la-classe-dei-numeri-complessi)
+  * [3.2 Si può fare! La classe dei numeri complessi](#32-si-può-fare-la-classe-dei-numeri-complessi)
     * [3.2.1 La definizione della classe (il file ```complesso.h```)](#321-la-definizione-della-classe-il-file-complessoh)
     * [3.2.2 un primo esempio di utilizzo](#322-un-primo-esempio-di-utilizzo)
     * [3.2.3 I membri di una classe](#323-i-membri-di-una-classe)
@@ -38,18 +38,18 @@
 ## 3.1 La generalizzazione del concetto di tipo
 
   * secondo la programmazione **object oriented**,
-    le funzionalita' di un programma vanno associate all'informazione che processano,
-  * cosi' come per ogni tipo predefinito (```int```, ```float```, et cetera)
+    le funzionalità di un programma vanno associate all'informazione che processano,
+  * così come per ogni tipo predefinito (```int```, ```float```, et cetera)
     esistono gli operatori che ne gestiscono i comportamenti
-  * in ```C++``` questo paradigma e' realizzato attraveso 
-    il concetto di **classe, che e' una generalizzazione del tipo**,
+  * in ```C++``` questo paradigma è realizzato attraveso 
+    il concetto di **classe, che è una generalizzazione del tipo**,
     mentre gli **oggetti sono la generalizzazione delle variabili**
 
 ![linea](../immagini/linea.png)
 
 ### 3.1.1 Uno sguardo ravvicinato ai tipi predefiniti in ```C++```
 
-  * un qualunque tipo predefinito e' caratterizzato da una serie di **proprieta'**:
+  * un qualunque tipo predefinito è caratterizzato da una serie di **proprietà**:
   * funzioni per la **gestione della memoria**:
     * allocazione dello spazio nella RAM quando una variabile viene definita
     * liberazione dello spazio RAM quando una variabile cessa di esistere
@@ -59,8 +59,8 @@
 
 ### 3.1.2 Un esempio: i numeri complessi
 
-  * **costrutti piu' sofisticati** dei tipi predefiniti non godono di queste proprieta'
-  * un numero complesso e' rappresentato da due numeri reali,
+  * **costrutti più sofisticati** dei tipi predefiniti non godono di queste proprietà
+  * un numero complesso è rappresentato da due numeri reali,
     che un ```C++``` si possono scrivere come:
     ```cpp
     double num_parteReale ;
@@ -85,19 +85,19 @@
 
   * le operazioni per gestire i numeri complessi sono
     praticamente **associate soltanto a loro**
-  * risulterebbe molto piu' comodo se fosse possibile 
+  * risulterebbe molto più comodo se fosse possibile 
     **definire un numero complesso** e associare ad esso le operazioni che lo riguardano:
     * migliore **gestione del programma**
-    * **proprieta'** simili a quelle dei tipi predefiniti
-    * mogliore **solidita' del design del codice sorgente**, 
-      perche' migliora la consistenza del codice
-      e le possibilita' di controllo di errori logici
+    * **proprietà** simili a quelle dei tipi predefiniti
+    * mogliore **solidità del design del codice sorgente**, 
+      perché migliora la consistenza del codice
+      e le possibilità di controllo di errori logici
 
 ![linea](../immagini/linea.png)
 
-## 3.2 Si puo' fare! La classe dei numeri complessi
+## 3.2 Si può fare! La classe dei numeri complessi
 
-  * una classe e' di fatto la **definizione di un nuovo tipo**:
+  * una classe è di fatto la **definizione di un nuovo tipo**:
     il caso ideale per la costruzione di una libreria, 
     con un file header (```.h```) ed uno di implementazione (```.cc```)
 
@@ -124,19 +124,19 @@
   | attenzione |
   | ---------- |
 
-  * dopo la chiusura della parentesi graffa **c'e' un punto e virgola! ```} ;```**
+  * dopo la chiusura della parentesi graffa **c'è un punto e virgola! ```} ;```**
 
 ![linea](../immagini/linea.png)
 
 ### 3.2.2 un primo esempio di utilizzo
 
   * in un qualunque punto del codice sorgente,
-    si puo' quindi creare un numero complesso:
+    si può quindi creare un numero complesso:
     ```cpp
     complesso numero_complesso_1 (0., 0.) ;
     complesso numero_complesso_2 (3., 4.) ;
     ```
-  * in questo esempio ```complesso``` e' la classe (il nuovo tipo),
+  * in questo esempio ```complesso``` è la classe (il nuovo tipo),
     mentre ```numero_complesso_1``` e ```numero_complesso_2```
     sono due **oggetti**
 
@@ -156,7 +156,7 @@
     quindi **ogni oggetto ha le proprie variabili membro** corrispondenti
   * i membri possono essere di tipo predefinito, 
     oppure **a loro volta oggetti** di una classe
-  * e' buona regola di programmazione **identificare i membri in modo simbolico**,
+  * è buona regola di programmazione **identificare i membri in modo simbolico**,
     ad esempio con il prefisso ```m_```  
 
 ![linea](../immagini/linea.png)
@@ -182,14 +182,14 @@
 ### 3.2.5 Il campo ```private```
 
   * i metodi di una classe **fungono da interfaccia** fra i membri di un oggetto
-    ed il codice sorgente dove l'oggetto e' definito
-  * e' talvolta auspicabile che i membri possano essere modificati 
+    ed il codice sorgente dove l'oggetto è definito
+  * è talvolta auspicabile che i membri possano essere modificati 
     **soltanto attraverso i metodi**, 
     per evitare che subiscano operazioni
-    che compromettano la funzionalita' dell'oggetto nel suo insieme
+    che compromettano la funzionalità dell'oggetto nel suo insieme
   * tutti i metodi ed i membri definiti **dopo la parola chiave ```private```**
     sono accessibili solo per i metodi della loro classe
-  * se non si indica nulla, tutto il contenuto di una classe e' ```private```
+  * se non si indica nulla, tutto il contenuto di una classe è ```private```
 
 ![linea](../immagini/linea.png)
 
@@ -205,7 +205,7 @@
   * solitamente, i **membri** di una classe sono ```private```, 
     mentre i suoi **metodi** sono ```public```
   * se si definisce una classe con l'identificativo ```struct``` invece di ```class```,
-    se non si indica nulla tutto il contenuto della classe e' ```public```
+    se non si indica nulla tutto il contenuto della classe è ```public```
 
 ![linea](../immagini/linea.png)
 
@@ -222,7 +222,7 @@
        return sqrt (m_real * m_real + m_imag * m_imag) ;
      }    
     ```
-  * il nome di ogni metodo e' preceduto dal nome della classe, 
+  * il nome di ogni metodo è preceduto dal nome della classe, 
     separato dall'operatore di scope resolution ```::``` 
 
 ![linea](../immagini/linea.png)
@@ -230,7 +230,7 @@
 ### 3.2.8 Un membro implicito di ogni classe: l'oggetto stesso
 
   * per ogni classe, 
-    e' sempre definito il **puntatore all'oggetto corrente**,
+    è sempre definito il **puntatore all'oggetto corrente**,
     rappresentato dal simbolo **```this```**
     ```cpp
     void
@@ -271,9 +271,9 @@
   * oggetti di altre classi vengono **creati dal proprio costruttore**   
   * il costruttore **non ha tipo di ritorno**
   * nello scope del costruttore si possono eseguire istruzioni
-    (in questo esempio c'e' una stampa a schermo, che in realta' e' scomodo:
+    (in questo esempio c'è una stampa a schermo, che in realtà è scomodo:
      nessuno vuole un programma troppo petulante)
-  * questo e' un buon posto dove **allocare dinamicamente la memoria**, se necessario   
+  * questo è un buon posto dove **allocare dinamicamente la memoria**, se necessario   
 
 ![linea](../immagini/linea.png)
 
@@ -285,14 +285,14 @@
     m_real (r),
     m_imag (i)
     ```
-    e' detta **lista di inizializzazione**
+    è detta **lista di inizializzazione**
   * ottimizza l'uso della memoria: inizializza ciascun membro al valore fra parentesi
     al momento della creazione del membro
   * l'**ordine delle variabili** deve essere il medesimo della loro definizione
     all'interno della classe  
   * se non si mettesse la lista di inizializzazione,
     bisognerebbe inizializzare le variabili nello scope del costruttore,
-    spendendo piu' tempo di esecuzione:
+    spendendo più tempo di esecuzione:
     ```cpp
     complesso::complesso (double r, double i):
       {
@@ -306,9 +306,9 @@
 
 ### 3.3.3 overloading del costruttore
 
-  * una classe puo' possedere **piu' di un costruttore**,
+  * una classe può possedere **più di un costruttore**,
     a patto che ciascuno prenda argomenti diversi
-  * ad esempio, si puo' definire un costruttore che abbia come input soltanto 
+  * ad esempio, si può definire un costruttore che abbia come input soltanto 
     un numero reale:  
     ```cpp
     complesso::complesso (double r):
@@ -323,7 +323,7 @@
 
 ### 3.3.4 Il costruttore di default
 
-  * un costruttore senza argomenti di input e' chiamato **costruttore di default**:
+  * un costruttore senza argomenti di input è chiamato **costruttore di default**:
     ```cpp
     complesso::complesso ():
       m_real (0.),
@@ -339,7 +339,7 @@
 
 ### 3.3.5 Il costruttore di copia, o copy constructor
 
-  * e' naturale immaginare di costruire un oggetto nuovo
+  * è naturale immaginare di costruire un oggetto nuovo
     copiando il contenuto di uno esistente:
     ```cpp
     complesso::complesso (const complesso & orig):
@@ -353,17 +353,17 @@
     quindi **il copy constructor ha accesso ai membri ```private```
     dell'oggetto ```orig```**
     * esiste una eccezione a questa regola,
-      che vedremo quando parleremo di ereditarieta'
+      che vedremo quando parleremo di ereditarietà
   * l'oggetto ```orig``` viene passato:
-    * **per referenza** per ragioni di velocita'
+    * **per referenza** per ragioni di velocità
     * **con l'attributo const** per garantire che non venga modificato  
-  * anche in questo caso, **non c'e' tipo di ritorno**
+  * anche in questo caso, **non c'è tipo di ritorno**
 
 ![linea](../immagini/linea.png)
 
 ### 3.3.6 Il distruttore
 
-  * al termine della vita di un oggetto, cioe' al momento in cui va out of scope, 
+  * al termine della vita di un oggetto, cioè al momento in cui va out of scope, 
     la memoria che occupa va liberata
   * i suoi membri di tipi predefiniti del ```C++``` allocati automaticamente
     vengono distrutti automaticamente
@@ -390,7 +390,7 @@
 
   * per i tipi predefiniti di ```C++``` le operazioni matematiche fondamentali
     sono effettuate con i simboli algebrici noti: ```+```, ```-```, ```*```, ```/```, ```=``` ....
-  * si puo' definire il comportamento di queste funzioni anche per gli oggetti
+  * si può definire il comportamento di queste funzioni anche per gli oggetti
     delle classi
     (come sempre, si distinguono dagli altri per i diversi tipi in ingresso)
   * ecco due esempi notevoli  
@@ -399,7 +399,7 @@
 
 ### 3.4.1 L'operatore di assegnazione per tipi predefiniti
 
-  * una operazione solitamente fattibile con tipi predefiniti e' 
+  * una operazione solitamente fattibile con tipi predefiniti è 
     l'assegnazione a partire da una altra variabile esistente:
     ```cpp
     int numero = 5 ;
@@ -421,8 +421,8 @@
       return *this ;
     }  
     ```
-    * la **variabile in ingresso** e' una referenza costante per garantire velocita' e non modificabilita'
-    * la **variabile in uscita** e' una referenza all'oggetto,
+    * la **variabile in ingresso** è una referenza costante per garantire velocità e non modificabilità
+    * la **variabile in uscita** è una referenza all'oggetto,
       per permettere la seguente sintassi:
       ```cpp
       complesso numero_complesso_6 = numero_complesso_5 = numero_complesso_2 ;
@@ -437,7 +437,7 @@
     ```cpp
     complesso numero_complesso_4 = numero_complesso_3 + numero_complesso_2 ;
     ```
-  * in ```C++``` si puo' ottenere defintendo un metodo della classe complesso 
+  * in ```C++``` si può ottenere defintendo un metodo della classe complesso 
     chiamato ```operator+```:
     ```cpp
     complesso
@@ -449,10 +449,10 @@
       return somma ;
     }
     ```
-    * la **variabile in ingresso** e' una referenza costante per garantire velocita' e non modificabilita'
-    * la **variabile in uscita** e' un oggetto nuovo
+    * la **variabile in ingresso** è una referenza costante per garantire velocità e non modificabilità
+    * la **variabile in uscita** è un oggetto nuovo
   * l'```operator+``` ha in questo caso un solo argomento,
-    perche' uno dei due addendi e' l'oggetto sul quale e' chiamato.
+    perché uno dei due addendi è l'oggetto sul quale è chiamato.
     Infatti, le due scritture seguenti sono equivalenti:
     ```cpp
     complesso numero_complesso_4 = numero_complesso_3 + numero_complesso_2 ;
@@ -463,7 +463,7 @@
 
 ### 3.4.4 Definizione al di fuori della classe
 
-  * la funzione ```operator+``` puo' essere definita anche **al di fuori della classe**
+  * la funzione ```operator+``` può essere definita anche **al di fuori della classe**
     * in questo caso ha due argomenti, che sono entrambi gli addendi
   * in questo caso, tuttavia, nella funzione i membri privati degli oggetti **non sono accessibili**
     * bisogna definire **metodi pubblici di interfaccia** per accedere al valore dei membri
@@ -474,7 +474,7 @@
         return m_real ;
       }
       ```
-  * puo' essere comodo per definire operazioni **fra oggetti eterogenei**
+  * può essere comodo per definire operazioni **fra oggetti eterogenei**
     ```cpp
     complesso operator+ (const complesso & uno, const double & due)
       {
@@ -485,7 +485,7 @@
       }
     ```  
     * essendo una funzione **esterna alla classe**,
-      in questo caso non e' presente la denominazione si scope ```complesso::```
+      in questo caso non è presente la denominazione si scope ```complesso::```
 
 ![linea](../immagini/linea.png)
 
@@ -503,16 +503,16 @@
 
   | sintassi  | effetto |
   | --- | --- |
-  | ```const int C1 = 10 ;```    | ```C1``` e' un intero il cui valore e' costante |
-  | ```int const C1 = 10 ;```    | ```C1``` e' un intero il cui valore e' costante |
-  | ```const int * C2 ;```       | ```C2``` e' un puntatore ad un ```const int```, cioè un puntatore ad un intero costante |
-  | ```int const * C2 ;```       | ```C2``` e' un puntatore ad un ```const int```, cioè un puntatore ad un intero costante |
-  | ```int * const C3 ;```       | ```C3``` e' un puntatore costante ad un intero variabile |
-  | ```int const * const C4 ;``` | ```C4``` e' un puntatore costante ad un intero costante |
+  | ```const int C1 = 10 ;```    | ```C1``` è un intero il cui valore è costante |
+  | ```int const C1 = 10 ;```    | ```C1``` è un intero il cui valore è costante |
+  | ```const int * C2 ;```       | ```C2``` è un puntatore ad un ```const int```, cioè un puntatore ad un intero costante |
+  | ```int const * C2 ;```       | ```C2``` è un puntatore ad un ```const int```, cioè un puntatore ad un intero costante |
+  | ```int * const C3 ;```       | ```C3``` è un puntatore costante ad un intero variabile |
+  | ```int const * const C4 ;``` | ```C4``` è un puntatore costante ad un intero costante |
 
   * NOTA BENE: siccome ```C3``` e ```C4``` sono puntatori costanti,
     vanno **immediatamente inizializzati**,
-    perche' i puntatori non sono inizializzati ad alcun valore di default:
+    perché i puntatori non sono inizializzati ad alcun valore di default:
     ```cpp
     int * const C3 (& numero) ;
     int const * const C4 (& C1) ;
@@ -523,7 +523,7 @@
     int* nonConst = const_cast<int*>(&myConst);
     ```
     * ```nonConst``` punta alla stessa cella di memoria ```myConst```,
-      ma ne puo' modificare il contenuto
+      ma ne può modificare il contenuto
 
 ![linea](../immagini/linea.png)
 
@@ -549,7 +549,7 @@
 
 ## 3.6 Classi e puntatori
 
-  * come abbiamo gia' visto, 
+  * come abbiamo già visto, 
     esistono **puntatori e referenze ad oggetti**,
     con i medesimi comportamenti delle variaibli di tipo predefinito
   * per accedere a metodi e membri di un oggetto 
@@ -558,8 +558,8 @@
   * le classe possono anche **contenere puntatori** a variabili di tipo predefinito
     o ad altri oggetti
   * nel caso in cui si utilizzi **allocazione dinamica** della memoria,
-    e' prudente invocarla nel costruttore
-    ed e' **necessario ripulire la memoria nel distruttore**  
+    è prudente invocarla nel costruttore
+    ed è **necessario ripulire la memoria nel distruttore**  
 
 ![linea](../immagini/linea.png)
 
