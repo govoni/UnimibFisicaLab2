@@ -103,7 +103,6 @@ int main (int argc, char ** argv)
     segnale.SetParameter (2, p4) ;
     h_eventi.Fit ("segnale", "Q", "", 7., 14.) ;
   
-    // prima stima di p2, p3, p4 bloccando i coefficienti del fondo
     model.SetParameter (0, fondo.GetParameter (0)) ;
     model.SetParameter (1, fondo.GetParameter (1)) ;
     model.SetParameter (2, segnale.GetParameter (0)) ;
