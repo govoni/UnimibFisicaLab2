@@ -1,5 +1,5 @@
 /*
-c++ -o main_01 `root-config --glibs --cflags` main_01.cpp
+c++ -o main_03 `root-config --glibs --cflags` main_03.cpp
 */
 
 #include <cstdlib>
@@ -23,19 +23,14 @@ int main (int argc, char ** argv)
         exit (1) ;
       }
 
-    double N_bkg = 100. ;
-    double p0 = log (N_bkg) ; // eventi di fondo
-    double p1 = -0.2 ;        // pendenza del fondo
-    double p2 = 30. ;         // eventi di segnale
-    double p3 = 10. ;         // media del segnale
-    double p4 = 2. ;          // sigma del segnale
+    double p0 = 30. ; // integrale
+    double p1 = 10. ; // media
+    double p2 = 2. ;  // sigma
 
-    TF1 model ("model", "expo(0) + gaus(2)", 0., 20.) ;
-    model.SetParameter (0, p0) ;
-    model.SetParameter (1, p1) ;
-    model.SetParameter (2, p2) ;
-    model.SetParameter (3, p3) ;
-    model.SetParameter (4, p4) ;
+    TF1 * model = new TF1 ("model", "gaus(0)", 0., 20.) ;
+    model->SetParameter (0, p0) ;
+    model->SetParameter (1, p1) ;
+    model->SetParameter (2, p2) ;
 
     TH1F h_campione ("h_campione", "", 100, 0., 20.) ;
 
@@ -45,7 +40,7 @@ int main (int argc, char ** argv)
 
     for (int i = 0 ; i < N_eventi ; ++i)
       {
-        double event = model.GetRandom () ; 
+        double event = model->GetRandom () ; 
         f_campione << event << "\n" ;
         h_campione.Fill (event) ;
       }
@@ -59,7 +54,8 @@ int main (int argc, char ** argv)
     h_campione.SetLineColor (kGray + 1) ;
     h_campione.SetStats (0) ;
     h_campione.Draw () ;
-    c1.Print ("sample.png", "png") ;
+    c1.Print ("gauss.png", "png") ;
 
+    delete model ;
     return 0 ;
   }

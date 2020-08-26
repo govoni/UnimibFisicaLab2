@@ -115,28 +115,27 @@ int main (int argc, char ** argv)
     // --------------------------  
    
     int result = fit_result ;
-    cout << "primo feedback sul risultato del fit: " << fit_result->IsValid () << endl ;
-    cout << "primo feedback sul risultato del fit: " << fit_result->Status () << endl ;
+    cout << "convergenza del fit        : " << fit_result->IsValid () << endl ;
+    cout << "convergenza del fit (bis)  : " << fit_result->Status () << endl ;
 
     fit_result->Print () ;
     fit_result->PrintCovMatrix (cout) ;
 
-    cout << "probabilità associata a Q2: " << model.GetProb () << endl ;
-    cout << "probabilità associata a Q2: " << fit_result->Prob () << endl ;
-    cout << "Valore di Q2: " << fit_result->Chi2 () << endl ;
-    cout << "Numero di gradi di libertà: " << fit_result->Ndf () << endl ;
+    cout << "probabilità associata a Q2 : " << fit_result->Prob () << endl ;
+    cout << "Valore di Q2               : " << fit_result->Chi2 () << endl ;
+    cout << "Numero di gradi di libertà : " << fit_result->Ndf () << endl ;
 
     // output dei risultati
     // --------------------------  
     
     cout << endl ;
     cout.precision (3) ;
-    cout << "eventi di fondo:    " << exp (model.GetParameter (0)) << "\t+- " 
-                                   << model.GetParError (0) * exp (model.GetParameter (0)) << endl ;
-    cout << "pendenza del fondo: " << model.GetParameter (1) << "\t+- " << model.GetParError (1) << endl ;
-    cout << "eventi di segnale:  " << model.GetParameter (2) << "\t+- " << model.GetParError (2) << endl ;
-    cout << "media del segnale:  " << model.GetParameter (3) << "\t+- " << model.GetParError (3) << endl ;
-    cout << "sigma del segnale:  " << model.GetParameter (4) << "\t+- " << model.GetParError (4) << endl ;
+    cout << "normalizzazione del fondo  : " << exp (model.GetParameter (0)) << "\t+- " 
+                                            << model.GetParError (0) * exp (model.GetParameter (0)) << endl ;
+    cout << "pendenza del fondo         : " << model.GetParameter (1) << "\t+- " << model.GetParError (1) << endl ;
+    cout << "normalizzazione del segnale: " << model.GetParameter (2) << "\t+- " << model.GetParError (2) << endl ;
+    cout << "media del segnale          : " << model.GetParameter (3) << "\t+- " << model.GetParError (3) << endl ;
+    cout << "sigma del segnale          : " << model.GetParameter (4) << "\t+- " << model.GetParError (4) << endl ;
 
     // matrice di covarianza dei parametri
     // --------------------------  

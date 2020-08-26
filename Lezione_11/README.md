@@ -349,6 +349,9 @@
     - (andamento risultato vs. numero di bin)
   - ricavare il valore dei parametri da sideband?
   - https://root.cern.ch/root/htmldoc/guides/users-guide/FittingHistograms.html
+  - scelta della larghezza del bin
+    - limite inferiore: approssimazione gaussiana
+    - limite superiore: risoluzione del fit (il p-value peggiora, il valore di Q2min è più lontano da N-k)
 
 ![linea](../immagini/linea.png)
 
