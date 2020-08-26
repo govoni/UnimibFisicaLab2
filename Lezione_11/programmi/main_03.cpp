@@ -10,6 +10,7 @@ c++ -o main_03 `root-config --glibs --cflags` main_03.cpp
 
 #include "TF1.h"
 #include "TH1F.h"
+#include "TFile.h"
 #include "TCanvas.h"
 #include "TString.h"
 #include "TFitResult.h"
@@ -68,6 +69,8 @@ int main (int argc, char ** argv)
     vector<TGraph *> trend_incertezza_par ;
     for (int i = 0 ; i < 5 ; ++i) trend_incertezza_par.push_back (new TGraph ()) ;
 
+    TGraph g_gof ;
+
     TCanvas c1 ("c1", "", 800, 800) ;
     c1.SetLeftMargin (0.15) ;
 
@@ -75,10 +78,11 @@ int main (int argc, char ** argv)
     // ciclo su diverse dimensioni del campione
     for (int i_Nmax = v_eventi.size () ; i_Nmax > 500 ; i_Nmax /= 2)
       {
+        cout << "ciclo su " << i_Nmax << " eventi" << endl ;
         double min = floor (*min_element (v_eventi.begin (), v_eventi.begin () + i_Nmax)) ;
         double max = floor (*max_element (v_eventi.begin (), v_eventi.begin () + i_Nmax)) ;
         int N_bin  = round (sqrt (i_Nmax) / 2.) ; 
-    
+
         TH1F * h_eventi = new TH1F ("h_eventi", "", N_bin, min, max) ;
         for (int i = 0 ; i < i_Nmax ; ++i) h_eventi->Fill (v_eventi.at (i)) ;
         TF1 * model = new TF1 ("model", "expo(0) + gaus(2)", 0., 20.) ;
@@ -119,6 +123,7 @@ int main (int argc, char ** argv)
     
         TFitResultPtr fit_result = h_eventi->Fit ("model", "S") ;
     
+        g_gof.SetPoint (point, i_Nmax, fit_result->Prob ()) ;
         // riempimento dei TGraphError
         for (int i = 0 ; i < 5 ; ++i) 
           {
@@ -142,6 +147,17 @@ int main (int argc, char ** argv)
 
     c1.SetLogx () ;
 
+    TFile f_out ("main_03.root", "recreate") ;
+    g_gof.SetMarkerStyle (20) ;
+    g_gof.SetMarkerColor (kGray + 2) ;
+    g_gof.Write ("GOF") ;
+
+    g_gof.Draw ("AP") ;
+    g_gof.GetXaxis ()->SetTitle ("numero di eventi") ;
+    g_gof.GetYaxis ()->SetTitle ("p-value del fit") ;
+    g_gof.Draw ("AP") ;
+    c1.Print ("GOF.png", "png") ;
+
     for (int i = 0 ; i < 5 ; ++i) 
       {
         TString testo ;
@@ -155,6 +171,7 @@ int main (int argc, char ** argv)
         trend_parametri.at (i)->Draw ("AP") ;
         testo = "parametro_" ;
         testo += i ;
+        trend_parametri.at (i)->Write (testo) ; 
         testo += ".png" ;
         c1.Print (testo, "png") ;
 
@@ -169,11 +186,12 @@ int main (int argc, char ** argv)
         trend_incertezza_par.at (i)->Draw ("AP") ;
         testo = "incertezza_" ;
         testo += i ;
+        trend_incertezza_par.at (i)->Write (testo) ; 
         testo += ".png" ;
         c1.Print (testo, "png") ;
         c1.SetLogy (false) ;
-
       }
+    f_out.Close () ;  
 
     return 0 ;
   }
