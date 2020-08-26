@@ -164,7 +164,7 @@
       model.SetParameter (0, p0) ;
       model.SetParameter (1, p1) ;
       ```
-    * L'esponenziale e' sicuramente **decrescente**:  
+    * L'esponenziale è sicuramente **decrescente**:  
       ```cpp
       double p1 = -0.5 ;                    // pendenza del fondo
       ```
@@ -193,8 +193,8 @@
 ### 11.2.7 I parametri dell'esponenziale dalla regione esponenziale
 
   * Un **fit parziale** soltanto sull'intervallo ```0., 4.```
-    con la dsitribuzione di probabilita' del solo fondo
-    permette di calcolare una stima preliminare di &theta<sub>0</sub>; e &theta<sub>1</sub>;
+    con la dsitribuzione di probabilità del solo fondo
+    permette di calcolare una stima preliminare di &theta;<sub>0</sub> e &theta;<sub>1</sub>
     ```cpp
     TF1 fondo ("fondo", "expo(0)", 0., 20.) ;
     fondo.SetParameter (0, p0) ;
@@ -203,8 +203,8 @@
     ```
     * L'**opzione ```"Q"```** fa in modo che nulla venga scritto a schermo
   * Un **fit parziale** soltanto sull'intervallo ```7., 14.```
-    con la dsitribuzione di probabilita' del solo segnale
-    permette di calcolare una stima preliminare di &theta<sub>0</sub>; e &theta<sub>1</sub>;
+    con la dsitribuzione di probabilità del solo segnale
+    permette di calcolare una stima preliminare di &theta;<sub>0</sub> e &theta;<sub>1</sub>
     ```cpp
     TF1 segnale ("segnale", "gaus(0)", 0., 20.) ;
     segnale.SetParameter (0, p2) ;
@@ -300,7 +300,7 @@
     con *N* il numero di bin fittati e *k* il numero di parametri determinati
   * E' necessario che **per ogni bin ci siano abbastanza eventi**, 
     per cui la distribuzione di Poisson sia simile ad una Gaussiana
-  * In queste condizioni i può utilizzare il **test del *&Chi;<sup>2</sup>*** per determinare la bontà del fit
+  * In queste condizioni si può utilizzare il **test del *&Chi;<sup>2</sup>*** per determinare la bontà del fit
     calcolando la probabilità che il risultato possa essere peggiore di quello ottenuto,
     integrando la distribuzione di *&Chi;<sup>2</sup>(N-k)* da *Q<sup>2</sup><sub>min</sub>* all'infinito.
     L'integrale si può ottenere in due modi:
