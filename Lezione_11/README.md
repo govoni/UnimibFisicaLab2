@@ -201,6 +201,7 @@
     fondo.SetParameter (1, p1) ;
     h_eventi.Fit ("fondo", "Q", "", 0., 4.) ;
     ```
+    * L'**opzione ```"Q"```** fa in modo che nulla venga scritto a schermo
   * Un **fit parziale** soltanto sull'intervallo ```7., 14.```
     con la dsitribuzione di probabilita' del solo segnale
     permette di calcolare una stima preliminare di &theta<sub>0</sub>; e &theta<sub>1</sub>;
@@ -228,17 +229,120 @@
 
     TFitResultPtr fit_result = h_eventi.Fit ("model", "S") ;
     ```
+    * L'opzione ```"S"``` garantisce che il **risultato del fit venga salvato** 
+      e sia accessibile tramite l'oggetto ```fit_result```
 
+![linea](../immagini/linea.png)
 
+## 11.3 L'analisi del risultato della regressione
 
+  * La funzione di fit viene automaticamente aggiunta alla proprietà del ```TH1F```
+    e visualizzata quando viene invocato il metodo ```TH1F::Draw```:
+![fit_result](immagini/fit_result.png)
 
-  
-    // prima stima di p2, p3, p4 bloccando i coefficienti del fondo
+![linea](../immagini/linea.png)
 
+### 11.3.1 La stampa a schermo del risultato
 
+  * L'**output a schermo** del fit ha la forma seguente:
+    ```
+     FCN=43.2314 FROM MIGRAD    STATUS=CONVERGED     136 CALLS         137 TOTAL
+                         EDM=1.23203e-07    STRATEGY= 1  ERROR MATRIX UNCERTAINTY   5.6 per cent
+      EXT PARAMETER                                   STEP         FIRST   
+      NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+       1  p0           6.42014e+00   1.80871e-02   1.13175e-05   2.97351e-03
+       2  p1          -1.96538e-01   4.53819e-03   5.31592e-06   1.27147e-01
+       3  p2           1.76316e+02   6.42286e+00   1.74578e-02  -3.17192e-05
+       4  p3           9.97488e+00   7.97750e-02  -1.12275e-04   1.19307e-03
+       5  p4           2.08229e+00   8.35661e-02  -1.64878e-04   1.22967e-04
+    ```
+    * In questo caso, l'algoritmo di minimizzazione utilizzato è ```MIGRAD```
+    * L'algoritmo ha avuto successo: ```STATUS=CONVERGED```
+    * I **valori dei singoli parametri** e della loro incertezza sono riportati a schermo
+  * Le **singole informazioni** si possono recuperare anche dentro il codice sorgente  
 
-  - prima il fit giusto e completo con il metodo del chi2 e ML
-    - rem come ottenere la matrice di covarianza
+![linea](../immagini/linea.png)
+
+### 11.3.2 La convergenza del fit
+
+  * Per conoscere il **successo dell'algoritmo numerico**,
+    si utilizza il metodo ```TFitResult::IsValid ()```, che deve essere ```true``` in caso di successo,
+    oppure il metodo ```TFitResult::Status ()```, che deve essere ```0``` in caso di successo
+    ```cpp
+    cout << "primo feedback sul risultato del fit: " << fit_result->IsValid () << endl ;
+    cout << "primo feedback sul risultato del fit: " << fit_result->Status () << endl ;
+    ```
+    * La classe ```TFitResultPtr``` si comporta come un puntatore ad oggetti di tipo ```TFitResult```
+
+![linea](../immagini/linea.png)
+
+### 11.3.3 Il valore dei parametri e la loro incertezza
+
+  * Il valore dei parametri e della loro incertezza possono essere **ottenuti dalla funzione di fit**:
+    ```cpp
+    cout << endl ;
+    cout.precision (3) ;
+    cout << "eventi di fondo:    " << exp (model.GetParameter (0)) << "\t+- " 
+                                   << model.GetParError (0) * exp (model.GetParameter (0)) << endl ;
+    cout << "pendenza del fondo: " << model.GetParameter (1) << "\t+- " << model.GetParError (1) << endl ;
+    cout << "eventi di segnale:  " << model.GetParameter (2) << "\t+- " << model.GetParError (2) << endl ;
+    cout << "media del segnale:  " << model.GetParameter (3) << "\t+- " << model.GetParError (3) << endl ;
+    cout << "sigma del segnale:  " << model.GetParameter (4) << "\t+- " << model.GetParError (4) << endl ;
+
+    ```
+
+![linea](../immagini/linea.png)
+
+### 11.3.4 La bontà del fit
+
+  * Nel caso in cui la distribuzione di densità di probabilità dei singoli *n<sub>i</sub>* sia Gaussiana,
+    ***Q<sup>2</sup><sub>min</sub>* segue la distribuzione del *&Chi;<sup>2</sup>*** con *N-k* gradi di libertà,
+    con *N* il numero di bin fittati e *k* il numero di parametri determinati
+  * E' necessario che **per ogni bin ci siano abbastanza eventi**, 
+    per cui la distribuzione di Poisson sia simile ad una Gaussiana
+  * In queste condizioni i può utilizzare il **test del *&Chi;<sup>2</sup>*** per determinare la bontà del fit
+    calcolando la probabilità che il risultato possa essere peggiore di quello ottenuto,
+    integrando la distribuzione di *&Chi;<sup>2</sup>(N-k)* da *Q<sup>2</sup><sub>min</sub>* all'infinito.
+    L'integrale si può ottenere in due modi:
+    ```cpp
+    cout << "probabilità associata a Q2: " << model.GetProb () << endl ;
+    cout << "probabilità associata a Q2: " << fit_result->Prob () << endl ;
+    ```
+    * Più alto è l'integrale, più si è fiduciosi del fit
+  * Si possono anche ottenere il valore di *Q<sup>2</sup><sub>min</sub>* e del numero di gradi di libertà
+    **dalla variabile ```fit_result```**
+    ```cpp
+    cout << "Valore di Q2: " << fit_result->Chi2 () << endl ;
+    cout << "Numero di gradi di libertà: " << fit_result->Ndf () << endl ;
+    ```
+
+![linea](../immagini/linea.png)
+
+### 11.3.5 La matrice di covarianza dei parametri risultanti
+
+  * La matrice di covarianza e di correlazione dei parametri risultati **può essere stampata a schermo**:
+    ```cpp
+    fit_result->PrintCovMatrix (cout) ;
+    ```
+  * I **singoli valori** sono accessibili tramite un oggetto di tipo ```TMatrixDSym``` (una matrice simmetrica),
+    che si ottiene sempre dall'oggetto ```fit_result```:
+    ```cpp
+    TMatrixDSym cov = fit_result->GetCovarianceMatrix () ;
+    // or TMatrixDSym cov = r->GetCorrelationMatrix();
+    for (int i = 0; i < cov.GetNrows () ; ++i) 
+      {
+        for (int j = 0; j < cov.GetNcols () ; ++j) 
+          { 
+            cout << cov(i,j) << "\t" ;
+          }
+        cout << "\n";
+      }
+    ```
+
+![linea](../immagini/linea.png)
+
+## 11.4 
+
   - poi casi speciali
     - statistica piu' bassa => test del chi2 non vale più
     - andamento risultato vs statistica totale => TGraphErrors e fit di quello
@@ -246,15 +350,8 @@
   - ricavare il valore dei parametri da sideband?
   - https://root.cern.ch/root/htmldoc/guides/users-guide/FittingHistograms.html
 
-
-
-![mq](immagini/modello.png)
-![mq](immagini/modello_formula.png)
-![mq](immagini/distribuzioni.png)
-
-
 ![linea](../immagini/linea.png)
 
-## 11.7 ESERCIZI
+## 11.X ESERCIZI
 
   * Gli esercizi relativi alla lezione si trovano [qui](ESERCIZI.md)

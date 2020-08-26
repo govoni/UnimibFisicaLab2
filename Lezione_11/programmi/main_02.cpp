@@ -11,6 +11,7 @@ c++ -o main_02 `root-config --glibs --cflags` main_02.cpp
 #include "TH1F.h"
 #include "TCanvas.h"
 #include "TFitResult.h"
+#include "TMatrixDSym.h"
 
 using namespace std ;
 
@@ -115,12 +116,14 @@ int main (int argc, char ** argv)
     // --------------------------  
    
     int result = fit_result ;
-    cout << "primo feedback sul risultato del fit: " << result << endl ;
+    cout << "primo feedback sul risultato del fit: " << fit_result->IsValid () << endl ;
+    cout << "primo feedback sul risultato del fit: " << fit_result->Status () << endl ;
 
     fit_result->Print () ;
     fit_result->PrintCovMatrix (cout) ;
 
     cout << "probabilità associata a Q2: " << model.GetProb () << endl ;
+    cout << "probabilità associata a Q2: " << fit_result->Prob () << endl ;
     cout << "Valore di Q2: " << fit_result->Chi2 () << endl ;
     cout << "Numero di gradi di libertà: " << fit_result->Ndf () << endl ;
 
@@ -135,6 +138,21 @@ int main (int argc, char ** argv)
     cout << "eventi di segnale:  " << model.GetParameter (2) << "\t+- " << model.GetParError (2) << endl ;
     cout << "media del segnale:  " << model.GetParameter (3) << "\t+- " << model.GetParError (3) << endl ;
     cout << "sigma del segnale:  " << model.GetParameter (4) << "\t+- " << model.GetParError (4) << endl ;
+
+    // matrice di covarianza dei parametri
+    // --------------------------  
+
+    cout << endl ;
+    TMatrixDSym cov = fit_result->GetCovarianceMatrix () ;
+    // or TMatrixDSym cov = r->GetCorrelationMatrix();
+    for (int i = 0; i < cov.GetNrows () ; ++i) 
+      {
+        for (int j = 0; j < cov.GetNcols () ; ++j) 
+          { 
+            cout << cov(i,j) << "\t" ;
+          }
+        cout << "\n";
+      }
 
     TCanvas c1 ("c1", "", 800, 800) ;
     c1.SetLeftMargin (0.15) ;
