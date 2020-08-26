@@ -84,32 +84,31 @@ int main (int argc, char ** argv)
     model->SetLineWidth (4) ;
     model->SetLineStyle (1) ;
 
-    double p0 = v_eventi.size () ;        // eventi
-    double p1 = 0.5 * (max - min) ;       // media
-    double p2 = h_eventi->GetRMS () ;     // sigma
+    double p0 = v_eventi.size () ;    // eventi
+    double p1 = 0.5 * (max - min) ;   // media
+    double p2 = h_eventi.GetRMS () ;  // sigma
 
     model->SetParameter (0, p0) ;
     model->SetParameter (1, p1) ;
     model->SetParameter (2, p2) ;
 
     TFitResultPtr fit_result_MQ = h_eventi.Fit ("model", "SQ+") ;
+    h_eventi.GetFunction ("model")->SetLineColor (kRed) ;
 
     cout << endl ;
     cout.precision (3) ;
-    cout << "probabilità associata a Q2: " << model.GetProb () << endl ;
-    cout << "integrale                 : " << model.GetParameter (0) << "\t+- " << model.GetParError (0) << endl ;                                           
-    cout << "media                     : " << model.GetParameter (1) << "\t+- " << model.GetParError (1) << endl ;
-    cout << "sigma                     : " << model.GetParameter (2) << "\t+- " << model.GetParError (2) << endl ;
-    h_eventi.GetFunction ("model")->SetLineColor (kRed) ;
-
+    cout << "probabilità associata a Q2: " << model->GetProb () << endl ;
+    cout << "integrale                 : " << model->GetParameter (0) << "\t+- " << model->GetParError (0) << endl ;                                           
+    cout << "media                     : " << model->GetParameter (1) << "\t+- " << model->GetParError (1) << endl ;
+    cout << "sigma                     : " << model->GetParameter (2) << "\t+- " << model->GetParError (2) << endl ;
 
     TFitResultPtr fit_result_ML = h_eventi.Fit ("model", "SLQ+") ;
 
     cout << endl ;
-    cout << "probabilità associata a Q2: " << model.GetProb () << endl ;
-    cout << "integrale                 : " << model.GetParameter (0) << "\t+- " << model.GetParError (0) << endl ;                                           
-    cout << "media                     : " << model.GetParameter (1) << "\t+- " << model.GetParError (1) << endl ;
-    cout << "sigma                     : " << model.GetParameter (2) << "\t+- " << model.GetParError (2) << endl ;
+    cout << "probabilità associata a Q2: " << model->GetProb () << endl ;
+    cout << "integrale                 : " << model->GetParameter (0) << "\t+- " << model->GetParError (0) << endl ;                                           
+    cout << "media                     : " << model->GetParameter (1) << "\t+- " << model->GetParError (1) << endl ;
+    cout << "sigma                     : " << model->GetParameter (2) << "\t+- " << model->GetParError (2) << endl ;
 
     TCanvas c1 ("c1", "", 800, 800) ;
     c1.SetLeftMargin (0.15) ;

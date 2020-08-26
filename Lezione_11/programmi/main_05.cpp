@@ -135,7 +135,7 @@ int main (int argc, char ** argv)
     
         TFitResultPtr fit_result_MQ = h_eventi->Fit ("model", "SQ+") ;
         h_eventi->GetFunction ("model")->SetLineColor (kRed) ;
-    
+
         g_p0_MQ.SetPoint (point, i_Nmax, model->GetParameter (0)) ;
         g_p0_MQ.SetPointError (point, 0., model->GetParError (0)) ;
         g_p1_MQ.SetPoint (point, i_Nmax, model->GetParameter (1)) ;
@@ -156,7 +156,7 @@ int main (int argc, char ** argv)
         h_eventi->GetYaxis ()->SetTitle ("eventi nel bin") ;
         h_eventi->SetFillColor (kOrange + 1) ;
         h_eventi->SetLineColor (kGray + 1) ;
-        h_eventi->Draw () ;
+
         TString testo = "fit_" ;
         testo += point ;
         testo += ".png" ;

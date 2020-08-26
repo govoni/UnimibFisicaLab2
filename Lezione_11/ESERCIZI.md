@@ -18,22 +18,30 @@ utilizzando gli algoritmi di ```ROOT``` ed il modello descritto nella Lezione.
 
 ## Esercizio 11.2 
 
-Utilizzando il programma [main_01.cpp](programmi/main_01.cpp),
-si generi un file ```dati_2.txt``` contenente 10 milioni di eventi.
+Utilizzando il programma [main_03.cpp](programmi/main_03.cpp),
+si generi un file ```dati_2.txt``` contenente 10,000 eventi
+distribuiti secondo una distribuzione di probabilità Gaussiana.
 
 ![linea](../immagini/linea.png)
 
 ## Esercizio 11.3
- 
+
+Si scriva un programma che effettui il fit degli eventi salvati nel file ```dati_2.txt```
+con il metodo della massima verosimiglianza e con il metodo dei minimi quadrati
+e si confronti il risultato delle due tecniche,
+comparando i valori studiati nell'esercizio 11.1 per i parametri 
+e per la bontà del fit.
+
 ![linea](../immagini/linea.png)
 
 ## Esercizio 11.4
 
-![linea](../immagini/linea.png)
+Si inserisca il codice sorgente dell'esercizio precedente in un ciclo
+che effettui il confronto al variare del numero di eventi considerato per il fit,
+da ```20``` a ```10000```, con andamento regolare in scala logaritmica.
+  * Si utilizzino diversi ```TGraphErrors```
+    per disegnare l'andamento dei parametri e delle loro incertezze 
+    al variare del numero di eventi, per i due tipi di stimatore.
+  * Quale stimatore risulta meno distorto, a bassa statistica?  
 
-## Esercizio 11.5
-
-![linea](../immagini/linea.png)
-
-## Esercizio 11.6
 

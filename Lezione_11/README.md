@@ -1,5 +1,34 @@
 # Lezione 11: fit di distribuzioni binnate con ```ROOT```
 
+## Indice
+
+  * [11.1 Introduzione](#111-introduzione)
+    * [11.1.1 L'applicazione del metodo dei minimi quadrati](#1111-lapplicazione-del-metodo-dei-minimi-quadrati)
+    * [11.1.2 L'applicazione del metodo della massima verosimiglianza](#1112-lapplicazione-del-metodo-della-massima-verosimiglianza)
+    * [11.1.3 La scelta fra le due tecniche](#1113-la-scelta-fra-le-due-tecniche)
+  * [11.2 Un esercizio di regressione](#112-un-esercizio-di-regressione)
+    * [11.2.1 La lettura dei dati](#1121-la-lettura-dei-dati)
+    * [11.2.2 La determinazione dei parametri &\theta;](#1122-la-determinazione-dei-parametri-\theta)
+    * [11.2.3 Il fit di un istogramma in ```ROOT```](#1123-il-fit-di-un-istogramma-in-root)
+    * [11.2.4 Il fondo ed il modello completo](#1124-il-fondo-ed-il-modello-completo)
+    * [11.2.5 Il fit del modello ai dati](#1125-il-fit-del-modello-ai-dati)
+    * [11.2.6 Come aiutare ```ROOT``` a trovare il minimo giusto](#1126-come-aiutare-root-a-trovare-il-minimo-giusto)
+    * [11.2.7 Come maneggiare meno parametri alla volta](#1127-come-maneggiare-meno-parametri-alla-volta)
+    * [11.2.8 I parametri dell'esponenziale dalla regione esponenziale](#1128-i-parametri-dellesponenziale-dalla-regione-esponenziale)
+    * [11.2.9 Il fit finale](#1129-il-fit-finale)
+  * [11.3 L'analisi del risultato della regressione](#113-lanalisi-del-risultato-della-regressione)
+    * [11.3.1 La stampa a schermo del risultato](#1131-la-stampa-a-schermo-del-risultato)
+    * [11.3.2 La convergenza del fit](#1132-la-convergenza-del-fit)
+    * [11.3.3 Il valore dei parametri e la loro incertezza](#1133-il-valore-dei-parametri-e-la-loro-incertezza)
+    * [11.3.4 La bontà del fit](#1134-la-bontà-del-fit)
+    * [11.3.5 La matrice di covarianza dei parametri risultanti](#1135-la-matrice-di-covarianza-dei-parametri-risultanti)
+  * [11.4 Minimi quadrati (MQ) e massima verosimiglianza (ML)](#114-minimi-quadrati-mq-e-massima-verosimiglianza-ml)
+    * [11.4.1 Il fit di massima verosimiglianza in ```ROOT```](#1141-il-fit-di-massima-verosimiglianza-in-root)
+    * [11.4.2 Il confronto fra due risultati](#1142-il-confronto-fra-due-risultati)
+    * [11.4.3 Il disegno del risultato](#1143-il-disegno-del-risultato)
+  * [11.5 Sulla scelta del binning](#115-sulla-scelta-del-binning)
+  * [11.6 ESERCIZI](#116-esercizi)
+
 ![linea](../immagini/linea.png)
 
 ## 11.1 Introduzione
@@ -99,7 +128,7 @@
 ### 11.2.3 Il fit di un istogramma in ```ROOT```
 
   * Per poter effettuare il fit, 
-    e' necessario definire il modello funzionale nel linguaggio di ```ROOT```
+    è necessario definire il modello funzionale nel linguaggio di ```ROOT```
   * Una funzione si rappresenta con un oggetto di tipo ```TF1```:  
     ```cpp
     TF1 segnale ("segnale", "gaus(0)",0., 20.) ;
@@ -179,7 +208,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 11.2.6 Come maneggiare meno parametri alla volta
+### 11.2.7 Come maneggiare meno parametri alla volta
 
   * Talvolta anche partendo da valori ragionevoli dei parametri 
     **il fit non converge** all'estremante cercato
@@ -190,7 +219,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 11.2.7 I parametri dell'esponenziale dalla regione esponenziale
+### 11.2.8 I parametri dell'esponenziale dalla regione esponenziale
 
   * Un **fit parziale** soltanto sull'intervallo ```0., 4.```
     con la dsitribuzione di probabilità del solo fondo
@@ -215,7 +244,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 11.2.8 Il fit finale
+### 11.2.9 Il fit finale
 
   * Dopo aver **impostato i parametri** iniziali della funzione ```"model"```
     con i valori ricavati in precedenza,
@@ -341,20 +370,80 @@
 
 ![linea](../immagini/linea.png)
 
-## 11.4 
+## 11.4 Minimi quadrati (MQ) e massima verosimiglianza (ML)
 
-  - poi casi speciali
-    - statistica piu' bassa => test del chi2 non vale più
-    - andamento risultato vs statistica totale => TGraphErrors e fit di quello
-    - (andamento risultato vs. numero di bin)
-  - ricavare il valore dei parametri da sideband?
-  - https://root.cern.ch/root/htmldoc/guides/users-guide/FittingHistograms.html
-  - scelta della larghezza del bin
-    - limite inferiore: approssimazione gaussiana
-    - limite superiore: risoluzione del fit (il p-value peggiora, il valore di Q2min è più lontano da N-k)
+  * Il metodo dei minimi quadrati (MQ) e quello della massima verosimiglianza
+    (ML, da maximum likelihood) sono **stimatori dei parametri di un modello**, 
+    a partire dai dati
+  * I due stimatori godono di proprietà diverse ed hanno comportamenti differenti: 
+    pur utilizzando gli stessi dati, possono **produrre risultati differenti** 
 
 ![linea](../immagini/linea.png)
 
-## 11.X ESERCIZI
+### 11.4.1 Il fit di massima verosimiglianza in ```ROOT```
+
+  * Per svolgere un fit con il metodo della massima verosimiglianza,
+    è sufficiente aggiungere l'opzione ```"L"``` all'istruzione di fit:
+    ```cpp
+    // fit con i minimi quadrati
+    TFitResultPtr fit_result_MQ = h_eventi.Fit ("model", "SQ+") ;
+    // fit con la massima verosimiglianza
+    TFitResultPtr fit_result_ML = h_eventi.Fit ("model", "SLQ+") ;
+    ```
+  * L'oggetto di tipo ```TFitResultPtr``` prodotto nei due casi
+    contiene **le stesse variabili**
+    * Anche nel caso della massima verosimiglianza viene calcolato 
+      il **valore di *Q<sup>2</sup><sub>min</sub>***,
+      per poter effettuare il test del *&Chi;<sup>2</sup>*
+
+![linea](../immagini/linea.png)
+
+### 11.4.2 Il confronto fra due risultati
+
+  * Per un **grande numero di eventi**, 
+    i due stimatori si equivalgono 
+  * Per un numero ridotto di eventi, invece,
+    lo stimatore di massima verosimiglianza
+    **considera propriamente anche i bin vuoti
+    e attribuisce più importanza alle code** delle distribuzioni  
+![ML_vs_MQ](immagini/ML_vs_MQ.png)
+
+![linea](../immagini/linea.png)
+
+### 11.4.3 Il disegno del risultato
+
+  * L'opzione ```"+"``` nell'istruzione di fit 
+    impone a ```ROOT``` di salvare nell'oggetto ```TH1F``` una copia della funzione 
+    utilizzata pr effettuare il fit.
+  * La funzione può essere recuperata con il metodo ```TH1F::GetFunction```  
+    ```cpp
+    // fit con i minimi quadrati
+    TFitResultPtr fit_result_MQ = h_eventi.Fit ("model", "SQ+") ;
+    h_eventi.GetFunction ("model")->SetLineColor (kRed) ;
+    ```
+    * Siccome il modello è sempre il medesimo, 
+      ```TH1F::GetFunction``` può generare ambiguità;
+      la lista delle funzioni associate ad un ```TH1F``` si può ottenere
+      anche con il **metodo ```TH1F::GetListOfFunctions()```**
+
+![linea](../immagini/linea.png)
+
+## 11.5 Sulla scelta del binning
+
+  * Siccome la scelta del binning determina il numero ed il valore dei punti *n<sub>i</sub>*,
+    **ha impatto sul risultato del fit**
+  * Scegliere **bin con dimensioni molto piccole** (e quindi un gran numero di bin)
+    * rende distorto il metodo dei minimi quadrati,
+      per via della possibile **presenza di bin vuoti**  
+    * rende **inaffidabile il test del *&Chi;<sup>2</sup>*** per la bontà del fit
+  * Scegliere **bin con dimensioni molto grandi**
+    riduce la sensibilità degli stimatori,
+    perché peggiora la risoluzione con la quale gli stimatori
+    hanno accesso ai dati
+    * Si può utilizzare il test del *&Chi;<sup>2</sup>* per deteminare la scelta del binning ottimale
+
+![linea](../immagini/linea.png)
+
+## 11.6 ESERCIZI
 
   * Gli esercizi relativi alla lezione si trovano [qui](ESERCIZI.md)
