@@ -38,17 +38,6 @@ int main (int argc, char ** argv)
     model.SetParameter (3, p3) ;
     model.SetParameter (4, p4) ;
 
-    // The total is the sum of the three, each has 3 parameters
-    TF1 segnale ("segnale", "gaus(0)", 0., 20.) ;
-    segnale.SetParameter (0, p2) ;
-    segnale.SetParameter (1, p3) ;
-    segnale.SetParameter (2, p4) ;
-
-    // The total is the sum of the three, each has 3 parameters
-    TF1 fondo ("fondo", "expo(0)", 0., 20.) ;
-    fondo.SetParameter (0, p0) ;
-    fondo.SetParameter (1, p1) ;
-
     TH1F h_campione ("h_campione", "", 100, 0., 20.) ;
 
     ofstream f_campione ;
