@@ -52,7 +52,8 @@
   * ad esempio:
     * il **tempo di arrivo di raggi cosmici** su un rivelatore di muoni
     * il risultato del **lancio di una moneta** o di un dado
-  * si tratta tipicamente di sequenze che **richiedono molto tempo** per essere compilate,
+  * siccome dipendono dalle tempistiche di processi naturali,
+    si tratta tipicamente di sequenze che **richiedono molto tempo** per essere costruite,
     che diventa un fattore limitante nei calcoli
 
 ![linea](../immagini/linea.png)
