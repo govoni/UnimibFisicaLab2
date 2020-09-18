@@ -104,7 +104,7 @@
 
 ### 4.1.5 un generatore di numeri casuali in ```C++```
 
-  * nella libreria ```cstdlib``` è presente un generatore di numeri pseudo-casuali:
+  * nella libreria ```cstdlib``` è presente un generatore di numeri pseudo-casuali ```rand()```:
     ```cpp
     #include <cstdlib>
     #include <iostream>
@@ -117,7 +117,7 @@
         return 0 ;
       }
     ```
-    che produce come output:
+    il codice precedente produce come output:
     ```
     indice 0 --> 16807
     indice 1 --> 282475249
@@ -132,7 +132,7 @@
 
 ### 4.1.6 le caratteristiche di ```rand ()```
 
-  * numeri interi pseudo-casuali distribuiti uniformemente fra ```0``` e ```RAND_MAX```,
+  * è un generatore di numeri interi pseudo-casuali distribuiti uniformemente fra ```0``` e ```RAND_MAX```,
     che è una variabile definita all'interno della libreria ```cstdlib```
   * il generatore **inizia sempre dallo stesso seed** per generare gli eventi,
     quindi se si rigira il programma si ottiene sempre la medesima sequenza numerica
@@ -148,7 +148,7 @@
     for (int i = 0 ; i < 5 ; ++i)
       std::cout << "indice " << i << " --> " << rand () << "\n" ;
     ```
-  * è importante poter riprodurre una sequenza di numeri pseudo-casuali
+  * è importante poter riprodurre la stessa sequenza di numeri pseudo-casuali
     **a scopo di test**
   * se invece si vuole produrre **ad ogni esecuzione una sequenza differente**,
     si può utilizzare il tempo di esecuzione come seed di generazione,
@@ -168,20 +168,19 @@
 
 ## 4.2 generare numeri pseudo-casuali con distribuzione uniforme
 
-  * una sequenza di numeri interi compresi fra ```0``` e ```RAND_MAX```
-    non è in generale ben adattata ad un suo uso generico
-  * ci interessa produrre sequenze di numeri pseudo-casuali 
-    che seguano distribuzioni differenti
-  * le densità di probabilità dei numeri pseudo-casuali generati
-    avranno sempre **dominio limitato**, 
-    per via delle limitazioni intrinseche dei calcolatori  
+  * ```rand()```  genera numeri interi compresi fra ```0``` e ```RAND_MAX``` 
+  * può però essere usata per produrre sequenze di numeri pseudo-casuali 
+    che seguano distribuzioni differenti, mediante opportuni algoritmi
+  * in generale le densità di probabilità dei numeri pseudo-casuali prodotti con un calcolatore
+    avranno sempre **dominio limitato**, per via delle limitazioni intrinseche dei calcolatori  
+  * la distribuzione uniforme di numeri casuali è un caso particolare infatti è **definita su un insieme limitato**
+    per costruzione (altrimenti il suo integrale sarebbe divergente)
 
 ![linea](../immagini/linea.png)
 
 ### 4.2.1 una distribuzione uniforme di numeri razionali pseudo-casuali
 
-  * una distribuzione uniforme di numeri casuali è **definita su un insieme limitato**
-    per costruzione, perché altrimenti il suo integrale sarebbe divergente
+  
   * l'obiettivo è produrre numeri casuali compresi nell'intervallo ```min, max```,
     **partendo dalle risorse che abbiamo**, cioè ```rand ()```
     1. **distribuzione uniforme fra ``0`` ed ``1``** : 
@@ -204,7 +203,7 @@
 
 ## 4.3 altre distribuzioni di probabilità: try-and-catch
 
-  * secondo la distribuzione di densità di probabilità (pdf) uniforme,
+  * nel caso della distribuzione di densità di probabilità (pdf) uniforme,
     la probabilità che eventi pseudo-casuali vengano generati in un dato intervallo
     **non dipende dalla posizione** dell'intervallo
   * per pdf non uniformi questo **non è vero**
@@ -257,7 +256,7 @@
   | -------- |
 
   * **nota la forma funzionale** della pdf, l'algoritmo funziona
-  * **non è necessario che sia nota analiticamente**,
+  * **non è necessario che la pdf sia nota analiticamente**,
       è sufficiente che si possa scrivere come funzione di ```C++```
   * facilmente **generalizzabile a N dimensioni** 
 
@@ -273,8 +272,9 @@
 
 ## 4.4 altre distribuzioni di probabilità: la funzione inversa
 
-  * **Sia x una variabile casuale con pdf *f(x)* continua e cumulante *F(x)* strettamente crescente.
-    Allora la variabile *y = F(x)* ha distribuzione uniforme**
+  * sia x una variabile casuale con pdf *f(x)* continua 
+  * sia *F(x)* la distribuzione di probabilità cumulativa (cdf) 
+  * **se *F(x)* è strettamente crescente allora la variabile *y = F(x)* ha distribuzione uniforme** (si dimostra usando la regola per il cambio di variabile in una pdf)
   * generare eventi pseudo-casuali **con distribuzione uniforme in *y***
     equivale a generare eventi pseudo-casuali lungo *x* con distribuzione *f(x)*
 
@@ -327,7 +327,7 @@
 ### 4.5.1 l'implementazione dell'algoritmo
 
   * anche in questo caso, 
-    si parte da **genartori di numeri pseudo-casuali noti**: 
+    si parte da **generatori di numeri pseudo-casuali noti**: 
     la distribuzione uniforme
   * per produrre un singolo numero pseudo-casuale distribuito secondo una Gaussiana, 
     è necessario **generare *N* numeri pseudo-casuali** secondo la distribuzione uniforme
@@ -343,7 +343,7 @@
   | vantaggi |
   | -------- |
 
-  * è basato su un **ben noto teorema** e permette di verificare che il teorema stesso funzioni
+  * è basato su un **ben noto teorema** e permette di verificare (entro le approssimazioni numeriche di un calcolatore) che il teorema stesso funzioni
   * non è necessario descrivere analiticamente la forma funzionale della Gaussiana
 
   | svantaggi |
