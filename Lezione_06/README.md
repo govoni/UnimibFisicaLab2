@@ -52,8 +52,8 @@
     per vedere la distribuzione dei valori della media:
     ```cpp
     // loop sui toy experiment
-    stats s_singleToy ;
-    stats s_tot ;
+    statistiche s_singleToy ;
+    statistiche s_tot ;
     for (int iToy = 0 ; iToy < NToys ; ++iToy)
       {
         int i = 0 ;
@@ -101,9 +101,9 @@
   * Per controllare questa corrispondenza,
     si può utilizzare la classe ```statistiche```
     ```cpp
-    stats s_singleToy ;
-    stats s_tot ;
-    stats s_incertezzaMedia ;
+    statistiche s_singleToy ;
+    statistiche s_tot ;
+    statistiche s_incertezzaMedia ;
     // loop sui toy experiment
     for (int iToy = 0 ; iToy < NToys ; ++iToy)
       {
