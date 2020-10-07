@@ -938,7 +938,7 @@
  
 ### 1.6.2 funzioni senza tipo di ritorno
 
-  * una funzione che non restituisce alcun valore si definisce 
+  * una funzione che **non restituisce alcun valore** si definisce 
     con la parola chiave ```void``` (indicatore del tipo di ritorno invece di ```int``` , ```float```  ...)
     ed al suo interno l'istruzione ```return``` è immediatamente seguita da una virgola
     ```cpp
@@ -1058,7 +1058,7 @@
 
 ### 1.6.7 il file ```libreria.h```
 
-  * ```libreria.h```: è il file che contiene il codice sorgente dei prototipi delle altre funzioni
+  * ```libreria.h```: è il file che contiene il codice sorgente dei **prototipi** delle altre funzioni
     ```cpp
     #ifndef libreria_h
     #define libreria_h
@@ -1067,18 +1067,19 @@
     
     #endif
     ```
-     * le linee che iniziano con ```#``` sono istruzioni al preprocessore,
+     * le linee che iniziano con ```#``` sono **istruzioni al preprocessore**,
        si tratta del controllo di una condizione:
        se non è definita una variabile (```#ifndef```) con il nome ```libreria_h```,
        si considera tutto quello che segue fino ad ```#endif```
-     * questo permette di non definire due volte il prototipo di una funzione,
-       che genererebbe un errore di compilazione  
+     * questo permette di **non definire due volte il prototipo** di una funzione,
+       che genererebbe un errore di compilazione
+     * chiamato in generale **header file**  
 
 ![linea](../immagini/linea.png)
 
 ### 1.6.8 il file ```libreria.cc```
 
-  * ```libreria.cc```: è il file che contiene il codice sorgente delle altre funzioni
+  * ```libreria.cc```: è il file che contiene il **codice sorgente delle funzioni secondarie**
     ```cpp
     #include "libreria.h"      
     
@@ -1088,14 +1089,14 @@
       }
     ```
      * il codice sorgente include ```libreria.h```
-       per ereditare tutte le definizioni e gli altri ```#include```
+       per **ereditare tutte le definizioni e gli altri ```#include```**
        che stanno al suo interno
 
 ![linea](../immagini/linea.png)
 
 ### 1.6.9 il file ```main.cpp```
 
-  * ```main.cpp```: è il file che contiene il codice sorgente della funzione ```main```
+  * ```main.cpp```: è il file che contiene il **codice sorgente della funzione ```main```**
     ```cpp
     #include <iostream>
     #include "libreria.h"
@@ -1114,7 +1115,7 @@
        per ereditare tutte le definizioni e gli altri ```#include```
        che stanno al suo interno
      * il file ```libreria.cc``` non viene mai incluso, 
-       ma va indicato nel comando di compilazione:
+       ma va **indicato nel comando di compilazione**:
        ```
        > c++ -o main_16 libreria.cc main_16.cpp
        ```  
@@ -1122,13 +1123,13 @@
    vengono cercati, dal preprocessore, 
    in cartelle predefinite
    * se il nome del file è racchiuso tra doppi apici il file viene dapprima cercato 
-   nella cartella in cui si sta compilando e successivamente in cartelle predefinite
+     nella cartella in cui si sta compilando e successivamente in cartelle predefinite
 
 ![linea](../immagini/linea.png)
 
 ### 1.6.10 librerie in ```C++```
 
-  * si possono creare ed includere più di una libreria in un programma
+  * si possono creare ed includere **più di una libreria** in un programma
   * le librerie di ```C++``` funzionano in questo modo,
     con i codici sorgente delle librerie spesso già compilati
     ed il file da includere indicato fra parentesi angolate, 
@@ -1150,8 +1151,11 @@
 ### 1.6.11 le funzioni ```inline```
 
 
-  * si può utilizzare la parola chiave ```inline```, per chiedere al compilatore di **sostituire la funzione con la sua implementazione**, 
-    questo si fa (è vantaggioso) solo per funzioni piccole per cui il tempo di esecuzione delle operazioni codificate è confrontabile con il tempo che richiederebbe la chiamata di una funzione non inline 
+  * si può utilizzare la parola chiave ```inline```, 
+    per chiedere al compilatore di **sostituire la funzione con la sua implementazione**.
+  * questo si fa (è vantaggioso) solo per **funzioni piccole** 
+    per cui il tempo di esecuzione delle operazioni codificate 
+    è confrontabile con il tempo di chiamata di una funzione non ```inline``` 
     
     ```cpp
     #ifndef libreria_h
@@ -1165,14 +1169,16 @@
     #endif
     ```
     * in questo caso, la funzione va definita prima del ```main```, quindi **nel file ```.h```**
-    * il compilatore può decidere di ignorare la parola chiave ```inline``` quando non sono soddisfatti determinati criteri (quindi l'istruzione ```inline``` è una richiesta o proposta fatta al compilatore, non un comando)
+    * il compilatore può decidere di **ignorare** la parola chiave ```inline``` 
+      quando non sono soddisfatti determinati criteri 
+      (quindi l'istruzione ```inline``` è una richiesta o proposta fatta al compilatore, non un comando)
 
 ![linea](../immagini/linea.png)
 
 ### 1.6.12 funzioni matematiche
 
   * la libreria ```cmath``` offre un'utile **estensione delle operazioni matematiche**
-  * per poterla utilizzare, bisogna includerne il file ```.h``` (detto header) corrispondente: 
+  * per poterla utilizzare, bisogna includerne il file ```.h``` corrispondente: 
     ```#include <cmath>```
   * la libreria contiene funzioni e variabili notevoli
     * la lista delle funzioni notevoli si trova [qui](http://www.cplusplus.com/reference/cmath/), 
