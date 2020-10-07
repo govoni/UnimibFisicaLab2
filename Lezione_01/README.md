@@ -828,7 +828,7 @@
         }
       ```
 
-  ![strutture](immagini/while.png)
+    ![strutture](immagini/while.png)
 
     * **le variabili** definite fra parentesi rimangono definite soltanto all'interno
       dello scope del ciclo
