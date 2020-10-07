@@ -233,11 +233,10 @@
     > ./main_00
     >
     ```
-    * non succede nulla, infatti non ci sono istruzioni all'interno della funzione ```main```, 
-      la SHELL restituisce il ** prompt **
+    * non succede nulla, infatti non ci sono istruzioni all'interno della funzione ```main```
     * l'istruzione ```return 0``` non dice di scrivere a schermo ```0```, 
       ma di restituire alla SHELL il valore ```0``` 
-      (questo valore può per esempio essere intercettato ed utilizzato mediante i comandi di SHELL)   
+      (questo valore può essere intercettato ed utilizzato mediante i comandi di SHELL)   
 
   | suggerimenti |
   | -------------|
@@ -366,7 +365,9 @@
 
 ## 1.3 Le variabili 
 
-  * le informazioni sono manipolate dal programma sotto forma di **variabili**
+  * le informazioni sono manipolate dal programma sotto forma di **variabili**,
+    che indicano zone di memoria del calcolatore riservate dal programma
+    per la memorizzazione dell'informazione
   * **diversi tipi di oggetti** hanno bisogno di dimensioni differenti di memoria
     e di un formato diverso di scrittura
   * per ogni differente possibilità esiste un **tipo associato in ```C++```**,
@@ -386,7 +387,7 @@
 
 ### 1.3.1 la loro inizializzazione 
 
-  * le variabili si inizializzano utilizzando le keyword indicate in tabella precedente:
+  * le variabili si definiscono ed inizializzano utilizzando le keyword indicate in tabella precedente:
     ```cpp
     // definizione di due numeri interi
     int num1 = 0 ;
@@ -407,11 +408,15 @@
   | suggerimenti |
   | -------------|
   
-  * non appena una variabile viene definita, **assegnarle sempre un valore**, tipicamente si opta per una delle seguenti scelte: 
-    * si assegna un **valore di default**, che abbia senso nei calcoli a seguire
-    * si assegna un **valore palesemte insensato**, in modo che se ci si scorda di assegnare il valore corretto alla variabile, il programma non esegua o dia risultati palesemente insensati
-  * definire **una variabile per riga**, per chiarezza di lettura
-  * dare **nomi esplicativi** alle variabili (e quindi anche sufficientemente lunghi)    
+  * non appena una variabile viene definita, **assegnarle sempre un valore**, 
+    tipicamente optando per una delle seguenti scelte: 
+    * si assegna un **valore di default**, 
+      che abbia senso nei calcoli a seguire;
+    * si assegna un **valore palesemte insensato**, 
+      in modo che se ci si scorda di assegnare il valore corretto alla variabile, 
+      il programma non funzioni o dia risultati palesemente insensati;
+  * definire **una variabile per riga**, per chiarezza di lettura;
+  * dare **nomi esplicativi** alle variabili (e quindi anche sufficientemente lunghi).   
 
 ![linea](../immagini/linea.png)
 
@@ -537,23 +542,23 @@
 
 ### 1.4.1 l'operatore di assegnazione
 
-  * attribuiscono il valore iniziale ad una variabile:
+  * attribuiscono il **valore iniziale** ad una variabile:
     ```cpp
     int numero = 5 ;
     ```
     * in questo caso, il tipo in ingresso è un ```int``` 
       (la variabile stessa è una sorta di argomento implicito dell'operatore)
     * l'effetto dell'operatore è quello di assegnare alla variabile ```numero``` il valore 
-      che sta a destra del simbolo ```=```
+      **che sta a destra** del simbolo ```=```
     * il tipo in uscita è ancora ```int``` ed è il valore assegnato alla variabile  
     ```cpp
     std::cout << (numero = 7) << std::endl ;
     ```
-    * di conseguenza, le assegnazioni si possono fare in cascata:
+    * di conseguenza, le assegnazioni si possono fare **in cascata**:
     ```cpp
     int numero_2 = numero = 7 ;
     ```
-  * anche per l'operatore di assegnazione si realizza il casting implicito:
+  * anche per l'operatore di assegnazione si realizza il **casting implicito**:
     ```cpp
     float razionale = 5 ;
     ```
@@ -650,8 +655,8 @@
 
 ### 1.4.6 operatori relazionali
 
-  * gli operatori relazionali confrontano tra loro i valori di due variabili
-  * prendono in ingresso due variabili e restituiscono un valore booleano 
+  * gli operatori relazionali **confrontano tra loro** i valori di due variabili
+  * prendono in ingresso due variabili e **restituiscono un valore booleano** 
     che indica se la relazione è soddisfatta o meno
 
     | operatore | operazione |
@@ -671,7 +676,7 @@
 
 ### 1.4.7 operatori logici
 
-  * gli operatori logici codificano le relazioni fra variabili booleane:
+  * gli operatori logici codificano le **relazioni fra variabili booleane**:
     | operatore | operazione |
     | --- |  --- |
     | ```&&``` | and |
@@ -686,12 +691,12 @@
 ### 1.4.8 le precedenze fra operatori
 
   * se in una singola linea di un codice sorgente vengono effettuate diverse operazioni,
-    il calcolatore le esegue da destra verso sinistra, 
+    il calcolatore le esegue **da destra verso sinistra**, 
     rispettando l'ordine imposto da eventuali parentesi
     e una serie di regole di precedenza
   
   * ecco una tabella ridotta alle operazioni più comuni,
-    gli operatori nelle righe più in alto hanno precedenza rispetto a quelli delle righe sottostanti
+    gli operatori nelle righe più in alto hanno **precedenza** rispetto a quelli delle righe sottostanti
 
   | categorie di priorità |
   | -------------| 
@@ -815,13 +820,13 @@
       una variabile che conta il numero di cicli, detta contatore
     * **controllo**: dove si verifica se il numero di cicli abbia oltrepassato una determinata soglia
     * **incremento**: dove si incrementa il contatore
-    ```cpp
-    int N = 10 ;
-    for (int i = 0 ; i < N ; ++i)
-      {
-        std::cout << "il doppio di " << i << " vale: " << 2 * i << std::endl ;
-      }
-    ```
+      ```cpp
+      int N = 10 ;
+      for (int i = 0 ; i < N ; ++i)
+        {
+          std::cout << "il doppio di " << i << " vale: " << 2 * i << std::endl ;
+        }
+      ```
 
   ![strutture](immagini/while.png)
 
