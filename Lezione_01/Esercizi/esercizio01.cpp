@@ -17,7 +17,7 @@ int main ()
   std::cout << "Inserisci il secondo numero: " << std::endl;
   std::cin >> numero2;
 
-  float rapporto = static_cast<float>(numero1 / numero2);
+  float rapporto = static_cast<float>(numero1) / numero2;
 
   std::cout << "Il rapporto tra i due numeri e`: "
 	    << rapporto << std::endl;
