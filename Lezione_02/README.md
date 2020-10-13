@@ -183,16 +183,16 @@
     std::cout << "Ora ptr punta a var: " << ptr
               << " ed il valore a cui punta vale: " << *ptr << std::endl ; 
     ```
+    produce come output:
+    ```
+    Ora ptr punta a var: 0x7ffeee47f43c ed il valore a cui punta vale: 137
+    ```
   * se un puntatore viene inizializzato all'indirizzo di una variabile,
-    si può **accedere alla variabile tramite il puntatore**:
+    si può **accedere alla variabile tramite il puntatore**;
     in questo caso viene modificato ```*ptr``` e visualizzato il valore di ```var```:
     ```cpp
     *ptr = 100 ;
     std::cout << "var ora vale: " << var << std::endl ;
-    ```
-    produce come output:
-    ```
-    Ora ptr punta a var: 0x7ffeee47f43c ed il valore a cui punta vale: 137
     ```
 
 ![linea](../immagini/linea.png)
