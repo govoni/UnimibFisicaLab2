@@ -517,13 +517,6 @@
     int * const C3 (& numero) ;
     int const * const C4 (& C1) ;
     ```
-  * E' possibile rimuovere l’attributo ```const``` mediante il ```const_cast```:
-    ```cpp
-    const int myConst = 5;
-    int* nonConst = const_cast<int*>(&myConst);
-    ```
-    * ```nonConst``` punta alla stessa cella di memoria ```myConst```,
-      ma ne può modificare il contenuto
 
 ![linea](../immagini/linea.png)
 
