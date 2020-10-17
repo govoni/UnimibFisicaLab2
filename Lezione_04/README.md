@@ -339,7 +339,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 4.5.2 vantaggi e svantaggi dell'algoritmo della funzione inversa
+### 4.5.2 vantaggi e svantaggi dell'algoritmo per generazione di pdf con forma gaussiana
 
   | vantaggi |
   | -------- |
