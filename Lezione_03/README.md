@@ -217,10 +217,10 @@
     dove vanno associati alla classe che li contiene, ad esempio:
     ```cpp
     #include "complesso.h"
-   double complesso::modulo ()
-     {
-       return sqrt (m_real * m_real + m_imag * m_imag) ;
-     }    
+    double complesso::modulo ()
+      {
+        return sqrt (m_real * m_real + m_imag * m_imag) ;
+      }    
     ```
   * il nome di ogni metodo è preceduto dal nome della classe, 
     separato dall'operatore di scope resolution ```::``` 
