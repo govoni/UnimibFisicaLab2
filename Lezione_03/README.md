@@ -267,8 +267,8 @@
         std::cout << "costruzione di un numero complesso" << std::endl ;
       }
     ```
-  * le variabili di **tipi predefiniti** vengono create dal proprio costruttore
-  * oggetti di altre classi vengono **creati dal proprio costruttore**   
+  * le variabili di **tipi predefiniti** vengono create dal costruttore corrispondente
+  * oggetti di altre classi vengono **creati dal costruttore corrispondente**   
   * il costruttore **non ha tipo di ritorno**
   * nello scope del costruttore si possono eseguire istruzioni
     (in questo esempio c'è una stampa a schermo, che in realtà è scomodo:
@@ -333,7 +333,7 @@
       }
     ```
   * se una classe non ha il costruttore, 
-    il compilaore  **definisce un costruttore di default** vuoto
+    il compilaore spesso **definisce un costruttore di default** vuoto
 
 ![linea](../immagini/linea.png)
 
@@ -377,7 +377,7 @@
       }
 
     ```    
-  * eventuali **membri che siano oggetti di altre classi** saranno distrutti dal proprio distruttore
+  * eventuali **membri che siano oggetti di altre classi** saranno distrutti dal distruttore corrispondente
   * nel distruttore si possono anche implementare comportamenti aggiuntivi,
     come ad esempio il salvataggio automatico dell'informazione
   * anche il distruttore **non ha tipo di ritorno**
@@ -485,7 +485,7 @@
       }
     ```  
     * essendo una funzione **esterna alla classe**,
-      in questo caso non è presente la denominazione si scope ```complesso::```
+      in questo caso non è presente la denominazione di scope ```complesso::```
 
 ![linea](../immagini/linea.png)
 
