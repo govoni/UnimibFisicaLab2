@@ -186,7 +186,7 @@
     **partendo dalle risorse che abbiamo**, cioè ```rand ()```
     1. **distribuzione uniforme fra ``0`` ed ``1``** : 
        ```cpp
-       rand () / static_cast<float> RAND_RANGE ;
+       rand () / static_cast<float> (RAND_RANGE) ;
        ```  
     2. **dilatazione** fra ``0`` e ``max-min``:
        ```cpp
@@ -196,7 +196,7 @@
        ```cpp
        float rand_range (float min, float max)
          {
-           min (max - min) * rand () / static_cast<float> (RAND_MAX) ;
+           min + (max - min) * rand () / static_cast<float> (RAND_MAX) ;
          }  
        ```  
 
@@ -275,7 +275,8 @@
 
   * sia x una variabile casuale con pdf *f(x)* continua 
   * sia *F(x)* la distribuzione di probabilità cumulativa (cdf) 
-  * **se *F(x)* è strettamente crescente allora la variabile *y = F(x)* ha distribuzione uniforme** (si dimostra usando la regola per il cambio di variabile in una pdf)
+  * **se *F(x)* è strettamente crescente allora la variabile *y = F(x)* ha distribuzione uniforme** 
+    (si dimostra usando la regola per il cambio di variabile in una pdf)
   * generare eventi pseudo-casuali **con distribuzione uniforme in *y***
     equivale a generare eventi pseudo-casuali lungo *x* con distribuzione *f(x)*
 
@@ -289,11 +290,12 @@
 
   * si **generano numeri pseudo-casuali y<sub>i</sub> con distribuzione uniforme** fra *0* ed *1* lungo l'asse *y*
   * per ogni evento generato, si calcola *x<sub>i</sub> = F <sup>-1</sup>(y<sub>i</sub>)*
+    e si utilizza quel valore come numero casuale generato
   * dove *f(x)* è più alta *F(x)* è più ripida, 
     quindi il numero di numeri pseudo-casuali generati nei due intervalli 
     *&Delta;y<sub>1<sub>* e *&Delta;y<sub>2<sub>*
     risulta proporzionale all'area sottesa dalla curva *f(x)*
-    supra i due intervalli con dimensione *&Delta;x*, rispettivamente,
+    sopra i due intervalli con dimensione *&Delta;x*, rispettivamente,
     che è l'obiettivo che si vuole ottenere.
 
 ![linea](../immagini/linea.png)
@@ -320,7 +322,7 @@
   * Il **teorema centrale del limite** può essere utilizzato
     per generare distribuzioni di probabilità con forma Gaussiana
 
-  | Siano date *N* variabili casuali *x<sub>i</sub>* indipendenti ed identicamente distribuite secondo una distribuzione di probabilità *f(x)* con media &mu; e varianza &sigma;<sup>2</sup>. Allora la variabile *y = &lang;x<sub>i</sub>&rang;* è distribuita, per *N* grande, come una Gaussiana con media &mu; e varianza &sigma;<sup>2</sup>. |
+  | Siano date *N* variabili casuali *x<sub>i</sub>* indipendenti ed identicamente distribuite secondo una distribuzione di probabilità *f(x)* con media &mu; e varianza &sigma;<sup>2</sup> finite. Allora la variabile *y = &lang;x<sub>i</sub>&rang;* è distribuita, per *N* grande, come una Gaussiana con media &mu; e varianza &sigma;<sup>2</sup>. |
   | --------- |
 
 ![linea](../immagini/linea.png)
