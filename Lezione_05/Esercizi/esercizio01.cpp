@@ -13,16 +13,15 @@ const int A =  214013;
 const int C =  2531011;
 const int M =  2147483647;
 
-void rand(int &num){
-    num = (A* num + C)%M;
+void rand(int &x){
+    x = (A* x + C)%M;
     return;
 }
 
 //----------------- MAIN -----------------
 int main() {
 
- int seed_ = 0;
- //int random = 0;
+ int num = 0;
 
  //Dichiarazione istogramma con limiti tra 0 e M
  TH1F h1("h1", "eventi pseudo-casuali (lineare congruenziale)", 10000, 0., 2147483647) ;
@@ -30,8 +29,8 @@ int main() {
  //riempimento istogramma
  for (int j = 0 ; j < 10000000 ; ++j)
  {
-   rand(seed_);
-   h1.Fill(seed_); 
+   rand(num);
+   h1.Fill(num); 
  }
 
  //Disegno l'istogramma
