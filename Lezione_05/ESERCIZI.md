@@ -35,7 +35,7 @@ sommando distribuzioni uniformi.
     per l'implementazione del generatore uniforme.
   * Si disegni la distribuzione ottenuta riempiendo diversi istogrammi,
     ciascuno corrispondente ad un numero diverso di distribuzioni uniformi sommate,
-    partendo da *1*, fino a *20*.
+    partendo da *1* fino a *20*.
 
 ![linea](../immagini/linea.png)
 
