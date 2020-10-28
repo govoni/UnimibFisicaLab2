@@ -26,10 +26,10 @@ generati con la tecnica di try-and-catch
     
 ![linea](../immagini/linea.png)
 
-## Esercizio 6.4
+## Esercizio 5.4
 
 Si riempia un istogramma con eventi pseudo-casuali con forma Gaussiana
-generati con la tecnica del teorema centrale del limite.
+generati con la tecnica del teorema centrale del limite,
 sommando distribuzioni uniformi.
   * Si utilizzi la funzione ```rand ()``` come punto di partenza 
     per l'implementazione del generatore uniforme.
