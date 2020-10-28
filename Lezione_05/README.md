@@ -154,7 +154,7 @@
     TH1F istogramma ("istogramma", "titolo", 10, -5., 5.) ;
     ```
   * il costruttore di ```TH1F``` prende come input:
-    * un **nome**: è saggio usare il medesimo della variabile
+    * un **nome**: è saggio usare il medesimo della variabile (ogni oggetto deve avere un nome unico!)
     * un **titolo**, che viene scritto sopra l'istogramma
     * il **numero di bin** (```10``` in questo caso) in cui dividere l'intervallo di definizione della variabile
     * l'**intervallo di definizione** della variabile (```-5., 5.``` in questo caso)
