@@ -186,7 +186,7 @@
     **partendo dalle risorse che abbiamo**, cioè ```rand ()```
     1. **distribuzione uniforme fra ``0`` ed ``1``** : 
        ```cpp
-       rand () / static_cast<float> (RAND_RANGE) ;
+       rand () / static_cast<float> (RAND_MAX) ;
        ```  
     2. **dilatazione** fra ``0`` e ``max-min``:
        ```cpp
