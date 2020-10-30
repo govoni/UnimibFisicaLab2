@@ -163,9 +163,9 @@
 
 ### 5.2.4 riempimento di un ```TH1F```
 
-  * un oggetto della classe ```TH1F``` viene creato, **è vuoto**,
+  * un oggetto della classe ```TH1F``` quando viene creato **è vuoto**,
     cioè  i conteggi di ogni singolo bin sono nulli 
-  * per riempire l'istogramma,
+  * per riempire l'istogramma
     si utilizza il suo metodo ```Fill```,
     che viene chiamato per ogni evento:  
     ```cpp
@@ -173,7 +173,7 @@
     istogramma.Fill (2.1) ;
     istogramma.Fill (-1.4) ;
     ```
-    * aggiorna i **conteggi** del bin in cui casca il valore passato (in questo caso ```3.2```)
+    * aggiorna i **conteggi** del bin in cui casca il valore passato (in questo caso ```2.2```, ```2.1```, ```-1.4```)
     * aggiorna i **contatori** per il calcolo delle statistiche 
       (numero di eventi, somma degli eventi, somma del quadrato degli eventi)
 
@@ -203,7 +203,6 @@
     è necessario aggiungere informazioni riguardo il **significato degli assi**,
     prima di invocare il metodo ```Draw```:
     ```cpp
-    istogramma.SetFillColor (kOrange + 1) ;
     istogramma.GetXaxis ()->SetTitle ("asse x") ;
     istogramma.GetYaxis ()->SetTitle ("conteggi per bin") ;
     ```
@@ -224,7 +223,7 @@
     per **visualizzare la distribuzione di eventi pseudo-casuali** generati
     con gli algoritmi scritti nella lezione precedente
   * assumendo che la **funzione che genera numeri casuali**
-    utilizzando il metodo del teorema centrale del limite 
+    con il metodo del teorema centrale del limite 
     abbia il seguente prototipo:
     ```cpp
     float rand_TCL (float xMin, float xMax, int N = 10)
@@ -271,8 +270,8 @@
 
 ## 5.3 una piccoola digressione: la varianza di una distribuzione
 
-  * dato un campione di variabili casualu *{x<sub>i</sub>}<sub>i=1,..,N</sub>***
-    indipendenti identicamente distribuiti,
+  * dato un campione di variabili casuali *{x<sub>i</sub>}<sub>i=1,..,N</sub>*
+    indipendenti identicamente distribuite,
     **la varianza della distribuzione è la media degli scarti quadratici dalla media**
   * si dimostra che la varianza di un campione è uguale alla **media dei quadrati meno il quadrato della media**:
     *V = E[x<sup>2</sup>]-E[x]<sup>2</sup>* 
@@ -376,7 +375,7 @@
     * le opzioni passate al metodo ```Draw``` richiedono di
       * tracciare gli **assi** (```A```)
       * congiungere i punti con una **linea** (```L```)
-      * disegnare i marker ad ogni punto (```P```). 
+      * disegnare i **marker** ad ogni punto (```P```). 
 
 ![linea](../immagini/linea.png)
 
