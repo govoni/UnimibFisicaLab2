@@ -1,7 +1,7 @@
 /*
 Esercizio 06:Si generalizzi l'esercizio precedente scrivendo una funzione che produca questo risultato a partire da una qualunque classe scritta per generare numeri casuali.
 
-c++ -o esercizio06 esercizio06.cpp `root-config --glibs --cflags` 
+c++ -o esercizio06 esercizio06.cpp ../../Lezione_04/Esercizi/statistiche.cc `root-config --glibs --cflags` 
 */
 #include <iostream>
 #include <cmath>
@@ -12,7 +12,7 @@ c++ -o esercizio06 esercizio06.cpp `root-config --glibs --cflags`
 #include "TGraph.h"
 
 //includere l'header file della classe statistiche
-#include "statistiche.h"  
+#include "../../Lezione_04/Esercizi/statistiche.h"  
 #include "generatori.h"
 
 
