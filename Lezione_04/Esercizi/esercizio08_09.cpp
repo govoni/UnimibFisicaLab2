@@ -32,7 +32,7 @@ class statistiche
   public:
 
   statistiche () ;
-  statistiche (int d): dim(d), last_idx(0), arr(dim ? new float[dim] : nullptr) {} ;
+  statistiche (int d): dim(d), last_idx(0), arr(dim ? new float[dim] : nullptr), sum (0.), sum_q (0.) {} ;
   ~statistiche () { delete[] arr; } ;
 
   // aggiunge un numero alle informazioni salvate
@@ -61,21 +61,32 @@ class statistiche
   // resituisce il numero dei numeri aggiunti
   double N () const { return last_idx; } ;
   //reset
-  void reset() { for(int i = 0; i < last_idx; ++i) arr[i] = 0; last_idx = 0; };
+  void reset() { for(int i = 0; i < last_idx; ++i) arr[i] = 0; last_idx = 0; sum = 0. ; sum_q = 0. ;};
 
   private:
     int dim;
     int last_idx;
     float* arr;
+    double sum ;
+    double sum_q ;
+
    
 } ;
 
 
  void statistiche::aggiungiNumero (float val){
      
-    if (last_idx >= dim) throw std::out_of_range("Inner index >= array size. Check for dimensions");
-
+    if (last_idx >= dim) 
+      {
+        float * tempo = new float [2*dim] ;
+        for (int i = 0 ; i < dim ; ++i) tempo[i] = arr[i] ;
+        dim = dim * 2 ;
+        delete [] arr ;
+        arr = tempo ;
+      }
     arr[last_idx] = val; 
+    sum += val ;
+    sum_q += val * val ;
     ++last_idx;
     return;
  }
@@ -85,40 +96,28 @@ double statistiche::media() const{
         \hat{\mu} = sum(x_i)/N
     */
 
-    double sum = 0;
-    for(int i = 0; i < last_idx; i++){
-        sum += arr[i];
-    }
-
     return sum/last_idx;
 }
 
 double statistiche::varianza_1(bool corretta) const{
     /*
-        First variant. Performs one scan of the array. Based on the 
-        following. Take the numerator of the variance formula:
+        First variant. Based on the following. 
+        Take the numerator of the variance formula:
         sum[(x_i - \mu)^2] = sum((x_i)^2 + (\mu)^2 - 2x_i\mu) = \sum(x_i^2) + N\mu^2 - 2\mu sum(x_i)
         two sums -> x_i and x_i^2. The first one is also useful to compute the mean while the second
         is only instrumental for the variance computation.
     */ 
 
-    double sum = 0;
-    double sum_q = 0;
-    for(int i = 0; i < last_idx; ++i){
-        sum += arr[i];
-        sum_q += pow(arr[i],2);
-    }
+    double mean = media () ;
 
-    double mean = sum/last_idx;
-
-    if (corretta) return (sum_q + last_idx*pow(mean, 2)- 2*mean*sum)/(last_idx-1);
-    else  return (sum_q)/(last_idx) - pow(mean,2);
+    if (corretta) return (sum_q + last_idx * mean * mean- 2*mean*sum)/(last_idx-1);
+    else  return (sum_q)/(last_idx) - mean * mean;
     
 }
 
 double statistiche::varianza_2(bool corretta) const{
     /*
-        Second variant. Performs two scan of the array -> worse performances.
+        Second variant. Performs two scans of the array -> worse performances.
         First computes the mean then sums (x_i - \mu)^2. Lastly takes the mean
         of the square deviations (with or without Bessel correction).
     */ 
@@ -154,10 +153,6 @@ double statistiche::varianza_SQ(bool corretta) const{
     
     double var = varianza_1(); // mean of the squared deviations var = (x_i - \mu)^2 / N
     double mean = media(); // \mu
-    double sum_q = 0;
-    for(int i = 0; i < last_idx; ++i){
-        sum_q += pow(pow(arr[i] - mean, 2 ) - var, 2);
-    }
     
     if (corretta) return sum_q/(last_idx - 1);
     else return sum_q/last_idx;
@@ -191,21 +186,25 @@ int main(){
     float x_max = +5;
 
     int dim = 100000;
-    statistiche* stats = new statistiche(dim);
+    statistiche* stats = new statistiche(dim/4);
 
     for(int i = 0; i < dim; ++i) stats->aggiungiNumero(rand_range(x_min, x_max));
 
     std::cout << "Uniform distribution in [" << x_min << "," << x_max << "] : " << std::endl;
-    std::cout << "Theoretical mean (0.5(a+b)): " << 0.5*(x_min + x_max) << " Computed mean: " <<  
-                stats->media() << "+-" << stats->dev_standard_media(true) << std::endl;
+    std::cout << "Theoretical mean (0.5(a+b)): " << 0.5*(x_min + x_max) 
+              << " Computed mean: "              << stats->media() 
+              << "+-"                            << stats->dev_standard_media(true) 
+              << std::endl;
 
-    std::cout << "Theoretical variance (1/12 (b-a)^2): " << (float(1)/12)*pow(x_max - x_min, 2) << " Computed variance: " <<
-                stats->varianza_1(true) << "+-" << stats->dev_standard_media_SQ(true) << std::endl;
+    std::cout << "Theoretical variance (1/12 (b-a)^2): " << (float(1)/12)*pow(x_max - x_min, 2) 
+              << " Computed variance: "                  << stats->varianza_1(true) 
+              << "+-"                                    << stats->dev_standard_media_SQ(true) 
+              << std::endl;
 
 
     //Checking for CLT
     stats->reset();
-    int d = 20; //number of extraction before computing mean
+    int d = 20; //number of extractions before computing mean
     for(int i = 0; i < dim; ++i){
         double sum = 0;
         for(int j = 0; j < d; ++j){
@@ -214,12 +213,16 @@ int main(){
         stats->aggiungiNumero(sum/d);
     }
 
-    std::cout << "\n\nCheck for CLT with N: " << d << std::endl;
-    std::cout << "Theoretical mean (0.5(a+b)): " << 0.5*(x_min + x_max) << " Computed mean: " <<  
-                stats->media() << "+-" << stats->dev_standard_media(true) << std::endl;
+    std::cout << "\n\nCheck for CLT with N: "    << d << std::endl;
+    std::cout << "Theoretical mean (0.5(a+b)): " << 0.5*(x_min + x_max) 
+              << " Computed mean: "              << stats->media() 
+              << "+-"                            << stats->dev_standard_media(true) 
+              << std::endl;
 
-    std::cout << "Theoretical variance (1/12 (b-a)^2)/N: " << (float(1)/12)*pow(x_max - x_min, 2)/d << " Computed variance: " <<
-                stats->varianza_1(true) << "+-" << stats->dev_standard_media_SQ(true) << std::endl;
+    std::cout << "Theoretical variance (1/12 (b-a)^2)/N: " << (float(1)/12)*pow(x_max - x_min, 2)/d 
+              << " Computed variance: "                    << stats->varianza_1(true) 
+              << "+-"                                      << stats->dev_standard_media_SQ(true) 
+              << std::endl;
 
     
 
