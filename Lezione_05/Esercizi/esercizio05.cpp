@@ -4,7 +4,7 @@ Si mostri con un TGraph l'andamento della deviazione standard verso il numero di
 Si mostri con un TGraph l'andamento della deviazione standard della media verso il numero di eventi.
 Si confronti il valore ottenuto della deviazione standard con il valore atteso noti gli estremi della distribuzione uniforme.
 
-c++ -o esercizio05 esercizio05.cpp `root-config --glibs --cflags` 
+c++ -o esercizio05 esercizio05.cpp ../../Lezione_04/Esercizi/statistiche.cc `root-config --glibs --cflags` 
 */
 #include <iostream>
 #include <cmath>
@@ -15,7 +15,7 @@ c++ -o esercizio05 esercizio05.cpp `root-config --glibs --cflags`
 #include "TGraph.h"
 
 //includere l'header file della classe statistiche
-#include "statistiche.h"  
+#include "../../Lezione_04/Esercizi/statistiche.h"  
 
 
 float rand_range (float min, float max)
@@ -102,6 +102,8 @@ int main(){
     g_sigmaMedia_teorica.Draw ("LPSAME") ; //Disegno i valori teorici nello stesso grafico in modo da confrontarli
        
     c2.Print ("esercizio5_sigmaMedia.png", "png") ;
+
+    delete stats;
     
     return 0;
 }
