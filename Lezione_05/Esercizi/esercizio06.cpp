@@ -158,6 +158,7 @@ int main(){
     c1->Print ("esercizio6.png", "png") ;
     
     delete c1;
+    delete stats;
     
     return 0;
 }
