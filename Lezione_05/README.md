@@ -1,4 +1,4 @@
-# Lezione 5: the data visualisation with ROOT
+# Lezione 5: visualizzazione di dati con ROOT
 
 ## Indice
 
