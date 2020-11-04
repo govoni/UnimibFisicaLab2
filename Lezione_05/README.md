@@ -327,11 +327,11 @@
 
   * come sempre, bisogna includere la **libreria** corrispondente:
     ```cpp
-    #include "TGraph.h
+    #include "TGraph.h"
     ```
   * ricordando di aggiungere le opzioni di ```ROOT``` al comando di compilazione:
     ```
-    > root-config --cflags --glibs  
+    > c++ -o programma `root-config --cflags --glibs` programma.cpp
     ```
   * un oggetto di tipo ```TGraph``` si definisce semplicemente:
     ```cpp
