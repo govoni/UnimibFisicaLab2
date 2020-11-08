@@ -34,10 +34,11 @@ double statistiche::varianza_1(bool corretta) const{
         is only instrumental for the variance computation.
     */ 
 
+    if (last_idx < 2) return 0 ;
     double mean = media () ;
 
-    if (corretta) return (sum_q + last_idx * mean * mean- 2*mean*sum)/(last_idx-1);
-    else  return (sum_q)/(last_idx) - mean * mean;
+    if (corretta) return (sum_q + last_idx * mean * mean - 2 * mean * sum) / (last_idx - 1) ;
+    else  return sum_q / last_idx - mean * mean ;
     
 }
 
@@ -48,6 +49,7 @@ double statistiche::varianza_2(bool corretta) const{
         of the square deviations (with or without Bessel correction).
     */ 
 
+    if (last_idx < 2) return 0 ;
     double mean  = media();
     double sum_q = 0;
     for(int i = 0; i < last_idx; ++i){
