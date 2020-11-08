@@ -15,8 +15,8 @@
     * [6.2.6 il metodo del *crude Monte Carlo*](#626-il-metodo-del-crude-monte-carlo)
   * [6.3 aree positive o negative: alla ricerca degli zeri di una funzione](#63-aree-positive-o-negative-alla-ricerca-degli-zeri-di-una-funzione)
     * [6.3.1 il metodo della bisezione](#631-il-metodo-della-bisezione)
-    * [6.3.2 una impoementazione dell'algoritmo di bisezione](#632-una-impoementazione-dellalgoritmo-di-bisezione)
-    * [6.3.3 una impoementazione dell'algoritmo di bisezione in modo ricorsivo](#633-una-impoementazione-dellalgoritmo-di-bisezione-in-modo-ricorsivo)
+    * [6.3.2 una implementazione dell'algoritmo di bisezione](#632-una-implementazione-dellalgoritmo-di-bisezione)
+    * [6.3.3 una implementazione dell'algoritmo di bisezione in modo ricorsivo](#633-una-implementazione-dellalgoritmo-di-bisezione-in-modo-ricorsivo)
   * [6.4 informazioni necessarie: gli estremi di una funzione](#64-informazioni-necessarie-gli-estremi-di-una-funzione)
     * [6.4.1 la ricerca di estremanti: il metodo della sezione aurea](#641-la-ricerca-di-estremanti-il-metodo-della-sezione-aurea)
     * [6.4.2 il criterio di restringimento](#642-il-criterio-di-restringimento)
@@ -272,7 +272,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 6.3.2 una impoementazione dell'algoritmo di bisezione
+### 6.3.2 una implementazione dell'algoritmo di bisezione
 
   * Ad ogni iterazione,
     si calcola il **punto medo dell'intervallo** che contiene lo zero
@@ -298,7 +298,7 @@
 
 ![linea](../immagini/linea.png)
 
-### 6.3.3 una impoementazione dell'algoritmo di bisezione in modo ricorsivo
+### 6.3.3 una implementazione dell'algoritmo di bisezione in modo ricorsivo
 
   * L'algoritmo di bisezione effettua ripetutamente la **stessa operazione**
     in maniera ricorsiva

@@ -2,14 +2,16 @@
 
 ## Esercizio 6.1
 
-Si scriva un programma che, fissato *NMAX* numero di eventi di un campione,
-generi *NToys* toy experiment di quel campione e ne calcoli la media.
+Si scriva un programma che, fissato un numero *NMAX*,
+generi *NToys* toy experiment, 
+ciascuno contenente un campione di *NMAX* eventi che seguano una distribuzione a scelta
+e ne calcoli la media.
 
 ![linea](../immagini/linea.png)
 
 ## Esercizio 6.2 
 
-Si Aggiunge al programma precedente un oggetto di tipo ```TH1F```
+Si aggiunga al programma precedente un oggetto di tipo ```TH1F```
 che visualizzi la distribuzione delle medie al variare dei toy experiment.
 
 ![linea](../immagini/linea.png)
