@@ -35,19 +35,3 @@
   * [Lezione 11](Lezione_11/README.md) : fit di distribuzioni binnate con ```ROOT```
   * [Lezione 12](Lezione_12/README.md) : test di ipotesi
 
-![linea](immagini/linea.png)
-
-## Riferimenti bibliografici
-
-
-![linea](immagini/linea.png)
-
-## argomenti principali rimanenti
-
-- algoritmi di ricerca di minimi e zeri, algoritmi di ordinamento
-- istogrammi e fit di istogrammi e TGraph
-- minimi quadrati e maximum likelihood
-- lettura e scrittura dei dati: file di testo e ntuple di ROOT
-- TNtuple
-- il concetto di toy experiment ed il test delle distribuzioni della media
-  rispetto alla sua varianza
