@@ -2,7 +2,7 @@
 Esercizio 06: Si inserisca il calcolo dell'integrale dell'esercizio precedente in un ciclo che, al variare del numero N di punti generati, mostri il valore dell'integrale e della sua incertezza.
 Si utilizzi un TGraph per disegnare gli andamenti del valore dell'integrale e della sua incertezza, al variare di N con ragione logaritmica.
 
-c++ -o esercizio06 esercizio06.cpp `root-config --glibs --cflags`
+c++ -o esercizio06 esercizio06.cpp ../../Lezione_03/Esercizi/esercizio04/myarray.cc `root-config --glibs --cflags`
 */
 
 #include <iostream>
@@ -13,6 +13,8 @@ c++ -o esercizio06 esercizio06.cpp `root-config --glibs --cflags`
 #include "TH1F.h"
 #include "TCanvas.h"
 #include "TGraph.h"
+
+#include "../../Lezione_03/Esercizi/esercizio04/myarray.h"
 
 
 float rand_range (float min, float max)
@@ -26,8 +28,8 @@ double fsin (double x)
     return sin (x) ; 
   }
   
-void HitOrMiss (int Nrand, double g(double), double xMin, double xMax,
-              double yMin, double yMax, double* risultato )
+mioArray HitOrMiss (int Nrand, double g(double), double xMin, double xMax,
+              double yMin, double yMax )
    {
      int nHit = 0;
      double area  = (xMax - xMin) * (yMax - yMin) ;
@@ -41,11 +43,13 @@ void HitOrMiss (int Nrand, double g(double), double xMin, double xMax,
       
      double p = nHit / static_cast<double> (Nrand) ;
      double varianza = area * area / static_cast<double> (Nrand) * p * (1. - p) ;
-           
-     risultato[0] = nHit * area / static_cast<double> (Nrand) ;
-     risultato[1] = sqrt (varianza) ;
+     
+     mioArray risultato (2) ;      
+     risultato.fill (0, nHit * area / static_cast<double> (Nrand)) ;
+     risultato.fill (1, sqrt (varianza)) ;
       
-    return;       
+    return risultato ; 
+                 
    }           
 
 //----------------- MAIN ----------------- 
@@ -58,19 +62,18 @@ int main (int argc, char ** argv)
   double x_max = M_PI ; 
   double y_min = 0. ; 
   double y_max = 1. ;
-  double* risultato = new double[2];
   
   TGraph g_integrale ;
   TGraph g_incertezza;
   
   for (int iN = 10; iN < N; iN = iN*2)
   {
-    HitOrMiss(iN,fsin,x_min,x_max,y_min,y_max,risultato);
+   mioArray risultato = HitOrMiss(iN,fsin,x_min,x_max,y_min,y_max);
   
-    std::cout << "Integrale = " << risultato[0] << " +/- "  << risultato[1] << std::endl ;
+  std::cout << "Integrale = " << risultato.get1 (0) << " +/- " << risultato.get1 (1) << std::endl ;
     
-    g_integrale.SetPoint (g_integrale.GetN(), iN, risultato[0]) ;  
-    g_incertezza.SetPoint (g_incertezza.GetN(), iN, risultato[1]) ;                              
+    g_integrale.SetPoint (g_integrale.GetN(), iN, risultato.get1 (0)) ;  
+    g_incertezza.SetPoint (g_incertezza.GetN(), iN, risultato.get1 (1)) ;                              
   }
     
    TCanvas c1 ("c1", "c1", 100, 100, 1000, 1000) ;
@@ -98,10 +101,7 @@ int main (int argc, char ** argv)
    g_incertezza.Draw ("ALP") ;
 
    c2.Print ("esercizio6_incertezza.png", "png") ;    
-    
-            
-  delete[] risultato;          
-            
+                                  
   return 0 ;
 }
 

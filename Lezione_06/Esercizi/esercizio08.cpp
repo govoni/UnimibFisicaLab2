@@ -3,7 +3,7 @@ Esercizio 08:Si inserisca il calcolo dell'integrale dell'esercizio precedente in
 Si utilizzi un TGraph per disegnare gli andamenti del valore dell'integrale e della sua incertezza, al variare di N con ragione logaritmica.
 Si sovrapponga questo TGraph a quello ottenuto dallo svolgimento dell'Esercizio 6.6.
 
-c++ -o esercizio08 esercizio08.cpp `root-config --glibs --cflags`
+c++ -o esercizio08 esercizio08.cpp ../../Lezione_03/Esercizi/esercizio04/myarray.cc `root-config --glibs --cflags`
 */
 
 #include <iostream>
@@ -14,6 +14,8 @@ c++ -o esercizio08 esercizio08.cpp `root-config --glibs --cflags`
 #include "TH1F.h"
 #include "TCanvas.h"
 #include "TGraph.h"
+
+#include "../../Lezione_03/Esercizi/esercizio04/myarray.h"
 
 
 float rand_range (float min, float max)
@@ -28,7 +30,7 @@ double fsin (double x)
   }
   
  
-void CrudeMC (int Nrand, double g(double), double xMin, double xMax, double* risultato_MC )
+mioArray CrudeMC (int Nrand, double g(double), double xMin, double xMax )
    {
      double lunghezza  = (xMax - xMin);
      double somma = 0;
@@ -46,14 +48,15 @@ void CrudeMC (int Nrand, double g(double), double xMin, double xMax, double* ris
      media = somma/static_cast<double>(Nrand);
      varianza = sommaQ/static_cast<double>(Nrand) - media*media ;
                                    
-     risultato_MC[0] = media*lunghezza ;
-     risultato_MC[1] = sqrt (varianza/static_cast<double>(Nrand)) * lunghezza;
-     
-    return;       
+     mioArray risultato_MC (2) ;      
+     risultato_MC.fill (0, media*lunghezza) ;
+     risultato_MC.fill (1, sqrt (varianza/static_cast<double>(Nrand)) * lunghezza) ;
+      
+    return risultato_MC ;       
    }  
    
-void HitOrMiss (int Nrand, double g(double), double xMin, double xMax,
-              double yMin, double yMax, double* risultato_HoM )
+mioArray HitOrMiss (int Nrand, double g(double), double xMin, double xMax,
+              double yMin, double yMax)
    {
      int nHit = 0;
      double area  = (xMax - xMin) * (yMax - yMin) ;
@@ -68,10 +71,11 @@ void HitOrMiss (int Nrand, double g(double), double xMin, double xMax,
      double p = nHit / static_cast<double> (Nrand) ;
      double varianza = area * area / static_cast<double> (Nrand) * p * (1. - p) ;
            
-     risultato_HoM[0] = nHit * area / static_cast<double> (Nrand) ;
-     risultato_HoM[1] = sqrt (varianza) ;
+     mioArray risultato_HoM (2) ;      
+     risultato_HoM.fill (0, nHit * area / static_cast<double> (Nrand)) ;
+     risultato_HoM.fill (1, sqrt (varianza)) ;
       
-    return;       
+    return risultato_HoM ;       
    }           
             
 //----------------- MAIN -----------------
@@ -83,8 +87,6 @@ int main (int argc, char ** argv)
   double x_max = M_PI ; 
   double y_min = 0. ; 
   double y_max = 1. ;
-  double* risultato_MC = new double[2];
-  double* risultato_HoM = new double[2];
 
   TGraph g_integrale_MC ;
   TGraph g_incertezza_MC;
@@ -93,14 +95,14 @@ int main (int argc, char ** argv)
   
  for (int iN = 10; iN < N; iN = iN*2)
   {  
-    CrudeMC(iN,fsin,x_min,x_max,risultato_MC); 
-    HitOrMiss(iN,fsin,x_min,x_max,y_min,y_max,risultato_HoM); 
+    mioArray risultato_MC  = CrudeMC(iN,fsin,x_min,x_max); 
+    mioArray risultato_HoM = HitOrMiss(iN,fsin,x_min,x_max,y_min,y_max);    
 
-    g_integrale_MC.SetPoint (g_integrale_MC.GetN(), iN, risultato_MC[0]) ;  
-    g_incertezza_MC.SetPoint (g_incertezza_MC.GetN(), iN, risultato_MC[1]) ; 
+    g_integrale_MC.SetPoint (g_integrale_MC.GetN(), iN, risultato_MC.get1 (0)) ;  
+    g_incertezza_MC.SetPoint (g_incertezza_MC.GetN(), iN, risultato_MC.get1 (1)) ; 
     
-    g_integrale_HoM.SetPoint (g_integrale_HoM.GetN(), iN, risultato_HoM[0]) ;  
-    g_incertezza_HoM.SetPoint (g_incertezza_HoM.GetN(), iN, risultato_HoM[1]) ;                             
+    g_integrale_HoM.SetPoint (g_integrale_HoM.GetN(), iN, risultato_HoM.get1 (0)) ;  
+    g_incertezza_HoM.SetPoint (g_incertezza_HoM.GetN(), iN, risultato_HoM.get1 (1)) ;                             
   }
   
   TCanvas c1 ("c1", "c1", 100, 100, 1000, 1000) ;
@@ -142,9 +144,6 @@ int main (int argc, char ** argv)
    
    c2.Print ("esercizio8_incertezza.png", "png") ;    
                    
-  delete[] risultato_MC;   
-  delete[] risultato_HoM;       
-            
   return 0 ;
 }
 

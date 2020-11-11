@@ -3,13 +3,15 @@ Esercizio 07:Si implementi il metodo di integrazione crude-MC con la funzione di
 Si scriva l'algoritmo che calcola l'integrale come una funzione esterna al programma main, facendo in modo che prenda come parametri di ingresso, oltre agli estremi lungo l'asse x, anche il numero di punti pseudo-casuali da generare.
 Si faccia in modo che l'algoritmo ritorni un contenitore contenente due elementi: il primo elemento sia il valore dell'integrale, il secondo sia la sua incertezza.
 
-c++ -o esercizio07 esercizio07.cpp 
+c++ -o esercizio07 ../../Lezione_03/Esercizi/esercizio04/myarray.cc esercizio07.cpp 
 */
 
 #include <iostream>
 #include <cmath>
 #include <cstdlib>
 #include <ctime>
+
+#include "../../Lezione_03/Esercizi/esercizio04/myarray.h"
 
 
 float rand_range (float min, float max)
@@ -24,7 +26,7 @@ double fsin (double x)
   }
   
  
-void CrudeMC (int Nrand, double g(double), double xMin, double xMax, double* risultato )
+mioArray CrudeMC (int Nrand, double g(double), double xMin, double xMax )
    {
      double lunghezza  = (xMax - xMin);
      double somma = 0;
@@ -41,11 +43,13 @@ void CrudeMC (int Nrand, double g(double), double xMin, double xMax, double* ris
       
      media = somma/static_cast<double>(Nrand);
      varianza = sommaQ/static_cast<double>(Nrand) - media*media ;
-                                   
-     risultato[0] = media*lunghezza ;
-     risultato[1] = sqrt (varianza/static_cast<double>(Nrand)) * lunghezza;
-     
-    return;       
+          
+     mioArray risultato (2) ;      
+     risultato.fill (0, media*lunghezza) ;
+     risultato.fill (1, sqrt (varianza/static_cast<double>(Nrand)) * lunghezza) ;
+      
+    return risultato ; 
+                                         
    }           
 
 //----------------- MAIN -----------------
@@ -55,13 +59,10 @@ int main (int argc, char ** argv)
   int N = 10000 ;
   double x_min = 0. ;
   double x_max = M_PI ; 
-  double* risultato = new double[2];
   
-  CrudeMC(N,fsin,x_min,x_max,risultato);  
-  std::cout << "Integrale = " << risultato[0] << " +/- "       << risultato[1] << std::endl ;
-               
-  delete[] risultato;          
-            
+  mioArray risultato = CrudeMC(N,fsin,x_min,x_max);  
+  std::cout << "Integrale = " << risultato.get1 (0) << " +/- " << risultato.get1 (1) << std::endl ;
+                                    
   return 0 ;
 }
 
