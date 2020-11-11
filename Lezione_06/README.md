@@ -87,6 +87,7 @@
         // il loop seguente è un singolo toy experiment
         while (i++ < NMAX) s_singleToy.addEvent (rand_range (-3., 3.)) ;
         h_medie.Fill (s_singleToy.getMean ()) ;
+      } // loop sui toy experiment
     ```
   ![medie](immagini/medie_toys.png)
 
@@ -170,7 +171,7 @@
   * La quantità *I* è il *risultato dell'integrale* per il metodo hit-or-miss
   * Essendo funzione di numeri pseudo-casuali, è a sua volta un **numero pseudo-casuale**
   * Ha un valore atteso ed una varianza
-    quest'ultima è **l'incetezza numerica** nel calcolo dell'integrale
+  * Quest'ultima è **l'incetezza numerica** nel calcolo dell'integrale
     * *A* ed *N* sono **noti senza incertezza**
     * *n<sub>hit</sub>* ha invece **distribuzione binomiale**,
       associando al successo il fatto che un punto generato si trovi sotto la funzione da integrare,
@@ -230,7 +231,7 @@
   * L'agoritmo *crude Monte Carlo* 
     sfrutta le proprietà del **valore di aspettazione** di una funzione
   * Dato un insieme di numeri pseudo-casuali *x<sub>i</sub>* 
-    generati secondo una distribuzione di probabilità uniforme *f(x)*, 
+    generati secondo una distribuzione di probabilità uniforme *f(x)* definita fra *m* ed *M*, 
     il **valore di aspettazione della funzione *g(x)***
     risulta essere:
     ![integrale_crude](immagini/integrale_crude.png)
@@ -275,7 +276,7 @@
 ### 6.3.2 una implementazione dell'algoritmo di bisezione
 
   * Ad ogni iterazione,
-    si calcola il **punto medo dell'intervallo** che contiene lo zero
+    si calcola il **punto medio dell'intervallo** che contiene lo zero
     e si decide se lo zero stia alla sua destra o alla sua sinistra
     ```cpp
     double bisezione (
