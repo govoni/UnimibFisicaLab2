@@ -19,7 +19,7 @@ double sezioneAurea_max (double g (double),double x0, double x1, double precisio
   double r = 0.618;
   double x2 = 0;
   double x3 = 0; 
-  double larghezza = std::abs(x1-x0);
+  double larghezza = fabs(x1-x0);
    
   while (larghezza > precision)
     {        
@@ -37,7 +37,7 @@ double sezioneAurea_max (double g (double),double x0, double x1, double precisio
              x0 = x0;          
           }
           
-        larghezza =std::abs(x1-x0) ;            
+        larghezza = fabs(x1-x0) ;            
     } 
                                  
   return (x0+x1)/2. ;
@@ -49,7 +49,7 @@ double sezioneAurea_max_ricorsiva (double g (double),double x0, double x1, doubl
   double r = 0.618;
   double x2 = x0 + r * (x1 - x0) ;
   double x3 = x0 + (1. - r) * (x1 - x0); 
-  double larghezza = std::abs(x1-x0);
+  double larghezza = fabs(x1-x0);
   
   if (larghezza < precision)   return (x0+x1)/2. ;    
   if (g(x3) < g(x2) )          return sezioneAurea_max_ricorsiva(g,x3,x1,precision);

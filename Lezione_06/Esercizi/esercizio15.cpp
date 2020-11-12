@@ -19,7 +19,7 @@ double sezioneAurea_ricorsiva (double g (double),double x0, double x1, double pr
   double r = 0.618;
   double x2 = x0 + r * (x1 - x0) ;
   double x3 = x0 + (1. - r) * (x1 - x0); 
-  double larghezza = std::abs(x1-x0);
+  double larghezza = fabs(x1-x0);
   
   if (larghezza < precision)   return (x0+x1)/2. ;    
   if (funz (x3) > funz (x2) )  return sezioneAurea_ricorsiva(g,x3,x1,precision);

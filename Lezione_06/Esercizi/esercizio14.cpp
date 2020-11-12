@@ -19,7 +19,7 @@ double sezioneAurea (double g (double),double x0, double x1, double precision)
   double r = 0.618;
   double x2 = 0;
   double x3 = 0; 
-  double larghezza = std::abs(x1-x0);
+  double larghezza = fabs(x1-x0);
    
   while (larghezza > precision)
     {        
@@ -37,7 +37,7 @@ double sezioneAurea (double g (double),double x0, double x1, double precision)
              x0 = x0;          
           }
           
-        larghezza =std::abs(x1-x0) ;            
+        larghezza = fabs(x1-x0) ;            
     } 
                                  
   return (x0+x1)/2. ;
