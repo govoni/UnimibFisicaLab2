@@ -11,7 +11,7 @@ class statistiche
 {
   public:
 
-  statistiche () ;
+  statistiche (): dim(d), last_idx(0), arr (new float[10]), sum (0.), sum_q (0.) {};
   statistiche (int d): dim(d), last_idx(0), arr(dim ? new float[dim] : nullptr), sum (0.), sum_q (0.) {} ;
   ~statistiche () { delete[] arr; } ;
 
