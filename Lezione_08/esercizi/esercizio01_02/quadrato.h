@@ -15,6 +15,12 @@ class quadrato: public forma {
         // Cambia lato
         void cambia_lato(double lato);
 
+        // Calcola l'area
+        double calcola_area();
+
+        // Calcola l'area - metodo non virtual
+        double calcola_area_non_virtual();
+
     private:
         double m_lato;
 };

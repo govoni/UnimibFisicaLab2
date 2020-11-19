@@ -12,14 +12,16 @@ class forma {
         // Distruttore
         ~forma();
 
-        // Restituisce l'area
-        double GetArea();
-
         // Restituisce il nome
         std::string GetNome();
-
         // Imposta il nome
         void SetNome( std::string nome );
+
+        // Calcola l'area
+        virtual double calcola_area();
+
+        // Calcola l'area - non virtual
+        double calcola_area_non_virtual();
 
     protected:
         /*

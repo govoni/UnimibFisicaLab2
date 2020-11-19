@@ -48,3 +48,21 @@ void quadrato::cambia_lato( double lato ) {
     // Posso accedere a m_area, membro di forma, perchè è protected
     m_area = m_lato*m_lato;
 }
+
+/*
+ *  Calcola l'area
+ */
+double quadrato::calcola_area() {
+    cout << "chiamata la funzione calcola_area di quadrato" << endl;
+    m_area = m_lato*m_lato;
+    return m_area;
+}
+
+/*
+ *  Calcola l'area - metodo non virtual
+ */
+double quadrato::calcola_area_non_virtual() {
+    cout << "chiamata la funzione calcola_area_non_virtual di quadrato" << endl;
+    m_area = m_lato*m_lato;
+    return m_area;
+}

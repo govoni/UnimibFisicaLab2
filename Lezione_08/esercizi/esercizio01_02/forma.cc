@@ -29,13 +29,6 @@ forma::~forma() {
 }
 
 /*
- *  Restituisce l'area
- */
-double forma::GetArea() {
-    return m_area;
-}
-
-/*
  *  Restituisce il nome 
  */
 std::string forma::GetNome() {
@@ -47,4 +40,20 @@ std::string forma::GetNome() {
  */
 void forma::SetNome(std::string nome) {
     m_nome = nome;
+}
+
+/*
+ *  Calcola l'area 
+ */ 
+double forma::calcola_area() {
+    cout << "Chiamata la funzione calcola_area di forma" << endl;
+    return m_area;
+}
+
+/*
+ *  Calcola l'area - metodo non virtual
+ */
+double forma::calcola_area_non_virtual() {
+    cout << "Chiamata la funzione calcola_area_non_virtual di forma" << endl;
+    return m_area;
 }
