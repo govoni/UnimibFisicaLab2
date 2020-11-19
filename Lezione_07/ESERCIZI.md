@@ -26,7 +26,7 @@ implementando le funzioni definite nel prototipo presentato a lezione.
   * Si faccia in modo che i metodi di accesso al contenuto del ```SimpleArray``` 
     controllino il valore dell'indice
     prima di accedere all'array salvato in memoria.
-  * Si verifichi che la classe ```SimpleArray``` puo' essere templata sulla classe dei numeri complessi
+  * Si verifichi che la classe ```SimpleArray``` può essere templata sulla classe dei numeri complessi
     sviluppata durante la Lezione 3.
     
 ![linea](../immagini/linea.png)
@@ -35,9 +35,9 @@ implementando le funzioni definite nel prototipo presentato a lezione.
 
 Si implementi una classe templata dal nome ```DynamicArray``` che inizialmente
 non contenga alcun elemento ed abbia un metodo ```push_back ()``` che permetta di aggiungere 
-un elemento in fondo all'array degli elementi gia' esistenti.
-  * Si progetti un meccanismo che, rimpiazzi l'array che contiene gli elementi quando e' pieno,
-    sostituendolo con uno piu' capiente.
+un elemento in fondo all'array degli elementi già esistenti.
+  * Si progetti un meccanismo che rimpiazzi l'array che contiene gli elementi quando è pieno,
+    sostituendolo con uno più capiente.
   * Si aggiunga un metodo che permetta anche di svuotare l'oggetto di tipo ```DynamicArray```.
 
 ![linea](../immagini/linea.png)
@@ -63,9 +63,9 @@ definendo anche le operazioni fra matrici.
   * Si scriva un metodo per il calcolo del determinante di una matrice nel caso sia quadrata,
     sfruttando la formula di Laplace ed una funzione ricorsiva.
   * Si ricordi che, 
-    in ogni caso di ricorsivita',
+    in ogni caso di ricorsività,
     oltre alla formula iterativa va aggiunto anche il metodo che restituisce il determinate
-    nel caso della matrice piu' piccola possibile, cioe' quella composta da un unico numero.
+    nel caso della matrice più piccola possibile, cioè quella composta da un unico numero.
     Quindi, oltre al metodo:
     ```cpp
     double determinante () 
@@ -73,14 +73,14 @@ definendo anche le operazioni fra matrici.
         // implementazione
       }
     ```  
-    e' necessario anche aggiungere, al di fuori della definizione della classe ```matrice```,
+    è necessario anche aggiungere, al di fuori della definizione della classe ```matrice```,
     la specializzazione al caso di dimensione ```1```:
     ```cpp
     template<>
     double matrice<1,1>::determinante () { return elementi[0][0] ; }
     ```
   * Si scriva un metodo che calcola la matrice inversa, nel caso di una matrice quadrata
-    e che ritorna una matrice nulla se la matrice orginale non e' quadrata
+    e che ritorna una matrice nulla se la matrice orginale non è quadrata
     o ha determinante nullo.
 
 ![linea](../immagini/linea.png)
