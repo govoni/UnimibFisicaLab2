@@ -456,7 +456,7 @@
     ```
   * Il risultato mostra chiaramente l'**evoluzione della distribuzione di probabilità**
     dello stimatore al crescere del numero di misure a disposizione:
-![pdf_stimatore.png](immagini/pdf_stimatore.png)
+![pdf_stimatore_2.png](immagini/pdf_stimatore_2.png)
 
 ![linea](../immagini/linea.png)
 
