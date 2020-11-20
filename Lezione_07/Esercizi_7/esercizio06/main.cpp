@@ -1,3 +1,10 @@
+/*
+c++ -o es6 main.cpp
+
+Testo:
+    Si implementi la classe templata matrice delle matrici quadrate di dimensione N, 
+    templata sulla dimensione delle matrici, definendo anche le operazioni fra matrici.
+*/
 #include "matrice.h"
 
 template <int R, int C>
@@ -121,15 +128,13 @@ int main(){
     Matrice<3,3> rot_x; fill(rot_x, M_PI, 0);
     Matrice<3,3> rot_y; fill(rot_y, M_PI, 1);
     
-    auto par = rot_x*rot_y*rot_z;
+    Matrice<3,3> par = rot_x*rot_y*rot_z;
     for(int i = 0; i < 3; ++i) v.setCoord(i,1); // (1,1,1)
 
     std::cout << "Rotation of pi around every axis of (1,1,1) yields" << std::endl;
-    auto v_par = par * v;
+    vettore<3> v_par = par * v;
     for(int i = 0; i < 3; ++i) std::cout << v_par.at(i) << " ";
     std::cout << "\n";
-
-
 
 
     return 0;

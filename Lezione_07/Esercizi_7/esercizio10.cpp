@@ -1,4 +1,12 @@
-//c++ -o es10 esercizio10.cpp
+/*
+c++ -o es10 esercizio10.cpp
+
+Testo:
+    Si crei una std::string riempita con un periodo scelto a piacere.
+
+    Si contino il numero di parole ed il numero di lettere (spazi esclusi) che compongono il periodo.
+    Si divida la stringa in singole parole, ciascuna salvata con una stringa all'interno di un std::vector.
+*/
 #include <string>
 #include <iostream>
 #include <vector>
@@ -107,7 +115,7 @@ int main(){
 
     std::vector<std::string> v;
     v = fill_vec(v, Lorem_Ipsum);
-    for (auto c  : v) std::cout << c << " ";
+    for (std::vector<std::string>::iterator it = v.begin() ; it != v.end(); ++it) std::cout << *it << " ";
     std::cout << std::endl;
     std::cout << "Number of words: " << v.size() << std::endl;
 

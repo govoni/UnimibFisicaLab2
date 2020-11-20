@@ -43,19 +43,28 @@ SimpleArray<T>::SimpleArray (const SimpleArray & copy):
 
 template <typename T> 
 T & SimpleArray<T>::element(const int& i){
-    if(i > elementsNum_p || i < 0) throw std::out_of_range("requested index out of array dimension");
+    if(i > elementsNum_p || i < 0){
+        std::cout << "requested index out of array dimension. return first element" << std::endl;
+        return elements_p[0];
+    } 
     return elements_p[i];
 }
 
 template <typename T> 
 T & SimpleArray<T>::operator[](const int& i){
-    if(i > elementsNum_p || i < 0) throw std::out_of_range("requested index out of array dimension");
+    if(i > elementsNum_p || i < 0){
+        std::cout << "requested index out of array dimension. return first element" << std::endl;
+        return elements_p[0];
+    } 
     return elements_p[i];
 }
 
 template <typename T> 
 T SimpleArray<T>::operator[](const int& i) const{
-    if(i > elementsNum_p || i < 0) throw std::out_of_range("requested index out of array dimension");
+    if(i > elementsNum_p || i < 0){
+        std::cout << "requested index out of array dimension. return first element" << std::endl;
+        return elements_p[0];
+    } 
     return elements_p[i];
 }
 

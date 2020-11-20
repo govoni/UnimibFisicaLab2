@@ -1,12 +1,24 @@
-//c++ -o es7 esercizio07.cpp
+/*
+c++ -o es7 esercizio07.cpp
+
+Testo:
+    Si crei un std::vector vuoto e, tramite un ciclo for, lo si riempia con i primi 10 numeri 
+    della successione di Fibonacci.
+
+    E' conveniente, dal punto di vista dell'esecuzione di questo esercizio, utilizzare una funzione esterna 
+    al ciclo per il calcolo dei numeri di Fibonacci?
+    Si stampi a schermo il suo contenuto utilizzando un ciclo su un numero intero, oppure utilizzando un iteratore.
+*/
+
 #include <iostream>
 #include <vector>
-#include <chrono>
 
 void fibonacci(std::vector<int> & v){
     
     if(v.size() >= 2) v.push_back( v.end()[-2] + v.end()[-1] ) ;
-    else throw std::out_of_range("Fill the vector with the first two Fibonacci numbers");
+    else{
+        std::cout << "Fill the vector with the first two Fibonacci numbers" << std::endl;
+    }
     return;
 
 }

@@ -44,7 +44,8 @@ double complesso::fase(){
     double mod = modulo();
 
     if (mod == 0){
-        throw "Parte reale e immaginaria = 0. La fase non è definita";
+        std::cout << "Parte reale e immaginaria = 0. La fase non è definita" << std::endl;
+        return -1;
     }
 
     return acos(m_real/mod);

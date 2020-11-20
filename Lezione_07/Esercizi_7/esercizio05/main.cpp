@@ -1,3 +1,14 @@
+/*
+c++ -o es5 main.cpp
+
+Testo:
+    Si implementi la classe templata vettore definita nella lezione.
+
+    Si ricordi di controllare che gli indici passati ai metodi della classe siano entro i 
+    limiti della memoria occupata dagli oggetti di tipo vettore
+    Si aggiungano gli operatori algebrici necessari per la definizione di uno spazio vettoriale
+*/
+
 #include <iostream>
 #include "vettore.h"
 
@@ -16,7 +27,7 @@ int main(){
 
     std::cout << "Norm: " << v.norm() << std::endl;
 
-    auto v2 = v * 2;
+    vettore<10> v2 = v * 2;
     std::cout << "Elements:" << std::endl;
     for(int i = 0; i < 10; ++i){
         std::cout << v2.at(i) << " ";
@@ -25,7 +36,7 @@ int main(){
 
     std::cout << "Norm: " << v2.norm() << std::endl;
 
-    auto v3 = v2 + v;
+    vettore<10> v3 = v2 + v;
     std::cout << "Elements:" << std::endl;
     for(int i = 0; i < 10; ++i){
         std::cout << v3.at(i) << " ";

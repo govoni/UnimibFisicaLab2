@@ -78,7 +78,10 @@ bool Matrice<R,C>::quadrata () const {return (R == C) ;}
 template <int R, int C>
 int Matrice<R,C>::rango () const {
     if(quadrata()) return R ;
-    else throw std::domain_error("Matrix not square");
+    else{
+        std::cout << "Matrix not square. Returning -1" << std::endl;
+        return -1;
+    }
 }
 
 template <int R, int C>
@@ -93,7 +96,11 @@ bool Matrice<R,C>::simmetrica () const{
 
 template <int R, int C>
 double Matrice<R,C>::determinante () const{
-    if (!this->quadrata ()) throw std::domain_error("Matrix not square");  
+    if (!this->quadrata ()){
+        std::cout << "Matrix not square. Returning -1" << std::endl;
+        return -1;
+    }
+
     double det = 0. ;
     for (int i = 0 ; i < R ; ++i){
         det += elementi[0][i] * pow (-1, i + 2) * this->minore (0,i).determinante () ;

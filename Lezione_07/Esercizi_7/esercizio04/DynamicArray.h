@@ -14,26 +14,6 @@ class DynamicArray{
         void resize();
         void clear();
 
-        //------ Optional: define iterator for this class -----
-        class iterator {
-        public:
-            //These are standard in order to define an iterator.
-            //Constructor takes a pointer to template var (see line 31,32).
-            //Overload the ++, != and * operators. C++ takes care of the rest.
-
-            iterator(T * ptr): ptr(ptr){};
-            iterator operator++() { ++ptr; return *this; }; 
-            bool operator!=(const iterator & other) const { return ptr != other.ptr; };
-            const T& operator*() const { return *ptr; };
-        private:
-            T* ptr;
-        };
-
-        iterator begin() const { return iterator(elements_p); }
-        iterator end() const { return iterator(elements_p + current_size); }
-
-        //------------------------------------------------------
-
     private:
         int capacity;
         int current_size;
@@ -112,7 +92,10 @@ void DynamicArray<T>::clear(){
 
 template <typename T> 
 T & DynamicArray<T>::operator[](const int& i){
-    if(i > current_size-1 || i < 0 ) throw std::out_of_range("requested index out of array dimension");
+    if(i > current_size-1 || i < 0 ){
+        std::cout << "requested index out of array dimension. return first element" << std::endl;
+        return elements_p[0];
+    } 
     return elements_p[i];
 }
 

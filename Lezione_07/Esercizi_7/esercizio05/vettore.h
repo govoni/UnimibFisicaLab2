@@ -49,8 +49,10 @@ double vettore<N>::norm(){
 
 template <int N> 
 double vettore<N>::at (int i) const{
-    if(i > N-1 || i < 0) throw std::out_of_range("requested index out of array dimension");
-    if (i < 0 || i > N-1) return 0. ;
+    if(i > N-1 || i < 0) {
+        std::cout << "requested index out of array dimension. Return 0" << std::endl;
+        return 0.;
+    }
     return elementi[i] ;
 }
 

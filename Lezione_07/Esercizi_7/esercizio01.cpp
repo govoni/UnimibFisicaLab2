@@ -1,5 +1,11 @@
+/*
+c++ -o es1 esercizio01.cpp
 
-//c++ -o es1 esercizio01.cpp
+Testo:
+    Si scriva una funzione somma che, utilizzando la tecnologia template, 
+    sia applicabile a qualunque tipo numerico del C++
+
+*/
 
 
 #include <iostream>

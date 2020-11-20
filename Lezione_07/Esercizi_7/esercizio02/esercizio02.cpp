@@ -1,4 +1,12 @@
-// c++ -o es2 esercizio02.cpp complesso.cc
+/*
+c++ -o es2 esercizio02.cpp complesso.cc
+
+Testo:
+    Si testi la funzione somma sviluppata nell'esercizio precedente sulla classe dei numeri complessi 
+    sviluppata durante la Lezione 3, aggiungendo anche una specializzazione per un tipo a piacere.
+
+*/
+
 #include "complesso.h"
 
 template <typename T1, typename T2>
