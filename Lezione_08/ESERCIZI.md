@@ -40,7 +40,6 @@ class generatore
     generatore (int seed = 1.) : m_seed (seed) {} 
     virtual ~generatore () {} 
     virtual void set_seed (int num) ; 
-    virtual double set_seed (int num) ; 
     virtual double generate () ; 
     int get_seed () const { return m_seed ; }
 
