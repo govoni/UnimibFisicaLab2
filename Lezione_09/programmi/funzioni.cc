@@ -24,6 +24,19 @@ double loglikelihood (
   return result ;   
 }
 
+// ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- 
+
+
+double loglikelihoodprod (
+  const vector<double> & data, 
+  double param
+)
+{
+  double result = 1. ; 
+  for (int i = 0 ; i < data.size () ; ++i) result *= esponenziale (data.at (i), param) ;
+  return log(result) ;   
+}
+
 
 // ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- 
   

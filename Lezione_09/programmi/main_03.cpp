@@ -1,5 +1,13 @@
 /*
 c++ -o main_03 funzioni.cc main_03.cpp
+
+Testo:
+
+Si utilizzi il metodo della bisezione per trovare i due punti τ - στ e τ + στ nel caso 
+dell'esercizio precedente.
+
+Si confronti il valore di στ ottenuto in questo modo con quello calcolato a partire
+dalla media aritmetica dei numeri salvati nel vector
 */
 
 #include <iostream>

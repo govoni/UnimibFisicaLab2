@@ -1,5 +1,10 @@
 /*
 c++ -o main_04 `root-config --glibs --cflags` funzioni.cc main_04.cpp
+
+Testo:
+  Utilizzando il generatore di numeri pseudo-casuali secondo una pdf esponenziale sviluppato nella 
+  Lezione 4, si disegni la distribuzione di probabilita' dello stimatore di τ in funzione del numero 
+  di eventi a disposizione per la stima.
 */
 
 #include <iostream>
@@ -62,6 +67,7 @@ int main (int argc, char ** argv)
     TCanvas c1 ;
     c1.SetLeftMargin (0.10) ; 
     h_max.Draw () ;
+    c1.Update();
     theapp.Run () ;
 
     return 0 ;

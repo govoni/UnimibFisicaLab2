@@ -10,6 +10,11 @@ double loglikelihood (
   double param
 ) ;
 
+double loglikelihoodprod (
+  const std::vector<double> & data, 
+  double param
+) ;
+
 double sezione_aurea_max (
   double logl (const std::vector<double> & , double),
   double xMin,

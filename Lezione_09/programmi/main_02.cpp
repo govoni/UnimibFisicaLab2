@@ -1,5 +1,14 @@
 /*
 c++ -o main_02 funzioni.cc main_02.cpp
+
+Testo:
+  Si scriva una libreria di funzioni per determinare il parametro τ della distribuzione 
+  esponenziale utilizzata per generare gli eventi presenti nel file dati_esponenziali.txt, 
+  a partire dal vector di numeri creato negli esercizi precedenti.
+
+  Si implementino i prototipi delle funzioni presentate a lezione.
+  Si confronti il risultato ottenuto con la media dei numeri salvati nel vector.
+  Come dipende il risultato dall'intervallo inziale passato alla funzione sezione_aurea_max?
 */
 
 #include <iostream>

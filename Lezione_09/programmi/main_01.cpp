@@ -1,5 +1,13 @@
 /*
 c++ -o main_01 `root-config --cflags --glibs` main_01.cpp
+
+Testo 2:
+  Si aggiunga al programma precedente il codice sorgente che calcoli la media, 
+  il valor minimo ed il valor massimo dei numeri inseriti.
+
+Testo 3:
+  Si aggiunga al programma precedente il codice sorgente che riempia un istogramma 
+  con i numeri presenti nel vector dove sono stati trasferiti e che visualizzi l'istogramma a schermo.
 */
 
 #include <iostream>
@@ -47,7 +55,7 @@ int main (int argc, char ** argv)
     double media_v = media (data) ;
     cout << "media = " << media_v << endl ; 
 
-    TApplication theapp ("theapp", 0, 0) ;
+    TApplication theapp ("theapp", NULL, NULL) ;
     TH1F h_data ("h_data", "", 100, 0., 5 * media_v) ;
     h_data.SetFillColor (kOrange + 1) ;
     h_data.GetXaxis ()->SetTitle ("asse x") ;
@@ -57,6 +65,9 @@ int main (int argc, char ** argv)
     for (int i = 0 ; i < data.size () ; ++i) h_data.Fill (data.at (i)) ;
 
     h_data.Draw () ;
+
+    c1.Update();
+    c1.Draw();
     theapp.Run () ;
 
 

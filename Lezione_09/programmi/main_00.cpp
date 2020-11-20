@@ -1,5 +1,11 @@
 /*
 c++ -o main_00 main_00.cpp
+
+Testo:
+  Si scriva un programma che legge i numeri salvati nel file dati_esponenziali.txt e li scriva in un vector<double>.
+
+  Si faccia in modo che il nome del file sia passato a linea di comando.
+  Si faccia in modo che il secondo argomneto a linea di comando, opzionale, sia il numero massimo di numeri da leggere dal file.
 */
 
 #include <iostream>
