@@ -40,7 +40,6 @@ class generatore
     generatore (int seed = 1.) : m_seed (seed) {} 
     virtual ~generatore () {} 
     virtual void set_seed (int num) ; 
-    virtual double set_seed (int num) ; 
     virtual double generate () ; 
     int get_seed () const { return m_seed ; }
 
@@ -64,7 +63,7 @@ a generare un evento pseudo-casuale.
 
 ## Esercizio 8.5
 
-Si costriusca un ```vector``` di numeri interi contenente il doppo dei primi dieci numeri interi.
+Si costruisca un ```vector``` di numeri interi contenente il doppio dei primi dieci numeri interi.
   * Si mostri che l'algoritmo ```std::find``` non trova alcuno dei primi dieci numeri dispari al suo interno.
   * Si trovi l'iteratore all'elemento che contiene il numero *6*.
   * Si mostri che ognuno dei primi dieci numeri pari compare una volta sola all'interno del ```vector```.
