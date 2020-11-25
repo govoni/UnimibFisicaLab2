@@ -33,7 +33,6 @@
     * [8.8.1 L'implementazione della lettura](#881-limplementazione-della-lettura)
     * [8.8.2 L'implementazione della scrittura](#882-limplementazione-della-scrittura)
     * [8.8.3 Il controllo dell'apertura di un file](#883-il-controllo-dell-apertura-di-un-file)
-
   * [8.8 ESERCIZI](#88-esercizi)
 
 ![linea](../immagini/linea.png)
