@@ -31,6 +31,9 @@
   * [8.7 Ereditarietà e ```template```](#87-ereditarietà-e-template)
   * [8.8 Un utile intermezzo: la lettura di un *file* di testo](#88-un-utile-intermezzo-la-lettura-di-un-file-di-testo)
     * [8.8.1 L'implementazione della lettura](#881-limplementazione-della-lettura)
+    * [8.8.2 L'implementazione della scrittura](#882-limplementazione-della-scrittura)
+    * [8.8.3 Il controllo dell'apertura di un file](#883-il-controllo-dell-apertura-di-un-file)
+
   * [8.8 ESERCIZI](#88-esercizi)
 
 ![linea](../immagini/linea.png)
@@ -570,6 +573,50 @@
     * All'interno del file di testo,
       i valori sono seperati da spazi, tab o accapo.  
     * Al termine della lettura, il *file* viene chiuso.
+
+![linea](../immagini/linea.png)
+
+### 8.8.2 L'implementazione della scrittura
+
+  * In questo caso,
+    si utilizza la classe ```ofstream``` per produrre un file che contiene numeri:
+    ```cpp
+    #include <fstream>
+    // ...
+    ofstream output_file ;
+    output_file.open ("example.txt", ios::out) ;
+    
+    for (int i = 0 ; i < 10 ; ++i)
+      {
+        output_file << i << "\n" ;
+      }  
+
+    output_file.close () ;
+    ```
+    * l'operatore di redirezione ```<<``` funziona come nel caso di ```std::cout```, 
+      con il file come destilazione della redirezione, 
+      invece dello schermo
+    * tutto ciò che si può scrivere a schermo può essere scritto in un file
+    * l'opzione ```ios::out``` passata al metodo ```ofstream::open``` 
+      indica che il file con nome ```"example.txt"``` viene aperto per scrittura
+      * se il file non esiste, viene creato
+      * se il file esiste, viene sovrascritto, perdendo il contenuto del file precendente
+    * aprendo il file con opzione ```ios::app```, invece,
+      il file viene aperto e predisposto perché la scrittura avvenga 
+      in coda al contenuto già presente nel file
+
+![linea](../immagini/linea.png)
+
+### 8.8.3 Il controllo dell'apertura di un file
+
+  * Per controllare se un file sia effettivamente stato aperto,
+    si può utilizzare il metodo ```is_open```:
+    ```cpp
+    if (myfile.is_open ()) 
+      { 
+        /* istruzioni da eseguire */ 
+      }
+    ```
 
 ## 8.9 ESERCIZI
 
