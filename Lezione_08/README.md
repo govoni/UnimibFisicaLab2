@@ -29,7 +29,7 @@
     * [8.6.5 la relazione di ordine nell'ordinamento](#865-la-relazione-di-ordine-nellordinamento)
     * [8.6.6 un esempio di utilizzo](#866-un-esempio-di-utilizzo)
   * [8.7 Ereditarietà e ```template```](#87-ereditarietà-e-template)
-  * [8.8 Un utile intermezzo: la lettura di un *file* di testo](#88-un-utile-intermezzo-la-lettura-di-un-file-di-testo)
+  * [8.8 Un utile strumento: la lettura di un *file* di testo](#88-un-utile-strumento-la-lettura-di-un-file-di-testo)
     * [8.8.1 L'implementazione della lettura](#881-limplementazione-della-lettura)
     * [8.8.2 L'implementazione della scrittura](#882-limplementazione-della-scrittura)
     * [8.8.3 Il controllo dell'apertura di un file](#883-il-controllo-dell-apertura-di-un-file)
@@ -533,7 +533,7 @@
 
 ![linea](../immagini/linea.png)
 
-## 8.8 Un utile intermezzo: la lettura di un *file* di testo
+## 8.8 Un utile strumento: la lettura di un *file* di testo
 
   * Può essere comodo **salvare informazioni semplici** su file di testo,
     per poterle rileggere dai programmi di analisi dati
@@ -572,6 +572,10 @@
     * All'interno del file di testo,
       i valori sono seperati da spazi, tab o accapo.  
     * Al termine della lettura, il *file* viene chiuso.
+    * la condizione ```input_file.eof () == true``` **non può essere controllata direttamente
+      dall'istruzione ```while```**, 
+      perché l'ultima operazione di lettura riconosce la fine del file,
+      senza leggere contenuto utile.
 
 ![linea](../immagini/linea.png)
 
@@ -592,17 +596,17 @@
 
     output_file.close () ;
     ```
-    * l'operatore di redirezione ```<<``` funziona come nel caso di ```std::cout```, 
+    * l'**operatore di redirezione** ```<<``` funziona come nel caso di ```std::cout```, 
       con il file come destilazione della redirezione, 
       invece dello schermo
-    * tutto ciò che si può scrivere a schermo può essere scritto in un file
-    * l'opzione ```ios::out``` passata al metodo ```ofstream::open``` 
+      * tutto ciò che si può scrivere a schermo può essere scritto in un file
+    * **l'opzione ```ios::out```** passata al metodo ```ofstream::open``` 
       indica che il file con nome ```"example.txt"``` viene aperto per scrittura
       * se il file non esiste, viene creato
       * se il file esiste, viene sovrascritto, perdendo il contenuto del file precendente
     * aprendo il file con opzione ```ios::app```, invece,
       il file viene aperto e predisposto perché la scrittura avvenga 
-      in coda al contenuto già presente nel file
+      **in coda al contenuto già presente nel file**
 
 ![linea](../immagini/linea.png)
 
