@@ -621,6 +621,8 @@
       }
     ```
 
+![linea](../immagini/linea.png)
+
 ## 8.9 ESERCIZI
 
   * Gli esercizi relativi alla lezione si trovano [qui](ESERCIZI.md)
