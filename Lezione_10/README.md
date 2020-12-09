@@ -73,7 +73,7 @@
 
 ### 10.1.3 La determinazione dei parametri &theta;
 
-  * In questo caso, i parametri &theta; (che può essere un vettore)
+  * In questo caso, i parametri &theta; (&theta; può essere un vettore)
     si determinano **trovando il minimo della funzione *Q(&theta;)***:
 ![Q_funzione](immagini/Q_derivata.png)
   * esistono diverse tecniche numeriche per trovare il minimo della funzione
@@ -86,7 +86,7 @@
     hanno **valore di aspettazione nullo e varianza finita e fissa**,
     cioè non dipendente da *y*, allora 
     * il metodo dei minimi quadrati è uno **stimatore non distorto** dei parametri &theta;
-    * ed ha la **varianza minima** fra tutti gli stimatori non distorti lineari (in *y*), 
+    * ed ha la **varianza minima** fra tutti gli stimatori non distorti lineari (in &theta;), 
       indipendentemente dalla distribuzione di probabilità degli scarti
   * Se gli scarti *&epsilon;<sub>i</sub>* sono distribuiti secondo una distribuzione di probabilità Gaussiana,
     il minimo della funzione *Q<sup>2</sup>(&theta;)*
