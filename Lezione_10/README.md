@@ -86,7 +86,7 @@
     hanno **valore di aspettazione nullo e varianza finita e fissa**,
     cioè non dipendente da *y*, allora 
     * il metodo dei minimi quadrati è uno **stimatore non distorto** dei parametri &theta;
-    * ed ha la **varianza minima** fra tutti gli stimatori non distorti lineari (in &theta;), 
+    * ed ha la **varianza minima** fra tutti gli stimatori non distorti lineari (in *y*), 
       indipendentemente dalla distribuzione di probabilità degli scarti
   * Se gli scarti *&epsilon;<sub>i</sub>* sono distribuiti secondo una distribuzione di probabilità Gaussiana,
     il minimo della funzione *Q<sup>2</sup>(&theta;)*
