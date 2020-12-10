@@ -140,7 +140,7 @@
 ### 10.2.3 Il valore dei parametri e della loro incertezza
 
   * Il risultato delle operazioni di minimizzazione è il seguente:
-![modello_lineare](immagini/modello_lineare.png)
+![modello_lineare](immagini/modello_lineare_2.png)
   * *V<sup>-1</sup>* indica l'**inversa** della matrice di covarianza delle misure *y<sub>i</sub>*
   * *<sup>t</sup>H* indica la **trasposta** della matrice *H*
   * La notazione che indica il risultato dell'algoritmo dei minimi quadrati
