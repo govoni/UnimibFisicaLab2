@@ -86,7 +86,7 @@
     e di voler determinare i parametri della distribuzione di probabilità della variabile
   * Assumiamo che questo modello abbia una forma data 
     da una **distribuzione di fondo esponenziale sommata ad una di segnale gaussiana**:
-![modello_formula](immagini/modello_formula.png)
+![modello_formula](immagini/modello_formula_2.png)
   * **Graficamente**, 
     il modello ha un andamento descrescente che risale quando il termine Gaussiano diventa imporante,
     come mostrato in figura:
@@ -113,9 +113,9 @@
     
 ![linea](../immagini/linea.png)
 
-### 11.2.2 La determinazione dei parametri &\theta;
+### 11.2.2 La determinazione dei parametri &theta;
 
-  * Per **determinare i parametri &\theta;** si utilizza tipicamente 
+  * Per **determinare i parametri &theta;** si utilizza tipicamente 
     il metodo dei minimi quadrati o della massima verosimiglianza
   * In entrambi i casi, bisogna trovare l'estremante di una funzione 
     * con **molti parametri**
@@ -131,13 +131,13 @@
     è necessario definire il modello funzionale nel linguaggio di ```ROOT```
   * Una funzione si rappresenta con un oggetto di tipo ```TF1```:  
     ```cpp
-    TF1 segnale ("segnale", "gaus(0)",0., 20.) ;
+    TF1 segnale ("segnale", "gaus(0)", 0., 20.) ;
     segnale.SetParameter (0, p2) ;
     segnale.SetParameter (1, p3) ;
     segnale.SetParameter (2, p4) ;
     ```
     * In questo caso, la funzione sfrutta l'implementazione interna di ```ROOT``` della **Gaussiana**
-    * La funzione è definita **sull'intervallo ```0., 20```**
+    * La funzione è definita **sull'intervallo ```0., 20.```**
     * La ```gaus``` ha **tre parametri**, perché per fittare un istogramma non normalizzato
       anche l'integrale della funzione è un parametro libero
     * L'indice del primo parametro è ```0```, come indicato fra parentesi in ```gaus(0)```
@@ -183,7 +183,7 @@
   * Per facilitare il fit,
     è molto efficace dare a ```ROOT``` un **punto di partenza non distante dal risultato finale**,
     basandosi sulla conoscenza del problema:
-    * I parametri &theta<sub>0<sub>; e &theta<sub>2<sub>; 
+    * I parametri &theta;<sub>0</sub> e &theta;<sub>2</sub> 
       sono l'integrale delle due funzioni di segale e fondo, 
       quindi sono **legati all'integrale dell'istogramma**:
       ```cpp
@@ -201,7 +201,7 @@
       ```cpp
       double p3 = 0.5 * (max - min) ;       // media del segnale
       ```
-    * La **larghezza della Gaussiana** è in qualche modo correlata alla sigma dell'istogramma:
+    * La **larghezza della Gaussiana** è per un certo livello correlata alla sigma dell'istogramma:
       ```cpp
       double p4 = h_eventi.GetRMS () ;      // sigma del segnale
       ```
@@ -309,8 +309,7 @@
 
   * Il valore dei parametri e della loro incertezza possono essere **ottenuti dalla funzione di fit**:
     ```cpp
-    cout << endl ;
-    cout.precision (3) ;
+    cout.precision (3) ; // stampa soltanto tre cifre significative
     cout << "eventi di fondo:    " << exp (model.GetParameter (0)) << "\t+- " 
                                    << model.GetParError (0) * exp (model.GetParameter (0)) << endl ;
     cout << "pendenza del fondo: " << model.GetParameter (1) << "\t+- " << model.GetParError (1) << endl ;
@@ -431,7 +430,7 @@
 ## 11.5 Sulla scelta del binning
 
   * Siccome la scelta del binning determina il numero ed il valore dei punti *n<sub>i</sub>*,
-    **ha impatto sul risultato del fit**
+    essa **ha impatto sul risultato del fit**
   * Scegliere **bin con dimensioni molto piccole** (e quindi un gran numero di bin)
     * rende distorto il metodo dei minimi quadrati,
       per via della possibile **presenza di bin vuoti**  
