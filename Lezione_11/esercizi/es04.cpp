@@ -28,30 +28,6 @@ using std::endl;
 int main( int argc, char** argv ) {
     TApplication* app = new TApplication("App", &argc, argv);
 
-    // Lettura file di dati
-    std::ifstream dataFile("dati_2.txt");
-
-    // Valore minimo e massimo letto nel file
-    double minValue = 1e10;
-    double maxValue = -1e10;
-
-    double val;
-    std::vector<double> data;
-    while(true) {
-        dataFile >> val;
-        if( dataFile.eof() )
-            break;
-        data.push_back(val);    
-
-        // Aggiornare minimo e massimo
-        if( val < minValue )
-            minValue = val;
-        if( val > maxValue )
-            maxValue = val;
-    }
-    dataFile.close();
-
-
     // Grafici per i tre parametri dell'istogramma
     TGraphErrors* gArea = new TGraphErrors();
     TGraphErrors* gMedia = new TGraphErrors();
@@ -59,6 +35,13 @@ int main( int argc, char** argv ) {
     TGraphErrors* gArea_L = new TGraphErrors();
     TGraphErrors* gMedia_L = new TGraphErrors();
     TGraphErrors* gSigma_L = new TGraphErrors();
+
+    // Modello da cui estrarre per generare l'istogramma
+    double minValue = 0;
+    double maxValue = 20;
+    TF1* fOriginal = new TF1("fOriginal", "gaus(0)", minValue, maxValue);
+    // Integrale, media, sigma
+    fOriginal->SetParameters(30, 10, 2);
 
     // Variazione del numero di eventi nell'istogramma
     TH1F* hData;
@@ -69,16 +52,13 @@ int main( int argc, char** argv ) {
         double ex = 1. + 0.1*i;
         int nEvents = pow(10, ex);
 
-        int nBin = 0;
-        if( nEvents < 100 )
-            nBin = 10;
-        else
-            nBin = 30;
+        int nBin = 30;
         hData = new TH1F("hData", "Es04", nBin, minValue, maxValue);
 
-        // Riempio l'istogramma a partire da data (vector<double>)
+        // Riempio l'istogramma generando da una gaussiana
         for( int ev = 0; ev < nEvents; ev++ )  {
-            hData->Fill(data[ev]);
+            double event = fOriginal->GetRandom();
+            hData->Fill(event);
         }
 
         // Funzioni di fit
@@ -107,6 +87,7 @@ int main( int argc, char** argv ) {
 
         gSigma_L->SetPoint(i-1, nEvents, fModel_L->GetParameter(2));
         gSigma_L->SetPointError(i-1, 0, fModel_L->GetParError(2));
+
 
         // A ogni step del ciclo ricordarsi di rimuovere istogramma e funzioni
         delete hData;
