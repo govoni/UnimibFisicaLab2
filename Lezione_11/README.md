@@ -8,7 +8,7 @@
     * [11.1.3 La scelta fra le due tecniche](#1113-la-scelta-fra-le-due-tecniche)
   * [11.2 Un esercizio di regressione](#112-un-esercizio-di-regressione)
     * [11.2.1 La lettura dei dati](#1121-la-lettura-dei-dati)
-    * [11.2.2 La determinazione dei parametri &theta;](#1122-la-determinazione-dei-parametri-theta)
+    * [11.2.2 La determinazione dei parametri](#1122-la-determinazione-dei-parametri)
     * [11.2.3 Il fit di un istogramma in ```ROOT```](#1123-il-fit-di-un-istogramma-in-root)
     * [11.2.4 Il fondo ed il modello completo](#1124-il-fondo-ed-il-modello-completo)
     * [11.2.5 Il fit del modello ai dati](#1125-il-fit-del-modello-ai-dati)
@@ -113,7 +113,7 @@
     
 ![linea](../immagini/linea.png)
 
-### 11.2.2 La determinazione dei parametri &theta;
+### 11.2.2 La determinazione dei parametri
 
   * Per **determinare i parametri &theta;** si utilizza tipicamente 
     il metodo dei minimi quadrati o della massima verosimiglianza
