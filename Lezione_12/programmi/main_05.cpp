@@ -44,9 +44,9 @@ void leggiFile (vector<vector<double> > & data, string nome_file)
 // ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- 
 
 
-TH2F * riempiIstogramma (vector<vector<double> > & data, string histo_name)
+TH2F * riempiIstogramma (const vector<vector<double> > & data, string histo_name)
 {
-  // preparazione dell'istogramma di visualizzazione
+  // preparazione dell'istogramma
   // ---- ---- ---- ---- ---- ---- ----  
 
   double max_x = *max_element (data.at (0).begin (), data.at (0).end ()) ;
@@ -64,7 +64,7 @@ TH2F * riempiIstogramma (vector<vector<double> > & data, string histo_name)
       3 * (max_y - min_y) / sigma_y, min_y, max_y
     ) ;
 
-  // riempimento dell'istogramma e visualizzazione
+  // riempimento dell'istogramma
   // ---- ---- ---- ---- ---- ---- ----  
 
   for (int i = 0 ; i < data.at (0).size () ; ++i)
@@ -105,6 +105,9 @@ int main (int argc, char ** argv)
   h_1->Draw ("P same") ;
   h_2->Draw ("P same") ;
   c1.Print ("confronto.png", "png") ;
+
+  delete h_1 ;
+  delete h_2 ;
 
   return 0 ;
 }
