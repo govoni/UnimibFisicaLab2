@@ -12,10 +12,13 @@ c++ -o main_06 ../../Lezione_10/programmi/algebra_2.cc main_06.cpp
 #include "../../Lezione_09/programmi/statistiche_vector.h"
 #include "../../Lezione_10/programmi/algebra_2.h"
 
+#include "TCanvas.h"
+#include "TH2F.h"
+
 using namespace std ;
 
 
-matrice determinaCovarianza (string nome_file)
+void leggiFile (vector<vector<double> > & data, string nome_file)
 {
   ifstream input_file ;
   input_file.open (nome_file.c_str (), ios::in) ;
@@ -24,32 +27,43 @@ matrice determinaCovarianza (string nome_file)
 
   double input_x ;
   double input_y ;
-  vector<double> data_x ;
-  vector<double> data_y ;
+  vector<double> v ;
+  data.push_back (v) ;
+  data.push_back (v) ;
   while (true) 
     {
       input_file >> input_x ;
       input_file >> input_y ;
       if (input_file.eof () == true) break ;
-      data_x.push_back (input_x) ;
-      data_y.push_back (input_y) ;
+      data.at (0).push_back (input_x) ;
+      data.at (1).push_back (input_y) ;
     } 
   input_file.close () ;
+  return ;
+} 
 
+
+// ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- 
+
+
+matrice determinaCovarianza (const vector<vector<double> > & data)
+{
+
+  if (data.size () < 2) exit (1) ;
   // calcolo della matrice delle covarianze
   // ---- ---- ---- ---- ---- ---- ----  
 
-  double V_xx = varianza (data_x) ;
-  double V_yy = varianza (data_y) ;
-  double M_x = media (data_x) ;
-  double M_y = media (data_y) ;
+  double V_xx = varianza (data.at (0)) ;
+  double V_yy = varianza (data.at (1)) ;
+  double M_x = media (data.at (0)) ;
+  double M_y = media (data.at (1)) ;
 
   double V_xy = 0. ;
-  for (int i = 0 ; i < data_x.size () ; ++i)
+  for (int i = 0 ; i < data.at (0).size () ; ++i)
     {
-      V_xy += (data_x.at (i) - M_x) * (data_y.at (i) - M_y) ;
+      V_xy += (data.at (0).at (i) - M_x) * (data.at (1).at (i) - M_y) ;
     }
-  V_xy /= data_x.size () ;
+  V_xy /= data.at (0).size () ;
 
   matrice covarianza (2) ;
   covarianza.setCoord (0, 0, V_xx) ;
@@ -72,8 +86,13 @@ int main (int argc, char ** argv)
       exit (1) ;
     }
 
-  matrice cov_1 = determinaCovarianza (argv[1]) ;
-  matrice cov_2 = determinaCovarianza (argv[2]) ;
+  vector<vector<double> > data_1 ;
+  leggiFile (data_1, argv[1]) ;
+  matrice cov_1 = determinaCovarianza (data_1) ;
+
+  vector<vector<double> > data_2 ;
+  leggiFile (data_2, argv[2]) ;
+  matrice cov_2 = determinaCovarianza (data_2) ;
 
   cov_1.stampa () ;
   cout << endl ;

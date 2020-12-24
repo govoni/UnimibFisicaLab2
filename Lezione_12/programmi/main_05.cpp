@@ -16,40 +16,49 @@ c++ -o main_05 `root-config --glibs --cflags` main_05.cpp
 
 using namespace std ;
 
-TH2F * riempiIstogramma (string file_name)
+void leggiFile (vector<vector<double> > & data, string nome_file)
 {
   ifstream input_file ;
-  input_file.open (file_name.c_str (), ios::in) ;
+  input_file.open (nome_file.c_str (), ios::in) ;
 
   if (!input_file.is_open ()) exit (1) ;
 
   double input_x ;
   double input_y ;
-  vector<double> data_x ;
-  vector<double> data_y ;
+  vector<double> v ;
+  data.push_back (v) ;
+  data.push_back (v) ;
   while (true) 
     {
       input_file >> input_x ;
       input_file >> input_y ;
       if (input_file.eof () == true) break ;
-      data_x.push_back (input_x) ;
-      data_y.push_back (input_y) ;
+      data.at (0).push_back (input_x) ;
+      data.at (1).push_back (input_y) ;
     } 
   input_file.close () ;
+  return ;
+} 
 
+
+// ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- 
+
+
+TH2F * riempiIstogramma (vector<vector<double> > & data, string histo_name)
+{
   // preparazione dell'istogramma di visualizzazione
   // ---- ---- ---- ---- ---- ---- ----  
 
-  double max_x = *max_element (data_x.begin (), data_x.end ()) ;
-  double min_x = *min_element (data_x.begin (), data_x.end ()) ;
-  double max_y = *max_element (data_y.begin (), data_y.end ()) ;
-  double min_y = *min_element (data_y.begin (), data_y.end ()) ;
+  double max_x = *max_element (data.at (0).begin (), data.at (0).end ()) ;
+  double min_x = *min_element (data.at (0).begin (), data.at (0).end ()) ;
+  double max_y = *max_element (data.at (1).begin (), data.at (1).end ()) ;
+  double min_y = *min_element (data.at (1).begin (), data.at (1).end ()) ;
 
-  double sigma_x = sqrt (varianza (data_x)) ;
-  double sigma_y = sqrt (varianza (data_y)) ;
+  double sigma_x = sqrt (varianza (data.at (0))) ;
+  double sigma_y = sqrt (varianza (data.at (1))) ;
 
   TH2F * h_vis = new TH2F (
-      (string ("h_vis") + file_name).c_str (), 
+      histo_name.c_str (), 
       "distribuzione 2D",
       3 * (max_x - min_x) / sigma_x, min_x, max_x, 
       3 * (max_y - min_y) / sigma_y, min_y, max_y
@@ -58,9 +67,9 @@ TH2F * riempiIstogramma (string file_name)
   // riempimento dell'istogramma e visualizzazione
   // ---- ---- ---- ---- ---- ---- ----  
 
-  for (int i = 0 ; i < data_x.size () ; ++i)
+  for (int i = 0 ; i < data.at (0).size () ; ++i)
     {
-      h_vis->Fill (data_x.at (i), data_y.at (i)) ;
+      h_vis->Fill (data.at (0).at (i), data.at (1).at (i)) ;
     }
 
   return h_vis ;
@@ -78,8 +87,12 @@ int main (int argc, char ** argv)
       exit (1) ;
     }
 
-  TH2F * h_1 = riempiIstogramma (argv[1]) ;
-  TH2F * h_2 = riempiIstogramma (argv[2]) ;
+  vector<vector<double> > data_1 ;
+  leggiFile (data_1, argv[1]) ;
+  TH2F * h_1 = riempiIstogramma (data_1, "h_1") ;
+  vector<vector<double> > data_2 ;
+  leggiFile (data_2, argv[2]) ;
+  TH2F * h_2 = riempiIstogramma (data_2, "h_2") ;
 
 
   TCanvas c1 ("c1", "", 500, 500) ;
