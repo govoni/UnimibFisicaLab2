@@ -55,24 +55,25 @@ float rand_TAC_gaus (float media, float sigma)
 int main (int argc, char ** argv)
 {
 
-  if (argc < 2)
+  if (argc < 8)
     {
-      cerr << "uso: " << argv[0] << " nomeFile [numero_di_eventi]" << endl ;
+      cerr << "uso: " << argv[0] << " nomeFile numero_di_eventi media_x sigma_x media_y sigma_y angolo" << endl ;
+      cerr << "ad esempio:\n " 
+           << argv[0] << " dati.txt 10000 1 0.8 2 0.15 0.62" << endl ;
       exit (1) ;
     }
 
-  int numeroMax = 10 ;
-  if (argc > 2) numeroMax = atoi (argv[2]) ;
+  int numeroMax = atoi (argv[2]) ;
 
   // parametri delle gaussiane nel sistema di riferimento
   // dove le variabili sono scorrelate
-  double media_x = 1. ;
-  double sigma_x = 0.8 ;
-  double media_y = 2. ;
-  double sigma_y = 0.15 ;
+  double media_x = atof (argv[3]) ;
+  double sigma_x = atof (argv[4]) ;
+  double media_y = atof (argv[5]) ;
+  double sigma_y = atof (argv[6]) ;
 
   // angolo di rotazione per il cambio del sistema di riferimento
-  double theta = M_PI / 5. ;
+  double theta = atof (argv[7]) ;
   double c_theta = cos (theta) ;
   double s_theta = sin (theta) ;
 
