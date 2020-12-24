@@ -383,3 +383,24 @@ matrice operator* (const matrice & M1, const matrice & M2)
     return M_out ;
   }
 
+// ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
+
+matrice operator+ (const matrice & M1, const matrice & M2)
+  {
+    if (M1.N_colonne () != M2.N_colonne () ||
+        M1.N_righe () != M2.N_righe ())
+      {
+        cerr << "somma fra matrici con dimensioni non compatibili" << endl ;
+        exit (1) ;
+      }
+  
+    matrice M_out (M1.N_righe (), M1.N_colonne ()) ;
+  
+    for (int i = 0 ; i < M1.N_righe () ; ++i)
+      for (int k = 0 ; k < M1.N_colonne () ; ++k)
+        {
+          M_out.setCoord (i, k, M1.at (i,k) + M2.at (i,k)) ;
+        }
+    return M_out ;
+  }
+

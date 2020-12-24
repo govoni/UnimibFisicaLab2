@@ -72,6 +72,6 @@ class matrice
 
 vettore operator* (const matrice & M, const vettore & v) ;
 matrice operator* (const matrice & M1, const matrice & M2) ;
-
+matrice operator+ (const matrice & M1, const matrice & M2) ;
 
 #endif
