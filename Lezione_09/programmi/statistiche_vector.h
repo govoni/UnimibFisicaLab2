@@ -4,7 +4,7 @@
 #include <vector>
 
 template <class T>
-T media (std::vector<T> input_v) 
+T media (const std::vector<T> & input_v) 
 {
   T somma = 0 ;
   for (int i = 0 ; i < input_v.size () ; ++i) somma += input_v.at (i) ;
@@ -13,7 +13,7 @@ T media (std::vector<T> input_v)
 
 
 template <class T>
-T varianza (std::vector<T> input_v) 
+T varianza (const std::vector<T> & input_v) 
 {
   T somma = 0 ;
   T sommaSq = 0 ;
