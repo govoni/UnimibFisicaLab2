@@ -1,6 +1,8 @@
 /*
-c++ -o main_06 ../../Lezione_10/programmi/algebra_2.cc main_06.cpp
+c++ -o main_06 `root-config --glibs --cflags` ../../Lezione_10/programmi/algebra_2.cc fisher.cc main_06.cpp
 
+NB qui le opzioni di compilazione di ROOT servono perché nella libreria fisher.h
+   sono utilizzate anche classi di ROOT.
 */
 
 #include <iostream>
@@ -11,71 +13,12 @@ c++ -o main_06 ../../Lezione_10/programmi/algebra_2.cc main_06.cpp
 
 #include "../../Lezione_09/programmi/statistiche_vector.h"
 #include "../../Lezione_10/programmi/algebra_2.h"
+#include "fisher.h"
 
 #include "TCanvas.h"
 #include "TH2F.h"
 
 using namespace std ;
-
-
-void leggiFile (vector<vector<double> > & data, string nome_file)
-{
-  ifstream input_file ;
-  input_file.open (nome_file.c_str (), ios::in) ;
-
-  if (!input_file.is_open ()) exit (1) ;
-
-  double input_x ;
-  double input_y ;
-  vector<double> v ;
-  data.push_back (v) ;
-  data.push_back (v) ;
-  while (true) 
-    {
-      input_file >> input_x ;
-      input_file >> input_y ;
-      if (input_file.eof () == true) break ;
-      data.at (0).push_back (input_x) ;
-      data.at (1).push_back (input_y) ;
-    } 
-  input_file.close () ;
-  return ;
-} 
-
-
-// ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- 
-
-
-matrice determinaCovarianza (const vector<vector<double> > & data)
-{
-
-  if (data.size () < 2) exit (1) ;
-  // calcolo della matrice delle covarianze
-  // ---- ---- ---- ---- ---- ---- ----  
-
-  double V_xx = varianza (data.at (0)) ;
-  double V_yy = varianza (data.at (1)) ;
-  double M_x = media (data.at (0)) ;
-  double M_y = media (data.at (1)) ;
-
-  double V_xy = 0. ;
-  for (int i = 0 ; i < data.at (0).size () ; ++i)
-    {
-      V_xy += (data.at (0).at (i) - M_x) * (data.at (1).at (i) - M_y) ;
-    }
-  V_xy /= data.at (0).size () ;
-
-  matrice covarianza (2) ;
-  covarianza.setCoord (0, 0, V_xx) ;
-  covarianza.setCoord (1, 1, V_yy) ;
-  covarianza.setCoord (0, 1, V_xy) ;
-  covarianza.setCoord (1, 0, V_xy) ;
-
-  return covarianza ;
-}
-
-
-// ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- 
 
 
 int main (int argc, char ** argv)
