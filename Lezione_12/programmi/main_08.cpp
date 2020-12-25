@@ -24,7 +24,7 @@ int main (int argc, char ** argv)
 {
   if (argc < 3)
     {
-      cerr << "uso: " << argv[0] << " nomeFile1 nomeFile2" << endl ;
+      cerr << "uso: " << argv[0] << " H1.txt H0.txt" << endl ;
       exit (1) ;
     }
 
@@ -116,8 +116,8 @@ int main (int argc, char ** argv)
       for ( ; contatore_2 < fisher_2.size () ; ++contatore_2)
         if (fisher_2.at (contatore_2) > taglio) break ;
       g_ROC_f.SetPoint (g_ROC_f.GetN (), 
-          static_cast<double> (contatore_1) / fisher_1.size (),
-          static_cast<double> (contatore_2) / fisher_2.size ()
+          1. - static_cast<double> (contatore_2) / fisher_2.size (),
+          static_cast<double> (contatore_1) / fisher_1.size ()
         ) ;
     }
 
