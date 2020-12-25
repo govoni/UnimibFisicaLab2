@@ -11,3 +11,4 @@
    | main_05.cpp  | esempio di lettura e visualizzazione di due campioni bidimensionali |
    | main_06.cpp  | esempio di lettura di due campioni bidimensionali e determinazione delle matrici di covarianza |
    | main_07.cpp  | esempio di lettura di due campioni bidimensionali e determinazione del discriminante di Fisher |
+   | main_08.cpp  | esempio di tracciamento di una curva ROC |
