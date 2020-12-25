@@ -9,6 +9,7 @@
 
 #include "TH2F.h"
 #include "TCanvas.h"
+#include "TGraph.h"
 
 #include "../../Lezione_10/programmi/algebra_2.h"
 
@@ -46,6 +47,20 @@ TH1F * riempiIstogramma (const std::vector<double> & data, std::string histo_nam
  nell'immagine
 */
 void plotComparison (TH1F * h_1, TH1F * h_2, TCanvas & c1, std::string nome_file) ;
+
+/**
+ disegno della curva ROC per la selezione basata su una variabile.
+ di default la selezione utilizzata per definire la regione di non-reiezione
+ è x < soglia; per invertire la selezione, bisogna mettere false l'ultimo argomento
+*/
+TGraph disegnaROC (std::vector<double> v_H_1, std::vector<double> v_H_0, bool minore_di = true) ;
+
+/**
+ calcolo dell'area sottesa da un TGraph non negativo,
+ determinata con la regola dei trapezi
+*/
+double area (TGraph & graph) ;
+
 
 
 #endif

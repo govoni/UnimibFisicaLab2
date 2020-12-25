@@ -56,6 +56,9 @@ int main (int argc, char ** argv)
   matrice W = cov_1 + cov_2 ;
   vettore fisher = W.inversa () * (media_1 - media_2) ; 
 
+  // calcola il valore del discriminante di fisher per ciascun sample
+  // ---- ---- ---- ---- ---- ---- ----  
+
   vector<double> fisher_1 ;
   for (int i = 0 ; i < data_1.at (0).size () ; ++i)
     {
@@ -102,9 +105,6 @@ int main (int argc, char ** argv)
 
   TGraph g_ROC_f ;
 
-  cout << taglio_min_f << endl ;
-  cout << taglio_max_f << endl ;
-
   int contatore_1 = 0 ;
   int contatore_2 = 0 ;
   for (double taglio = taglio_min_f ; taglio < taglio_max_f ; taglio += risoluzione)
@@ -121,7 +121,7 @@ int main (int argc, char ** argv)
         ) ;
     }
 
-  // confronta visivamente le distribuzioni 1D in x e y
+  // disegna la curva ROC
   // ---- ---- ---- ---- ---- ---- ----  
 
   TCanvas c1 ("c1", "", 500, 500) ;

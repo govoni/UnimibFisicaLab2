@@ -155,3 +155,85 @@ void plotComparison (TH1F * h_1, TH1F * h_2, TCanvas & c1, string nome_file)
   c1.Print (nome_file.c_str (), "png") ;
   return ;
 }
+
+
+// ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- 
+
+
+TGraph disegnaROC (vector<double> v_H_1, vector<double> v_H_0, bool minore_di) 
+{
+  // disegna la curva ROC per una selezione basata sul valore di fisher
+  // dove la selezione è fisher_discriminant < soglia 
+  // ---- ---- ---- ---- ---- ---- ----  
+
+  // determinazione del massimo e del minimo valore assunti dai due campioni
+
+  double taglio_min = *min_element (v_H_1.begin (), v_H_1.end ()) ;
+  double tempo = *min_element (v_H_0.begin (), v_H_0.end ()) ;
+  if (tempo < taglio_min) taglio_min = tempo ;
+
+  double taglio_max = *max_element (v_H_1.begin (), v_H_1.end ()) ;
+  tempo = *max_element (v_H_0.begin (), v_H_0.end ()) ;
+  if (tempo > taglio_max) taglio_max = tempo ;
+
+  // determinazione del passo di scorrimento della selezione
+
+  double risoluzione = 10 * (taglio_max - taglio_min) / v_H_1.size () ;
+
+  // NB questa operazione modifica l'ordinamento nel campione, 
+  //    quindi se l'ordinamento va preservato meglio è fare una copia
+  //    dei vector per lavorarci
+  sort (v_H_1.begin (), v_H_1.end ()) ;
+  sort (v_H_0.begin (), v_H_0.end ()) ;
+
+  // riempimento della curva ROC
+
+  TGraph g_ROC ;
+
+  int contatore_1 = 0 ;
+  int contatore_0 = 0 ;
+  for (double taglio = taglio_min ; taglio < taglio_max ; taglio += risoluzione)
+    {
+      // conta il numero di eventi sotto soglia per ogni campione
+      // (ricordando che i due campioni sono stati ordinati)
+      for ( ; contatore_1 < v_H_1.size () ; ++contatore_1)
+        if (v_H_1.at (contatore_1) > taglio) break ;
+      for ( ; contatore_0 < v_H_0.size () ; ++contatore_0)
+        if (v_H_0.at (contatore_0) > taglio) break ;
+
+      if (minore_di)
+        g_ROC.SetPoint (g_ROC.GetN (), 
+            1. - static_cast<double> (contatore_0) / v_H_0.size (),
+            static_cast<double> (contatore_1) / v_H_1.size ()
+          ) ;
+      else
+        g_ROC.SetPoint (g_ROC.GetN (), 
+            static_cast<double> (contatore_0) / v_H_0.size (),
+            1. - static_cast<double> (contatore_1) / v_H_1.size ()
+          ) ;
+    }
+
+  return g_ROC ;
+}
+
+
+// ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- 
+
+
+double area (TGraph & graph)
+{
+  double area = 0. ;
+  double x = graph.GetPointX (0) ;
+  double y = graph.GetPointY (0) ;
+
+  for (int i = 1 ; i < graph.GetN () ; ++i)
+    {
+      area += 0.5 * (y + graph.GetPointY (i)) * fabs (graph.GetPointX (i) - x) ;
+      x = graph.GetPointX (i) ;
+      y = graph.GetPointY (i) ;
+    }
+
+  return area ;
+}
+
+

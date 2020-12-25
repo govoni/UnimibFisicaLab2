@@ -1,5 +1,5 @@
 /*
-c++ -o main_07 `root-config --glibs --cflags` ../../Lezione_10/programmi/algebra_2.cc fisher.cc main_07.cpp
+c++ -o main_09 `root-config --glibs --cflags` ../../Lezione_10/programmi/algebra_2.cc fisher.cc main_09.cpp
 
 */
 
@@ -15,6 +15,7 @@ c++ -o main_07 `root-config --glibs --cflags` ../../Lezione_10/programmi/algebra
 
 #include "TCanvas.h"
 #include "TH2F.h"
+#include "TGraph.h"
 
 using namespace std ;
 
@@ -23,7 +24,7 @@ int main (int argc, char ** argv)
 {
   if (argc < 3)
     {
-      cerr << "uso: " << argv[0] << " nomeFile1 nomeFile2" << endl ;
+      cerr << "uso: " << argv[0] << " H1.txt H0.txt" << endl ;
       exit (1) ;
     }
 
@@ -76,31 +77,37 @@ int main (int argc, char ** argv)
       ) ;
     }
 
-  // confronta visivamente le distribuzioni 1D in x, y e per il discriminante di Fisher
+  // prepara le curve ROC per tre diversi tipi di selezione
   // ---- ---- ---- ---- ---- ---- ----  
 
+  TGraph g_ROC_x = disegnaROC (data_1.at (0), data_2.at (0), false) ;
+  TGraph g_ROC_y = disegnaROC (data_1.at (1), data_2.at (1)) ;
+  TGraph g_ROC_f = disegnaROC (fisher_1, fisher_2) ;
+
+  // confronta gli intergrali delle curve ROC
+  // ---- ---- ---- ---- ---- ---- ----  
+
+  cout << "variabile x:             " << area (g_ROC_x) << endl ;
+  cout << "variabile y:             " << area (g_ROC_y) << endl ;
+  cout << "discriminante di Fisher: " << area (g_ROC_f) << endl ;
+
+  // disegna le curve ROC
+  // ---- ---- ---- ---- ---- ---- ----  
+
+  g_ROC_f.SetLineWidth (2) ;
+
+  g_ROC_x.SetLineColor (kBlue) ;
+  g_ROC_x.SetLineWidth (2) ;
+
+  g_ROC_y.SetLineColor (kRed) ;
+  g_ROC_y.SetLineWidth (2) ;
+
+
   TCanvas c1 ("c1", "", 500, 500) ;
-  TH1F * h_1_x = riempiIstogramma (data_1.at (0), "h_1_x") ;
-  TH1F * h_2_x = riempiIstogramma (data_2.at (0), "h_2_x") ;
-
-  plotComparison (h_1_x, h_2_x, c1, "compare_x.png") ;
-
-  TH1F * h_1_y = riempiIstogramma (data_1.at (1), "h_1_y") ;
-  TH1F * h_2_y = riempiIstogramma (data_2.at (1), "h_2_y") ;
-
-  plotComparison (h_1_y, h_2_y, c1, "compare_y.png") ;
-
-  TH1F * h_1_f = riempiIstogramma (fisher_1, "h_1_f") ;
-  TH1F * h_2_f = riempiIstogramma (fisher_2, "h_2_f") ;
-
-  plotComparison (h_1_f, h_2_f, c1, "compare_f.png") ;
-
-  delete h_1_x ;
-  delete h_2_x ;
-  delete h_1_y ;
-  delete h_2_y ;
-  delete h_1_f ;
-  delete h_2_f ;
+  g_ROC_f.Draw ("AL") ;
+  g_ROC_x.Draw ("L") ;
+  g_ROC_y.Draw ("L") ;
+  c1.Print ("ROC.png", "png") ;
 
   return 0 ;
 }
