@@ -176,8 +176,8 @@
     2. **usare il test statistico** per distinguere le due ipotesi:
     
 | *H<sub>0</sub>* | *t(x,y) < t<sub>cut</sub>*  |
-| ----------------| ------- |
 | *H<sub>1</sub>* | *t(x,y) >= t<sub>cut</sub>* |
+| ----------------| ------- |
 
 ![linea](../immagini/linea.png)
 
