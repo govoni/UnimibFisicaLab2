@@ -354,6 +354,8 @@
     ```
     * sfruttando il fatto che i due ```vector<double>``` sono stati ordinati
 
+![linea](../immagini/linea.png)
+
 ### 12.5.6 Il riempimento della curva
 
   * Si decide con che **passo** scorrere la variabile *t<sub>cut</sub>*
