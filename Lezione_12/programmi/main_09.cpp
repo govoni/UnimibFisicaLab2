@@ -56,7 +56,7 @@ int main (int argc, char ** argv)
   // ---- ---- ---- ---- ---- ---- ----  
 
   matrice W = cov_1 + cov_2 ;
-  vettore fisher = W.inversa () * (media_1 - media_2) ; 
+  vettore fisher = W.inversa () * (media_2 - media_1) ; 
 
   // calcola il valore del discriminante di fisher per ciascun sample
   // ---- ---- ---- ---- ---- ---- ----  
@@ -82,8 +82,10 @@ int main (int argc, char ** argv)
   // prepara le curve ROC per tre diversi tipi di selezione
   // ---- ---- ---- ---- ---- ---- ----  
 
-  TGraph g_ROC_x = disegnaROC (data_1.at (0), data_2.at (0), false) ;
-  TGraph g_ROC_y = disegnaROC (data_1.at (1), data_2.at (1)) ;
+  TGraph g_ROC_x = disegnaROC (data_1.at (0), data_2.at (0)) ;
+  TGraph g_ROC_y = disegnaROC (data_1.at (1), data_2.at (1), false) ;
+
+  cout << fisher_1.size () << " " << fisher_2.size () << endl ;
   TGraph g_ROC_f = disegnaROC (fisher_1, fisher_2) ;
 
   // confronta gli intergrali delle curve ROC

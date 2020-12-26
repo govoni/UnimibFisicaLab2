@@ -54,7 +54,7 @@ int main (int argc, char ** argv)
   // ---- ---- ---- ---- ---- ---- ----  
 
   matrice W = cov_1 + cov_2 ;
-  vettore fisher = W.inversa () * (media_1 - media_2) ; 
+  vettore fisher = W.inversa () * (media_2 - media_1) ; 
 
   // calcola il valore del discriminante di fisher per ciascun sample
   // ---- ---- ---- ---- ---- ---- ----  
@@ -116,8 +116,8 @@ int main (int argc, char ** argv)
       for ( ; contatore_2 < fisher_2.size () ; ++contatore_2)
         if (fisher_2.at (contatore_2) > taglio) break ;
       g_ROC_f.SetPoint (g_ROC_f.GetN (), 
-          1. - static_cast<double> (contatore_2) / fisher_2.size (),
-          static_cast<double> (contatore_1) / fisher_1.size ()
+          static_cast<double> (contatore_2) / fisher_2.size (),
+          1. - static_cast<double> (contatore_1) / fisher_1.size ()
         ) ;
     }
 

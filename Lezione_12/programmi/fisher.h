@@ -26,7 +26,7 @@ void leggiFile (std::vector<std::vector<double> > & data, std::string nome_file)
  disegno in un istogramma bidimensionale del contenuto di un campione 2D,
  accessibile nel formato di vector<vector<double> > 
 */
-TH2F * riempiIstogramma (const std::vector<std::vector<double> > & data, std::string histo_name) ;
+TH2F * riempiIstogramma (const std::vector<std::vector<double> > & data, std::string histo_name, int maxNum = -1) ;
 
 /**
  calcolo di uno stimatore della matrice di covarianza di un campione 2D
@@ -39,7 +39,7 @@ matrice determinaCovarianza (const std::vector<std::vector<double> > & data) ;
  riempimento di un istogramma monodimensionale del contenuto di un campione 1D
  accessibile nel formato di vector<double> 
 */
-TH1F * riempiIstogramma (const std::vector<double> & data, std::string histo_name) ;
+TH1F * riempiIstogramma (const std::vector<double> & data, std::string histo_name, int maxNum = -1) ;
 
 /**
  disegno sovrapposto di due istogrammi 1D e stampa su file immagine,
@@ -51,9 +51,9 @@ void plotComparison (TH1F * h_1, TH1F * h_2, TCanvas & c1, std::string nome_file
 /**
  disegno della curva ROC per la selezione basata su una variabile.
  di default la selezione utilizzata per definire la regione di non-reiezione
- è x < soglia; per invertire la selezione, bisogna mettere false l'ultimo argomento
+ è x > soglia; per invertire la selezione, bisogna mettere false l'ultimo argomento
 */
-TGraph disegnaROC (std::vector<double> v_H_1, std::vector<double> v_H_0, bool minore_di = true) ;
+TGraph disegnaROC (std::vector<double> v_H_1, std::vector<double> v_H_0, bool maggiore_di = true) ;
 
 /**
  calcolo dell'area sottesa da un TGraph non negativo,

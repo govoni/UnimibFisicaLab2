@@ -31,7 +31,7 @@ void leggiFile (vector<vector<double> > & data, string nome_file)
 // ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- 
 
 
-TH2F * riempiIstogramma (const vector<vector<double> > & data, string histo_name)
+TH2F * riempiIstogramma (const vector<vector<double> > & data, string histo_name, int maxNum)
 {
   // preparazione dell'istogramma
   // ---- ---- ---- ---- ---- ---- ----  
@@ -56,6 +56,7 @@ TH2F * riempiIstogramma (const vector<vector<double> > & data, string histo_name
 
   for (int i = 0 ; i < data.at (0).size () ; ++i)
     {
+      if (maxNum > 0 and i > maxNum) break ;
       h_vis->Fill (data.at (0).at (i), data.at (1).at (i)) ;
     }
 
@@ -98,7 +99,7 @@ matrice determinaCovarianza (const vector<vector<double> > & data)
 // ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- 
 
 
-TH1F * riempiIstogramma (const vector<double> & data, string histo_name)
+TH1F * riempiIstogramma (const vector<double> & data, string histo_name, int maxNum)
 {
   // preparazione dell'istogramma
   // ---- ---- ---- ---- ---- ---- ----  
@@ -119,6 +120,7 @@ TH1F * riempiIstogramma (const vector<double> & data, string histo_name)
 
   for (int i = 0 ; i < data.size () ; ++i)
     {
+      if (maxNum > 0 and i > maxNum) break ;
       h_vis->Fill (data.at (i)) ;
     }
 
@@ -161,31 +163,29 @@ void plotComparison (TH1F * h_1, TH1F * h_2, TCanvas & c1, string nome_file, str
 // ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- 
 
 
-TGraph disegnaROC (vector<double> v_H_1, vector<double> v_H_0, bool minore_di) 
+TGraph disegnaROC (vector<double> v_H_1, vector<double> v_H_0, bool maggiore_di) 
 {
   // disegna la curva ROC per una selezione basata sul valore di fisher
   // dove la selezione è fisher_discriminant < soglia 
   // ---- ---- ---- ---- ---- ---- ----  
-
-  // determinazione del massimo e del minimo valore assunti dai due campioni
-
-  double taglio_min = *min_element (v_H_1.begin (), v_H_1.end ()) ;
-  double tempo = *min_element (v_H_0.begin (), v_H_0.end ()) ;
-  if (tempo < taglio_min) taglio_min = tempo ;
-
-  double taglio_max = *max_element (v_H_1.begin (), v_H_1.end ()) ;
-  tempo = *max_element (v_H_0.begin (), v_H_0.end ()) ;
-  if (tempo > taglio_max) taglio_max = tempo ;
-
-  // determinazione del passo di scorrimento della selezione
-
-  double risoluzione = 10 * (taglio_max - taglio_min) / v_H_1.size () ;
 
   // NB questa operazione modifica l'ordinamento nel campione, 
   //    quindi se l'ordinamento va preservato meglio è fare una copia
   //    dei vector per lavorarci
   sort (v_H_1.begin (), v_H_1.end ()) ;
   sort (v_H_0.begin (), v_H_0.end ()) ;
+
+  // determinazione del massimo e del minimo valore assunti dai due campioni
+
+  double taglio_min = *v_H_1.begin () ;
+  if (*v_H_0.begin () < taglio_min) taglio_min = *v_H_0.begin () ;
+
+  double taglio_max = *v_H_1.rbegin () ;
+  if (*v_H_0.rbegin () > taglio_max) taglio_max = *v_H_0.rbegin () ;
+
+  // determinazione del passo di scorrimento della selezione
+
+  double risoluzione = 10 * (taglio_max - taglio_min) / v_H_1.size () ;
 
   // riempimento della curva ROC
 
@@ -202,15 +202,15 @@ TGraph disegnaROC (vector<double> v_H_1, vector<double> v_H_0, bool minore_di)
       for ( ; contatore_0 < v_H_0.size () ; ++contatore_0)
         if (v_H_0.at (contatore_0) > taglio) break ;
 
-      if (minore_di)
+      if (maggiore_di)
         g_ROC.SetPoint (g_ROC.GetN (), 
-            1. - static_cast<double> (contatore_0) / v_H_0.size (),
-            static_cast<double> (contatore_1) / v_H_1.size ()
+            static_cast<double> (contatore_0) / v_H_0.size (),      // alpha
+            1. - static_cast<double> (contatore_1) / v_H_1.size ()  // beta
           ) ;
       else
         g_ROC.SetPoint (g_ROC.GetN (), 
-            static_cast<double> (contatore_0) / v_H_0.size (),
-            1. - static_cast<double> (contatore_1) / v_H_1.size ()
+            1. - static_cast<double> (contatore_0) / v_H_0.size (),
+            static_cast<double> (contatore_1) / v_H_1.size ()
           ) ;
     }
 

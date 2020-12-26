@@ -53,7 +53,7 @@ int main (int argc, char ** argv)
   // ---- ---- ---- ---- ---- ---- ----  
 
   matrice W = cov_1 + cov_2 ;
-  vettore fisher = W.inversa () * (media_1 - media_2) ; 
+  vettore fisher = W.inversa () * (media_2 - media_1) ; 
 
   cout << "vettore di Fisher: " << endl ;
   fisher.stampa () ;
