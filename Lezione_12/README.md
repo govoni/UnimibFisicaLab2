@@ -175,7 +175,8 @@
     1. **determinare il test statistico** *t(x,y)* da utilizzare per separare le due ipotesi
     2. **usare il test statistico** per distinguere le due ipotesi:
 
-| ipotesi | regione corrispondente |
+|  |  |
+| --------------- | ------- |
 | *H<sub>0</sub>* | *t(x,y) < t<sub>cut</sub>*  |
 | *H<sub>1</sub>* | *t(x,y) >= t<sub>cut</sub>* |
 
