@@ -404,7 +404,7 @@
     * In questo frangente, 
       l'area sottesa ad un ```TGraph``` è stata calcolata con il [metodo dei trapezi](https://it.wikipedia.org/wiki/Regola_del_trapezio)
 
-
+![linea](../immagini/linea.png)
 
 ## 12.X ESERCIZI
 
