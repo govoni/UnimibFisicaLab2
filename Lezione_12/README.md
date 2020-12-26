@@ -184,8 +184,6 @@
 
 ### 12.4.1 La determinazione della direzione del discriminante
 
-![linea](../immagini/linea.png)
-
   * Il test statistico è una *combinazione lineare* delle variabili che caratterizzano ogni evento:
 ![fisher_kD](./immagini/fisher_kD.png)
   * che nel caso bidimnesionale diventa:
@@ -265,8 +263,6 @@
 
 ## 12.5 L'utilizzo del test statistico
 
-![linea](../immagini/linea.png)
-
 ### 12.5.1 Il calcolo del test statistico per i due campioni
 
   * Per ogni evento che compone i due modelli si può quindi **calcolare
@@ -290,11 +286,11 @@
   * A questo punto,
     i due campioni sono **descritti da tre variabili**: *x*, *y* e *t*,
     dove la terza è una combinazione lineare delle prime due.
-  * La distribuzione delle tre variabili mostra ad occhio la separazione
+  * La **distribuzione delle tre variabili** mostra ad occhio nudo la separazione
     delle distribuzioni di *H<sub>0</sub>* ed *H<sub>1</sub>*
     in ciascuna delle tre direzioni:
 ![shapes](./immagini/shapes.png)
-  * dove gli istogrammi sono stati riempiti a partire dal ```vector<double>```
+  * dove **gli istogrammi sono stati riempiti** a partire dal ```vector<double>```
     corrispondente a ciascuna variabile:
     ```cpp
     double max_x = *max_element (data.begin (), data.end ()) ;
@@ -317,7 +313,7 @@
 
 ### 12.5.3 Il comportamento del test di ipotesi
 
-  * Per valutare il comportamento del test di ipotesi basato sul test statistico *t(x,y)*
+  * Per **determinare il comportamento del test di ipotesi** basato sul test statistico *t(x,y)*
     si può valutare l'effetto della selezione con soglia *t<sub>cut</sub>*
     con la frazione di falsi positivi &beta; 
     e quella di falsi negativi &alpha;:
@@ -328,24 +324,26 @@
 ### 12.5.4 La curva ROC
 
   * L'andamento di &beta; in funzione di &alpha; al variare del valore di *t<sub>cut</sub>*
-    è detto curva ROC:
+    è detto **curva ROC**:
 ![ROC_f](./immagini/ROC_f.png)
+
+![linea](../immagini/linea.png)
 
 ### 12.5.5 L'algoritmo di costruzione
 
   * Per calcolarlo,
-    bisogna scorrere i possibli valori di *t<sub>cut</sub>*
+    bisogna **scorrere i possibli valori di *t<sub>cut</sub>***
   * Per semplificare i conteggi,
-    come prima cosa si ordinano i due ```vector<double>``` da confrontare
+    come prima cosa si **ordinano** i due ```vector<double>``` da confrontare
     in maniera crescente:  
     ```cpp
     sort (fisher_1.begin (), fisher_1.end ()) ;
     sort (fisher_2.begin (), fisher_2.end ()) ;
     ```
     * questa operazione modifica l'ordinamento nel campione, 
-      quindi se l'ordinamento va preservato meglio è fare una copia
-      dei vector per lavorarci
-  * Poi si determinano il minimo ed il massimo valore per *t<sub>cut</sub>*
+      quindi se l'ordinamento va preservato meglio è **fare una copia
+      dei ```vector<double>```** per lavorarci
+  * Poi si determinano il **minimo ed il massimo valore per *t<sub>cut</sub>***
     in funzione dei valori assunti dagli eventi:
     ```cpp
     double taglio_min_f = *fisher_1.begin () ;
@@ -358,12 +356,12 @@
 
 ### 12.5.6 Il riempimento della curva
 
-  * Si decide con che passo scorrere la variabile *t<sub>cut</sub>*
+  * Si decide con che **passo** scorrere la variabile *t<sub>cut</sub>*
     ```cpp
     double risoluzione = 10 * (taglio_max_f - taglio_min_f) / fisher_1.size () ;
     ```
-  * Si riempie un ```TGrraph``` di ```ROOT``` con la successione dei punti
-    *(&alpha;<sub>i</sub>, &beta;<sub>i</sub>)* calcolati a partire da ciascun *t<sub>i</sub>*:
+  * Si riempie un ```TGrraph``` di ```ROOT``` con la **successione dei punti
+    *(&alpha;<sub>i</sub>, &beta;<sub>i</sub>)*** calcolati a partire da ciascun *t<sub>i</sub>*:
     ```cpp
     TGraph g_ROC_f ;
   
@@ -393,9 +391,9 @@
     il criterio di selezione per determinare se rigettare o meno l'ipotesi *H<sub>0</sub>*
     si sarebbe potuto **applicare anche alle variabili *x* o *y***
   * Per confrontare l'efficacia delle varie selezioni,
-    si possono sovrapporre le curve ROC nei tre casi:
+    si possono **sovrapporre le curve ROC** nei tre casi:
 ![ROC](./immagini/ROC.png)
-  * Alternativamente, si può confrontare anche l'area sottesa alle singole curve ROC:
+  * Alternativamente, si può **confrontare l'area sottesa** alle singole curve ROC:
     ```cpp
     variabile x:             0.12
     variabile y:             0.17
