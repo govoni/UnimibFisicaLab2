@@ -4,9 +4,13 @@
 
 ## 12.1 Introduzione
 
-![linea](../immagini/linea.png)
+  * Descrizione delle proprietà di un sample
+  * Separazione fra due possibili ipotesi:
+    * Ricorda l'approccio frequentista
+  * Due modi di usare la separazione fra ipotesi
+    * decidere se una misura è meglio descritta da un modello o da un altro
+    * categorizzazione di eventi in due classi separate
 
-### 12.1.1 Rappresentazione grafica
 
 ![linea](../immagini/linea.png)
 
@@ -160,10 +164,247 @@
         data_y_dec.push_back (data_y.at (i) * c_theta - data_x.at (i) * s_theta) ; 
       }
     ```  
+    
+![linea](../immagini/linea.png)
+
+## 12.4 Il discriminante di Fisher
+
+  * Costruire una **combinazione lineare** delle variabili che caratterizzano gli eventi di interesse
+    che serva per separare due ipotesi *H<sub>0</sub>* ed *H<sub>1</sub>*
+  * Nel caso bidimensionale, dato un campione di eventi (*x*<sub>i</sub>, *y*<sub>i</sub>)
+    1. **determinare il test statistico** *t(x,y)* da utilizzare per separare le due ipotesi
+    2. **usare il test statistico** per distinguere le due ipotesi:
+   | ----------------| ------- |
+   | *H<sub>0</sub>* | *t(x,y) < t<sub>cut</sub>*  |
+   | *H<sub>1</sub>* | *t(x,y) >= t<sub>cut</sub>* |
 
 ![linea](../immagini/linea.png)
 
-## 12.8 ESERCIZI
+### 12.4.1 La determinazione della direzione del discriminante
+
+![linea](../immagini/linea.png)
+
+  * Il test statistico è una *combinazione lineare* delle variabili che caratterizzano ogni evento:
+![fisher_kD](./immagini/fisher_kD.png)
+  * che nel caso bidimnesionale diventa:
+![fisher_2D](./immagini/fisher_2D.png)
+  * Il discriminante di Fisher è la determinazione dei coefficienti *f<sub>x</sub>* ed *f<sub>y</sub>*,
+    cioè del vettore ***f***,
+    tramite la seguente equazione:
+![fisher](./immagini/fisher.png)
+  * dove: 
+    * ***&mu;<sub>0</sub>*** e ***&mu;<sub>1</sub>*** rappresentano la media attesa
+      nel caso di ipotesi *H<sub>0</sub>* ed *H<sub>1</sub>* rispettivamente
+    * *W* è la somma delle matrici delle covarianze *V<sub>0</sub>* e *V<sub>1</sub>*
+      per le ipotesi *H<sub>0</sub>* ed *H<sub>1</sub>* rispettivamente:
+![Wmtr](./immagini/Wmtr.png)
+
+![linea](../immagini/linea.png)
+
+### 12.4.2 Due modelli da confrontare
+
+  * Le medie ***&mu;<sub>i</sub>*** e le matrici delle covarianze *V<sub>i</sub>*
+    possono essere determinate **a partire da campioni simulati** di eventi
+    generati secondo due modelli *H<sub>0</sub>* ed *H<sub>1</sub>*.
+![confronto](./immagini/confronto.png)
+
+![linea](../immagini/linea.png)
+
+### 12.4.3 Il calcolo delle matrici di covarianza
+
+  * Supponendo che gli eventi simulati siano contenuti in due ```vector<vector<double> >```,
+    le **matrici delle covarianze** possono essere calcolate:
+    ```cpp
+    #include "../../Lezione_10/programmi/algebra_2.h"
+    // ...
+    vector<vector<double> > data_1 ;
+    // riempimento del vector
+    matrice cov_1 = determinaCovarianza (data_1) ;
+    ```
+    * dove la funzione ```determinaCovarianza``` richiama le funzioni
+      già definite in precedenza per il calcolo dei singoli elementi
+      della matrice delle covarianze
+
+![linea](../immagini/linea.png)
+
+### 12.4.4 Il calcolo delle medie
+
+  * **La media** lungo la direzione *x* e *y* può altrettanto essere calcolata:
+    ```cpp
+    #include "../../Lezione_09/programmi/statistiche_vector.h"
+    #include "../../Lezione_10/programmi/algebra_2.h"
+    // ...
+    vettore media_1 (2) ;
+    media_1.setCoord (0, media (data_1.at (0))) ;
+    media_1.setCoord (1, media (data_1.at (1))) ;
+  
+    vettore media_2 (2) ;
+    media_2.setCoord (0, media (data_2.at (0))) ;
+    media_2.setCoord (1, media (data_2.at (1))) ;
+
+    ```    
+
+![linea](../immagini/linea.png)
+
+### 12.4.5 Il calcolo della direzione del discriminante di Fisher
+
+  * Con queste informazioni a disposizione,
+    si può **determinare il vettore *f***:
+    ```cpp
+
+    matrice W = cov_1 + cov_2 ;
+    vettore fisher = W.inversa () * (media_2 - media_1) ; 
+    ```
+  * Il vettore ***f*** corrisponde alla direzione di proiezione ottimale degli eventi
+    lungo la quale separare le due ipotesi:
+![confronto_fisher](./immagini/confronto_fisher.png)
+
+![linea](../immagini/linea.png)
+
+## 12.5 L'utilizzo del test statistico
+
+![linea](../immagini/linea.png)
+
+### 12.5.1 Il calcolo del test statistico per i due campioni
+
+  * Per ogni evento che compone i due modelli si può quindi **calcolare
+    il valore del test statistico** *t<sub>i</sub> = t(x<sub>i</sub>,y<sub>i</sub>)*:
+    ```cpp
+    vector<double> fisher_1 ;
+    for (int i = 0 ; i < data_1.at (0).size () ; ++i)
+      {
+        fisher_1.push_back (
+          data_1.at (0).at (i) * fisher.at (0) + 
+          data_1.at (1).at (i) * fisher.at (1)
+        ) ;
+      }
+    ```
+  * ed analogamente per il secondo campione, generando anche ```vector<double> fisher_2```
+
+![linea](../immagini/linea.png)
+
+### 12.5.2 La visualizzazione dell'informazione disponibile
+
+  * A questo punto,
+    i due campioni sono **descritti da tre variabili**: *x*, *y* e *t*,
+    dove la terza è una combinazione lineare delle prime due.
+  * La distribuzione delle tre variabili mostra ad occhio la separazione
+    delle distribuzioni di *H<sub>0</sub>* ed *H<sub>1</sub>*
+    in ciascuna delle tre direzioni:
+![shapes](./immagini/shapes.png)
+  * dove gli istogrammi sono stati riempiti a partire dal ```vector<double>```
+    corrispondente a ciascuna variabile:
+    ```cpp
+    double max_x = *max_element (data.begin (), data.end ()) ;
+    double min_x = *min_element (data.begin (), data.end ()) ;
+    double sigma_x = sqrt (varianza (data)) ;
+    int Nbins = 5 * (max_x - min_x) / sigma_x ;
+  
+    TH1F * h_vis = new TH1F (
+        histo_name.c_str (), "distribuzione 1D",
+        Nbins, min_x, max_x
+      ) ;
+  
+    for (int i = 0 ; i < data.size () ; ++i)
+      {
+        h_vis->Fill (data.at (i)) ;
+      }  
+    ```
+
+![linea](../immagini/linea.png)
+
+### 12.5.3 Il comportamento del test di ipotesi
+
+  * Per valutare il comportamento del test di ipotesi basato sul test statistico *t(x,y)*
+    si può valutare l'effetto della selezione con soglia *t<sub>cut</sub>*
+    con la frazione di falsi positivi &beta; 
+    e quella di falsi negativi &alpha;:
+![shape_fisher](./immagini/shape_fisher.png)
+
+![linea](../immagini/linea.png)
+
+### 12.5.4 La curva ROC
+
+  * L'andamento di &beta; in funzione di &alpha; al variare del valore di *t<sub>cut</sub>*
+    è detto curva ROC:
+![ROC_f](./immagini/ROC_f.png)
+
+### 12.5.5 L'algoritmo di costruzione
+
+  * Per calcolarlo,
+    bisogna scorrere i possibli valori di *t<sub>cut</sub>*
+  * Per semplificare i conteggi,
+    come prima cosa si ordinano i due ```vector<double>``` da confrontare
+    in maniera crescente:  
+    ```cpp
+    sort (fisher_1.begin (), fisher_1.end ()) ;
+    sort (fisher_2.begin (), fisher_2.end ()) ;
+    ```
+    * questa operazione modifica l'ordinamento nel campione, 
+      quindi se l'ordinamento va preservato meglio è fare una copia
+      dei vector per lavorarci
+  * Poi si determinano il minimo ed il massimo valore per *t<sub>cut</sub>*
+    in funzione dei valori assunti dagli eventi:
+    ```cpp
+    double taglio_min_f = *fisher_1.begin () ;
+    if (*fisher_2.begin () < taglio_min_f) taglio_min_f = *fisher_2.begin () ;
+  
+    double taglio_max_f = *fisher_1.rbegin () ;
+    if (*fisher_2.rbegin () > taglio_max_f) taglio_max_f = *fisher_2.rbegin () ;
+    ```
+    * sfruttando il fatto che i due ```vector<double>``` sono stati ordinati
+
+### 12.5.6 Il riempimento della curva
+
+  * Si decide con che passo scorrere la variabile *t<sub>cut</sub>*
+    ```cpp
+    double risoluzione = 10 * (taglio_max_f - taglio_min_f) / fisher_1.size () ;
+    ```
+  * Si riempie un ```TGrraph``` di ```ROOT``` con la successione dei punti
+    *(&alpha;<sub>i</sub>, &beta;<sub>i</sub>)* calcolati a partire da ciascun *t<sub>i</sub>*:
+    ```cpp
+    TGraph g_ROC_f ;
+  
+    int contatore_1 = 0 ;
+    int contatore_2 = 0 ;
+    for (double taglio = taglio_min_f ; taglio < taglio_max_f ; taglio += risoluzione)
+      {
+        // conta il numero di eventi sotto soglia per ogni campione
+        // (ricordando che i due campioni sono stati ordinati)
+        for ( ; contatore_1 < fisher_1.size () ; ++contatore_1)
+          if (fisher_1.at (contatore_1) > taglio) break ;
+        for ( ; contatore_2 < fisher_2.size () ; ++contatore_2)
+          if (fisher_2.at (contatore_2) > taglio) break ;
+        g_ROC_f.SetPoint (g_ROC_f.GetN (), 
+            static_cast<double> (contatore_2) / fisher_2.size (),
+            1. - static_cast<double> (contatore_1) / fisher_1.size ()
+          ) ;
+      }
+
+    ```
+
+![linea](../immagini/linea.png)
+
+### 12.5.7 Il confronto con le altre variabili
+
+  * Così come si è fatto per la variabile *t*, 
+    il criterio di selezione per determinare se rigettare o meno l'ipotesi *H<sub>0</sub>*
+    si sarebbe potuto **applicare anche alle variabili *x* o *y***
+  * Per confrontare l'efficacia delle varie selezioni,
+    si possono sovrapporre le curve ROC nei tre casi:
+![ROC](./immagini/ROC.png)
+  * Alternativamente, si può confrontare anche l'area sottesa alle singole curve ROC:
+    ```cpp
+    variabile x:             0.12
+    variabile y:             0.17
+    discriminante di Fisher: 0.09
+    ```
+    * In questo frangente, 
+      l'area sottesa ad un ```TGraph``` è stata calcolata con il [metodo dei trapezi](https://it.wikipedia.org/wiki/Regola_del_trapezio)
+
+
+
+## 12.X ESERCIZI
 
   * Gli esercizi relativi alla lezione si trovano [qui](ESERCIZI.md)
 

@@ -84,8 +84,6 @@ int main (int argc, char ** argv)
 
   TGraph g_ROC_x = disegnaROC (data_1.at (0), data_2.at (0)) ;
   TGraph g_ROC_y = disegnaROC (data_1.at (1), data_2.at (1), false) ;
-
-  cout << fisher_1.size () << " " << fisher_2.size () << endl ;
   TGraph g_ROC_f = disegnaROC (fisher_1, fisher_2) ;
 
   // confronta gli intergrali delle curve ROC
@@ -100,10 +98,10 @@ int main (int argc, char ** argv)
 
   g_ROC_f.SetLineWidth (2) ;
 
-  g_ROC_x.SetLineColor (kBlue) ;
+  g_ROC_x.SetLineColor (kCyan+2) ;
   g_ROC_x.SetLineWidth (2) ;
 
-  g_ROC_y.SetLineColor (kRed) ;
+  g_ROC_y.SetLineColor (kGreen+2) ;
   g_ROC_y.SetLineWidth (2) ;
 
   TCanvas c1 ("c1", "", 500, 500) ;
@@ -120,10 +118,12 @@ int main (int argc, char ** argv)
   c1.Print ("ROC.png", "png") ;
 
 
-  TH2F * h_1 = riempiIstogramma (data_1, "h_1") ;
-  TH2F * h_2 = riempiIstogramma (data_2, "h_2") ;
+  TH2F * h_1 = riempiIstogramma (data_1, "h_1", 250) ;
+  TH2F * h_2 = riempiIstogramma (data_2, "h_2", 250) ;
 
-  c1.DrawFrame (-0.5, -2.5, 5., 3.) ;
+  TH1F * bkg = c1.DrawFrame (-0.5, -2.5, 5., 3.) ;
+  bkg->SetXTitle ("x") ;
+  bkg->SetYTitle ("y") ;
 
   h_1->SetMarkerStyle (4) ;
   h_1->SetMarkerColor (kRed) ;
@@ -131,8 +131,8 @@ int main (int argc, char ** argv)
   h_2->SetMarkerStyle (5) ;
   h_2->SetMarkerColor (kBlue) ;
   h_2->SetLineColor (kBlue) ;
-  h_1->Draw ("cont1 same") ;
-  h_2->Draw ("cont1 same") ;
+  h_1->Draw ("P same") ;
+  h_2->Draw ("P same") ;
 
   // assumendo che la migliore separazione non sia lungo la direzione verticale, 
   // cioè che media_1 e media_2 non abbiano la stessa x
@@ -145,7 +145,9 @@ int main (int argc, char ** argv)
   line.SetLineColor (kBlack) ;
   line.Draw ("same") ;
 
-  c1.Print ("confronto.png", "png") ;
+  c1.Print ("confronto_fisher.png", "png") ;
+
+  delete bkg ;
 
   delete h_1 ;
   delete h_2 ;

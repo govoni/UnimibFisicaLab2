@@ -47,6 +47,8 @@ int main (int argc, char ** argv)
   h_2->Draw ("P same") ;
   c1.Print ("confronto.png", "png") ;
 
+  delete bkg ;
+
   delete h_1 ;
   delete h_2 ;
 

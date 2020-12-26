@@ -81,25 +81,23 @@ int main (int argc, char ** argv)
   // dove la selezione è fisher_discriminant < soglia 
   // ---- ---- ---- ---- ---- ---- ----  
 
-  // determinazione del massimo e del minimo valore assunti dai due campioni
-
-  double taglio_min_f = *min_element (fisher_1.begin (), fisher_1.end ()) ;
-  double tempo = *min_element (fisher_2.begin (), fisher_2.end ()) ;
-  if (tempo < taglio_min_f) taglio_min_f = tempo ;
-
-  double taglio_max_f = *max_element (fisher_1.begin (), fisher_1.end ()) ;
-  tempo = *max_element (fisher_2.begin (), fisher_2.end ()) ;
-  if (tempo > taglio_max_f) taglio_max_f = tempo ;
-
-  // determinazione del passo di scorrimento della selezione
-
-  double risoluzione = 10 * (taglio_max_f - taglio_min_f) / fisher_1.size () ;
-
   // NB questa operazione modifica l'ordinamento nel campione, 
   //    quindi se l'ordinamento va preservato meglio è fare una copia
   //    dei vector per lavorarci
   sort (fisher_1.begin (), fisher_1.end ()) ;
   sort (fisher_2.begin (), fisher_2.end ()) ;
+
+  // determinazione del massimo e del minimo valore assunti dai due campioni
+
+  double taglio_min_f = *fisher_1.begin () ;
+  if (*fisher_2.begin () < taglio_min_f) taglio_min_f = *fisher_2.begin () ;
+
+  double taglio_max_f = *fisher_1.rbegin () ;
+  if (*fisher_2.rbegin () > taglio_max_f) taglio_max_f = *fisher_2.rbegin () ;
+
+  // determinazione del passo di scorrimento della selezione
+
+  double risoluzione = 10 * (taglio_max_f - taglio_min_f) / fisher_1.size () ;
 
   // riempimento della curva ROC
 
@@ -121,11 +119,14 @@ int main (int argc, char ** argv)
         ) ;
     }
 
+  g_ROC_f.GetHistogram ()->SetXTitle ("#alpha") ;
+  g_ROC_f.GetHistogram ()->SetYTitle ("#beta") ;
+
   // disegna la curva ROC
   // ---- ---- ---- ---- ---- ---- ----  
 
   TCanvas c1 ("c1", "", 500, 500) ;
-  g_ROC_f.SetLineColor (kRed) ;
+//  g_ROC_f.SetLineColor (kRed) ;
   g_ROC_f.SetLineWidth (2) ;
   g_ROC_f.Draw ("AL") ;
   c1.Print ("ROC_f.png", "png") ;

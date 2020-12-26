@@ -156,6 +156,9 @@ void plotComparison (TH1F * h_1, TH1F * h_2, TCanvas & c1, string nome_file, str
   h_1->Draw ("hist same") ;
   h_2->Draw ("hist same") ;
   c1.Print (nome_file.c_str (), "png") ;
+
+  delete bkg ;
+
   return ;
 }
 

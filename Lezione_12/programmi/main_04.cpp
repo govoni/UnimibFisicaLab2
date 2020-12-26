@@ -107,6 +107,7 @@ int main (int argc, char ** argv)
   h_vis.Draw ("COL same") ;
   c1.Print ("visualizzazione_dec.png", "png") ;
 
+  delete bkg ;
 
   return 0 ;
 }
