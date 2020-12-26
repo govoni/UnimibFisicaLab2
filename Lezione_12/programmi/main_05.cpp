@@ -33,7 +33,6 @@ int main (int argc, char ** argv)
   leggiFile (data_2, argv[2]) ;
   TH2F * h_2 = riempiIstogramma (data_2, "h_2") ;
 
-
   TCanvas c1 ("c1", "", 500, 500) ;
   c1.DrawFrame (-0.5, -2.5, 5., 3.) ;
 

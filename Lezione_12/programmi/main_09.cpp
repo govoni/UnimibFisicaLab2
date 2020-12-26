@@ -16,6 +16,8 @@ c++ -o main_09 `root-config --glibs --cflags` ../../Lezione_10/programmi/algebra
 #include "TCanvas.h"
 #include "TH2F.h"
 #include "TGraph.h"
+#include "TLegend.h"
+#include "TLine.h"
 
 using namespace std ;
 
@@ -102,12 +104,50 @@ int main (int argc, char ** argv)
   g_ROC_y.SetLineColor (kRed) ;
   g_ROC_y.SetLineWidth (2) ;
 
-
   TCanvas c1 ("c1", "", 500, 500) ;
+
+  TLegend * legend = new TLegend (0.5, 0.7, 0.9, 0.9) ;
+  legend->AddEntry (&g_ROC_f, "fisher", "l") ;
+  legend->AddEntry (&g_ROC_x, "x"     , "l") ;
+  legend->AddEntry (&g_ROC_y, "y"     , "l") ;
+
   g_ROC_f.Draw ("AL") ;
   g_ROC_x.Draw ("L") ;
   g_ROC_y.Draw ("L") ;
+  legend->Draw();
   c1.Print ("ROC.png", "png") ;
+
+
+  TH2F * h_1 = riempiIstogramma (data_1, "h_1") ;
+  TH2F * h_2 = riempiIstogramma (data_2, "h_2") ;
+
+  c1.DrawFrame (-0.5, -2.5, 5., 3.) ;
+
+  h_1->SetMarkerStyle (4) ;
+  h_1->SetMarkerColor (kRed) ;
+  h_1->SetLineColor (kRed) ;
+  h_2->SetMarkerStyle (5) ;
+  h_2->SetMarkerColor (kBlue) ;
+  h_2->SetLineColor (kBlue) ;
+  h_1->Draw ("cont1 same") ;
+  h_2->Draw ("cont1 same") ;
+
+  // assumendo che la migliore separazione non sia lungo la direzione verticale, 
+  // cioè che media_1 e media_2 non abbiano la stessa x
+
+  double m = fisher.at (1) / fisher.at (0) ;
+  double c = media_1.at (1) - media_1.at (0) * m ;
+
+  TLine line (-0.5, -0.5 * m + c, 5., 5. * m + c) ;
+  line.SetLineWidth (2) ;
+  line.SetLineColor (kBlack) ;
+  line.Draw ("same") ;
+
+  c1.Print ("confronto.png", "png") ;
+
+  delete h_1 ;
+  delete h_2 ;
+
 
   return 0 ;
 }

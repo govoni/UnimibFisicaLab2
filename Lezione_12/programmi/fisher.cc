@@ -129,7 +129,7 @@ TH1F * riempiIstogramma (const vector<double> & data, string histo_name)
 // ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- 
 
 
-void plotComparison (TH1F * h_1, TH1F * h_2, TCanvas & c1, string nome_file)
+void plotComparison (TH1F * h_1, TH1F * h_2, TCanvas & c1, string nome_file, string asse_x)
 {
   double y_max = 0. ;
   if (h_1->GetBinContent (h_1->GetMaximumBin ()) > y_max)
@@ -143,7 +143,8 @@ void plotComparison (TH1F * h_1, TH1F * h_2, TCanvas & c1, string nome_file)
   if (h_2->GetXaxis ()->GetXmin () < x_min) x_min = h_2->GetXaxis ()->GetXmin () ;
   if (h_2->GetXaxis ()->GetXmax () > x_max) x_max = h_2->GetXaxis ()->GetXmax () ;
 
-  c1.DrawFrame (x_min, 0, x_max, y_max * 1.1) ;
+  TH1F * bkg = c1.DrawFrame (x_min, 0, x_max, y_max * 1.1) ;
+  bkg->SetXTitle (asse_x.c_str ()) ;
 
   h_1->SetLineColor (kRed) ;
   h_1->SetLineWidth (2) ;
@@ -213,6 +214,8 @@ TGraph disegnaROC (vector<double> v_H_1, vector<double> v_H_0, bool minore_di)
           ) ;
     }
 
+  g_ROC.GetHistogram ()->SetXTitle ("#alpha") ;
+  g_ROC.GetHistogram ()->SetYTitle ("#beta") ;
   return g_ROC ;
 }
 

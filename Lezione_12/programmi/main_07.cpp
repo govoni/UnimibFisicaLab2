@@ -55,6 +55,9 @@ int main (int argc, char ** argv)
   matrice W = cov_1 + cov_2 ;
   vettore fisher = W.inversa () * (media_1 - media_2) ; 
 
+  cout << "vettore di Fisher: " << endl ;
+  fisher.stampa () ;
+
   // calcola il valore del discriminante di fisher per ciascun sample
   // ---- ---- ---- ---- ---- ---- ----  
 
@@ -83,17 +86,17 @@ int main (int argc, char ** argv)
   TH1F * h_1_x = riempiIstogramma (data_1.at (0), "h_1_x") ;
   TH1F * h_2_x = riempiIstogramma (data_2.at (0), "h_2_x") ;
 
-  plotComparison (h_1_x, h_2_x, c1, "compare_x.png") ;
+  plotComparison (h_1_x, h_2_x, c1, "compare_x.png", "x") ;
 
   TH1F * h_1_y = riempiIstogramma (data_1.at (1), "h_1_y") ;
   TH1F * h_2_y = riempiIstogramma (data_2.at (1), "h_2_y") ;
 
-  plotComparison (h_1_y, h_2_y, c1, "compare_y.png") ;
+  plotComparison (h_1_y, h_2_y, c1, "compare_y.png", "y") ;
 
   TH1F * h_1_f = riempiIstogramma (fisher_1, "h_1_f") ;
   TH1F * h_2_f = riempiIstogramma (fisher_2, "h_2_f") ;
 
-  plotComparison (h_1_f, h_2_f, c1, "compare_f.png") ;
+  plotComparison (h_1_f, h_2_f, c1, "compare_f.png", "fisher") ;
 
   delete h_1_x ;
   delete h_2_x ;

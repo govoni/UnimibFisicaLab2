@@ -46,7 +46,7 @@ TH1F * riempiIstogramma (const std::vector<double> & data, std::string histo_nam
  facendo in modo che gli istogrammi siano entrambi completamente visibili 
  nell'immagine
 */
-void plotComparison (TH1F * h_1, TH1F * h_2, TCanvas & c1, std::string nome_file) ;
+void plotComparison (TH1F * h_1, TH1F * h_2, TCanvas & c1, std::string nome_file, std::string asse_x = "") ;
 
 /**
  disegno della curva ROC per la selezione basata su una variabile.
