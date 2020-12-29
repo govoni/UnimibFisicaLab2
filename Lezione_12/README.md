@@ -172,8 +172,8 @@
   * Costruire una **combinazione lineare** delle variabili che caratterizzano gli eventi di interesse
     che serva per separare due ipotesi *H<sub>0</sub>* ed *H<sub>1</sub>*
   * Nel caso bidimensionale, dato un campione di eventi (*x*<sub>i</sub>, *y*<sub>i</sub>)
-    1. **determinare il test statistico** *t(x,y)* da utilizzare per separare le due ipotesi
-    2. **usare il test statistico** per distinguere le due ipotesi:
+    1. **determinare la statistica di test** *t(x,y)* da utilizzare per separare le due ipotesi
+    2. **usare la statistica di test** per distinguere le due ipotesi:
 
 |  |  |
 | --------------- | ------- |
@@ -184,7 +184,7 @@
 
 ### 12.4.1 La determinazione della direzione del discriminante
 
-  * Il test statistico è una *combinazione lineare* delle variabili che caratterizzano ogni evento:
+  * La statistica di test è una *combinazione lineare* delle variabili che caratterizzano ogni evento:
 ![fisher_kD](./immagini/fisher_kD.png)
   * che nel caso bidimnesionale diventa:
 ![fisher_2D](./immagini/fisher_2D.png)
@@ -261,12 +261,12 @@
 
 ![linea](../immagini/linea.png)
 
-## 12.5 L'utilizzo del test statistico
+## 12.5 L'utilizzo della statistica di test
 
-### 12.5.1 Il calcolo del test statistico per i due campioni
+### 12.5.1 Il calcolo della statistica di test per i due campioni
 
   * Per ogni evento che compone i due modelli si può quindi **calcolare
-    il valore del test statistico** *t<sub>i</sub> = t(x<sub>i</sub>,y<sub>i</sub>)*:
+    il valore della statistica di test** *t<sub>i</sub> = t(x<sub>i</sub>,y<sub>i</sub>)*:
     ```cpp
     vector<double> fisher_1 ;
     for (int i = 0 ; i < data_1.at (0).size () ; ++i)
@@ -313,7 +313,7 @@
 
 ### 12.5.3 Il comportamento del test di ipotesi
 
-  * Per **determinare il comportamento del test di ipotesi** basato sul test statistico *t(x,y)*
+  * Per **determinare il comportamento del test di ipotesi** basato sulla statistica di test *t(x,y)*
     si può valutare l'effetto della selezione con soglia *t<sub>cut</sub>*
     con la frazione di falsi positivi &beta; 
     e quella di falsi negativi &alpha;:
