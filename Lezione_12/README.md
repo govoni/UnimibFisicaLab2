@@ -442,7 +442,7 @@
 
 ![linea](../immagini/linea.png) 
 
-## 12.5.4 Esempio: Due Ipotesi semplici distinte dalla media della pdf
+## 12.5.4 Esempio: Due Ipotesi semplici distinte da una media differente
  
   * scriviamo una funzione binormale pdf(x,y) con correlazione nulla tra 
   le due variabili x ed y e la stessa media &mu; e varianza &sigma;
@@ -460,8 +460,8 @@
    ```
 
    * definiamo due funzioni di ```ROOT``` che descrivono le due ipotesi:
-     * H<sub>0</sub>: &mu;=2 &sigma;=1  la pdf è scritta come pdf(x,y | H<sub>0</sub>)
-     * H<sub>1</sub>: &mu;=3 &sigma;=1 
+     * H<sub>0</sub>: &mu;=2 &sigma;=1  la pdf è pdf(x,y | H<sub>0</sub>)
+     * H<sub>1</sub>: &mu;=3 &sigma;=1  la pdf è pdf(x,y | H<sub>1</sub>)
      
    ```cpp
     int npar=2;
@@ -490,7 +490,7 @@
    
 ![logLikeratio](./immagini/logLikeRatio.png)
 
-   * definiamo una ```TF2``` usando la modalità inline:
+   * possiamo costruire una ```TF2``` che rappresenta  log(&lambda;(x,y)) usando la modalità inline:
    
    ```cpp
    TF2 *lratio = new TF2("lratio","(((x-[1])**2+(y-[1])**2)-((x-[0])**2+(y-[0])**2))",min,max,min,max);
@@ -520,7 +520,7 @@
 
 ![linea](../immagini/linea.png)
 
-## 12.5.2 BCR e c<sub>&alpha;</sub>
+## 12.5.2 BCR per un campionamento
  
   * il sample space coincide con il piano (x,y), quindi la BCR sarà una regione di questo piano definita dalla condizione:
 
@@ -536,27 +536,27 @@
 ## 12.5.2 Calcoliamo il size
 
  * scriviamo una funzione che dato un mumero c<sub>&alpha;</sub> calcola il corrispondente size del test
- * va campionata la pdf(x, y | H<sub>0<\sub> )
+ * va campionata la pdf(x,y | H<sub>0</sub>)
  
    * la binormale ha correlazione nulla, pertanto è data dal prodotto di due gaussiane 
    (correlazione=0 in questo caso implica indipendenza), la generazione di una coppia (x,y) può usare 
    la funzione ```rand_TAC``` scritta per una gaussiana, chiamandola due volte
    
    * in alternativa si può usare il metodo ```GetRandom(double x,double y)``` della ```TF2``` 
-    (l'inizializzazione del seed si fa nel main con l'istruzione ```gRandom->SetSeed(0); ```
+    (l'inizializzazione del seed si fa nel main con l'istruzione ```gRandom->SetSeed(0); ```)
    
-  ```cpp
-  double sizetest(double c_alpha, TF2 *lratio, TF2 *f0){
-	int nhit=0;
-	int Ntoy=100000;
-	double x,y;
-	for (int i=0;i<Ntoy;i++){
-		f0->GetRandom2(x,y);
-		if (lratio->Eval(x,y)<c_alpha) nhit++;
-		}
-	 return (nhit*1.)/Ntoy;
-   }
-  ```
+    ```cpp
+    double sizetest(double c_alpha, TF2 *lratio, TF2 *f0){
+	  int nhit=0;
+	  int Ntoy=100000;
+	  double x,y;
+	  for (int i=0;i<Ntoy;i++){
+	  	f0->GetRandom2(x,y);
+	  	if (lratio->Eval(x,y)<c_alpha) nhit++;
+	  	}
+	   return (nhit*1.)/Ntoy;
+     }
+     ```
 ![linea](../immagini/linea.png)
 
 ## 12.5.2 Andamento del size in funzione di c<sub>&alpha;</sub> e BCR
