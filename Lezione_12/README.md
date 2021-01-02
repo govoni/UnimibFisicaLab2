@@ -408,28 +408,60 @@
 
 ## 12.5 Il Teorema di Neyman-Pearson
 
-  * un test di ipotesi confronta l'ipotesi H<sub>0</sub> con un'ipotesi alternativa H<sub>1</sub>
-  * le due ipotesi sono semplici (non prevedono stima di parametri)
-  * l'ipotesi H<sub>0 è scartata quanto la statistica usata per il test appartiene al sottoinsieme del sample space che chiamiamo **regione critica**
+  * un test di ipotesi usa una statistica **t** per confrontare l'ipotesi H<sub>0</sub> con un'ipotesi alternativa H<sub>1</sub>, le due ipotesi sono semplici (non prevedono stima di parametri)
+  * l'ipotesi H<sub>0</sub> è scartata quanto **t** cade nella regione del sample space che chiamiamo **regione critica**
   * il test è caratterizzato da due parametri: **size** (falsi negativi) e **power** (legato ai falsi positivi)
-     * &alpha è la probabilità che H<sub>0 sia vera ma l'ipotesi venga scartata: è il **size**
-     * &beta è la probabilità che sia vera H<sub>1  ma l'ipotesi H<sub>0 viene accettata: (1-&beta) è il **power**
+     * &alpha è la probabilità che H<sub>0</sub> sia vera ma l'ipotesi venga scartata: è il **size**
+     * &beta è la probabilità che sia vera H<sub>1</sub>  ma l'ipotesi H<sub>0</sub> viene accettata: (1-&beta) è il **power**
   * il teorema di Neyman-Pearson indica come scegliere la regione critica per massimizzare il power del test, una volta fissato il suo size
-  
+
+![linea](../immagini/linea.png)  
+
 ## 12.5.1 Best Critical Region (BCR)
   
-  * consideriamo il caso in cui la statistica siano i campionamenti della **pdf(x)**
-  * le due ipotesi semplici identificano due possibili forme della pdf
+  * consideriamo il caso in cui le due ipotesi semplici identificano due forme della pdf
      * pdf(x | H<sub>0</sub>) è la forma della pdf prevista dall'ipotesi H<sub>0</sub>
      * pdf(x | H<sub>1</sub>) è la forma della pdf prevista dall'ipotesi H<sub>1</sub>
-  * nel caso di N campionamenti **x<sub>1</sub> ... x<sub>N</sub>**
-     * pdf(x<sub>1</sub> ...x<sub>N</sub> | H<sub>0</sub>) è la likelihood se è vera l'ipotesi H<sub>0</sub>
-     * pdf(x<sub>1</sub> ...x<sub>N</sub> | H<sub>1</sub>) è la likelihood se è vera l'ipotesi H<sub>1</sub>
-  * la regione critica è un sottoinsieme del sample space a cui appartengono gli N campionamenti
-  * fissato un size &alpha la BCR è data da 
-    ![condizioneBCR](immagini/condizioneBCR.png)
-  
-     
+  *  dati N campionamenti **x<sub>1</sub> ... x<sub>N</sub>** la Best Critical Region è definita dalla condizione:
+  ![condizioneBCR](./immagini/condizioneBCR.png)
+     * pdf(x<sub>1</sub> ...x<sub>N</sub> | H<sub>0</sub>) è la likelihood dei campionamenti per H<sub>0</sub>
+     * pdf(x<sub>1</sub> ...x<sub>N</sub> | H<sub>1</sub>) è la likelihood dei campionamenti per H<sub>1</sub>
+  * la BCR è identificata una volta fissato &alpha e calcolato il corrispondente valore c<sub>&alpha</sub> 
+   ![condizioneBCR](./immagini/c_alpha.png)) 
+
+ ![linea](../immagini/linea.png) 
+
+ ## 12.5.2 Due Ipotesi semplici
+ 
+  * scrivete una funzione binormale pdf(x,y) con correlazione nulla tra le due variabili e la stessa media e varianza
+  ```cpp
+  double binormal(double *x, double *p){
+	 double sigma=p[0];
+	 double mu=p[1];
+	 double arg;
+	 if(sigma>0) 
+		arg=1/(2.*acos(-1)*sigma*sigma)*
+		exp(- 1./(2.*sigma*sigma)*((x[0]-mu)*(x[0]-mu)+(x[1]-mu)*(x[1]-mu))); 
+	 else arg=1e30;
+	 return arg;
+	 }
+	 ```
+    * definiamo due funzioni di ```ROOT``` che descrivono le due ipotesi:
+       * H<sub>0</sub>: media=2 sigma=1
+       * H<sub>1</sub>: media=3 sigma=1 
+    ```cpp
+    int npar=2;
+	double sigma=1;
+	double mu0=2; //H_0
+	double mu1=3; //H_1
+    double min=-1,max=5;
+	TF2 *f0 = new TF2("f0",binormal,min,max,min,max,npar);
+	f0->SetTitle("P(t|H_0)");
+	f0->SetParameters(sigma,mu0);
+	TF2 *f1 = new TF2("f1",binormal,min,max,min,max,npar);
+	f1->SetTitle("P(t|H_1)");
+	f1->SetParameters(sigma,mu1); 
+    ```
 ![linea](../immagini/linea.png)
 
 
