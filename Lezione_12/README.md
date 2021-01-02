@@ -421,7 +421,7 @@
 
 ![linea](../immagini/linea.png)  
 
-## 12.5.2 Best Critical Region (BCR)
+## 12.5.1 Best Critical Region (BCR)
      
   * i dati sono un set di N campionamenti **x<sub>1</sub> ... x<sub>N</sub>** in un sample space &Omega;
   * a un set di campionamenti associo due likelihood differenti:
@@ -434,7 +434,7 @@
     valore c<sub>&alpha;</sub> che dipende dal size &alpha; scelto
 ![linea](../immagini/linea.png)
   
-## 12.5.3 Determinazione di di c<sub>&alpha;</sub>  
+## 12.5.2 Determinazione di di c<sub>&alpha;</sub>  
   * la condizione che determina c<sub>&alpha;</sub> è che il size del test valga &alpha;
    ![c_alpha](./immagini/c_alpha.png)
   * il size è la probabilità associata a quei campionamenti estratti dalla
@@ -442,7 +442,7 @@
 
 ![linea](../immagini/linea.png) 
 
-## 12.5.4 Esempio: Due Ipotesi semplici distinte da una media differente
+## 12.5.3 Esempio: Due Ipotesi semplici distinte da una media differente
  
   * scriviamo una funzione binormale pdf(x,y) con correlazione nulla tra 
   le due variabili x ed y e la stessa media &mu; e varianza &sigma;
@@ -479,7 +479,7 @@
     
 ![linea](../immagini/linea.png)
 
-## 12.5.5 Il rapporto di Likelihood per un singolo campionamento
+## 12.5.4 Il rapporto di Likelihood per un singolo campionamento
 
    * se la pdf(x,y) è campionata una sola volta, la statistica usata per il test è il campionamento stesso
    * il rapporto di likelihood è:
@@ -497,7 +497,7 @@
    ```
 ![linea](../immagini/linea.png)
   
-## 12.5.2 Disegnamo le due pdf e il rapporto di likelihood per un singolo campionamento
+## 12.5.5 Disegnamo le due pdf e il rapporto di likelihood per un singolo campionamento
 
  * disegnamo le due pdf(x,y) e il logaritmo del likelihood ratio ln &lambda;(x,y)
  
@@ -520,7 +520,7 @@
 
 ![linea](../immagini/linea.png)
 
-## 12.5.2 BCR per un campionamento
+## 12.5.6 BCR per un campionamento
  
   * il sample space coincide con il piano (x,y), quindi la BCR sarà una regione di questo piano definita dalla condizione:
 
@@ -533,7 +533,7 @@
 
 ![linea](../immagini/linea.png)
 
-## 12.5.2 Funzione che calcola il size
+## 12.5.7 Funzione che calcola il size
 
  * scriviamo una funzione che dato un mumero c<sub>&alpha;</sub> calcola il corrispondente size del test
  * va campionata la pdf(x,y | H<sub>0</sub>)
@@ -559,7 +559,7 @@
      ```
 ![linea](../immagini/linea.png)
 
-## 12.5.2 Andamento del size in funzione di c<sub>&alpha;</sub> e BCR
+## 12.5.8 Andamento del size in funzione di c<sub>&alpha;</sub> e BCR
 
   * scriviamo una funzione che 
      * usa la funzione ```sizetest()``` per costruire un ```TGraph * gsize``` con l'andamento di &alpha; in funzione di c<sub>&alpha;</sub> usando la funzione ```sizetest``` 
@@ -580,7 +580,7 @@
 ![linea](../immagini/linea.png)
 
 
-## 12.5.2 Disegno BCR
+## 12.5.9 Disegno BCR
 
  * nel main del programma possiamo disegnare la regione BCR:
  ```cpp
@@ -603,7 +603,7 @@
   ```
 ![linea](../immagini/linea.png)
 
-## 12.5.2 Disegno curva ROC
+## 12.5.10 Disegno curva ROC
   * possiamo disegnare l'andamento 
   * possiamo inoltre costruire il grafico che rappresenta la curva &beta; vs. &alpha; (detta curva ROC)
   ```cpp
@@ -620,7 +620,7 @@
   
   
 ![linea](../immagini/linea.png)
-## 12.X ESERCIZI
+## 12.6 ESERCIZI
 
   * Gli esercizi relativi alla lezione si trovano [qui](ESERCIZI.md)
 
