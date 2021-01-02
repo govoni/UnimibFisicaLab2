@@ -413,23 +413,25 @@
   * le due ipotesi sono semplici (non prevedono stima di parametri)
   * l'ipotesi H<sub>0</sub> è scartata quanto **t** cade nella regione del sample space che 
   chiamiamo **regione critica**
-  * il test è caratterizzato da due parametri: **size** (falsi negativi) e **power** (legato ai falsi positivi)
+  * il test è caratterizzato da due parametri: 
      * &alpha; è la probabilità che H<sub>0</sub> sia vera ma l'ipotesi venga scartata: è il **size**
      * &beta; è la probabilità che sia vera H<sub>1</sub>  ma l'ipotesi H<sub>0</sub> viene accettata: 
       (1-&beta;) è il **power**
-  * la regione critica che massimizza il power del test, una volta fissato il suo size, è la BCR
+  * **la regione critica che massimizza il power del test, una volta fissato il suo size, è la BCR**
 
 ![linea](../immagini/linea.png)  
 
 ## 12.5.2 Best Critical Region (BCR)
-  
-  * consideriamo il caso in cui le due ipotesi semplici identificano due forme della pdf
-     * pdf(x | H<sub>0</sub>) è la forma della pdf prevista dall'ipotesi H<sub>0</sub>
-     * pdf(x | H<sub>1</sub>) è la forma della pdf prevista dall'ipotesi H<sub>1</sub>
-  *  dati N campionamenti **x<sub>1</sub> ... x<sub>N</sub>** la Best Critical Region è definita dalla condizione:
+     
+  * i dati sono un set di N campionamenti **x<sub>1</sub> ... x<sub>N</sub>** in un sample space &Omega;
+  * a un set di campionamenti associo due likelihood differenti:
+     * L(x<sub>1</sub> ... x<sub>N</sub> | H<sub>0</sub>) se vale l'ipotesi H<sub>0</sub>
+     * L(x<sub>1</sub> ... x<sub>N</sub> | H<sub>1</sub>) se vale l'ipotesi H<sub>1</sub>
+  * la Best Critical Region è quel sottoinsieme di &Omega; definito dalla condizione:
  
   ![condizioneBCR](./immagini/condizioneBCR.png)
-
+    un set di campionamenti appartiene alla BCR se il suo likelihooh ratio è inferiore a un 
+    valore c<sub>&alpha;</sub> che dipende dal size &alpha; scelto
 ![linea](../immagini/linea.png)
   
 ## 12.5.3 Valore di c<sub>&alpha;</sub>  
@@ -531,7 +533,7 @@
 ## 12.5.2 Calcolo del size per un c<sub>&alpha;</sub>
 
  * scriviamo una funzione che per un determinato c<sub>&alpha;</sub> calcoli il size del test
- * va campionata la pdf(x, y| H<sub>0<\sub> )
+ * va campionata la pdf(x, y | H<sub>0<\sub> )
  
   * la binormale ha correlazione nulla, pertanto è data dal prodotto di due gaussiane 
    (correlazione=0 in questo caso implica indipendenza), la generazione di una coppia (x,y) può usare 
