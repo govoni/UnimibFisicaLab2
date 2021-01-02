@@ -481,11 +481,12 @@
 
 ## 12.5.5 Il rapporto di Likelihood per un singolo campionamento
 
-   * se la pdf(x,y) è campionata una sola volta, il rapporto di likelihood è:
+   * se la pdf(x,y) è campionata una sola volta, la statistica usata per il test è il campionamento stesso
+   * il rapporto di likelihood è:
    
 ![Likeratio](./immagini/LikeRatio.png)
 
-   * è comodo passare al logaritmo 
+   * il suo logaritmo è 
    
 ![logLikeratio](./immagini/logLikeRatio.png)
 
@@ -496,11 +497,16 @@
    ```
 ![linea](../immagini/linea.png)
   
-## 12.5.2 Disegnamo pdf e likelihood
+## 12.5.2 Disegnamo le due pdf e il rapporto di likelihood per un singolo campionamento
 
- * disegnamo le due pdf(x,y)
-    
-    ```cpp
+ * disegnamo le due pdf(x,y) e il logaritmo del likelihood ratio ln &lambda;(x,y)
+ 
+ * il sample space nel caso di un singolo campionamento coincide con il piano (x,y), 
+   quindi la BCR sarà una regione di questo piano definita dalla condizione
+
+ ![linea](./immagini/condizioneBCRloglambda.png)
+ 
+     ```cpp
     TCanvas c1;
     c1.Divide(3,2);
     c1.cd(1);
@@ -515,15 +521,13 @@
     ```
 ![binormali](./immagini/binormal.png)
 
+
 ![linea](../immagini/linea.png)
 
-## 12.5.2 Dati campionati
+## 12.5.2 BCR per un singolo campionamento
  
-  * consideriamo il caso in cui la pdf(x,y) è campionata una sola volta e sulla base del campionamento 
-  vogliamo fare il test d'ipotesi
-  * il sample space è il piano (x,y), il campione è un punto, la BCR è definita dalla condizione
-
-![linea](./immagini/condizioneBCRloglambda.png)
+ 
+    
 
   * dobbiamo determinare c<sub>&alpha;</sub> e quindi procedere a identificare la regione BCR
 
