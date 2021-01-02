@@ -477,9 +477,11 @@
 ## 12.5.5 Il rapporto di Likelihood per un singolo campionamento
 
    * se la pdf(x,y) è campionata una sola volta, il rapporto di likelihood è:
-   ![Likeratio](./immagini/Likeratio.png)
+![Likeratio](./immagini/Likeratio.png)
+
    * è comodo passare al logaritmo 
-   ![logLikeratio](./immagini/logLikeratio.png)
+![logLikeratio](./immagini/logLikeratio.png)
+
    * definiamo una ```TF2``` usando la modalità inline:
    
    ```cpp
