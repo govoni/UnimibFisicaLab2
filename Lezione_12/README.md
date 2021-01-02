@@ -480,6 +480,7 @@
   ![linea](../immagini/linea.png)
   
 ## 12.5.2 Disegnamo pdf e likelihood
+
     * disegnamo le due pdf(x,y)
     
     ```cpp
@@ -499,8 +500,36 @@
 ![linea](../immagini/linea.png)
 
 ## 12.5.2 Dati campionati
-
+ 
+  * consideriamo il caso in cui la pdf(x,y) è campionata una sola volta e sulla base del campionamento vogliamo fare il test d'ipotesi
+  * il sample space è il piano (x,y), il campione è un punto, la BCR è definita dalla condizione
+   ![linea](./immagini/condizioneBCRloglambda.png)
+  * dobbiamo determinare calpha e quindi procedere a identificare la regione BCR
 ![linea](../immagini/linea.png)
+
+## 12.5.2 Calcolo del size per un calpha
+
+ * scriviamo una funzione che per un determinato calpha calcoli il size del test
+ * va campionata la pdf(x, y|H<sub>0<\sub>)
+   * la binormale ha correlazione nulla, pertanto è data dal prodotto di due gaussiane 
+   (correlazione=0 in questo caso implica indipendenza), la generazione di una coppia (x,y) può usare 
+   la funzione ```rand_TAC``` scritta per una gaussiana, chiamandola due volte
+    * in alternativa si può usare il metodo ```GetRandom(double x,double y)``` della ```TF2``` 
+    (l'inizializzazione del seed si fa nel main con l'istruzione ```gRandom->SetSeed(0); ```
+   
+  ```cpp
+  double sizetest(double c_alpha, TF2 *lratio, TF2 *f0){
+	int nhit=0;
+	int Ntoy=100000;
+	double x,y;
+	for (int i=0;i<Ntoy;i++){
+		f0->GetRandom2(x,y);
+		if (lratio->Eval(x,y)<c_alpha) nhit++;
+		}
+	 return (nhit*1.)/Ntoy;
+	}
+  
+  ```
 
 
 
