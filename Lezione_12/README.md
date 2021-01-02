@@ -460,7 +460,7 @@
    ```
 
    * definiamo due funzioni di ```ROOT``` che descrivono le due ipotesi:
-     * H<sub>0</sub>: &mu;=2 &sigma;=1
+     * H<sub>0</sub>: &mu;=2 &sigma;=1  la pdf è scritta come pdf(x,y | H<sub>0</sub>)
      * H<sub>1</sub>: &mu;=3 &sigma;=1 
      
    ```cpp
