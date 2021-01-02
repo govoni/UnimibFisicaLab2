@@ -427,28 +427,28 @@
      * pdf(x<sub>1</sub> ...x<sub>N</sub> | H<sub>0</sub>) è la likelihood dei campionamenti per H<sub>0</sub>
      * pdf(x<sub>1</sub> ...x<sub>N</sub> | H<sub>1</sub>) è la likelihood dei campionamenti per H<sub>1</sub>
   * la BCR è identificata una volta fissato &alpha e calcolato il corrispondente valore c<sub>&alpha</sub> 
-   ![condizioneBCR](./immagini/c_alpha.png)) 
+   ![c_alpha](./immagini/c_alpha.png)) 
 
  ![linea](../immagini/linea.png) 
 
  ## 12.5.2 Due Ipotesi semplici
  
-  * scrivete una funzione binormale pdf(x,y) con correlazione nulla tra le due variabili e la stessa media e varianza
+  * scriviamo una funzione binormale pdf(x,y) con correlazione nulla tra le due variabili e la stessa media e varianza
   ```cpp
   double binormal(double *x, double *p){
 	 double sigma=p[0];
 	 double mu=p[1];
 	 double arg;
 	 if(sigma>0) 
-		arg=1/(2.*acos(-1)*sigma*sigma)*
-		exp(- 1./(2.*sigma*sigma)*((x[0]-mu)*(x[0]-mu)+(x[1]-mu)*(x[1]-mu))); 
+		arg=1/(2.*acos(-1)*sigma*sigma)*exp(- 1./(2.*sigma*sigma)*((x[0]-mu)*(x[0]-mu)+(x[1]-mu)*(x[1]-mu))); 
 	 else arg=1e30;
 	 return arg;
 	 }
 	 ```
-    * definiamo due funzioni di ```ROOT``` che descrivono le due ipotesi:
-       * H<sub>0</sub>: media=2 sigma=1
-       * H<sub>1</sub>: media=3 sigma=1 
+
+   * definiamo due funzioni di ```ROOT``` che descrivono le due ipotesi:
+     * H<sub>0</sub>: media=2 sigma=1
+     * H<sub>1</sub>: media=3 sigma=1 
     ```cpp
     int npar=2;
 	double sigma=1;
@@ -462,6 +462,7 @@
 	f1->SetTitle("P(t|H_1)");
 	f1->SetParameters(sigma,mu1); 
     ```
+    
 ![linea](../immagini/linea.png)
 
 
