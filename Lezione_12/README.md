@@ -408,12 +408,12 @@
 
 ## 12.5 Il Teorema di Neyman-Pearson
 
-  * siano **x_1 ...x_N** i campionamenti di una **pdf(x)**
-  * sia Omega il sample space relativo a N campionamenti
-  * siano H_0 e H_1 due ipotesi semplici relative alla **pdf(x)**
-     * pdf(x_1 ...x_N | H_0) è la likelihood se è vera l'ipotesi H_0
-     * pdf(x_1 ...x_N | H_1) è la likelihood se è vera l'ipotesi H_1
-
+  * **x<sub>1 ...x<sub>N** siano i campionamenti di una **pdf(x)**
+  * &Omega è il sample space relativo ai campionamenti
+  * H<sub>0 e H<sub>1 sono due ipotesi semplici relative alla **pdf(x)**
+     * pdf(x<sub>1 ...x<sub>N | H<sub>0) è la likelihood se è vera l'ipotesi H<sub>0
+     * pdf(x<sub>1 ...x<sub>N | H<sub>1) è la likelihood se è vera l'ipotesi H<sub>1
+  * l'ipotesi H<sub>0 è scartata se **x<sub>1 ...x<sub>N** appartiene alla **critical region** &omega<sub> 
 
 ![linea](../immagini/linea.png)
 
