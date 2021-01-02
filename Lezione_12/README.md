@@ -414,9 +414,9 @@
   * l'ipotesi H<sub>0</sub> è scartata quanto **t** cade nella regione del sample space che 
   chiamiamo **regione critica**
   * il test è caratterizzato da due parametri: 
-     * &alpha; è la probabilità che H<sub>0</sub> sia vera ma l'ipotesi venga scartata: è il **size**
+     * &alpha; è la probabilità che H<sub>0</sub> sia vera ma l'ipotesi venga scartata: è il **size** del test
      * &beta; è la probabilità che sia vera H<sub>1</sub>  ma l'ipotesi H<sub>0</sub> viene accettata: 
-      (1-&beta;) è il **power**
+      (1-&beta;) è il **power** del test
   * **la regione critica che massimizza il power del test, una volta fissato il suo size, è la BCR**
 
 ![linea](../immagini/linea.png)  
@@ -430,16 +430,15 @@
   * la Best Critical Region è quel sottoinsieme di &Omega; definito dalla condizione:
  
   ![condizioneBCR](./immagini/condizioneBCR.png)
-    un set di campionamenti appartiene alla BCR se il suo likelihooh ratio è inferiore a un 
+  * un set di campionamenti appartiene alla BCR se il suo likelihood ratio è inferiore a un 
     valore c<sub>&alpha;</sub> che dipende dal size &alpha; scelto
 ![linea](../immagini/linea.png)
   
-## 12.5.3 Valore di c<sub>&alpha;</sub>  
-  * la BCR è identificata una volta fissato &alpha; e calcolato il corrispondente valore 
-  c<sub>&alpha;</sub> secondo la seguente regola: 
+## 12.5.3 Determinazione di di c<sub>&alpha;</sub>  
+  * la condizione che determina c<sub>&alpha;</sub> è che il size del test valga &alpha;
    ![c_alpha](./immagini/c_alpha.png)
   * il size è la probabilità associata a quei campionamenti estratti dalla
-   pdf(x | H<sub>0</sub>) che soddisfano la condizione BCR
+    pdf(x | H<sub>0</sub>) che soddisfano la condizione BCR
 
 ![linea](../immagini/linea.png) 
 
