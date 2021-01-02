@@ -449,7 +449,8 @@
    * definiamo due funzioni di ```ROOT``` che descrivono le due ipotesi:
      * H<sub>0</sub>: media=2 sigma=1
      * H<sub>1</sub>: media=3 sigma=1 
-    ```cpp
+     
+   ```cpp
     int npar=2;
 	double sigma=1;
 	double mu0=2; //H_0
@@ -461,11 +462,12 @@
 	TF2 *f1 = new TF2("f1",binormal,min,max,min,max,npar);
 	f1->SetTitle("P(t|H_1)");
 	f1->SetParameters(sigma,mu1); 
-    ```
+   ```
     
 ![linea](../immagini/linea.png)
 
 ## 12.5.2 Il rapporto di Likelihood per un singolo campionamento
+
    * se la pdf(x,y) è campionata una sola volta, il rapporto di likelihood è:
    ![Likeratio](./immagini/Likeratio.png)
    * è comodo passare al logaritmo 
@@ -479,6 +481,7 @@
   
 ## 12.5.2 Disegnamo pdf e likelihood
     * disegnamo le due pdf(x,y)
+    
     ```cpp
     TCanvas c1;
     c1.Divide(3,2);
