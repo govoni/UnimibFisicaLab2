@@ -408,13 +408,28 @@
 
 ## 12.5 Il Teorema di Neyman-Pearson
 
-  * **x<sub>1</sub> ... x<sub>N</sub>** siano i campionamenti di una **pdf(x)**
-  * &Omega è il sample space relativo ai campionamenti
-  * H<sub>0 e H<sub>1 sono due ipotesi semplici relative alla **pdf(x)**
+  * un test di ipotesi confronta l'ipotesi H<sub>0</sub> con un'ipotesi alternativa H<sub>1</sub>
+  * le due ipotesi sono semplici (non prevedono stima di parametri)
+  * l'ipotesi H<sub>0 è scartata quanto la statistica usata per il test appartiene al sottoinsieme del sample space che chiamiamo **regione critica**
+  * il test è caratterizzato da due parametri: **size** (falsi negativi) e **power** (legato ai falsi positivi)
+     * &alpha è la probabilità che H<sub>0 sia vera ma l'ipotesi venga scartata: è il **size**
+     * &beta è la probabilità che sia vera H<sub>1  ma l'ipotesi H<sub>0 viene accettata: (1-&beta) è il **power**
+  * il teorema di Neyman-Pearson indica come scegliere la regione critica per massimizzare il power del test, una volta fissato il suo size
+  
+## 12.5.1 Best Critical Region (BCR)
+  
+  * consideriamo il caso in cui la statistica siano i campionamenti della **pdf(x)**
+  * le due ipotesi semplici identificano due possibili forme della pdf
+     * pdf(x | H<sub>0</sub>) è la forma della pdf prevista dall'ipotesi H<sub>0</sub>
+     * pdf(x | H<sub>1</sub>) è la forma della pdf prevista dall'ipotesi H<sub>1</sub>
+  * nel caso di N campionamenti **x<sub>1</sub> ... x<sub>N</sub>**
      * pdf(x<sub>1</sub> ...x<sub>N</sub> | H<sub>0</sub>) è la likelihood se è vera l'ipotesi H<sub>0</sub>
      * pdf(x<sub>1</sub> ...x<sub>N</sub> | H<sub>1</sub>) è la likelihood se è vera l'ipotesi H<sub>1</sub>
-  * l'ipotesi H<sub>0 è scartata se **x<sub>1</sub> ...x<sub>N</sub>** appartiene alla **critical region** &omega
-
+  * la regione critica è un sottoinsieme del sample space a cui appartengono gli N campionamenti
+  * fissato un size &alpha la BCR è data da 
+    ![condizioneBCR](immagini/condizioneBCR.png)
+  
+     
 ![linea](../immagini/linea.png)
 
 
