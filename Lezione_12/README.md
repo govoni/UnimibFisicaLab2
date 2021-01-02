@@ -533,7 +533,7 @@
 
 ![linea](../immagini/linea.png)
 
-## 12.5.2 Calcoliamo il size
+## 12.5.2 Funzione che calcola il size
 
  * scriviamo una funzione che dato un mumero c<sub>&alpha;</sub> calcola il corrispondente size del test
  * va campionata la pdf(x,y | H<sub>0</sub>)
@@ -562,17 +562,17 @@
 ## 12.5.2 Andamento del size in funzione di c<sub>&alpha;</sub> e BCR
 
   * scriviamo una funzione che 
-     * riempie un ```TGraph * gsize``` che rappresenta l'andamento di &alpha; in funzione di c<sub>&alpha;</sub> usando la funzione ```sizetest``` 
-     * restituisce il valore di c<sub>&alpha;</sub> che corrisponde al size &alpha; passato in ingresso 
+     * usa la funzione ```sizetest()``` per costruire un ```TGraph * gsize``` con l'andamento di &alpha; in funzione di c<sub>&alpha;</sub> usando la funzione ```sizetest``` 
+     * restituisce il valore approssimato di c<sub>&alpha;</sub> che corrisponde al size &alpha; passato in ingresso 
    * la funzione deve:
-      * trovare gli estremi entro i quali fa variare c<sub>&alpha;</sub>
+      * trovare gli estremi entro i quali far variare c<sub>&alpha;</sub>
       ```cpp
       double lratio_min=lratio->GetMinimum();
       double lratio_max=lratio->GetMaximum();
       ```
       
       * variare c<sub>&alpha;</sub> dal minimo dell'intervallo al massimo e per ogni valore 
-    calcolare il size del test usando ```sizetest```
+    calcolare il size del test usando ```sizetest()```
       * riempire un grafico con i valori c<sub>&alpha;</sub> - size e restituire il valore 
     c<sub>&alpha;</sub> che meglio si avvicina al size prescelto  
 
@@ -595,7 +595,9 @@
 
 ![BCRdraw](./immagini/BCR.png)
 
-  * il power del test è dato da
+  * il power del test può essere calcolato usando la funzione ```sizetest()``` 
+  a cui viene passata la forma della pdf prevista dall'ipotesi H<sub>1</sub>
+  
   ```cpp
   cout<<"power "<<sizetest(c_alpha, lratio, f1)<<endl;
   ```
