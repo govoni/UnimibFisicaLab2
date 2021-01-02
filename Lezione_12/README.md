@@ -427,7 +427,10 @@
      * pdf(x | H<sub>0</sub>) è la forma della pdf prevista dall'ipotesi H<sub>0</sub>
      * pdf(x | H<sub>1</sub>) è la forma della pdf prevista dall'ipotesi H<sub>1</sub>
   *  dati N campionamenti **x<sub>1</sub> ... x<sub>N</sub>** la Best Critical Region è definita dalla condizione:
+ 
   ![condizioneBCR](./immagini/condizioneBCR.png)
+
+![linea](../immagini/linea.png)
   
 ## 12.5.3 Valore di c<sub>&alpha;</sub>  
   * la BCR è identificata una volta fissato &alpha; e calcolato il corrispondente valore 
@@ -435,7 +438,8 @@
    ![c_alpha](./immagini/c_alpha.png)
   * il size è la probabilità associata a quei campionamenti estratti dalla
    pdf(x | H<sub>0</sub>) che soddisfano la condizione BCR
- ![linea](../immagini/linea.png) 
+
+![linea](../immagini/linea.png) 
 
 ## 12.5.4 Esempio: Due Ipotesi semplici distinte dalla media della pdf
  
@@ -477,10 +481,12 @@
 ## 12.5.5 Il rapporto di Likelihood per un singolo campionamento
 
    * se la pdf(x,y) è campionata una sola volta, il rapporto di likelihood è:
-![Likeratio](./immagini/Likeratio.png)
+   
+![Likeratio](./immagini/LikeRatio.png)
 
    * è comodo passare al logaritmo 
-![logLikeratio](./immagini/logLikeratio.png)
+   
+![logLikeratio](./immagini/logLikeRatio.png)
 
    * definiamo una ```TF2``` usando la modalità inline:
    
@@ -525,7 +531,7 @@
 ## 12.5.2 Calcolo del size per un c<sub>&alpha;</sub>
 
  * scriviamo una funzione che per un determinato c<sub>&alpha;</sub> calcoli il size del test
- * va campionata la pdf(x, y|H<sub>0<\sub>)
+ * va campionata la pdf(x, y| H<sub>0<\sub> )
  
   * la binormale ha correlazione nulla, pertanto è data dal prodotto di due gaussiane 
    (correlazione=0 in questo caso implica indipendenza), la generazione di una coppia (x,y) può usare 
@@ -579,7 +585,7 @@
 	f0->Draw("cont1z same ");
  ```
  
-    * l'istruzione ```lratio->SetMaximum(c\_alpha);``` consente di disegnare quella porzione della funzione 
+ * l'istruzione ```lratio->SetMaximum(c\_alpha);``` consente di disegnare quella porzione della funzione 
    ```lratio``` che è minore di c<sub>&alpha;</sub>
 
 ![BCRdraw](./immagini/BCR.png)
