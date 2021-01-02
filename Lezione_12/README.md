@@ -427,7 +427,7 @@
      * pdf(x<sub>1</sub> ...x<sub>N</sub> | H<sub>0</sub>) è la likelihood dei campionamenti per H<sub>0</sub>
      * pdf(x<sub>1</sub> ...x<sub>N</sub> | H<sub>1</sub>) è la likelihood dei campionamenti per H<sub>1</sub>
   * la BCR è identificata una volta fissato &alpha e calcolato il corrispondente valore c<sub>&alpha</sub> 
-   ![c_alpha](./immagini/c_alpha.png)) 
+   ![c_alpha](./immagini/c_alpha.png)
 
  ![linea](../immagini/linea.png) 
 
@@ -444,7 +444,7 @@
 	 else arg=1e30;
 	 return arg;
 	 }
-	 ```
+   ```
 
    * definiamo due funzioni di ```ROOT``` che descrivono le due ipotesi:
      * H<sub>0</sub>: media=2 sigma=1
@@ -465,9 +465,39 @@
     
 ![linea](../immagini/linea.png)
 
+## 12.5.2 Il rapporto di Likelihood per un singolo campionamento
+   * se la pdf(x,y) è campionata una sola volta, il rapporto di likelihood è:
+   ![Likeratio](./immagini/Likeratio.png)
+   * è comodo passare al logaritmo 
+   ![logLikeratio](./immagini/logLikeratio.png)
+   * definiamo una ```TF2``` usando la modalità inline:
+   
+   ```cpp
+   TF2 *lratio = new TF2("lratio","(((x-[1])**2+(y-[1])**2)-((x-[0])**2+(y-[0])**2))",min,max,min,max);
+   ```
+  ![linea](../immagini/linea.png)
+  
+## 12.5.2 Disegnamo pdf e likelihood
+    * disegnamo le due pdf(x,y)
+    ```cpp
+    TCanvas c1;
+    c1.Divide(3,2);
+    c1.cd(1);
+    f1->GetXaxis()->SetTitle("x");
+    f1->GetYaxis()->SetTitle("y");
+    f1->DrawClone("cont1z");
+    f0->DrawClone("cont1z same ");
+    c1.cd(2);
+    lratio->DrawClone("cont1z");
+    lratio->GetXaxis()->SetTitle("x");
+    lratio->GetYaxis()->SetTitle("y");
+    ```
 
+![linea](../immagini/linea.png)
 
+## 12.5.2 Dati campionati
 
+![linea](../immagini/linea.png)
 
 
 
