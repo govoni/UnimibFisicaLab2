@@ -406,6 +406,26 @@
 
 ![linea](../immagini/linea.png)
 
+
+## 12.5 Il Teorema di Neyman-Pearson
+
+	* siano **x_1 ...x_N** i campionamenti di una **pdf(x)**
+	* sia Omega il sample space relativo a N campionamenti
+	* siano H_0 e H_1 due ipotesi semplici relative alla **pdf(x)**
+	** pdf(x_1 ...x_N | H_0) è la likelihood relativa ai campionamenti se è vera l'ipotesi H_0
+	** pdf(x_1 ...x_N | H_1) è la likelihood relativa ai campionamenti se è vera l'ipotesi H_1
+	* 
+
+
+
+![linea](../immagini/linea.png)
+
+
+
+
+
+
+
 ## 12.X ESERCIZI
 
   * Gli esercizi relativi alla lezione si trovano [qui](ESERCIZI.md)
