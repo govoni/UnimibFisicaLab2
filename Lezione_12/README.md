@@ -501,11 +501,7 @@
 
  * disegnamo le due pdf(x,y) e il logaritmo del likelihood ratio ln &lambda;(x,y)
  
- * il sample space nel caso di un singolo campionamento coincide con il piano (x,y), 
-   quindi la BCR sarà una regione di questo piano definita dalla condizione
-
- ![linea](./immagini/condizioneBCRloglambda.png)
- 
+  
      ```cpp
     TCanvas c1;
     c1.Divide(3,2);
@@ -524,18 +520,21 @@
 
 ![linea](../immagini/linea.png)
 
-## 12.5.2 BCR per un singolo campionamento
+## 12.5.2 BCR e c<sub>&alpha;</sub>
  
- 
-    
+  * il sample space coincide con il piano (x,y), quindi la BCR sarà una regione di questo piano definita dalla condizione:
 
-  * dobbiamo determinare c<sub>&alpha;</sub> e quindi procedere a identificare la regione BCR
+ ![linea](./immagini/condizioneBCRloglambda.png)
+
+  * per determinare il c<sub>&alpha;</sub> che corrisponde al size &alpha; 
+  scelto dobbiamo prima costruire la funzione che descrive il size al variare di c<sub>&alpha;</sub>
+  e poi invertirla per determinare c<sub>&alpha;</sub> dato il size 
 
 ![linea](../immagini/linea.png)
 
-## 12.5.2 Calcolo del size per un c<sub>&alpha;</sub>
+## 12.5.2 Campioniamo la binormale
 
- * scriviamo una funzione che per un determinato c<sub>&alpha;</sub> calcoli il size del test
+ * scriviamo una funzione che dato c<sub>&alpha;</sub> calcola il corrispondente size del test
  * va campionata la pdf(x, y | H<sub>0<\sub> )
  
   * la binormale ha correlazione nulla, pertanto è data dal prodotto di due gaussiane 
