@@ -527,21 +527,22 @@
  ![linea](./immagini/condizioneBCRloglambda.png)
 
   * per determinare il c<sub>&alpha;</sub> che corrisponde al size &alpha; 
-  scelto dobbiamo prima costruire la funzione che descrive il size al variare di c<sub>&alpha;</sub>
-  e poi invertirla per determinare c<sub>&alpha;</sub> dato il size 
+  scelto dobbiamo:
+    * costruire la funzione che calcola il size al variare di c<sub>&alpha;</sub>
+    * invertire la funzione per determinare c<sub>&alpha;</sub> dato il size 
 
 ![linea](../immagini/linea.png)
 
-## 12.5.2 Campioniamo la binormale
+## 12.5.2 Calcoliamo il size
 
- * scriviamo una funzione che dato c<sub>&alpha;</sub> calcola il corrispondente size del test
+ * scriviamo una funzione che dato un mumero c<sub>&alpha;</sub> calcola il corrispondente size del test
  * va campionata la pdf(x, y | H<sub>0<\sub> )
  
-  * la binormale ha correlazione nulla, pertanto è data dal prodotto di due gaussiane 
+   * la binormale ha correlazione nulla, pertanto è data dal prodotto di due gaussiane 
    (correlazione=0 in questo caso implica indipendenza), la generazione di una coppia (x,y) può usare 
    la funzione ```rand_TAC``` scritta per una gaussiana, chiamandola due volte
    
-  * in alternativa si può usare il metodo ```GetRandom(double x,double y)``` della ```TF2``` 
+   * in alternativa si può usare il metodo ```GetRandom(double x,double y)``` della ```TF2``` 
     (l'inizializzazione del seed si fa nel main con l'istruzione ```gRandom->SetSeed(0); ```
    
   ```cpp
