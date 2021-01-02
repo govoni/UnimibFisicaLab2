@@ -408,32 +408,40 @@
 
 ## 12.5 Il Teorema di Neyman-Pearson
 
-  * un test di ipotesi usa una statistica **t** per confrontare l'ipotesi H<sub>0</sub> con un'ipotesi alternativa H<sub>1</sub>, le due ipotesi sono semplici (non prevedono stima di parametri)
-  * l'ipotesi H<sub>0</sub> è scartata quanto **t** cade nella regione del sample space che chiamiamo **regione critica**
+  * si usa una statistica **t** per confrontare l'ipotesi H<sub>0</sub> 
+  con l'ipotesi alternativa H<sub>1</sub>
+  * le due ipotesi sono semplici (non prevedono stima di parametri)
+  * l'ipotesi H<sub>0</sub> è scartata quanto **t** cade nella regione del sample space che 
+  chiamiamo **regione critica**
   * il test è caratterizzato da due parametri: **size** (falsi negativi) e **power** (legato ai falsi positivi)
-     * &alpha è la probabilità che H<sub>0</sub> sia vera ma l'ipotesi venga scartata: è il **size**
-     * &beta è la probabilità che sia vera H<sub>1</sub>  ma l'ipotesi H<sub>0</sub> viene accettata: (1-&beta) è il **power**
-  * il teorema di Neyman-Pearson indica come scegliere la regione critica per massimizzare il power del test, una volta fissato il suo size
+     * &alpha; è la probabilità che H<sub>0</sub> sia vera ma l'ipotesi venga scartata: è il **size**
+     * &beta; è la probabilità che sia vera H<sub>1</sub>  ma l'ipotesi H<sub>0</sub> viene accettata: 
+      (1-&beta;) è il **power**
+  * la regione critica che massimizza il power del test, una volta fissato il suo size, è la BCR
 
 ![linea](../immagini/linea.png)  
 
-## 12.5.1 Best Critical Region (BCR)
+## 12.5.2 Best Critical Region (BCR)
   
   * consideriamo il caso in cui le due ipotesi semplici identificano due forme della pdf
      * pdf(x | H<sub>0</sub>) è la forma della pdf prevista dall'ipotesi H<sub>0</sub>
      * pdf(x | H<sub>1</sub>) è la forma della pdf prevista dall'ipotesi H<sub>1</sub>
   *  dati N campionamenti **x<sub>1</sub> ... x<sub>N</sub>** la Best Critical Region è definita dalla condizione:
   ![condizioneBCR](./immagini/condizioneBCR.png)
-     * pdf(x<sub>1</sub> ...x<sub>N</sub> | H<sub>0</sub>) è la likelihood dei campionamenti per H<sub>0</sub>
-     * pdf(x<sub>1</sub> ...x<sub>N</sub> | H<sub>1</sub>) è la likelihood dei campionamenti per H<sub>1</sub>
-  * la BCR è identificata una volta fissato &alpha e calcolato il corrispondente valore c<sub>&alpha</sub> 
+  
+## 12.5.3 Valore di c<sub>&alpha;</sub>  
+  * la BCR è identificata una volta fissato &alpha; e calcolato il corrispondente valore 
+  c<sub>&alpha;</sub> secondo la seguente regola: 
    ![c_alpha](./immagini/c_alpha.png)
-
+  * il size è la probabilità associata a quei campionamenti estratti dalla
+   pdf(x | H<sub>0</sub>) che soddisfano la condizione BCR
  ![linea](../immagini/linea.png) 
 
- ## 12.5.2 Due Ipotesi semplici
+## 12.5.4 Esempio: Due Ipotesi semplici distinte dalla media della pdf
  
-  * scriviamo una funzione binormale pdf(x,y) con correlazione nulla tra le due variabili e la stessa media e varianza
+  * scriviamo una funzione binormale pdf(x,y) con correlazione nulla tra 
+  le due variabili x ed y e la stessa media &mu; e varianza &sigma;
+  
   ```cpp
   double binormal(double *x, double *p){
 	 double sigma=p[0];
@@ -447,8 +455,8 @@
    ```
 
    * definiamo due funzioni di ```ROOT``` che descrivono le due ipotesi:
-     * H<sub>0</sub>: media=2 sigma=1
-     * H<sub>1</sub>: media=3 sigma=1 
+     * H<sub>0</sub>: &mu;=2 &sigma;=1
+     * H<sub>1</sub>: &mu;=3 &sigma;=1 
      
    ```cpp
     int npar=2;
@@ -466,7 +474,7 @@
     
 ![linea](../immagini/linea.png)
 
-## 12.5.2 Il rapporto di Likelihood per un singolo campionamento
+## 12.5.5 Il rapporto di Likelihood per un singolo campionamento
 
    * se la pdf(x,y) è campionata una sola volta, il rapporto di likelihood è:
    ![Likeratio](./immagini/Likeratio.png)
@@ -501,15 +509,16 @@
 
 ## 12.5.2 Dati campionati
  
-  * consideriamo il caso in cui la pdf(x,y) è campionata una sola volta e sulla base del campionamento vogliamo fare il test d'ipotesi
+  * consideriamo il caso in cui la pdf(x,y) è campionata una sola volta e sulla base del campionamento 
+  vogliamo fare il test d'ipotesi
   * il sample space è il piano (x,y), il campione è un punto, la BCR è definita dalla condizione
    ![linea](./immagini/condizioneBCRloglambda.png)
   * dobbiamo determinare calpha e quindi procedere a identificare la regione BCR
 ![linea](../immagini/linea.png)
 
-## 12.5.2 Calcolo del size per un calpha
+## 12.5.2 Calcolo del size per un c<sub>&alpha;</sub>
 
- * scriviamo una funzione che per un determinato calpha calcoli il size del test
+ * scriviamo una funzione che per un determinato c<sub>&alpha;</sub> calcoli il size del test
  * va campionata la pdf(x, y|H<sub>0<\sub>)
    * la binormale ha correlazione nulla, pertanto è data dal prodotto di due gaussiane 
    (correlazione=0 in questo caso implica indipendenza), la generazione di una coppia (x,y) può usare 
@@ -530,9 +539,67 @@
 	}
   
   ```
+![linea](../immagini/linea.png)
+
+## 12.5.2 Andamento del size in funzione di c<sub>&alpha;</sub> e BCR
+
+  * scriviamo una funzione che 
+     * riempie un ```TGraph * gsize``` che rappresenta l'andamento di &alpha; in funzione di c<sub>&alpha;</sub> usando la funzione ```sizetest``` 
+     * restituisce il valore di c<sub>&alpha;</sub> che corrisponde al size &alpha; passato in ingresso 
+   * la funzione deve:
+      * trovare gli estremi entro i quali fa variare c<sub>&alpha;</sub>
+      ```cpp
+      double lratio_min=lratio->GetMinimum();
+      double lratio_max=lratio->GetMaximum();
+      ````
+      
+    * variare c<sub>&alpha;</sub> dal minimo dell'intervallo al massimo e per ogni valore 
+    calcolare il size del test usando ```sizetest```
+    * riempire un grafico con i valori c<sub>&alpha;</sub> - size e restituire il valore 
+    c<sub>&alpha;</sub> che meglio si avvicina al size prescelto  
 
 
+![linea](../immagini/linea.png)
 
+
+## 12.5.2 Disegno BCR
+
+ * nel main del programma possiamo disegnare la regione BCR:
+ ```cpp
+    lratio->SetMaximum(c_alpha);
+	lratio->Draw("cont3");
+	f1->Draw("cont1z same");
+	f0->Draw("cont1z same ");
+ ```
+ 
+    * l'istruzione ```lratio->SetMaximum(c\_alpha);``` consente di disegnare quella porzione della funzione 
+   ```lratio``` che è minore di c<sub>&alpha;</sub>
+
+![BCRdraw](./BCR.png)
+
+  * il power del test è dato da
+  ```cpp
+  cout<<"power "<<sizetest(c_alpha, lratio, f1)<<endl;
+  ```
+![linea](../immagini/linea.png)
+
+## 12.5.2 Disegno curva ROC
+  * possiamo disegnare l'andamento 
+  * possiamo inoltre costruire il grafico che rappresenta la curva &beta; vs. &alpha; (detta curva ROC)
+  ```cpp
+  TGraph *gba=new TGraph();
+  for (int i=0;i<gsize->GetN();i++){
+	beta=1-sizetest(gsize->GetPointX(i),lratio, f1);
+	gba->SetPoint(i,gsize->GetPointY(i),beta);
+	}
+  gba->Draw("AP*");
+  gba->GetXaxis()->SetTitle("#alpha");
+  gba->GetYaxis()->SetTitle("#beta");
+  ```
+![BCRdraw](./SIZE.png)
+  
+  
+![linea](../immagini/linea.png)
 ## 12.X ESERCIZI
 
   * Gli esercizi relativi alla lezione si trovano [qui](ESERCIZI.md)
