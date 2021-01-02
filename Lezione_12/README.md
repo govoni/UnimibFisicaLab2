@@ -487,11 +487,11 @@
    ```cpp
    TF2 *lratio = new TF2("lratio","(((x-[1])**2+(y-[1])**2)-((x-[0])**2+(y-[0])**2))",min,max,min,max);
    ```
-  ![linea](../immagini/linea.png)
+![linea](../immagini/linea.png)
   
 ## 12.5.2 Disegnamo pdf e likelihood
 
-    * disegnamo le due pdf(x,y)
+ * disegnamo le due pdf(x,y)
     
     ```cpp
     TCanvas c1;
@@ -506,6 +506,7 @@
     lratio->GetXaxis()->SetTitle("x");
     lratio->GetYaxis()->SetTitle("y");
     ```
+![binormali](./immagini/binormal.png)
 
 ![linea](../immagini/linea.png)
 
@@ -514,18 +515,23 @@
   * consideriamo il caso in cui la pdf(x,y) è campionata una sola volta e sulla base del campionamento 
   vogliamo fare il test d'ipotesi
   * il sample space è il piano (x,y), il campione è un punto, la BCR è definita dalla condizione
-   ![linea](./immagini/condizioneBCRloglambda.png)
-  * dobbiamo determinare calpha e quindi procedere a identificare la regione BCR
+
+![linea](./immagini/condizioneBCRloglambda.png)
+
+  * dobbiamo determinare c<sub>&alpha;</sub> e quindi procedere a identificare la regione BCR
+
 ![linea](../immagini/linea.png)
 
 ## 12.5.2 Calcolo del size per un c<sub>&alpha;</sub>
 
  * scriviamo una funzione che per un determinato c<sub>&alpha;</sub> calcoli il size del test
  * va campionata la pdf(x, y|H<sub>0<\sub>)
-   * la binormale ha correlazione nulla, pertanto è data dal prodotto di due gaussiane 
+ 
+  * la binormale ha correlazione nulla, pertanto è data dal prodotto di due gaussiane 
    (correlazione=0 in questo caso implica indipendenza), la generazione di una coppia (x,y) può usare 
    la funzione ```rand_TAC``` scritta per una gaussiana, chiamandola due volte
-    * in alternativa si può usare il metodo ```GetRandom(double x,double y)``` della ```TF2``` 
+   
+  * in alternativa si può usare il metodo ```GetRandom(double x,double y)``` della ```TF2``` 
     (l'inizializzazione del seed si fa nel main con l'istruzione ```gRandom->SetSeed(0); ```
    
   ```cpp
@@ -538,8 +544,7 @@
 		if (lratio->Eval(x,y)<c_alpha) nhit++;
 		}
 	 return (nhit*1.)/Ntoy;
-	}
-  
+   }
   ```
 ![linea](../immagini/linea.png)
 
@@ -553,11 +558,11 @@
       ```cpp
       double lratio_min=lratio->GetMinimum();
       double lratio_max=lratio->GetMaximum();
-      ````
+      ```
       
-    * variare c<sub>&alpha;</sub> dal minimo dell'intervallo al massimo e per ogni valore 
+      * variare c<sub>&alpha;</sub> dal minimo dell'intervallo al massimo e per ogni valore 
     calcolare il size del test usando ```sizetest```
-    * riempire un grafico con i valori c<sub>&alpha;</sub> - size e restituire il valore 
+      * riempire un grafico con i valori c<sub>&alpha;</sub> - size e restituire il valore 
     c<sub>&alpha;</sub> che meglio si avvicina al size prescelto  
 
 
@@ -577,7 +582,7 @@
     * l'istruzione ```lratio->SetMaximum(c\_alpha);``` consente di disegnare quella porzione della funzione 
    ```lratio``` che è minore di c<sub>&alpha;</sub>
 
-![BCRdraw](./BCR.png)
+![BCRdraw](./immagini/BCR.png)
 
   * il power del test è dato da
   ```cpp
@@ -598,7 +603,7 @@
   gba->GetXaxis()->SetTitle("#alpha");
   gba->GetYaxis()->SetTitle("#beta");
   ```
-![BCRdraw](./SIZE.png)
+![BCRdraw](./immagini/SIZE.png)
   
   
 ![linea](../immagini/linea.png)
