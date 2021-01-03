@@ -108,7 +108,13 @@ Infine restituisce il valore di c<sub>&alpha;</sub>, tra quelli campionati, che 
 ![linea](../immagini/linea.png)
 
 ## Esercizio 12.12
-Modificare l'esercizio precedente sostituendo alla binormale un'altra pdf bidimensionale 
+Modificare l'esercizio 12.11 in modo da considerare più campionamenti della pdf(x,y). Andrà ovviamente modificata anche la
+```TF2``` che rappresenta il logaritmo del rapporto di likelihood e la BCR non potrà essere disegnata in termini di sample-space.  
+
+![linea](../immagini/linea.png)
+
+## Esercizio 12.13
+Modificare l'esercizio 12.11 sostituendo alla binormale un'altra pdf bidimensionale 
 (p.es. ottenuta come prodotto di due pdf mono-dimensionali). Andrà ovviamente modificata anche la
 ```TF2``` che rappresenta il logaritmo del rapporto di likelihood.   
 
