@@ -6,13 +6,15 @@
     
   * si hanno N campionamenti IID di una *pdf(x)* con *x* variabile mono o pluri-dimensionale, si vuole:
     * valutare la validità di un'ipotesi *H<sub>0</sub>* relativa alla *pdf(x)* 
-    * confrontare l'ipotesi *H<sub>0</sub>* con l'ipotesi alternativa H<sub>1</sub> 
+    * confrontare l'ipotesi *H<sub>0</sub>* con l'ipotesi alternativa H<sub>1</sub>, entrambe relative alla *pdf(x)*
   * consideriamo il caso di ipotesi sono semplici (non richiedono non prevedono stima di parametri) 
   
-  * si usa una statistica *t* costruita sui campionamenti (nel caso più semplice *t* è l'insieme dei campionamenti)
-  * l'ipotesi H<sub>0</sub> è scartata quanto *t* cade nella regione del sample space che 
-  chiamiamo **regione critica**
-  * il test è caratterizzato da due parametri: 
+  * un test di ipotesi prevedere di
+	* costuire un'opportuna statistica *t* usando i campionamenti 
+	* scartare l'ipotesi H<sub>0</sub> quando *t* cade nella regione del sample space che 
+      chiamiamo **regione critica** 
+	 
+   * il test è caratterizzato da due parametri: 
      * &alpha; è la probabilità che quando H<sub>0</sub> è vera l'ipotesi venga scartata: è il **size** del test
      * &beta; è la probabilità che quando H<sub>1</sub> è vera ma l'ipotesi H<sub>0</sub> viene accettata: 
       (1-&beta;) è il **power** del test    
