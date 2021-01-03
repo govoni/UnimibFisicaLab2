@@ -44,7 +44,7 @@
    * il metodo del determinante di Fischer prevede di:
      * costruire una statistica *t* che sia una funzione lineare dei campionamenti
      * accettare l'ipotesi se t < *t*<sub>cut</sub>
-     * *t*<sub>cut</sub> identifica la regione critica e il size del test
+     * *t*<sub>cut</sub> identifica la regione critica e size e power del test
      
 ![linea](../immagini/linea.png)
 
@@ -54,11 +54,10 @@
    * il metodo del rapporto di Likelihood prevede di:
       * usare come statistica del test il rapporto
 ![formulaLikeRatio](./immagini/Formula_LikelihoodRatio.png)
-      * accettare l'ipotesi se il rapporto è < *t*<sub>cut</sub> dove *t*<sub>cut</sub> 
-      è scelto a partire dal valore desiderato per il size del test 
-      (*t*<sub>cut</sub> identifica la regione critica)
+      * accettare l'ipotesi se il rapporto è < *t*<sub>cut</sub> 
+      * *t*<sub>cut</sub> identifica la regione critica e size e power del test
    * nel caso di ipotesi semplici questa procedura produce, a parità di size, il test con il power più alto
-      la regione critica così indetificata si chiama **Best Critical Region** o  BCR
+      la regione critica in questo caso si chiama **Best Critical Region** o  BCR
       
 ![linea](../immagini/linea.png)
 
