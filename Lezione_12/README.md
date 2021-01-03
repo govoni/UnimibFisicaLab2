@@ -454,31 +454,21 @@
 ![linea](../immagini/linea.png)
 
 ## 12.5 Il Teorema di Neyman-Pearson
-
-  * si usa una statistica **t** per confrontare l'ipotesi H<sub>0</sub> 
-  con l'ipotesi alternativa H<sub>1</sub>
-  * le due ipotesi sono semplici (non prevedono stima di parametri)
-  * l'ipotesi H<sub>0</sub> è scartata quanto **t** cade nella regione del sample space che 
-  chiamiamo **regione critica**
-  * il test è caratterizzato da due parametri: 
-     * &alpha; è la probabilità che H<sub>0</sub> sia vera ma l'ipotesi venga scartata: è il **size** del test
-     * &beta; è la probabilità che sia vera H<sub>1</sub>  ma l'ipotesi H<sub>0</sub> viene accettata: 
-      (1-&beta;) è il **power** del test
-  * **la regione critica che massimizza il power del test, una volta fissato il suo size, è la BCR**
-
-![linea](../immagini/linea.png)  
-
-## 12.5.1 Best Critical Region (BCR)
-     
-  * i dati sono un set di N campionamenti **x<sub>1</sub> ... x<sub>N</sub>** in un sample space &Omega;
-  * a un set di campionamenti associo due likelihood differenti:
+  * i dati sono N campionamenti IID di una *pdf(x)*, *x*<sub>*1*</sub> ... *x*<sub>*N*</sub>
+   e si vuole determinare se provengono dalla 
+      *pdf(x| H<sub>0</sub>)* o dalla *pdf(x| H<sub>1</sub>)*
+      
+  * le due ipotesi sono semplici, al set di campionamenti associo due Likelihood:
      * L(x<sub>1</sub> ... x<sub>N</sub> | H<sub>0</sub>) se vale l'ipotesi H<sub>0</sub>
      * L(x<sub>1</sub> ... x<sub>N</sub> | H<sub>1</sub>) se vale l'ipotesi H<sub>1</sub>
-  * la Best Critical Region è quel sottoinsieme di &Omega; definito dalla condizione:
- 
+     
+  * la Best Critical Region (BCR) è quel sottoinsieme di &Omega; definito dalla condizione:
+  
   ![condizioneBCR](./immagini/condizioneBCR.png)
+  
   * un set di campionamenti appartiene alla BCR se il suo likelihood ratio è inferiore a un 
     valore c<sub>&alpha;</sub> che dipende dal size &alpha; scelto
+    
 ![linea](../immagini/linea.png)
   
 ## 12.5.2 Determinazione di di c<sub>&alpha;</sub>  
