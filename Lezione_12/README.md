@@ -556,7 +556,7 @@
    
 ![linea](../immagini/linea.png)
   
-## 12.6.3 Disegnamo le due pdf e il rapporto di likelihood 
+## 12.6.5 Disegnamo le due pdf e il rapporto di likelihood 
 
  ![binormali](./immagini/binormal.png)
  * ```ROOT``` mette a disposizione molte modalità diverse per disegnare una funzione 
@@ -567,9 +567,9 @@
  
 ![linea](../immagini/linea.png)
 
-## 12.6.4 BCR 
+## 12.6.6 BCR 
  
-  * il sample space coincide con il piano (x,y), quindi la BCR sarà una regione di questo piano 
+  * il sample space coincide con il piano *(x,y)*, quindi la BCR sarà una regione di questo piano 
   definita dalla condizione:
 
  ![linea](./immagini/condizioneBCRloglambda.png)
@@ -582,10 +582,10 @@
 
 ![linea](../immagini/linea.png)
 
-## 12.6.5 Funzione che calcola il size
+## 12.6.7 Funzione che calcola il size
 
  * scriviamo una funzione che dato un mumero c<sub>&alpha;</sub> calcola il corrispondente size del test
- * va campionata la pdf(x,y | H<sub>0</sub>)
+ * va campionata la *pdf(x,y | H<sub>0</sub>)*
  
    * si può usare la funzione ```rand_TAC``` chiamandola due volte
    
@@ -606,7 +606,7 @@
      ```
 ![linea](../immagini/linea.png)
 
-## 12.5.8 Funzione che scorre i valori di *c<sub>&alpha;</sub>* e calcola il size
+## 12.6.8 Funzione che scorre i valori di c<sub>&alpha;</sub> e calcola il size
 
   ```cpp
   double DeterminaBCR(TF2 *lratio, TF2 *f0, double alpha, TGraph *gsize) {...}
@@ -615,50 +615,51 @@
     * il logaritmo del Likelihood Ratio
     * la *pdf(x,y|H<sub>0</sub> )*
     * il puntatore a un grafico da riempire (istanziato nel main)
-    * il valore del size desiderato, in corrispondenza del quale restituisce il valore di *c<sub>&alpha;</sub>*
+    * il valore del size desiderato, in corrispondenza del quale restituisce il valore di c<sub>&alpha;</sub>
   
   * effettua le seguenti operazioni:
-    * trova gli estremi tra cui far variare *c<sub>&alpha;</sub>*, 
+    * trova gli estremi tra cui far variare c<sub>&alpha;</sub>, 
      sono i valori minimi e massimi del logaritmo del Likelihood Ratio:
    ```cpp
    double lratio_min=lratio->GetMinimumXY(x,y);
    double lratio_max=lratio->GetMaximumXY(x,y);
    ```
-     * incrementa *c<sub>&alpha;</sub>* con un passo costante, 
-       partendo dal minimo e arrivando al massimo e calcolando ogno volta il size 
-       (chiamando la funzione ```sizetest( )``` )
-     * riempie il grafico con le coppie *c<sub>&alpha;</sub>* - size
+
+    * incrementa c<sub>&alpha;</sub> con un passo costante, 
+       partendo dal minimo e arrivando al massimo,  calcola ogni volta il size 
+       chiamando la funzione ```sizetest( )``` 
+    * riempie il grafico con le coppie c<sub>&alpha;</sub> vs. size
 
 
 ![linea](../immagini/linea.png)
 
 
-## 12.5.9 Disegno BCR
+## 12.6.9 Disegno della BCR
 
- * nel main del programma possiamo disegnare la regione BCR:
+ * nel main del programma possiamo disegnare la regione BCR corrispondente al size scelto e il grafico c<sub>&alpha;</sub> vs. size 
+ * c<sub>&alpha;</sub> è il valore restituito dalla funzione ```DeterminaBCR()```
+ * l'istruzione ```lratio->SetMaximum(c_alpha);``` consente di disegnare quella porzione della funzione 
+   ```lratio``` che è minore di c<sub>&alpha;</sub>
+ 
  ```cpp
     lratio->SetMaximum(c_alpha);
 	lratio->Draw("cont3");
 	f1->Draw("cont1z same");
 	f0->Draw("cont1z same ");
  ```
- 
- * l'istruzione ```lratio->SetMaximum(c\_alpha);``` consente di disegnare quella porzione della funzione 
-   ```lratio``` che è minore di c<sub>&alpha;</sub>
-
-![BCRdraw](./immagini/BCR.png)
-
-  * il power del test può essere calcolato usando la funzione ```sizetest()``` 
-  a cui viene passata la forma della pdf prevista dall'ipotesi H<sub>1</sub>
+   * il power del test può essere calcolato usando la funzione ```sizetest()``` 
+  a cui viene passata la forma della pdf prevista dall'ipotesi *H<sub>1</sub>*
   
   ```cpp
   cout<<"power "<<sizetest(c_alpha, lratio, f1)<<endl;
   ```
+
 ![linea](../immagini/linea.png)
 
-## 12.5.10 Disegno curva ROC
-  * possiamo disegnare l'andamento 
-  * possiamo inoltre costruire il grafico che rappresenta la curva &beta; vs. &alpha; (detta curva ROC)
+## 12.6.10 Disegno curva ROC
+
+  * possiamo costruire il grafico che rappresenta la curva &beta; vs. &alpha; (detta curva ROC)
+  
   ```cpp
   TGraph *gba=new TGraph();
   for (int i=0;i<gsize->GetN();i++){
@@ -669,8 +670,9 @@
   gba->GetXaxis()->SetTitle("#alpha");
   gba->GetYaxis()->SetTitle("#beta");
   ```
-![BCRdraw](./immagini/SIZE.png)
-  
+
+![BCRdraw](./immagini/BCR.png)
+
   
 ![linea](../immagini/linea.png)
 ## 12.6 ESERCIZI
