@@ -3,14 +3,54 @@
 ![linea](../immagini/linea.png)
 
 ## 12.1 Introduzione
+    
+  * si hanno N campionamenti IID di una *pdf(x)* con *x* variabile mono o pluri-dimensionale, si vuole:
+    * valutare la validità di un'ipotesi *H<sub>0</sub>* relativa alla *pdf(x)* 
+    * confrontare l'ipotesi *H<sub>0</sub>* con l'ipotesi alternativa H<sub>1</sub> 
+  * consideriamo il caso di ipotesi sono semplici (non richiedono non prevedono stima di parametri) 
+  
+  * si usa una statistica *t* costruita sui campionamenti (nel caso più semplice *t* è l'insieme dei campionamenti)
+  * l'ipotesi H<sub>0</sub> è scartata quanto *t* cade nella regione del sample space che 
+  chiamiamo **regione critica**
+  * il test è caratterizzato da due parametri: 
+     * &alpha; è la probabilità che quando H<sub>0</sub> è vera l'ipotesi venga scartata: è il **size** del test
+     * &beta; è la probabilità che quando H<sub>1</sub> è vera ma l'ipotesi H<sub>0</sub> viene accettata: 
+      (1-&beta;) è il **power** del test    
+  * **la regione critica che massimizza il power del test, una volta fissato il suo size, è la BCR**
+![linea](../immagini/linea.png)
 
-  * Descrizione delle proprietà di un sample
-  * Separazione fra due possibili ipotesi:
-    * Ricorda l'approccio frequentista
-  * Due modi di usare la separazione fra ipotesi
-    * decidere se una misura è meglio descritta da un modello o da un altro
-    * categorizzazione di eventi in due classi separate
+## 12.1.1 Il test del Chi-Quadro
+   * il test del chi-quadro analizza una singola ipotesi *H<sub>0</sub>*
+     * i parametri sono stimati preventivamente ed il test usa il valore stimato
+     * la statistica *t* è una variabile mono-dimensionale che segue la distribuzione del chi-quadro
+     * la regione critica è data da *t* > *t*<sub>cut</sub>
+     * il size è l'integrale della distribuzione chi-quadro per *t* > *t*<sub>cut</sub> 
+   * in approccio frequentista chiamiamo **Confidence Level** il size del test, questa è la probabilità che, 
+   essendo vera l'ipotesi, il test dia esito positivo
+![linea](../immagini/linea.png)
 
+## 12.1.2 Il Metodo del discriminante di Fischer  
+   * sono dati N campionamenti IID di una *pdf(x)* e si vuole determinare se provengono dalla 
+      *pdf(x| H<sub>0</sub>)* o dalla *pdf(x| H<sub>1</sub>)*
+   * assumiamo che entrambe le ipotesi siano semplici
+   * il metodo del determinante di Fischer prevede di:
+    * costruire una statistica *t* che sia una funzione lineare dei campionamenti
+    * accettare l'ipotesi se t < *t*<sub>cut</sub> dove *t*<sub>cut</sub> 
+      è scelto a partire dal valore desiderato per il size del test 
+      (*t*<sub>cut</sub> identifica la regione critica)
+![linea](../immagini/linea.png)
+
+## 12.1.3 Il Metodo del rapporto di Likelihood 
+   * sono dati N campionamenti IID di una *pdf(x)* e si vuole determinare se provengono dalla 
+      *pdf(x| H<sub>0</sub>)* o dalla *pdf(x| H<sub>1</sub>)*   
+   * il metodo del rapporto di Likelihood prevede di:
+    * usare come statistica del test il rapporto
+![formulaLikeRatio](./immagini/FormulaLikelihoodRatio.png)
+    * accettare l'ipotesi se *Likelihoo-Ratio* < *t*<sub>cut</sub> dove *t*<sub>cut</sub> 
+      è scelto a partire dal valore desiderato per il size del test 
+      (*t*<sub>cut</sub> identifica la regione critica)
+    * nel caso di ipotesi semplici questa procedura produce, a parità di size, il test con il power più alto
+      la regione critica così indetificata si chiama Best Critical Region
 
 ![linea](../immagini/linea.png)
 
