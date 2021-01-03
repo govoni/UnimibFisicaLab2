@@ -453,6 +453,9 @@
 
 ![linea](../immagini/linea.png)
 
+
+
+
 ## 12.6 Il Teorema di Neyman-Pearson
   * i dati sono *N* campionamenti IID, *x*<sub>*1*</sub> ... *x*<sub>*N*</sub>
    e si vuole determinare se provengono dalla 
@@ -509,7 +512,8 @@
 		}
 	 else arg=1e30;
 	 return arg;
-   }```
+   }
+   ```
    
    * definiamo due funzioni ```TF2``` di ```ROOT``` che descrivono le due ipotesi:
       
@@ -520,7 +524,8 @@
 	f0->SetParameters(par);
 	TF2 *f1 = new TF2("f1",binormal,xmin,xmax,ymin,ymax,npar);
 	f1->SetTitle("P(t|H_1)");
-	f1->SetParameters(par+4);```
+	f1->SetParameters(par+4);
+	```
     
 ![linea](../immagini/linea.png)
 
@@ -539,13 +544,15 @@
 	 double arg = - ( pow( (x[0]-p[0])/p[1],2) + pow( (x[1]-p[2])/p[3],2) );
 	 arg+= ( pow( (x[0]-p[4])/p[5],2) + pow( (x[1]-p[6])/p[7],2) );
 	 return arg;
-	 }```
+	 }
+	 ```
    
    * costruiamo una ```TF2``` 
    
    ```cpp
    TF2 *lratio = new TF2("lratio",loglike,xmin,xmax,ymin,ymax,8); 
-   lratio->SetParameters(par);```
+   lratio->SetParameters(par);
+   ```
    
 ![linea](../immagini/linea.png)
   
