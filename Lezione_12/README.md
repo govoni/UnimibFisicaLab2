@@ -54,11 +54,12 @@
    * il metodo del rapporto di Likelihood prevede di:
       * usare come statistica del test il rapporto
 ![formulaLikeRatio](./immagini/Formula_LikelihoodRatio.png)
-      * accettare l'ipotesi se *Likelihoo-Ratio* < *t*<sub>cut</sub> dove *t*<sub>cut</sub> 
+      * accettare l'ipotesi se il rapporto è < *t*<sub>cut</sub> dove *t*<sub>cut</sub> 
       è scelto a partire dal valore desiderato per il size del test 
       (*t*<sub>cut</sub> identifica la regione critica)
-      * nel caso di ipotesi semplici questa procedura produce, a parità di size, il test con il power più alto
+   * nel caso di ipotesi semplici questa procedura produce, a parità di size, il test con il power più alto
       la regione critica così indetificata si chiama **Best Critical Region** o  BCR
+      
 ![linea](../immagini/linea.png)
 
 ## 12.2 Decorrelazione lineare di variabili
