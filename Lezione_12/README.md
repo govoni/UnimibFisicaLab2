@@ -453,8 +453,8 @@
 
 ![linea](../immagini/linea.png)
 
-## 12.5 Il Teorema di Neyman-Pearson
-  * i dati sono N campionamenti IID, *x*<sub>*1*</sub> ... *x*<sub>*N*</sub>
+## 12.6 Il Teorema di Neyman-Pearson
+  * i dati sono *N* campionamenti IID, *x*<sub>*1*</sub> ... *x*<sub>*N*</sub>
    e si vuole determinare se provengono dalla 
       *pdf(x| H<sub>0</sub>)* o dalla *pdf(x| H<sub>1</sub>)*
       
@@ -470,7 +470,7 @@
     
 ![linea](../immagini/linea.png)
   
-## 12.5.2 Determinazione di c<sub>&alpha;</sub>  
+## 12.6.1 Determinazione di c<sub>&alpha;</sub>
   
   * la condizione che determina c<sub>&alpha;</sub> è che campionamenti estratti 
   dalla *pdf(x| H<sub>0</sub>)* abbiano probabilità &alpha; di appartenere alla regione critica:
@@ -481,22 +481,22 @@
  
 ![linea](../immagini/linea.png) 
 
-## 12.6 Esempio di calcolo della BCR
+## 12.6.2 Esempio di calcolo della BCR
   
-  * i dati sono un singolo campionamento di una pdf(x,y) binormale
+  * i dati sono un singolo campionamento di una *pdf(x,y)* binormale
   * vogliamo distinguere tra due ipotesi semplici che prevedono valori 
     differenti per media e sigma della binormale
-  * per costruire la BCR ci serve definire:
+  * per costruire la BCR serve definire:
 	* una funzione che descriva la *pdf(x| H<sub>0</sub>)*
 	* una funzione che descriva la *pdf(x| H<sub>1</sub>)*
-	* una funzione che descriva il rapporto di likelihood
+	* una funzione che descriva il rapporto di Likelihood
 
 ![linea](../immagini/linea.png)
 
-## 12.6.1 Funzione binormale
+## 12.6.3 Funzione binormale
 
-  * scriviamo una funzione binormale pdf(x,y) con correlazione nulla tra 
-  le due variabili x ed y;
+  * scriviamo una funzione binormale *pdf(x,y)* con correlazione nulla tra 
+  le due variabili *x* ed *y*;
   
   ```cpp
   double binormal(double *x, double *p){
@@ -509,8 +509,7 @@
 		}
 	 else arg=1e30;
 	 return arg;
-   }
-   ```
+   }```
    
    * definiamo due funzioni ```TF2``` di ```ROOT``` che descrivono le due ipotesi:
       
@@ -521,34 +520,33 @@
 	f0->SetParameters(par);
 	TF2 *f1 = new TF2("f1",binormal,xmin,xmax,ymin,ymax,npar);
 	f1->SetTitle("P(t|H_1)");
-	f1->SetParameters(par+4);
-   ```
+	f1->SetParameters(par+4);```
     
 ![linea](../immagini/linea.png)
 
-## 12.6.2 Rapporto di Likelihood
+## 12.6.4 Rapporto di Likelihood
 
-   * assumiamo di usare un singolo campionamendo della *pdf(x,y)*, il rapporto di likelihood è il rapporto delle pdf, 
+   * assumiamo di usare un singolo campionamendo della *pdf(x,y)*, 
+   il rapporto di Likelihood è il rapporto delle pdf, 
    conviene considerare il suo logaritmo e quindi:
    
 ![logLikeRatio](./immagini/logLikeRatio.png)
    
-   * scriviamo la funzione 
+   * scriviamo la funzione logaritmo del rapporto di Likelihood:
    ```cpp
    double loglike(double *x, double *p){
 	 if(p[1]*p[3]*p[5]*p[7]==0) return 1e30; //evito divisione per zero
 	 double arg = - ( pow( (x[0]-p[0])/p[1],2) + pow( (x[1]-p[2])/p[3],2) );
 	 arg+= ( pow( (x[0]-p[4])/p[5],2) + pow( (x[1]-p[6])/p[7],2) );
 	 return arg;
-	 }
-   ```
+	 }```
    
    * costruiamo una ```TF2``` 
    
    ```cpp
    TF2 *lratio = new TF2("lratio",loglike,xmin,xmax,ymin,ymax,8); 
-   lratio->SetParameters(par);
-   ```
+   lratio->SetParameters(par);```
+   
 ![linea](../immagini/linea.png)
   
 ## 12.6.3 Disegnamo le due pdf e il rapporto di likelihood 
