@@ -13,7 +13,7 @@
   * in questa lezione consideriamo il caso di ipotesi semplici
  ![linea](../immagini/linea.png)
 
-## 12.1.1 Regione Cristica, Size e Power
+## 12.1.1 Regione Critica, Size e Power
   * un test di ipotesi prevede di:
 	* costruire una statistica *t* usando i campionamenti 
 	* scartare l'ipotesi H<sub>0</sub> quando *t* cade nella regione del sample space che 
@@ -33,8 +33,9 @@
      * la statistica *t* è una variabile mono-dimensionale che segue la distribuzione del chi-quadro
      * la regione critica è data da *t* > *t*<sub>cut</sub>
      * il size è l'integrale della distribuzione chi-quadro per *t* > *t*<sub>cut</sub> 
-   * in approccio frequentista chiamiamo **Confidence Level** il size del test: 
+   * in approccio frequentista chiamiamo **Confidence Level** il size: 
    è la probabilità che il test dia esito positivo quando l'ipotesi è vera. 
+   
 ![linea](../immagini/linea.png)
 
 ## 12.1.3 Il Metodo del discriminante di Fischer  
@@ -44,20 +45,20 @@
      * costruire una statistica *t* che sia una funzione lineare dei campionamenti
      * accettare l'ipotesi se t < *t*<sub>cut</sub>
      * *t*<sub>cut</sub> identifica la regione critica e il size del test
+     
 ![linea](../immagini/linea.png)
 
 ## 12.1.4 Il Metodo del rapporto di Likelihood 
    * sono dati N campionamenti IID di una *pdf(x)* e si vuole determinare se provengono dalla 
       *pdf(x| H<sub>0</sub>)* o dalla *pdf(x| H<sub>1</sub>)*   
    * il metodo del rapporto di Likelihood prevede di:
-    * usare come statistica del test il rapporto
+      * usare come statistica del test il rapporto
 ![formulaLikeRatio](./immagini/Formula_LikelihoodRatio.png)
-    * accettare l'ipotesi se *Likelihoo-Ratio* < *t*<sub>cut</sub> dove *t*<sub>cut</sub> 
+      * accettare l'ipotesi se *Likelihoo-Ratio* < *t*<sub>cut</sub> dove *t*<sub>cut</sub> 
       è scelto a partire dal valore desiderato per il size del test 
       (*t*<sub>cut</sub> identifica la regione critica)
-    * nel caso di ipotesi semplici questa procedura produce, a parità di size, il test con il power più alto
-      la regione critica così indetificata si chiama Best Critical Region
-
+      * nel caso di ipotesi semplici questa procedura produce, a parità di size, il test con il power più alto
+      la regione critica così indetificata si chiama **Best Critical Region** o  BCR
 ![linea](../immagini/linea.png)
 
 ## 12.2 Decorrelazione lineare di variabili
