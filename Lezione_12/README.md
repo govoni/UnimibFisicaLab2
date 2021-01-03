@@ -454,132 +454,137 @@
 ![linea](../immagini/linea.png)
 
 ## 12.5 Il Teorema di Neyman-Pearson
-  * i dati sono N campionamenti IID di una *pdf(x)*, *x*<sub>*1*</sub> ... *x*<sub>*N*</sub>
+  * i dati sono N campionamenti IID, *x*<sub>*1*</sub> ... *x*<sub>*N*</sub>
    e si vuole determinare se provengono dalla 
       *pdf(x| H<sub>0</sub>)* o dalla *pdf(x| H<sub>1</sub>)*
       
   * le due ipotesi sono semplici, al set di campionamenti associo due Likelihood:
-     * L(x<sub>1</sub> ... x<sub>N</sub> | H<sub>0</sub>) se vale l'ipotesi H<sub>0</sub>
-     * L(x<sub>1</sub> ... x<sub>N</sub> | H<sub>1</sub>) se vale l'ipotesi H<sub>1</sub>
+     * *L(x<sub>1</sub> ... x<sub>N</sub> | H<sub>0</sub>)* se vale l'ipotesi *H<sub>0</sub>*
+     * *L(x<sub>1</sub> ... x<sub>N</sub> | H<sub>1</sub>)* se vale l'ipotesi *H<sub>1</sub>*
      
-  * la Best Critical Region (BCR) è quel sottoinsieme di &Omega; definito dalla condizione:
+  * la Best Critical Region (BCR) per un test di size &alpha; 
+   è quel sottoinsieme del sample space &Omega; definito dalla condizione:
   
   ![condizioneBCR](./immagini/condizioneBCR.png)
-  
-  * un set di campionamenti appartiene alla BCR se il suo likelihood ratio è inferiore a un 
-    valore c<sub>&alpha;</sub> che dipende dal size &alpha; scelto
+
     
 ![linea](../immagini/linea.png)
   
-## 12.5.2 Determinazione di di c<sub>&alpha;</sub>  
-  * la condizione che determina c<sub>&alpha;</sub> è che il size del test valga &alpha;
-   ![c_alpha](./immagini/c_alpha.png)
-  * il size è la probabilità associata a quei campionamenti estratti dalla
-    pdf(x | H<sub>0</sub>) che soddisfano la condizione BCR
-
+## 12.5.2 Determinazione di c<sub>&alpha;</sub>  
+  
+  * la condizione che determina c<sub>&alpha;</sub> è che campionamenti estratti 
+  dalla *pdf(x| H<sub>0</sub>)* abbiano probabilità &alpha; di appartenere alla regione critica:
+  
+  ![c_alpha](./immagini/c_alpha.png)
+  
+  * un campionamento appartiene alla regione critica se il suo Likelihood Ratio è inferiore a c<sub>&alpha;</sub>
+ 
 ![linea](../immagini/linea.png) 
 
-## 12.5.3 Esempio: Due Ipotesi semplici distinte da una media differente
- 
+## 12.6 Esempio di calcolo della BCR
+  
+  * i dati sono un singolo campionamento di una pdf(x,y) binormale
+  * vogliamo distinguere tra due ipotesi semplici che prevedono valori 
+    differenti per media e sigma della binormale
+  * per costruire la BCR ci serve definire:
+	* una funzione che descriva la *pdf(x| H<sub>0</sub>)*
+	* una funzione che descriva la *pdf(x| H<sub>1</sub>)*
+	* una funzione che descriva il rapporto di likelihood
+
+![linea](../immagini/linea.png)
+
+## 12.6.1 Funzione binormale
+
   * scriviamo una funzione binormale pdf(x,y) con correlazione nulla tra 
-  le due variabili x ed y e la stessa media &mu; e varianza &sigma;
+  le due variabili x ed y;
   
   ```cpp
   double binormal(double *x, double *p){
-	 double sigma=p[0];
-	 double mu=p[1];
+	 double mux=p[0]; double sigmax=p[1];
+	 double muy=p[2]; double sigmay=p[3];
 	 double arg;
-	 if(sigma>0) 
-		arg=1/(2.*acos(-1)*sigma*sigma)*exp(- 1./(2.*sigma*sigma)*((x[0]-mu)*(x[0]-mu)+(x[1]-mu)*(x[1]-mu))); 
+	 if(sigmax>0 && sigmay>0) {
+	    arg= ( pow( (x[0]-mux)/sigmax,2) + pow( (x[1]-muy)/sigmay,2) );
+		arg=1/(2.*acos(-1)*sigmax*sigmay)*exp(- 1./2* arg);
+		}
 	 else arg=1e30;
 	 return arg;
-	 }
+   }
    ```
-
-   * definiamo due funzioni di ```ROOT``` che descrivono le due ipotesi:
-     * H<sub>0</sub>: &mu;=2 &sigma;=1  la pdf è pdf(x,y | H<sub>0</sub>)
-     * H<sub>1</sub>: &mu;=3 &sigma;=1  la pdf è pdf(x,y | H<sub>1</sub>)
-     
-   ```cpp
-    int npar=2;
-	double sigma=1;
-	double mu0=2; //H_0
-	double mu1=3; //H_1
-    double min=-1,max=5;
-	TF2 *f0 = new TF2("f0",binormal,min,max,min,max,npar);
+   
+   * definiamo due funzioni ```TF2``` di ```ROOT``` che descrivono le due ipotesi:
+      
+   ```cpp 
+    double par[]={H0_mu_x, H0_sigma_x , H0_mu_y, H0_sigma_y, H1_mu_x, H1_sigma_x , H1_mu_y, H1_sigma_y};
+	TF2 *f0 = new TF2("f0",binormal,xmin,xmax,ymin,ymax,npar);
 	f0->SetTitle("P(t|H_0)");
-	f0->SetParameters(sigma,mu0);
-	TF2 *f1 = new TF2("f1",binormal,min,max,min,max,npar);
+	f0->SetParameters(par);
+	TF2 *f1 = new TF2("f1",binormal,xmin,xmax,ymin,ymax,npar);
 	f1->SetTitle("P(t|H_1)");
-	f1->SetParameters(sigma,mu1); 
+	f1->SetParameters(par+4);
    ```
     
 ![linea](../immagini/linea.png)
 
-## 12.5.4 Il rapporto di Likelihood per un singolo campionamento
+## 12.6.2 Rapporto di Likelihood
 
-   * se la pdf(x,y) è campionata una sola volta, la statistica usata per il test è il campionamento stesso
-   * il rapporto di likelihood è:
+   * assumiamo di usare un singolo campionamendo della *pdf(x,y)*, il rapporto di likelihood è il rapporto delle pdf, 
+   conviene considerare il suo logaritmo e quindi:
    
-![Likeratio](./immagini/LikeRatio.png)
-
-   * il suo logaritmo è 
+![logLikeRatio](./immagini/logLikeRatio.png)
    
-![logLikeratio](./immagini/logLikeRatio.png)
-
-   * possiamo costruire una ```TF2``` che rappresenta  log(&lambda;(x,y)) usando la modalità inline:
+   * scriviamo la funzione 
+   ```cpp
+   double loglike(double *x, double *p){
+	 if(p[1]*p[3]*p[5]*p[7]==0) return 1e30; //evito divisione per zero
+	 double arg = - ( pow( (x[0]-p[0])/p[1],2) + pow( (x[1]-p[2])/p[3],2) );
+	 arg+= ( pow( (x[0]-p[4])/p[5],2) + pow( (x[1]-p[6])/p[7],2) );
+	 return arg;
+	 }
+   ```
+   
+   * costruiamo una ```TF2``` 
    
    ```cpp
-   TF2 *lratio = new TF2("lratio","(((x-[1])**2+(y-[1])**2)-((x-[0])**2+(y-[0])**2))",min,max,min,max);
+   TF2 *lratio = new TF2("lratio",loglike,xmin,xmax,ymin,ymax,8); 
+   lratio->SetParameters(par);
    ```
 ![linea](../immagini/linea.png)
   
-## 12.5.5 Disegnamo le due pdf e il rapporto di likelihood per un singolo campionamento
+## 12.6.3 Disegnamo le due pdf e il rapporto di likelihood 
 
- * disegnamo le due pdf(x,y) e il logaritmo del likelihood ratio ln &lambda;(x,y)
+ ![binormali](./immagini/binormal.png)
+ * ```ROOT``` mette a disposizione molte modalità diverse per disegnare una funzione 
+ di due variabili, qui usiamo ```Draw("cont1z")```
+ * i metodi ```SetSetNpx(int npoints)``` e ```SetSetNpy(int npoints)``` consentono di cambiare
+ il numero di punti su cui la funzione è valutata per essere disegnata 
+ (se il disegno appare discontinuo provate)
  
-  
-     ```cpp
-    TCanvas c1;
-    c1.Divide(3,2);
-    c1.cd(1);
-    f1->GetXaxis()->SetTitle("x");
-    f1->GetYaxis()->SetTitle("y");
-    f1->DrawClone("cont1z");
-    f0->DrawClone("cont1z same ");
-    c1.cd(2);
-    lratio->DrawClone("cont1z");
-    lratio->GetXaxis()->SetTitle("x");
-    lratio->GetYaxis()->SetTitle("y");
-    ```
-![binormali](./immagini/binormal.png)
-
-
 ![linea](../immagini/linea.png)
 
-## 12.5.6 BCR per un campionamento
+## 12.6.4 BCR 
  
-  * il sample space coincide con il piano (x,y), quindi la BCR sarà una regione di questo piano definita dalla condizione:
+  * il sample space coincide con il piano (x,y), quindi la BCR sarà una regione di questo piano 
+  definita dalla condizione:
 
  ![linea](./immagini/condizioneBCRloglambda.png)
 
   * per determinare il c<sub>&alpha;</sub> che corrisponde al size &alpha; 
   scelto dobbiamo:
     * costruire la funzione che calcola il size al variare di c<sub>&alpha;</sub>
-    * invertire la funzione per determinare c<sub>&alpha;</sub> dato il size 
+    * scorrere i valori di c<sub>&alpha;</sub> calcolando il corrispondente size
+    * individuare il valore di c<sub>&alpha;</sub> che corrisponde al size desiderato
 
 ![linea](../immagini/linea.png)
 
-## 12.5.7 Funzione che calcola il size
+## 12.6.5 Funzione che calcola il size
 
  * scriviamo una funzione che dato un mumero c<sub>&alpha;</sub> calcola il corrispondente size del test
  * va campionata la pdf(x,y | H<sub>0</sub>)
  
-   * la binormale ha correlazione nulla, pertanto è data dal prodotto di due gaussiane 
-   (correlazione=0 in questo caso implica indipendenza), la generazione di una coppia (x,y) può usare 
-   la funzione ```rand_TAC``` scritta per una gaussiana, chiamandola due volte
+   * si può usare la funzione ```rand_TAC``` chiamandola due volte
    
-   * in alternativa si può usare il metodo ```GetRandom(double x,double y)``` della ```TF2``` 
+   * si può usare il metodo ```GetRandom(double x,double y)``` della ```TF2``` 
     (l'inizializzazione del seed si fa nel main con l'istruzione ```gRandom->SetSeed(0); ```)
    
     ```cpp
@@ -596,22 +601,28 @@
      ```
 ![linea](../immagini/linea.png)
 
-## 12.5.8 Andamento del size in funzione di c<sub>&alpha;</sub> e BCR
+## 12.5.8 Funzione che scorre i valori di *c<sub>&alpha;</sub>* e calcola il size
 
-  * scriviamo una funzione che 
-     * usa la funzione ```sizetest()``` per costruire un ```TGraph * gsize``` con l'andamento di &alpha; in funzione di c<sub>&alpha;</sub> usando la funzione ```sizetest``` 
-     * restituisce il valore approssimato di c<sub>&alpha;</sub> che corrisponde al size &alpha; passato in ingresso 
-   * la funzione deve:
-      * trovare gli estremi entro i quali far variare c<sub>&alpha;</sub>
-      ```cpp
-      double lratio_min=lratio->GetMinimum();
-      double lratio_max=lratio->GetMaximum();
-      ```
-      
-      * variare c<sub>&alpha;</sub> dal minimo dell'intervallo al massimo e per ogni valore 
-    calcolare il size del test usando ```sizetest()```
-      * riempire un grafico con i valori c<sub>&alpha;</sub> - size e restituire il valore 
-    c<sub>&alpha;</sub> che meglio si avvicina al size prescelto  
+  ```cpp
+  double DeterminaBCR(TF2 *lratio, TF2 *f0, double alpha, TGraph *gsize) {...}
+  ``` 
+  * prende in input:
+    * il logaritmo del Likelihood Ratio
+    * la *pdf(x,y|H<sub>0</sub> )*
+    * il puntatore a un grafico da riempire (istanziato nel main)
+    * il valore del size desiderato, in corrispondenza del quale restituisce il valore di *c<sub>&alpha;</sub>*
+  
+  * effettua le seguenti operazioni:
+    * trova gli estremi tra cui far variare *c<sub>&alpha;</sub>*, 
+     sono i valori minimi e massimi del logaritmo del Likelihood Ratio:
+   ```cpp
+   double lratio_min=lratio->GetMinimumXY(x,y);
+   double lratio_max=lratio->GetMaximumXY(x,y);
+   ```
+     * incrementa *c<sub>&alpha;</sub>* con un passo costante, 
+       partendo dal minimo e arrivando al massimo e calcolando ogno volta il size 
+       (chiamando la funzione ```sizetest( )``` )
+     * riempie il grafico con le coppie *c<sub>&alpha;</sub>* - size
 
 
 ![linea](../immagini/linea.png)
