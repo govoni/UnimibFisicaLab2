@@ -7,47 +7,51 @@
   * si hanno N campionamenti IID di una *pdf(x)* con *x* variabile mono o pluri-dimensionale, si vuole:
     * valutare la validità di un'ipotesi *H<sub>0</sub>* relativa alla *pdf(x)* 
     * confrontare l'ipotesi *H<sub>0</sub>* con l'ipotesi alternativa H<sub>1</sub>, entrambe relative alla *pdf(x)*
-  * consideriamo il caso di ipotesi sono semplici (non richiedono non prevedono stima di parametri) 
-  
-  * un test di ipotesi prevedere di
-	* costuire un'opportuna statistica *t* usando i campionamenti 
+  * le ipotesi si dividono in:
+	* semplici, che non prevedono stima di parametri
+	* composte, che prevedono dapprima di stimare i parametri e poi di effettuare il test
+  * in questa lezione consideriamo il caso di ipotesi semplici
+ ![linea](../immagini/linea.png)
+
+## 12.1.1 Regione Cristica, Size e Power
+  * un test di ipotesi prevede di:
+	* costruire una statistica *t* usando i campionamenti 
 	* scartare l'ipotesi H<sub>0</sub> quando *t* cade nella regione del sample space che 
-      chiamiamo **regione critica** 
+      chiamiamo **regione critica**
 	 
    * il test è caratterizzato da due parametri: 
-     * &alpha; è la probabilità che quando H<sub>0</sub> è vera l'ipotesi venga scartata: è il **size** del test
-     * &beta; è la probabilità che quando H<sub>1</sub> è vera ma l'ipotesi H<sub>0</sub> viene accettata: 
-      (1-&beta;) è il **power** del test    
-  * **la regione critica che massimizza il power del test, una volta fissato il suo size, è la BCR**
+     * &alpha; è la probabilità che l'ipotesi H<sub>0</sub> venga scartata quando è vera: è il **size** del test
+     * &beta; è la probabilità  che l'ipotesi H<sub>0</sub> viene accettata quando è vera H<sub>1</sub>: 
+      (1-&beta;) è il **power** del test   
+   * la regione critica non è univocamente determinabile dal size del test 
+  * **la regione critica che massimizza il power del test, una volta fissato il suo size, è la Best Critical Region (BCR)**
 ![linea](../immagini/linea.png)
 
-## 12.1.1 Il test del Chi-Quadro
+## 12.1.2 Il test del Chi-Quadro
    * il test del chi-quadro analizza una singola ipotesi *H<sub>0</sub>*
      * i parametri sono stimati preventivamente ed il test usa il valore stimato
      * la statistica *t* è una variabile mono-dimensionale che segue la distribuzione del chi-quadro
      * la regione critica è data da *t* > *t*<sub>cut</sub>
      * il size è l'integrale della distribuzione chi-quadro per *t* > *t*<sub>cut</sub> 
-   * in approccio frequentista chiamiamo **Confidence Level** il size del test, questa è la probabilità che, 
-   essendo vera l'ipotesi, il test dia esito positivo
+   * in approccio frequentista chiamiamo **Confidence Level** il size del test: 
+   è la probabilità che il test dia esito positivo quando l'ipotesi è vera. 
 ![linea](../immagini/linea.png)
 
-## 12.1.2 Il Metodo del discriminante di Fischer  
+## 12.1.3 Il Metodo del discriminante di Fischer  
    * sono dati N campionamenti IID di una *pdf(x)* e si vuole determinare se provengono dalla 
       *pdf(x| H<sub>0</sub>)* o dalla *pdf(x| H<sub>1</sub>)*
-   * assumiamo che entrambe le ipotesi siano semplici
    * il metodo del determinante di Fischer prevede di:
-    * costruire una statistica *t* che sia una funzione lineare dei campionamenti
-    * accettare l'ipotesi se t < *t*<sub>cut</sub> dove *t*<sub>cut</sub> 
-      è scelto a partire dal valore desiderato per il size del test 
-      (*t*<sub>cut</sub> identifica la regione critica)
+     * costruire una statistica *t* che sia una funzione lineare dei campionamenti
+     * accettare l'ipotesi se t < *t*<sub>cut</sub>
+     * *t*<sub>cut</sub> identifica la regione critica e il size del test
 ![linea](../immagini/linea.png)
 
-## 12.1.3 Il Metodo del rapporto di Likelihood 
+## 12.1.4 Il Metodo del rapporto di Likelihood 
    * sono dati N campionamenti IID di una *pdf(x)* e si vuole determinare se provengono dalla 
       *pdf(x| H<sub>0</sub>)* o dalla *pdf(x| H<sub>1</sub>)*   
    * il metodo del rapporto di Likelihood prevede di:
     * usare come statistica del test il rapporto
-![formulaLikeRatio](./immagini/FormulaLikelihoodRatio.png)
+![formulaLikeRatio](./immagini/Formula_LikelihoodRatio.png)
     * accettare l'ipotesi se *Likelihoo-Ratio* < *t*<sub>cut</sub> dove *t*<sub>cut</sub> 
       è scelto a partire dal valore desiderato per il size del test 
       (*t*<sub>cut</sub> identifica la regione critica)
