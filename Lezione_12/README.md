@@ -618,21 +618,21 @@
   * effettua le seguenti operazioni:
     * trova gli estremi tra cui far variare c<sub>&alpha;</sub>, 
      sono i valori minimi e massimi del logaritmo del Likelihood Ratio:
-     ```cpp
+      ```cpp
       double lratio_min=lratio->GetMinimumXY(x,y);
       double lratio_max=lratio->GetMaximumXY(x,y);
-     ```
+      ```
      
     * incrementa c<sub>&alpha;</sub> con un passo costante, 
        partendo dal minimo e arrivando al massimo,  calcola ogni volta il size 
-       chiamando la funzione ```sizetest``` 
+       chiamando la funzione ```sizetest()``` 
     * riempie il grafico con le coppie c<sub>&alpha;</sub> vs. size
 
 
 ![linea](../immagini/linea.png)
 
 
-## 12.6.9 Disegno della BCR
+## 12.7.8 Disegno della BCR
 
  * nel main del programma possiamo disegnare la regione BCR corrispondente al size scelto e il grafico c<sub>&alpha;</sub> vs. size 
  * c<sub>&alpha;</sub> è il valore restituito dalla funzione ```DeterminaBCR()```
@@ -644,15 +644,15 @@
 	f1->Draw("cont1z same");
 	f0->Draw("cont1z same ");
    ```
-   * il power del test può essere calcolato usando la funzione ```sizetest()``` 
-     a cui viene passata la forma della pdf prevista dall'ipotesi *H<sub>1</sub>*
-     ```cpp
-     cout<<"power "<<sizetest(c_alpha, lratio, f1)<<endl;
-     ```
+ * il power del test può essere calcolato con la funzione ```sizetest()``` 
+     a cui viene passata la forma della pdf prevista dall'ipotesi *H<sub>1</sub>*  
+   ```cpp
+   cout<<"power "<<sizetest(c_alpha, lratio, f1)<<endl;
+   ```
 
 ![linea](../immagini/linea.png)
 
-## 12.6.10 Disegno curva ROC
+## 12.7.9 Disegno curva ROC
 
   * possiamo costruire il grafico che rappresenta la curva &beta; vs. &alpha; (detta curva ROC)
     ```cpp
