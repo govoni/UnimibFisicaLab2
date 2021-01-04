@@ -45,57 +45,67 @@ nei tre casi in cui la separazione sia fatta con la variabile *x*, *y* o *t*.
 Si determini l'area sottesa dalle tre curve ROC costruite nell'esercizio 12.5.
 ![linea](../immagini/linea.png)
 
+
+
+
+
 ## Esercizio 12.7
 
-Si scriva un programma che definisca una funzione binormale ```double binormale (double* x, double* y)``` 
-con correlazione nulla tra le  due variabili x ed y:
-* si utilizzi la classe ```TF2``` di ```ROOT``` per disegnare la funzione
-* si usi il metodo previsto dall'esercizio 12.5 per estrarre N coppie di numeri casuali da una 
-binormale con E[x]=E[y]=&mu;=2  e Var[x]=Var[y]=&sigma;^2=1
-* si riempia un istogramma di tipo ```TH2F``` con le coppie di numeri estratte, lo si disegni e si 
-usi il metodo ```Fit()``` di ```TH2F``` per stimare i parametri
-* si confrontino i risultati ottenuti nel caso di una funzione binormale 
-che per costruzione abbia E[x]=E[y]=&mu; e una in cui i due parametri possono assumere valori differenti
+Si scriva un programma che definisca due funzioni in modo parametrico:
+* una pdf binormale ```double binormal(double *x, double *p)``` 
+con correlazione nulla tra le  due variabili x ed y (i parametri sono 4);
+* il logaritmo del rapporto tra due pdf binormali (è il loglikelihood ratio per un singolo campionamento) 
+```double loglike(double *x, double *p)``` (i parametri sono 8, 4 per la pdf al numeratore e 4 per quella al denominatore).
+
+Si scriva un main in cui:
+* i parametri delle due binormali (media e sigma per le due variabili *x* ed *y*)
+sono passati dalla command-line e inseriti in un array di 8 elementi.
+* si istanziano 3 oggetti di tipo ```TF2``` di ```ROOT```
+   * ```TF2 *f0 ``` è la binormale relativa all'ipotesi *H<sub>0</sub>* 
+   * ```TF2 *f1 ``` è la binormale relativa all'ipotesi *H<sub>1</sub>* 
+   * ```TF2 *lratio ``` è loglikelihood ratio per un singolo campionamento 
+* si assegnano i valori dei parametri alle 3 funzioni   
+* si disegnano le 3 funzioni in uno stesso ```Canvas()``` diviso in 3 ```Pad()```
+
 ![linea](../immagini/linea.png)  
   
 ## Esercizio 12.8
     
-Si ripeta l'esercizio precedente usando il metodo ```GetRandom(double x,double y)``` della ```TF2``` 
+Si scriva un programma in cui si campiona una funzione binormale, provate a campionarla usando 
+la funzione ```rand_TAC``` chiamandola due volte o usando il metodo ```GetRandom(double x,double y)``` della ```TF2``` 
 come descritto nella seconda parte della lezione:
 * includere una classe per la generazione di numeri casuali, come```TRandom3.h```
 * inizializzare nel main il seed con l'istruzione ```gRandom->SetSeed(0); ```
+Riempire due istogrammi usando i due metodi (con gli stessi parametri per la binormale) e 
+fatene il fit con la ```TF2``` binormale.
 
 ![linea](../immagini/linea.png)  
+   
   
 ## Esercizio 12.9
 
-Scrivere un programma in cui nel main sono definite:
-* due funzioni di tipo ```TF2``` che rappresentano due differenti pdf(x,y)
-  * per l'ipotesi H<sub>0<\sub> istanziare una ```TF2 * f0``` binormale con E[x]=E[y]=&mu;=2  e Var[x]=Var[y]=&sigma;^2=1
-  * per l'ipotesi H<sub>1<\sub> istanziare una ```TF2 * f1``` binormale con E[x]=E[y]=&mu;=3  e Var[x]=Var[y]=&sigma;^2=1
-* una funzione ```TF2``` che rappresenta il logaritmo del rapporto di likelihood tra 
-le due pdf nel caso di un singolo campionamento (quindi è la differenza tra i logaritmi delle due pdf)
+Si implementi, nel programma dell'esercizio 12.7, una funzione che calcola il size del test:
+```cpp
+double sizetest(double c_alpha, TF2 *lratio, TF2 *f0, int N)```
 
-Disegnare le due pdf in un ```Canvas``` e il rapporto di likelihood in un secondo ```Canvas```.
+* ```c_alpha``` è un valore passato dal main che definisce la regione critica
+* si campiona la pdf ```TF2 *f0``` un numero *N* di volte 
+* si calcola quale frazione dei campionamenti ha un loglikelihood ratio inferiore a ```c_alpha```
+* questo è il size del test ed è il valore restituito dalla funzione
 
-![linea](../immagini/linea.png)  
-  
-## Esercizio 12.10
+Per provare la funzione si suggerisce di scegliere un valore di ```c_alpha```  nel range 
+compreso tra il valore massimo e minimo del loglikelihood ratio (p.es. a metà del range) ed 
+effettuare un cliclo in cui il size del test è calcolato per valori crescenti di *N* e stampato a schermo (o inserito in un grafico).
+Questo vi consente di scegliere un valore di *N* che sia un compromesso tra la precisione della stima del size
+e il tempo di esecuzione del programma.
 
-Implementare nel programma precedente:
-* il calcolo dei valore massimo e minimo della funzione ```lratio``` nell'insieme su cui è definita
-* la funzione ```double sizetest(double c_alpha, TF2 *lratio, TF2 *f0)``` 
-che calcola il size di un test così fatto:
-  * il test è basato su un singolo campionamento della pdf(x,y)
-  * la regione critica è quella per cui il logaritmo del rapporto di likelihood 
-    è minore di  c<sub>&alpha;</sub> 
-* stampare a schermo il valore del size
 
 ![linea](../immagini/linea.png)
 
-## Esercizio 12.11
+## Esercizio 12.9
 Completare il programma dell'esercizio 12.10 implementando la funzione che determina la BCR
- ```double DeterminaBCR(TF2 *lratio, TF2 *f0, double alpha, TGraph *gsize)```
+ ```cppp
+ double DeterminaBCR(TF2 *lratio, TF2 *f0, double alpha, TGraph *gsize)```
 I parametri sono: 
 * le funzioni di che rappresentano il  logaritmo del rapporto 
 di likelihood e la pdf(x,y) nell'ipotesi H<sub>0<\sub>
@@ -105,15 +115,10 @@ Un ciclo fa variare c<sub>&alpha;</sub> del valore minimo che può assumere al v
 Per ogni valore determina il size del test e riempie il grafico.
 Infine restituisce il valore di c<sub>&alpha;</sub>, tra quelli campionati, che ha un size prossimo al valore desiderato.
 
-![linea](../immagini/linea.png)
-
-## Esercizio 12.12
-Modificare l'esercizio 12.11 in modo da considerare più campionamenti della pdf(x,y). Andrà ovviamente modificata anche la
-```TF2``` che rappresenta il logaritmo del rapporto di likelihood e la BCR non potrà essere disegnata in termini di sample-space.  
 
 ![linea](../immagini/linea.png)
 
-## Esercizio 12.13
+## Esercizio 12.10
 Modificare l'esercizio 12.11 sostituendo alla binormale un'altra pdf bidimensionale 
 (p.es. ottenuta come prodotto di due pdf mono-dimensionali). Andrà ovviamente modificata anche la
 ```TF2``` che rappresenta il logaritmo del rapporto di likelihood.   
