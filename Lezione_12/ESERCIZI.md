@@ -52,7 +52,7 @@ Si determini l'area sottesa dalle tre curve ROC costruite nell'esercizio 12.5.
 ## Esercizio 12.7
 
 Si scriva un programma che definisca due funzioni in modo parametrico:
-* una pdf binormale ```double binormal(double *x, double *p)``` 
+* la pdf binormale ```double binormal(double *x, double *p)``` 
 con correlazione nulla tra le  due variabili x ed y (i parametri sono 4);
 * il logaritmo del rapporto tra due pdf binormali (è il loglikelihood ratio per un singolo campionamento) 
 ```double loglike(double *x, double *p)``` (i parametri sono 8, 4 per la pdf al numeratore e 4 per quella al denominatore).
@@ -71,13 +71,12 @@ sono passati dalla command-line e inseriti in un array di 8 elementi.
   
 ## Esercizio 12.8
     
-Si scriva un programma in cui si campiona una funzione binormale, provate a campionarla usando 
-la funzione ```rand_TAC``` chiamandola due volte o usando il metodo ```GetRandom(double x,double y)``` della ```TF2``` 
-come descritto nella seconda parte della lezione:
-* includere una classe per la generazione di numeri casuali, come```TRandom3.h```
-* inizializzare nel main il seed con l'istruzione ```gRandom->SetSeed(0); ```
-Riempire due istogrammi usando i due metodi (con gli stessi parametri per la binormale) e 
-fatene il fit con la ```TF2``` binormale.
+Si scriva un programma in cui si campiona una funzione binormale riempiendo due istogrammi:
+* uno campionando mediante la funzione ```rand_TAC``` chiamata due volte
+* uno usando il metodo ```GetRandom(double x,double y)``` della ```TF2``` 
+  * includere una classe per la generazione di numeri casuali, come```TRandom3.h```
+  * inizializzare nel main il seed con l'istruzione ```gRandom->SetSeed(0); ```
+Si faccia quindi il fit dei due istogrammi con la ```TF2``` binormale.
 
 ![linea](../immagini/linea.png)  
    
@@ -86,7 +85,8 @@ fatene il fit con la ```TF2``` binormale.
 
 Si implementi, nel programma dell'esercizio 12.7, una funzione che calcola il size del test:
 ```cpp
-double sizetest(double c_alpha, TF2 *lratio, TF2 *f0, int N)```
+double sizetest(double c_alpha, TF2 *lratio, TF2 *f0, int N)
+```
 
 * ```c_alpha``` è un valore passato dal main che definisce la regione critica
 * si campiona la pdf ```TF2 *f0``` un numero *N* di volte 
@@ -105,7 +105,8 @@ e il tempo di esecuzione del programma.
 ## Esercizio 12.9
 Completare il programma dell'esercizio 12.10 implementando la funzione che determina la BCR
  ```cppp
- double DeterminaBCR(TF2 *lratio, TF2 *f0, double alpha, TGraph *gsize)```
+ double DeterminaBCR(TF2 *lratio, TF2 *f0, double alpha, TGraph *gsize)
+ ```
 I parametri sono: 
 * le funzioni di che rappresentano il  logaritmo del rapporto 
 di likelihood e la pdf(x,y) nell'ipotesi H<sub>0<\sub>
