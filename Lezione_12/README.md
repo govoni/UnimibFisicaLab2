@@ -502,7 +502,6 @@
 
   * scriviamo una funzione binormale *pdf(x,y)* con correlazione nulla tra 
   le due variabili *x* ed *y*;
-  
   ```cpp
   double binormal(double *x, double *p){
 	 double mux=p[0]; double sigmax=p[1];
@@ -518,7 +517,6 @@
    ```
    
   * definiamo due funzioni ```TF2``` di ```ROOT``` che descrivono le due ipotesi:
-      
    ```cpp 
     double par[]={H0_mu_x, H0_sigma_x , H0_mu_y, H0_sigma_y, H1_mu_x, H1_sigma_x , H1_mu_y, H1_sigma_y};
 	TF2 *f0 = new TF2("f0",binormal,xmin,xmax,ymin,ymax,npar);
@@ -540,14 +538,14 @@
 ![logLikeRatio](./immagini/logLikeRatio.png)
    
    * scriviamo la funzione logaritmo del rapporto di Likelihood:
-   ```cpp
-   double loglike(double *x, double *p){
-	 if(p[1]*p[3]*p[5]*p[7]==0) return 1e30; //evito divisione per zero
-	 double arg = - ( pow( (x[0]-p[0])/p[1],2) + pow( (x[1]-p[2])/p[3],2) );
-	 arg+= ( pow( (x[0]-p[4])/p[5],2) + pow( (x[1]-p[6])/p[7],2) );
-	 return arg;
+     ```cpp
+     double loglike(double *x, double *p){
+	   if(p[1]*p[3]*p[5]*p[7]==0) return 1e30; //evito divisione per zero
+	   double arg = - ( pow( (x[0]-p[0])/p[1],2) + pow( (x[1]-p[2])/p[3],2) );
+	   arg+= ( pow( (x[0]-p[4])/p[5],2) + pow( (x[1]-p[6])/p[7],2) );
+	   return arg;
 	 }
-	 ```
+     ```
    
    * costruiamo una ```TF2``` 
    
@@ -558,18 +556,18 @@
    
 ![linea](../immagini/linea.png)
   
-## 12.6.5 Disegnamo le due pdf e il rapporto di likelihood 
+## 12.7.3 Disegnamo le due pdf e il rapporto di likelihood 
 
  ![binormali](./immagini/binormal.png)
  * ```ROOT``` mette a disposizione molte modalità diverse per disegnare una funzione 
  di due variabili, qui usiamo ```Draw("cont1z")```
  * i metodi ```SetSetNpx(int npoints)``` e ```SetSetNpy(int npoints)``` consentono di cambiare
  il numero di punti su cui la funzione è valutata per essere disegnata 
- (se il disegno appare discontinuo provate)
+ (se il disegno appare discontinuo provate a cambiare il numero di punti)
  
 ![linea](../immagini/linea.png)
 
-## 12.6.6 BCR 
+## 12.7.4 BCR 
  
   * il sample space coincide con il piano *(x,y)*, quindi la BCR sarà una regione di questo piano 
   definita dalla condizione:
@@ -584,7 +582,7 @@
 
 ![linea](../immagini/linea.png)
 
-## 12.6.7 Funzione che calcola il size
+## 12.7.5 Funzione che calcola il size
 
  * scriviamo una funzione che dato un mumero c<sub>&alpha;</sub> calcola il corrispondente size del test
  * va campionata la *pdf(x,y | H<sub>0</sub>)*
@@ -608,7 +606,7 @@
      ```
 ![linea](../immagini/linea.png)
 
-## 12.6.8 Funzione che scorre i valori di c<sub>&alpha;</sub> e calcola il size
+## 12.7.6 Funzione che scorre i valori di c<sub>&alpha;</sub> e calcola il size
 
   ```cpp
   double DeterminaBCR(TF2 *lratio, TF2 *f0, double alpha, TGraph *gsize) {...}
@@ -625,11 +623,11 @@
    ```cpp
    double lratio_min=lratio->GetMinimumXY(x,y);
    double lratio_max=lratio->GetMaximumXY(x,y);
-   ```
+  ```
 
     * incrementa c<sub>&alpha;</sub> con un passo costante, 
        partendo dal minimo e arrivando al massimo,  calcola ogni volta il size 
-       chiamando la funzione ```sizetest( )``` 
+       chiamando la funzione ```sizetest``` 
     * riempie il grafico con le coppie c<sub>&alpha;</sub> vs. size
 
 
