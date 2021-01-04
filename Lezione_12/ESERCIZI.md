@@ -94,7 +94,7 @@ double sizetest(double c_alpha, TF2 *lratio, TF2 *f0, int N)
 * questo è il size del test ed è il valore restituito dalla funzione
 
 Per provare la funzione si suggerisce di scegliere un valore di ```c_alpha```  nel range 
-compreso tra il valore massimo e minimo del loglikelihood ratio (p.es. a metà del range) ed 
+compreso tra il valore massimo e minimo del loglikelihood ratio (p.es. a metà del massimo) ed 
 effettuare un cliclo in cui il size del test è calcolato per valori crescenti di *N* e stampato a schermo (o inserito in un grafico).
 Questo consente di scegliere un valore di *N* che sia un compromesso tra la precisione della stima del size
 e il tempo di esecuzione del programma.
