@@ -96,30 +96,44 @@ double sizetest(double c_alpha, TF2 *lratio, TF2 *f0, int N)
 Per provare la funzione si suggerisce di scegliere un valore di ```c_alpha```  nel range 
 compreso tra il valore massimo e minimo del loglikelihood ratio (p.es. a metà del range) ed 
 effettuare un cliclo in cui il size del test è calcolato per valori crescenti di *N* e stampato a schermo (o inserito in un grafico).
-Questo vi consente di scegliere un valore di *N* che sia un compromesso tra la precisione della stima del size
+Questo consente di scegliere un valore di *N* che sia un compromesso tra la precisione della stima del size
 e il tempo di esecuzione del programma.
 
 
 ![linea](../immagini/linea.png)
 
-## Esercizio 12.9
-Completare il programma dell'esercizio 12.10 implementando la funzione che determina la BCR
+## Esercizio 12.10
+Implementare nel programma dell'esercizio 12.9 la funzione che determina la BCR 
+(cioè che calcola il valore di c<sub>&alpha;</sub> corrispondente al size desiderato)
+
  ```cppp
  double DeterminaBCR(TF2 *lratio, TF2 *f0, double alpha, TGraph *gsize)
  ```
 I parametri sono: 
 * le funzioni di che rappresentano il  logaritmo del rapporto 
 di likelihood e la pdf(x,y) nell'ipotesi H<sub>0<\sub>
-* il size scelto per il test
+* il size scelto per il test (da aggungersi come parametro passato dalla command-line)
 * il puntatore al grafico che verrà riempito con i valori del size in funzione di c<sub>&alpha;</sub>   
-Un ciclo fa variare c<sub>&alpha;</sub> del valore minimo che può assumere al valore massimo, incrementandolo con passo costante. 
-Per ogni valore determina il size del test e riempie il grafico.
-Infine restituisce il valore di c<sub>&alpha;</sub>, tra quelli campionati, che ha un size prossimo al valore desiderato.
+
+Nella funzione:
+* un ciclo fa variare c<sub>&alpha;</sub> del valore minimo che può assumere al valore massimo, 
+incrementandolo con passo costante (anche qui potete chiedervi come ottimizzare il numero di passi ...)
+* per ogni valore di c<sub>&alpha;</sub> si determina il size del test e si riempie il grafico
+* quando il size del test è prossimo al valore desiderato &alpha; (che è passato come parametro alla funzione) il corrispondente 
+valore di c<sub>&alpha;</sub> è restituito al main.
 
 
 ![linea](../immagini/linea.png)
 
-## Esercizio 12.10
+## Esercizio 12.11
+
+Completare l'esercizio precedente calcolando il power del test e costruendo il grafico ROC.
+Disegnare su un ```Canvas()``` la BCR, il grafico size vs. c<sub>&alpha;</sub>
+e il grafico ROC.
+
+![linea](../immagini/linea.png)
+
+## Esercizio 12.12
 Modificare l'esercizio 12.11 sostituendo alla binormale un'altra pdf bidimensionale 
 (p.es. ottenuta come prodotto di due pdf mono-dimensionali). Andrà ovviamente modificata anche la
 ```TF2``` che rappresenta il logaritmo del rapporto di likelihood.   
