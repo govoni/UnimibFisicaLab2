@@ -527,7 +527,7 @@
 	TF2 *f1 = new TF2("f1",binormal,xmin,xmax,ymin,ymax,npar);
 	f1->SetTitle("P(t|H_1)");
 	f1->SetParameters(par+4);
-	```
+   ```
     
 ![linea](../immagini/linea.png)
 
