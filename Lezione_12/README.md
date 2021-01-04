@@ -484,7 +484,7 @@
  
 ![linea](../immagini/linea.png) 
 
-## 12.6.2 Esempio di calcolo della BCR
+## 12.7 Un esempio di calcolo della BCR
   
   * i dati sono un singolo campionamento di una *pdf(x,y)* binormale
   * vogliamo distinguere tra due ipotesi semplici che prevedono valori 
@@ -493,10 +493,12 @@
 	* una funzione che descriva la *pdf(x| H<sub>0</sub>)*
 	* una funzione che descriva la *pdf(x| H<sub>1</sub>)*
 	* una funzione che descriva il rapporto di Likelihood
-
+    * una funzione che calcoli il size relativo a un determinato c<sub>&alpha;</sub> (quindi per una scelta della regione critica)
+    * una funzione che costruisca la curva size vs. c<sub>&alpha;</sub> in modo numerico
+   * la BCR sarà la regione definita dal c<sub>&alpha;</sub> che ha un size pari a quello desiderato
 ![linea](../immagini/linea.png)
 
-## 12.6.3 Funzione binormale
+## 12.7.1 Funzione binormale
 
   * scriviamo una funzione binormale *pdf(x,y)* con correlazione nulla tra 
   le due variabili *x* ed *y*;
@@ -515,7 +517,7 @@
    }
    ```
    
-   * definiamo due funzioni ```TF2``` di ```ROOT``` che descrivono le due ipotesi:
+  * definiamo due funzioni ```TF2``` di ```ROOT``` che descrivono le due ipotesi:
       
    ```cpp 
     double par[]={H0_mu_x, H0_sigma_x , H0_mu_y, H0_sigma_y, H1_mu_x, H1_sigma_x , H1_mu_y, H1_sigma_y};
@@ -529,7 +531,7 @@
     
 ![linea](../immagini/linea.png)
 
-## 12.6.4 Rapporto di Likelihood
+## 12.7.2 Rapporto di Likelihood
 
    * assumiamo di usare un singolo campionamendo della *pdf(x,y)*, 
    il rapporto di Likelihood è il rapporto delle pdf, 
