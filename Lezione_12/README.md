@@ -501,23 +501,23 @@
 ## 12.7.1 Funzione binormale
 
   * scriviamo una funzione binormale *pdf(x,y)* con correlazione nulla tra 
-  le due variabili *x* ed *y*;
-  ```cpp
-  double binormal(double *x, double *p){
-	 double mux=p[0]; double sigmax=p[1];
-	 double muy=p[2]; double sigmay=p[3];
-	 double arg;
-	 if(sigmax>0 && sigmay>0) {
-	    arg= ( pow( (x[0]-mux)/sigmax,2) + pow( (x[1]-muy)/sigmay,2) );
-		arg=1/(2.*acos(-1)*sigmax*sigmay)*exp(- 1./2* arg);
-		}
-	 else arg=1e30;
-	 return arg;
-   }
-   ```
+    le due variabili *x* ed *y*;
+    ```cpp
+    double binormal(double *x, double *p){
+	   double mux=p[0]; double sigmax=p[1];
+	   double muy=p[2]; double sigmay=p[3];
+	   double arg;
+	   if(sigmax>0 && sigmay>0) {
+	      arg= ( pow( (x[0]-mux)/sigmax,2) + pow( (x[1]-muy)/sigmay,2) );
+		  arg=1/(2.*acos(-1)*sigmax*sigmay)*exp(- 1./2* arg);
+		  }
+	   else arg=1e30;
+	   return arg;
+     }
+     ```
    
   * definiamo due funzioni ```TF2``` di ```ROOT``` che descrivono le due ipotesi:
-   ```cpp 
+    ```cpp 
     double par[]={H0_mu_x, H0_sigma_x , H0_mu_y, H0_sigma_y, H1_mu_x, H1_sigma_x , H1_mu_y, H1_sigma_y};
 	TF2 *f0 = new TF2("f0",binormal,xmin,xmax,ymin,ymax,npar);
 	f0->SetTitle("P(t|H_0)");
@@ -525,7 +525,7 @@
 	TF2 *f1 = new TF2("f1",binormal,xmin,xmax,ymin,ymax,npar);
 	f1->SetTitle("P(t|H_1)");
 	f1->SetParameters(par+4);
-   ```
+    ```
     
 ![linea](../immagini/linea.png)
 
@@ -548,11 +548,10 @@
      ```
    
    * costruiamo una ```TF2``` 
-   
-   ```cpp
-   TF2 *lratio = new TF2("lratio",loglike,xmin,xmax,ymin,ymax,8); 
-   lratio->SetParameters(par);
-   ```
+     ```cpp
+     TF2 *lratio = new TF2("lratio",loglike,xmin,xmax,ymin,ymax,8); 
+     lratio->SetParameters(par);
+     ```
    
 ![linea](../immagini/linea.png)
   
@@ -590,19 +589,18 @@
    * si può usare la funzione ```rand_TAC``` chiamandola due volte
    
    * si può usare il metodo ```GetRandom(double x,double y)``` della ```TF2``` 
-    (l'inizializzazione del seed si fa nel main con l'istruzione ```gRandom->SetSeed(0); ```)
-   
-    ```cpp
-    double sizetest(double c_alpha, TF2 *lratio, TF2 *f0){
-	  int nhit=0;
-	  int Ntoy=100000;
-	  double x,y;
-	  for (int i=0;i<Ntoy;i++){
-	  	f0->GetRandom2(x,y);
-	  	if (lratio->Eval(x,y)<c_alpha) nhit++;
-	  	}
-	   return (nhit*1.)/Ntoy;
-     }
+     (l'inizializzazione del seed si fa nel main con l'istruzione ```gRandom->SetSeed(0); ```)
+     ```cpp
+      double sizetest(double c_alpha, TF2 *lratio, TF2 *f0){
+	    int nhit=0;
+	    int Ntoy=100000;
+	    double x,y;
+	    for (int i=0;i<Ntoy;i++){
+	  	  f0->GetRandom2(x,y);
+	  	  if (lratio->Eval(x,y)<c_alpha) nhit++;
+	  	  }
+	     return (nhit*1.)/Ntoy;
+       }
      ```
 ![linea](../immagini/linea.png)
 
@@ -620,11 +618,11 @@
   * effettua le seguenti operazioni:
     * trova gli estremi tra cui far variare c<sub>&alpha;</sub>, 
      sono i valori minimi e massimi del logaritmo del Likelihood Ratio:
-   ```cpp
-   double lratio_min=lratio->GetMinimumXY(x,y);
-   double lratio_max=lratio->GetMaximumXY(x,y);
-  ```
-
+     ```cpp
+      double lratio_min=lratio->GetMinimumXY(x,y);
+      double lratio_max=lratio->GetMaximumXY(x,y);
+     ```
+     
     * incrementa c<sub>&alpha;</sub> con un passo costante, 
        partendo dal minimo e arrivando al massimo,  calcola ogni volta il size 
        chiamando la funzione ```sizetest``` 
@@ -640,36 +638,33 @@
  * c<sub>&alpha;</sub> è il valore restituito dalla funzione ```DeterminaBCR()```
  * l'istruzione ```lratio->SetMaximum(c_alpha);``` consente di disegnare quella porzione della funzione 
    ```lratio``` che è minore di c<sub>&alpha;</sub>
- 
- ```cpp
+   ```cpp
     lratio->SetMaximum(c_alpha);
 	lratio->Draw("cont3");
 	f1->Draw("cont1z same");
 	f0->Draw("cont1z same ");
- ```
+   ```
    * il power del test può essere calcolato usando la funzione ```sizetest()``` 
-  a cui viene passata la forma della pdf prevista dall'ipotesi *H<sub>1</sub>*
-  
-  ```cpp
-  cout<<"power "<<sizetest(c_alpha, lratio, f1)<<endl;
-  ```
+     a cui viene passata la forma della pdf prevista dall'ipotesi *H<sub>1</sub>*
+     ```cpp
+     cout<<"power "<<sizetest(c_alpha, lratio, f1)<<endl;
+     ```
 
 ![linea](../immagini/linea.png)
 
 ## 12.6.10 Disegno curva ROC
 
   * possiamo costruire il grafico che rappresenta la curva &beta; vs. &alpha; (detta curva ROC)
-  
-  ```cpp
-  TGraph *gba=new TGraph();
-  for (int i=0;i<gsize->GetN();i++){
-	beta=1-sizetest(gsize->GetPointX(i),lratio, f1);
-	gba->SetPoint(i,gsize->GetPointY(i),beta);
-	}
-  gba->Draw("AP*");
-  gba->GetXaxis()->SetTitle("#alpha");
-  gba->GetYaxis()->SetTitle("#beta");
-  ```
+    ```cpp
+     TGraph *gba=new TGraph();
+     for (int i=0;i<gsize->GetN();i++){
+	   beta=1-sizetest(gsize->GetPointX(i),lratio, f1);
+	   gba->SetPoint(i,gsize->GetPointY(i),beta);
+	   }
+     gba->Draw("AP*");
+     gba->GetXaxis()->SetTitle("#alpha");
+     gba->GetYaxis()->SetTitle("#beta");
+    ```
 
 ![BCRdraw](./immagini/BCR.png)
 
