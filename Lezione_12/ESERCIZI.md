@@ -43,6 +43,8 @@ nei tre casi in cui la separazione sia fatta con la variabile *x*, *y* o *t*.
 ## Esercizio 12.6
 
 Si determini l'area sottesa dalle tre curve ROC costruite nell'esercizio 12.5.
+ 
+![linea](../immagini/linea.png)
 
 ## Esercizio 12.7
 
