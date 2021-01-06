@@ -1,5 +1,48 @@
 # Lezione 12: Test di Ipotesi
 
+## Indice
+
+  * [12.1 Introduzione](#121-introduzione)
+    * [12.1.1 Regione Critica, Size e Power](#1211-regione-critica-size-e-power)
+    * [12.1.2 Il test del Chi-Quadro](#1212-il-test-del-chi-quadro)
+    * [12.1.3 Il Metodo del discriminante di Fischer](#1213-il-metodo-del-discriminante-di-fischer)
+    * [12.1.4 Il Metodo del rapporto di Likelihood](#1214-il-metodo-del-rapporto-di-likelihood)
+  * [12.2 Decorrelazione lineare di variabili](#122-decorrelazione-lineare-di-variabili)
+    * [12.2.1 Un cambio di coordinate](#1221-un-cambio-di-coordinate)
+    * [12.2.2 Una rotazione della matrice di covarianza](#1222-una-rotazione-della-matrice-di-covarianza)
+    * [12.2.3 La rotazione delle variabili](#1223-la-rotazione-delle-variabili)
+  * [12.3 Un esempio di implementazione di decorrelazione](#123-un-esempio-di-implementazione-di-decorrelazione)
+    * [12.3.1 La lettura del file di testo](#1231-la-lettura-del-file-di-testo)
+    * [12.3.2 La costruzione della matrice delle covarianze](#1232-la-costruzione-della-matrice-delle-covarianze)
+    * [12.3.3 Il calcolo delle covarianze](#1233-il-calcolo-delle-covarianze)
+    * [12.3.4 L'angolo di rotazione ed il cambio di variabili](#1234-langolo-di-rotazione-ed-il-cambio-di-variabili)
+  * [12.4 Il discriminante di Fisher](#124-il-discriminante-di-fisher)
+    * [12.4.1 La determinazione della direzione del discriminante](#1241-la-determinazione-della-direzione-del-discriminante)
+    * [12.4.2 Due modelli da confrontare](#1242-due-modelli-da-confrontare)
+    * [12.4.3 Il calcolo delle matrici di covarianza](#1243-il-calcolo-delle-matrici-di-covarianza)
+    * [12.4.4 Il calcolo delle medie](#1244-il-calcolo-delle-medie)
+    * [12.4.5 Il calcolo della direzione del discriminante di Fisher](#1245-il-calcolo-della-direzione-del-discriminante-di-fisher)
+  * [12.5 L'utilizzo della statistica di test](#125-lutilizzo-della-statistica-di-test)
+    * [12.5.1 Il calcolo della statistica di test per i due campioni](#1251-il-calcolo-della-statistica-di-test-per-i-due-campioni)
+    * [12.5.2 La visualizzazione dell'informazione disponibile](#1252-la-visualizzazione-dellinformazione-disponibile)
+    * [12.5.3 Il comportamento del test di ipotesi](#1253-il-comportamento-del-test-di-ipotesi)
+    * [12.5.4 La curva ROC](#1254-la-curva-roc)
+    * [12.5.5 L'algoritmo di costruzione](#1255-lalgoritmo-di-costruzione)
+    * [12.5.6 Il riempimento della curva](#1256-il-riempimento-della-curva)
+    * [12.5.7 Il confronto con le altre variabili](#1257-il-confronto-con-le-altre-variabili)
+  * [12.6 Il Teorema di Neyman-Pearson](#126-il-teorema-di-neyman-pearson)
+    * [12.6.1 Determinazione della regione critica](#1261-determinazione-della-regione-critica)
+  * [12.7 Un esempio di calcolo della BCR](#127-un-esempio-di-calcolo-della-bcr)
+    * [12.7.1 Funzione binormale](#1271-funzione-binormale)
+    * [12.7.2 Rapporto di Likelihood](#1272-rapporto-di-likelihood)
+    * [12.7.3 Disegnamo le due pdf e il rapporto di likelihood](#1273-disegnamo-le-due-pdf-e-il-rapporto-di-likelihood)
+    * [12.7.4 Best Critical Region (BCR)](#1274-best-critical-region-bcr)
+    * [12.7.5 Funzione che calcola il size](#1275-funzione-che-calcola-il-size)
+    * [12.7.6 Calcolo della size in funzione della soglia](#1276-calcolo-della-size-in-funzione-della-soglia)
+    * [12.7.7 Disegno della BCR](#1277-disegno-della-bcr)
+    * [12.7.8 Disegno curva ROC](#1278-disegno-curva-roc)
+  * [12.8 ESERCIZI](#128-esercizi)
+
 ![linea](../immagini/linea.png)
 
 ## 12.1 Introduzione
@@ -8,56 +51,66 @@
     * valutare la validità di un'ipotesi *H<sub>0</sub>* relativa alla *pdf(x)* 
     * confrontare l'ipotesi *H<sub>0</sub>* con l'ipotesi alternativa H<sub>1</sub>, entrambe relative alla *pdf(x)*
   * le ipotesi si dividono in:
-	* semplici, che non prevedono stima di parametri
-	* composte, che prevedono dapprima di stimare i parametri e poi di effettuare il test
+  	* semplici, che sono caratterizzate da un modello univoco senza parametri indeterminati
+	  * composte, che sono caratterizzate da un insieme di modelli, 
+      come ad esempio un modello con un parametro non determinato
+      o vincolato ad assumere un insieme di valori
   * in questa lezione consideriamo il caso di ipotesi semplici
- ![linea](../immagini/linea.png)
 
-## 12.1.1 Regione Critica, Size e Power
-  * un test di ipotesi prevede di:
-	* costruire una statistica *t* usando i campionamenti 
-	* scartare l'ipotesi H<sub>0</sub> quando *t* cade nella regione del sample space che 
-      chiamiamo **regione critica**
-	 
-   * il test è caratterizzato da due parametri: 
-     * &alpha; è la probabilità che l'ipotesi H<sub>0</sub> venga scartata quando è vera: è il **size** del test
-     * &beta; è la probabilità  che l'ipotesi H<sub>0</sub> viene accettata quando è vera H<sub>1</sub>: 
-      (1-&beta;) è il **power** del test   
-   * la regione critica non è univocamente determinabile dal size del test 
-  * **la regione critica che massimizza il power del test, una volta fissato il suo size, è la Best Critical Region (BCR)**
 ![linea](../immagini/linea.png)
 
-## 12.1.2 Il test del Chi-Quadro
-   * il test del chi-quadro analizza una singola ipotesi *H<sub>0</sub>*
-     * i parametri sono stimati preventivamente ed il test usa il valore stimato
-     * la statistica *t* è una variabile mono-dimensionale che segue la distribuzione del chi-quadro
-     * la regione critica è data da *t* > *t*<sub>cut</sub>
-     * il size è l'integrale della distribuzione chi-quadro per *t* > *t*<sub>cut</sub> 
-   * in approccio frequentista chiamiamo **Confidence Level** il size: 
-   è la probabilità che il test dia esito positivo quando l'ipotesi è vera. 
+### 12.1.1 Regione Critica, Size e Power
+
+  * un test di ipotesi prevede di:
+	* costruire una statistica di test *t* usando i campionamenti 
+	* scartare l'ipotesi H<sub>0</sub> quando *t* cade nella regione del sample space 
+    che chiamiamo **regione critica** 
+  * il test è caratterizzato da due parametri: 
+    * &alpha; è la probabilità che l'ipotesi H<sub>0</sub> venga scartata quando è vera: è il **size** del test
+    * &beta; è la probabilità  che l'ipotesi H<sub>0</sub> viene accettata quando è vera H<sub>1</sub>: 
+      (1-&beta;) è il **power** del test   
+  * la regione critica non è univocamente determinabile dal size del test 
+  * **la regione critica che massimizza il power del test, una volta fissato il suo size, è la Best Critical Region (BCR)**
+
+![linea](../immagini/linea.png)
+
+### 12.1.2 Il test del Chi-Quadro
+
+  * il test del chi-quadro analizza una singola ipotesi *H<sub>0</sub>*
+    * i parametri sono stimati preventivamente ed il test usa il valore stimato
+    * la statistica di test *t* è una variabile mono-dimensionale che segue la distribuzione del chi-quadro
+    * la regione critica è data da *t* > *t*<sub>cut</sub>
+    * il size è l'integrale della distribuzione chi-quadro per *t* > *t*<sub>cut</sub> 
+  * in approccio frequentista chiamiamo **Confidence Level** (1-&alpha;): 
+    è la probabilità che il test dia esito positivo quando l'ipotesi è vera. 
    
 ![linea](../immagini/linea.png)
 
-## 12.1.3 Il Metodo del discriminante di Fischer  
-   * sono dati N campionamenti IID di una *pdf(x)* e si vuole determinare se provengono dalla 
-      *pdf(x| H<sub>0</sub>)* o dalla *pdf(x| H<sub>1</sub>)*
-   * il metodo del determinante di Fischer prevede di:
-     * costruire una statistica *t* che sia una funzione lineare dei campionamenti
-     * accettare l'ipotesi se t < *t*<sub>cut</sub>
-     * *t*<sub>cut</sub> identifica la regione critica e size e power del test
+### 12.1.3 Il Metodo del discriminante di Fischer 
+
+  * sono dati N campionamenti IID di una *pdf(x)* e si vuole determinare se provengono dalla 
+     *pdf(x| H<sub>0</sub>)* o dalla *pdf(x| H<sub>1</sub>)*
+  * il metodo del determinante di Fischer prevede di:
+    * costruire una statistica di test *t* che sia una funzione lineare dei campionamenti
+    * accettare l'ipotesi se t < *t*<sub>cut</sub>
+    * la selezione basata su *t*<sub>cut</sub> identifica la regione critica
+      e si utilizza quindi per calcoare size e power del test
      
 ![linea](../immagini/linea.png)
 
-## 12.1.4 Il Metodo del rapporto di Likelihood 
-   * sono dati N campionamenti IID di una *pdf(x)* e si vuole determinare se provengono dalla 
-      *pdf(x| H<sub>0</sub>)* o dalla *pdf(x| H<sub>1</sub>)*   
-   * il metodo del rapporto di Likelihood prevede di:
-      * usare come statistica del test il rapporto
+### 12.1.4 Il Metodo del rapporto di Likelihood 
+
+  * sono dati N campionamenti IID di una *pdf(x)* e si vuole determinare se provengono dalla 
+    * pdf(x| H<sub>0</sub>)* o dalla *pdf(x| H<sub>1</sub>)*   
+  * il metodo del rapporto di Likelihood prevede di:
+    * usare come statistica del test il rapporto
 ![formulaLikeRatio](./immagini/Formula_LikelihoodRatio.png)
-      * accettare l'ipotesi se il rapporto è < *t*<sub>cut</sub> 
-      * *t*<sub>cut</sub> identifica la regione critica e size e power del test
-   * nel caso di ipotesi semplici questa procedura produce, a parità di size, il test con il power più alto
-      la regione critica in questo caso si chiama **Best Critical Region** o  BCR
+    * accettare l'ipotesi se il rapporto è < *t*<sub>cut</sub> 
+    * la selezione basata su *t*<sub>cut</sub> identifica la regione critica
+       e si utilizza quindi per calcoare size e power del test
+  * nel caso di ipotesi semplici questa procedura produce, a parità di size, 
+    il test con il power più alto
+  * la regione critica in questo caso si chiama **Best Critical Region** o  BCR
       
 ![linea](../immagini/linea.png)
 
@@ -453,33 +506,25 @@
 
 ![linea](../immagini/linea.png)
 
-
-
-
 ## 12.6 Il Teorema di Neyman-Pearson
+
   * i dati sono *N* campionamenti IID, *x*<sub>*1*</sub> ... *x*<sub>*N*</sub>
    e si vuole determinare se provengono dalla 
       *pdf(x| H<sub>0</sub>)* o dalla *pdf(x| H<sub>1</sub>)*
-      
-  * le due ipotesi sono semplici, al set di campionamenti associo due Likelihood:
+  * le due ipotesi sono semplici ed al set di campionamenti si possono quindi associare due Likelihood:
      * *L(x<sub>1</sub> ... x<sub>N</sub> | H<sub>0</sub>)* se vale l'ipotesi *H<sub>0</sub>*
      * *L(x<sub>1</sub> ... x<sub>N</sub> | H<sub>1</sub>)* se vale l'ipotesi *H<sub>1</sub>*
-     
   * la Best Critical Region (BCR) per un test di size &alpha; 
-   è quel sottoinsieme del sample space &Omega; definito dalla condizione:
-  
-  ![condizioneBCR](./immagini/condizioneBCR.png)
-
+    è quel sottoinsieme del sample space &Omega; definito dalla condizione:
+![condizioneBCR](./immagini/condizioneBCR.png)
     
 ![linea](../immagini/linea.png)
   
-## 12.6.1 Determinazione di c<sub>&alpha;</sub>
+### 12.6.1 Determinazione della regione critica
   
   * la condizione che determina c<sub>&alpha;</sub> è che campionamenti estratti 
-  dalla *pdf(x| H<sub>0</sub>)* abbiano probabilità &alpha; di appartenere alla regione critica:
-  
-  ![c_alpha](./immagini/c_alpha.png)
-  
+    dalla *pdf(x| H<sub>0</sub>)* abbiano probabilità &alpha; di appartenere alla regione critica:
+![c_alpha](./immagini/c_alpha.png)  
   * un campionamento appartiene alla regione critica se il suo Likelihood Ratio è inferiore a c<sub>&alpha;</sub>
  
 ![linea](../immagini/linea.png) 
@@ -493,95 +538,93 @@
 	* una funzione che descriva la *pdf(x| H<sub>0</sub>)*
 	* una funzione che descriva la *pdf(x| H<sub>1</sub>)*
 	* una funzione che descriva il rapporto di Likelihood
-    * una funzione che calcoli il size relativo a un determinato c<sub>&alpha;</sub> (quindi per una scelta della regione critica)
+    * una funzione che calcoli il size relativo a un determinato c<sub>&alpha;</sub> 
+      (quindi per una scelta della regione critica)
     * una funzione che costruisca la curva size vs. c<sub>&alpha;</sub> in modo numerico
    * la BCR sarà la regione definita dal c<sub>&alpha;</sub> che ha un size pari a quello desiderato
+
 ![linea](../immagini/linea.png)
 
-## 12.7.1 Funzione binormale
+### 12.7.1 Funzione binormale
 
-  * scriviamo una funzione binormale *pdf(x,y)* con correlazione nulla tra 
-    le due variabili *x* ed *y*;
+  * scriviamo una funzione binormale *pdf(x,y)* con correlazione nulla 
+    tra le due variabili *x* ed *y*;
     ```cpp
     double binormal(double *x, double *p){
-	   double mux=p[0]; double sigmax=p[1];
-	   double muy=p[2]; double sigmay=p[3];
-	   double arg;
-	   if(sigmax>0 && sigmay>0) {
-	      arg= ( pow( (x[0]-mux)/sigmax,2) + pow( (x[1]-muy)/sigmay,2) );
-		  arg=1/(2.*acos(-1)*sigmax*sigmay)*exp(- 1./2* arg);
-		  }
-	   else arg=1e30;
-	   return arg;
-     }
-     ```
-   
+	  double mux=p[0]; double sigmax=p[1];
+	  double muy=p[2]; double sigmay=p[3];
+	  double arg;
+	  if(sigmax>0 && sigmay>0) {
+	     arg= (pow ((x[0]-mux)/sigmax, 2) + pow ((x[1]-muy)/sigmay, 2)) ;
+       arg=1. / (2. * acos(-1) * sigmax * sigmay) * exp (- 1./2. * arg) ;
+      }
+    else arg=1e30 ;
+    return arg ;
+    }
+    ```
   * definiamo due funzioni ```TF2``` di ```ROOT``` che descrivono le due ipotesi:
     ```cpp 
     double par[]={H0_mu_x, H0_sigma_x , H0_mu_y, H0_sigma_y, H1_mu_x, H1_sigma_x , H1_mu_y, H1_sigma_y};
-	TF2 *f0 = new TF2("f0",binormal,xmin,xmax,ymin,ymax,npar);
-	f0->SetTitle("P(t|H_0)");
-	f0->SetParameters(par);
-	TF2 *f1 = new TF2("f1",binormal,xmin,xmax,ymin,ymax,npar);
-	f1->SetTitle("P(t|H_1)");
-	f1->SetParameters(par+4);
+    TF2 *f0 = new TF2("f0",binormal,xmin,xmax,ymin,ymax,npar);
+    f0->SetTitle("P(t|H_0)");
+    f0->SetParameters(par);
+    TF2 *f1 = new TF2("f1",binormal,xmin,xmax,ymin,ymax,npar);
+    f1->SetTitle("P(t|H_1)");
+    f1->SetParameters(par+4);
     ```
     
 ![linea](../immagini/linea.png)
 
-## 12.7.2 Rapporto di Likelihood
+### 12.7.2 Rapporto di Likelihood
 
-   * assumiamo di usare un singolo campionamendo della *pdf(x,y)*, 
-   il rapporto di Likelihood è il rapporto delle pdf, 
-   conviene considerare il suo logaritmo e quindi:
-   
+  * assumiamo di usare un singolo campionamendo della *pdf(x,y)*, 
+    il rapporto di Likelihood è il rapporto delle pdf, 
+    conviene considerare il suo logaritmo e quindi:
+    
 ![logLikeRatio](./immagini/logLikeRatio.png)
    
-   * scriviamo la funzione logaritmo del rapporto di Likelihood:
+  * scriviamo la funzione logaritmo del rapporto di Likelihood:
      ```cpp
      double loglike(double *x, double *p){
-	   if(p[1]*p[3]*p[5]*p[7]==0) return 1e30; //evito divisione per zero
-	   double arg = - ( pow( (x[0]-p[0])/p[1],2) + pow( (x[1]-p[2])/p[3],2) );
-	   arg+= ( pow( (x[0]-p[4])/p[5],2) + pow( (x[1]-p[6])/p[7],2) );
-	   return arg;
-	 }
-     ```
-   
-   * costruiamo una ```TF2``` 
-     ```cpp
-     TF2 *lratio = new TF2("lratio",loglike,xmin,xmax,ymin,ymax,8); 
-     lratio->SetParameters(par);
-     ```
+       if(p[1]*p[3]*p[5]*p[7]==0) return 1e30; //evito divisione per zero
+       double arg = - ( pow( (x[0]-p[0])/p[1],2) + pow( (x[1]-p[2])/p[3],2) );
+       arg+= ( pow( (x[0]-p[4])/p[5],2) + pow( (x[1]-p[6])/p[7],2) );
+       return arg;
+	   }
+     ``` 
+  * costruiamo una ```TF2``` 
+    ```cpp
+    TF2 *lratio = new TF2("lratio",loglike,xmin,xmax,ymin,ymax,8); 
+    lratio->SetParameters(par);
+    ```
    
 ![linea](../immagini/linea.png)
   
-## 12.7.3 Disegnamo le due pdf e il rapporto di likelihood 
+### 12.7.3 Disegnamo le due pdf e il rapporto di likelihood 
 
- ![binormali](./immagini/binormal.png)
+![binormali](./immagini/binormal.png)
  * ```ROOT``` mette a disposizione molte modalità diverse per disegnare una funzione 
- di due variabili, qui usiamo ```Draw("cont1z")```
+   di due variabili, qui usiamo ```Draw("cont1z")```
  * i metodi ```SetSetNpx(int npoints)``` e ```SetSetNpy(int npoints)``` consentono di cambiare
- il numero di punti su cui la funzione è valutata per essere disegnata 
- (se il disegno appare discontinuo provate a cambiare il numero di punti)
+   il numero di punti su cui la funzione è valutata per essere disegnata 
+   (se il disegno appare discontinuo provate a cambiare il numero di punti)
  
 ![linea](../immagini/linea.png)
 
-## 12.7.4 BCR 
+### 12.7.4 Best Critical Region (BCR) 
  
   * il sample space coincide con il piano *(x,y)*, quindi la BCR sarà una regione di questo piano 
   definita dalla condizione:
-
- ![linea](./immagini/condizioneBCRloglambda.png)
-
+ ![BCR](./immagini/condizioneBCRloglambda.png)
   * per determinare il c<sub>&alpha;</sub> che corrisponde al size &alpha; 
-  scelto dobbiamo:
+    scelto dobbiamo:
     * costruire la funzione che calcola il size al variare di c<sub>&alpha;</sub>
     * scorrere i valori di c<sub>&alpha;</sub> calcolando il corrispondente size
     * individuare il valore di c<sub>&alpha;</sub> che corrisponde al size desiderato
 
 ![linea](../immagini/linea.png)
 
-## 12.7.5 Funzione che calcola il size
+### 12.7.5 Funzione che calcola il size
 
  * scriviamo una funzione che dato un mumero c<sub>&alpha;</sub> calcola il corrispondente size del test
  * va campionata la *pdf(x,y | H<sub>0</sub>)*
@@ -604,7 +647,7 @@
      ```
 ![linea](../immagini/linea.png)
 
-## 12.7.6 Funzione che scorre i valori di c<sub>&alpha;</sub> e calcola il size
+### 12.7.6 Calcolo della size in funzione della soglia
 
   ```cpp
   double DeterminaBCR(TF2 *lratio, TF2 *f0, double alpha, TGraph *gsize) {...}
@@ -632,7 +675,7 @@
 ![linea](../immagini/linea.png)
 
 
-## 12.7.8 Disegno della BCR
+### 12.7.7 Disegno della BCR
 
  * nel main del programma possiamo disegnare la regione BCR corrispondente al size scelto e il grafico c<sub>&alpha;</sub> vs. size 
  * c<sub>&alpha;</sub> è il valore restituito dalla funzione ```DeterminaBCR()```
@@ -652,7 +695,7 @@
 
 ![linea](../immagini/linea.png)
 
-## 12.7.9 Disegno curva ROC
+### 12.7.8 Disegno curva ROC
 
   * possiamo costruire il grafico che rappresenta la curva &beta; vs. &alpha; (detta curva ROC)
     ```cpp
@@ -665,12 +708,11 @@
      gba->GetXaxis()->SetTitle("#alpha");
      gba->GetYaxis()->SetTitle("#beta");
     ```
-
 ![BCRdraw](./immagini/BCR.png)
-
   
 ![linea](../immagini/linea.png)
-## 12.6 ESERCIZI
+
+## 12.8 ESERCIZI
 
   * Gli esercizi relativi alla lezione si trovano [qui](ESERCIZI.md)
 

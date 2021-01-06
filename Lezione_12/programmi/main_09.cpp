@@ -1,5 +1,6 @@
 /*
 c++ -o main_09 `root-config --glibs --cflags` ../../Lezione_10/programmi/algebra_2.cc fisher.cc main_09.cpp
+./main_09 dati.txt dati_3.txt
 
 */
 
@@ -14,6 +15,7 @@ c++ -o main_09 `root-config --glibs --cflags` ../../Lezione_10/programmi/algebra
 #include "fisher.h"
 
 #include "TCanvas.h"
+#include "TFile.h"
 #include "TH2F.h"
 #include "TGraph.h"
 #include "TLegend.h"
@@ -146,6 +148,12 @@ int main (int argc, char ** argv)
   line.Draw ("same") ;
 
   c1.Print ("confronto_fisher.png", "png") ;
+
+  TFile f_out ("main_09.root", "recreate") ;
+  g_ROC_f.Write ("g_ROC_f") ;
+  g_ROC_x.Write ("g_ROC_x") ;
+  g_ROC_y.Write ("g_ROC_y") ;
+  f_out.Close () ;
 
   delete bkg ;
 

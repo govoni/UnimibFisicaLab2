@@ -1,9 +1,13 @@
 /*
 c++ -o main_01 main_01.cpp
 
- ./main_01 dati.txt   10000 1.  0.8  2. 0.15  0.62
+ ./main_01 dati.txt   10000 1.  0.8  2. 0.15  0.62     
  ./main_01 dati_2.txt 10000 2.2 0.25 2. 0.75  0.62
  ./main_01 dati_3.txt 10000 2.4 0.7  2. 0.75  0.62
+
+negli esempi: dati.txt = H1
+              dati_3.txt = H0
+
 */
 
 #include <iostream>

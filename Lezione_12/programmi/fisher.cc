@@ -1,6 +1,8 @@
 #include "fisher.h"
 #include "../../Lezione_09/programmi/statistiche_vector.h"
 
+#include "TLegend.h"
+
 using namespace std ;
 
 void leggiFile (vector<vector<double> > & data, string nome_file)
@@ -131,30 +133,35 @@ TH1F * riempiIstogramma (const vector<double> & data, string histo_name, int max
 // ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- 
 
 
-void plotComparison (TH1F * h_1, TH1F * h_2, TCanvas & c1, string nome_file, string asse_x)
+void plotComparison (TH1F * h_H1, TH1F * h_H0, TCanvas & c1, string nome_file, string asse_x)
 {
   double y_max = 0. ;
-  if (h_1->GetBinContent (h_1->GetMaximumBin ()) > y_max)
-    y_max = h_1->GetBinContent (h_1->GetMaximumBin ()) ;
-  if (h_2->GetBinContent (h_2->GetMaximumBin ()) > y_max)
-    y_max = h_2->GetBinContent (h_2->GetMaximumBin ()) ;
+  if (h_H1->GetBinContent (h_H1->GetMaximumBin ()) > y_max)
+    y_max = h_H1->GetBinContent (h_H1->GetMaximumBin ()) ;
+  if (h_H0->GetBinContent (h_H0->GetMaximumBin ()) > y_max)
+    y_max = h_H0->GetBinContent (h_H0->GetMaximumBin ()) ;
 
-  double x_min = h_1->GetXaxis ()->GetXmin () ;
-  double x_max = h_1->GetXaxis ()->GetXmax () ;
+  double x_min = h_H1->GetXaxis ()->GetXmin () ;
+  double x_max = h_H1->GetXaxis ()->GetXmax () ;
 
-  if (h_2->GetXaxis ()->GetXmin () < x_min) x_min = h_2->GetXaxis ()->GetXmin () ;
-  if (h_2->GetXaxis ()->GetXmax () > x_max) x_max = h_2->GetXaxis ()->GetXmax () ;
+  if (h_H0->GetXaxis ()->GetXmin () < x_min) x_min = h_H0->GetXaxis ()->GetXmin () ;
+  if (h_H0->GetXaxis ()->GetXmax () > x_max) x_max = h_H0->GetXaxis ()->GetXmax () ;
 
   TH1F * bkg = c1.DrawFrame (x_min, 0, x_max, y_max * 1.1) ;
   bkg->SetXTitle (asse_x.c_str ()) ;
 
-  h_1->SetLineColor (kRed) ;
-  h_1->SetLineWidth (2) ;
-  h_2->SetLineColor (kBlue) ;
-  h_2->SetLineWidth (2) ;
+  h_H1->SetLineColor (kRed) ;
+  h_H1->SetLineWidth (2) ;
+  h_H0->SetLineColor (kBlue) ;
+  h_H0->SetLineWidth (2) ;
 
-  h_1->Draw ("hist same") ;
-  h_2->Draw ("hist same") ;
+  h_H1->Draw ("hist same") ;
+  h_H0->Draw ("hist same") ;
+
+  TLegend legend (0.5, 0.7, 0.9, 0.9) ;
+  legend.AddEntry (h_H1, "H1", "l") ;
+  legend.AddEntry (h_H0, "H0", "l") ;
+  legend.Draw () ;
   c1.Print (nome_file.c_str (), "png") ;
 
   delete bkg ;
@@ -166,12 +173,14 @@ void plotComparison (TH1F * h_1, TH1F * h_2, TCanvas & c1, string nome_file, str
 // ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- 
 
 
-TGraph disegnaROC (vector<double> v_H_1, vector<double> v_H_0, bool maggiore_di) 
+/**
+  disegna la curva ROC per una selezione basata sul valore dei vettori in input
+  dove la selezione è input < soglia.
+   - se maggiore_di == true  allora H0 sta a destra di H1
+   - se maggiore_di == false allora H0 sta a sinistra di H1
+*/
+TGraph disegnaROC (vector<double> v_H_1, vector<double> v_H_0, bool maggiore_di, double forzaMaxA) 
 {
-  // disegna la curva ROC per una selezione basata sul valore di fisher
-  // dove la selezione è fisher_discriminant < soglia 
-  // ---- ---- ---- ---- ---- ---- ----  
-
   // NB questa operazione modifica l'ordinamento nel campione, 
   //    quindi se l'ordinamento va preservato meglio è fare una copia
   //    dei vector per lavorarci
@@ -185,6 +194,7 @@ TGraph disegnaROC (vector<double> v_H_1, vector<double> v_H_0, bool maggiore_di)
 
   double taglio_max = *v_H_1.rbegin () ;
   if (*v_H_0.rbegin () > taglio_max) taglio_max = *v_H_0.rbegin () ;
+  if (forzaMaxA > 0) taglio_max = forzaMaxA ;
 
   // determinazione del passo di scorrimento della selezione
 
@@ -202,6 +212,7 @@ TGraph disegnaROC (vector<double> v_H_1, vector<double> v_H_0, bool maggiore_di)
       // (ricordando che i due campioni sono stati ordinati)
       for ( ; contatore_1 < v_H_1.size () ; ++contatore_1)
         if (v_H_1.at (contatore_1) > taglio) break ;
+
       for ( ; contatore_0 < v_H_0.size () ; ++contatore_0)
         if (v_H_0.at (contatore_0) > taglio) break ;
 
@@ -212,8 +223,8 @@ TGraph disegnaROC (vector<double> v_H_1, vector<double> v_H_0, bool maggiore_di)
           ) ;
       else
         g_ROC.SetPoint (g_ROC.GetN (), 
-            1. - static_cast<double> (contatore_0) / v_H_0.size (),
-            static_cast<double> (contatore_1) / v_H_1.size ()
+            1. - static_cast<double> (contatore_0) / v_H_0.size (), // alpha
+            static_cast<double> (contatore_1) / v_H_1.size ()       // beta
           ) ;
     }
 
