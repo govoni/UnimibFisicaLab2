@@ -49,13 +49,13 @@
     
   * si hanno N campionamenti IID di una *pdf(x)* con *x* variabile mono o pluri-dimensionale, si vuole:
     * valutare la validità di un'ipotesi *H<sub>0</sub>* relativa alla *pdf(x)* 
-    * confrontare l'ipotesi *H<sub>0</sub>* con l'ipotesi alternativa H<sub>1</sub>, entrambe relative alla *pdf(x)*
+    * **confrontare l'ipotesi *H<sub>0</sub>* con l'ipotesi alternativa H<sub>1</sub>**, entrambe relative alla *pdf(x)*
   * le ipotesi si dividono in:
-  	* semplici, che sono caratterizzate da un modello univoco senza parametri indeterminati
-    * composte, che sono caratterizzate da un insieme di modelli, 
+  	* **semplici**, che sono caratterizzate da un modello univoco senza parametri indeterminati
+    * **composte**, che sono caratterizzate da un insieme di modelli, 
       come ad esempio un modello con un parametro non determinato
       o vincolato ad assumere un insieme di valori
-  * in questa lezione consideriamo il caso di ipotesi semplici
+  * in questa lezione consideriamo il caso di **ipotesi semplici**
 
 ![linea](../immagini/linea.png)
 
@@ -90,7 +90,7 @@
 
   * sono dati N campionamenti IID di una *pdf(x)* e si vuole determinare se provengono dalla 
      *pdf(x| H<sub>0</sub>)* o dalla *pdf(x| H<sub>1</sub>)*
-  * il metodo del determinante di Fischer prevede di:
+  * il metodo del discriminante di Fischer prevede di:
     * costruire una statistica di test *t* che sia una funzione lineare dei campionamenti
     * accettare l'ipotesi se t < *t*<sub>cut</sub>
     * la selezione basata su *t*<sub>cut</sub> identifica la regione critica
@@ -105,7 +105,7 @@
   * il metodo del rapporto di Likelihood prevede di:
     * usare come statistica del test il rapporto
 ![formulaLikeRatio](./immagini/Formula_LikelihoodRatio.png)
-    * accettare l'ipotesi se il rapporto è < *t*<sub>cut</sub> 
+    * accettare l'ipotesi se il rapporto è minore di *t*<sub>cut</sub> 
     * la selezione basata su *t*<sub>cut</sub> identifica la regione critica
        e si utilizza quindi per calcoare size e power del test
   * nel caso di ipotesi semplici questa procedura produce, a parità di size, 
@@ -587,7 +587,7 @@
      ```cpp
      double loglike(double *x, double *p){
        if(p[1]*p[3]*p[5]*p[7]==0) return 1e30; //evito divisione per zero
-       double arg = - ( pow( (x[0]-p[0])/p[1],2) + pow( (x[1]-p[2])/p[3],2) );
+       double arg = -1 * ( pow( (x[0]-p[0])/p[1],2) + pow( (x[1]-p[2])/p[3],2) );
        arg+= ( pow( (x[0]-p[4])/p[5],2) + pow( (x[1]-p[6])/p[7],2) );
        return arg;
 	   }
@@ -628,9 +628,7 @@
 
  * scriviamo una funzione che dato un mumero c<sub>&alpha;</sub> calcola il corrispondente size del test
  * va campionata la *pdf(x,y | H<sub>0</sub>)*
- 
    * si può usare la funzione ```rand_TAC``` chiamandola due volte
-   
    * si può usare il metodo ```GetRandom(double x,double y)``` della ```TF2``` 
      (l'inizializzazione del seed si fa nel main con l'istruzione ```gRandom->SetSeed(0); ```)
      ```cpp
@@ -657,7 +655,6 @@
     * la *pdf(x,y|H<sub>0</sub> )*
     * il puntatore a un grafico da riempire (istanziato nel main)
     * il valore del size desiderato, in corrispondenza del quale restituisce il valore di c<sub>&alpha;</sub>
-  
   * effettua le seguenti operazioni:
     * trova gli estremi tra cui far variare c<sub>&alpha;</sub>, 
      sono i valori minimi e massimi del logaritmo del Likelihood Ratio:
@@ -665,7 +662,6 @@
       double lratio_min=lratio->GetMinimumXY(x,y);
       double lratio_max=lratio->GetMaximumXY(x,y);
       ```
-     
     * incrementa c<sub>&alpha;</sub> con un passo costante, 
        partendo dal minimo e arrivando al massimo,  calcola ogni volta il size 
        chiamando la funzione ```sizetest()``` 
