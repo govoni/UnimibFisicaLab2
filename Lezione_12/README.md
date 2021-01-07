@@ -613,7 +613,7 @@
 
 ### 12.7.4 Best Critical Region (BCR) 
  
-  * il sample space coincide con il piano *(x,y)*, quindi la BCR sarà una regione di questo piano 
+  * lo spazio delle fasi coincide con il piano *(x,y)*, quindi la BCR sarà una regione di questo piano 
   definita dalla condizione:
  ![BCR](./immagini/condizioneBCRloglambda.png)
   * per determinare il c<sub>&alpha;</sub> che corrisponde al size &alpha; 
