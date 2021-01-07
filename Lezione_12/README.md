@@ -52,7 +52,7 @@
     * confrontare l'ipotesi *H<sub>0</sub>* con l'ipotesi alternativa H<sub>1</sub>, entrambe relative alla *pdf(x)*
   * le ipotesi si dividono in:
   	* semplici, che sono caratterizzate da un modello univoco senza parametri indeterminati
-	  * composte, che sono caratterizzate da un insieme di modelli, 
+    * composte, che sono caratterizzate da un insieme di modelli, 
       come ad esempio un modello con un parametro non determinato
       o vincolato ad assumere un insieme di valori
   * in questa lezione consideriamo il caso di ipotesi semplici
