@@ -626,7 +626,7 @@
 
 ### 12.7.5 Funzione che calcola il size
 
- * scriviamo una funzione che dato un mumero c<sub>&alpha;</sub> calcola il corrispondente size del test
+ * scriviamo una funzione che dato un numero c<sub>&alpha;</sub> calcola il corrispondente size del test
  * va campionata la *pdf(x,y | H<sub>0</sub>)*
    * si può usare la funzione ```rand_TAC``` chiamandola due volte
    * si può usare il metodo ```GetRandom(double x,double y)``` della ```TF2``` 
@@ -653,7 +653,7 @@
   * prende in input:
     * il logaritmo del Likelihood Ratio
     * la *pdf(x,y|H<sub>0</sub> )*
-    * il puntatore a un grafico da riempire (istanziato nel main)
+    * il puntatore a un grafico da riempire (definito nella funzione ```main```)
     * il valore del size desiderato, in corrispondenza del quale restituisce il valore di c<sub>&alpha;</sub>
   * effettua le seguenti operazioni:
     * trova gli estremi tra cui far variare c<sub>&alpha;</sub>, 
@@ -665,7 +665,7 @@
     * incrementa c<sub>&alpha;</sub> con un passo costante, 
        partendo dal minimo e arrivando al massimo,  calcola ogni volta il size 
        chiamando la funzione ```sizetest()``` 
-    * riempie il grafico con le coppie c<sub>&alpha;</sub> vs. size
+    * riempie il grafico con le coppie (c<sub>&alpha;</sub>, &alpha;)
 
 
 ![linea](../immagini/linea.png)
@@ -673,17 +673,18 @@
 
 ### 12.7.7 Disegno della BCR
 
- * nel main del programma possiamo disegnare la regione BCR corrispondente al size scelto e il grafico c<sub>&alpha;</sub> vs. size 
- * c<sub>&alpha;</sub> è il valore restituito dalla funzione ```DeterminaBCR()```
- * l'istruzione ```lratio->SetMaximum(c_alpha);``` consente di disegnare quella porzione della funzione 
-   ```lratio``` che è minore di c<sub>&alpha;</sub>
+ * nella funzione ```main``` del programma possiamo disegnare la regione BCR 
+   corrispondente al size scelto e il grafico (c<sub>&alpha;</sub>, &alpha;)
+ * c<sub>&alpha;</sub> è il valore restituito dalla funzione ```DeterminaBCR```
+ * l'istruzione ```lratio->SetMaximum(c_alpha);``` consente di disegnare la porzione della funzione 
+   ```lratio``` minore di c<sub>&alpha;</sub>
    ```cpp
-    lratio->SetMaximum(c_alpha);
-	lratio->Draw("cont3");
-	f1->Draw("cont1z same");
-	f0->Draw("cont1z same ");
+   lratio->SetMaximum(c_alpha);
+	 lratio->Draw("cont3");
+	 f1->Draw("cont1z same");
+	 f0->Draw("cont1z same ");
    ```
- * il power del test può essere calcolato con la funzione ```sizetest()``` 
+ * il power del test può essere calcolato con la funzione ```sizetest``` 
      a cui viene passata la forma della pdf prevista dall'ipotesi *H<sub>1</sub>*  
    ```cpp
    cout<<"power "<<sizetest(c_alpha, lratio, f1)<<endl;
@@ -693,16 +694,17 @@
 
 ### 12.7.8 Disegno curva ROC
 
-  * possiamo costruire il grafico che rappresenta la curva &beta; vs. &alpha; (detta curva ROC)
+  * il grafico che rappresenta la curva &beta; in funzione di &alpha; (detta curva ROC)
+    si costruisce con un ciclo che scorre con un determinato passo i possibili valori di c<sub>&alpha;</sub>:
     ```cpp
-     TGraph *gba=new TGraph();
-     for (int i=0;i<gsize->GetN();i++){
-	   beta=1-sizetest(gsize->GetPointX(i),lratio, f1);
-	   gba->SetPoint(i,gsize->GetPointY(i),beta);
-	   }
-     gba->Draw("AP*");
-     gba->GetXaxis()->SetTitle("#alpha");
-     gba->GetYaxis()->SetTitle("#beta");
+    TGraph *gba=new TGraph();
+    for (int i=0;i<gsize->GetN();i++){
+	    beta=1-sizetest(gsize->GetPointX(i),lratio, f1);
+	    gba->SetPoint(i,gsize->GetPointY(i),beta);
+	  }
+    gba->Draw("AP*");
+    gba->GetXaxis()->SetTitle("#alpha");
+    gba->GetYaxis()->SetTitle("#beta");
     ```
 ![BCRdraw](./immagini/BCR.png)
   
