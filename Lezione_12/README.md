@@ -81,8 +81,6 @@
     * la statistica di test *t* è una variabile mono-dimensionale che segue la distribuzione del chi-quadro
     * la regione critica è data da *t* > *t*<sub>cut</sub>
     * il size è l'integrale della distribuzione chi-quadro per *t* > *t*<sub>cut</sub> 
-  * in approccio frequentista chiamiamo **Confidence Level** (1-&alpha;): 
-    è la probabilità che il test dia esito positivo quando l'ipotesi è vera. 
    
 ![linea](../immagini/linea.png)
 
