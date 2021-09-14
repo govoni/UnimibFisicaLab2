@@ -16,7 +16,7 @@
     * [5.2.7 un esempio: la forma funzionale Gaussiana](#527-un-esempio-la-forma-funzionale-gaussiana)
     * [5.2.8 scale logaritmiche](#528-scale-logaritmiche)
     * [5.2.9 le statistiche di un istogramma](#529-le-statistiche-di-un-istogramma)
-  * [5.3 una piccoola digressione: la varianza di una distribuzione](#53-una-piccoola-digressione-la-varianza-di-una-distribuzione)
+  * [5.3 una piccola digressione: la varianza di una distribuzione](#53-una-piccola-digressione-la-varianza-di-una-distribuzione)
     * [5.3.1 la varianza e la dimensione del campione](#531-la-varianza-e-la-dimensione-del-campione)
     * [5.3.2 varianza e misure (o numeri pseudo-casuali)](#532-varianza-e-misure-o-numeri-pseudo-casuali)
     * [5.3.3 incertezza sulla media](#533-incertezza-sulla-media)
@@ -35,24 +35,24 @@
 
 ## 5.1 Introduzione
 
-  * [```ROOT```](https://root.cern.ch) offre un insieme di strumenti 
+  * [```ROOT```](https://root.cern.ch) offre un insieme di strumenti
     di **visualizzazione, analisi e salvataggio dati**
     sviluppati nell'ambito della fisica delle particelle elementari
   * gli strumenti sono **scritti in ```C++```** ed esiste l'interfaccia ```Python``` per utilizzarli,
     con adattamenti al formato dei dati alla sintassi tipica di quell'ambiente
-  * ```ROOT``` offre anche un **ambiente interattivo** 
+  * ```ROOT``` offre anche un **ambiente interattivo**
     che si presenta nella forma di una linea di comando,
     dove istruzioni scritte in ```C++``` vengono interpretate
     da un parser dedicato
-  * In questo corso vi mostriamo alcune funzionalità di ```ROOT```, 
+  * In questo corso vi mostriamo alcune funzionalità di ```ROOT```,
     la descrizione completa di quello che può fare
-    si trova nella documentazione on-line 
+    si trova nella documentazione on-line
 
 ![linea](../immagini/linea.png)
 
 ### 5.1.1 l'organizzazione delle librerie di ```ROOT```
 
-  * in un programma scritto in ```C++```, 
+  * in un programma scritto in ```C++```,
     ogni oggetto di ```ROOT``` viene reso disponibile nel codice sorgente
     con il corrispondente comando ```#include```
   * la maggior parte degli strumenti disponibili sono implementati
@@ -76,7 +76,7 @@
   * dopo l'installazione, le librerie di ```ROOT``` sono salvate nel disco fisso
     solitamente in una cartella dedicata
   * per avviare l'interfaccia interattiva e per conoscere dove stiano le librerie,
-    **è necessario che:** 
+    **è necessario che:**
       * la cartella che contiene l'eseguibile ```root```
         faccia parte della lista di indirizzi salvati nella variabile d'ambiente della SHELL
         ```$PATH```
@@ -88,7 +88,7 @@
     ```
     > source thisroot.sh
     ```      
-      
+
 ![linea](../immagini/linea.png)
 
 ### 5.1.3 come compilare un programma che include classi di ```ROOT```
@@ -105,7 +105,7 @@
     ```
     > c++ -o main_00 `root-config --glibs --cflags` main_00.cpp
     ```
-    
+
 ![linea](../immagini/linea.png)
 
 ## 5.2 ```TH1F```: istogrammi monodimensionali
@@ -126,7 +126,7 @@
     in **sotto-intervalli adiacenti e disgiunti** delimitati da *{x<sub>k</sub>}*
     * l'intervallo *k*-esimo è limitato fra x<sub>k</sub> ed x<sub>k+1</sub>
     * solitamente gli intervalli sono chiamati **bin**
-  * un istogramma è l'**insieme dei conteggi degli eventi che cascano in ogni intervallo** 
+  * un istogramma è l'**insieme dei conteggi degli eventi che cascano in ogni intervallo**
 ![istogramma](immagini/istogramma_solo.png)
   * la visualizzazione di un istogramma mono-dimensionale mostra tipicamente:
     * sull'**asse orizzontale** l'intervallo di definizione della variabile *x*
@@ -141,8 +141,8 @@
     un istogramma diventa una funzione continua
 ![istogramma_pdf](immagini/istogramma_e_pdf.png)
   * se si dividesse il contenuto di ogni bin per il numero totale di eventi *N*,
-    questa funzione è normalizzata, 
-    quindi un istogramma diventa l'approssimazione di una 
+    questa funzione è normalizzata,
+    quindi un istogramma diventa l'approssimazione di una
     distribuzione di densità di probabilità
 
 ![linea](../immagini/linea.png)
@@ -164,7 +164,7 @@
 ### 5.2.4 riempimento di un ```TH1F```
 
   * un oggetto della classe ```TH1F``` quando viene creato **è vuoto**,
-    cioè  i conteggi di ogni singolo bin sono nulli 
+    cioè  i conteggi di ogni singolo bin sono nulli
   * per riempire l'istogramma
     si utilizza il suo metodo ```Fill```,
     che viene chiamato per ogni evento:  
@@ -174,7 +174,7 @@
     istogramma.Fill (-1.4) ;
     ```
     * aggiorna i **conteggi** del bin in cui casca il valore passato (in questo caso ```2.2```, ```2.1```, ```-1.4```)
-    * aggiorna i **contatori** per il calcolo delle statistiche 
+    * aggiorna i **contatori** per il calcolo delle statistiche
       (numero di eventi, somma degli eventi, somma del quadrato degli eventi)
 
 ![linea](../immagini/linea.png)
@@ -191,7 +191,7 @@
     c1.Print ("esempio.png", "png") ;
     ```
     * l'oggetto ```c1``` si occupa di produrre l'immagine che contiene l'istogramma
-  * il box in alto a sinistra nell'immagine dell'istogramma 
+  * il box in alto a sinistra nell'immagine dell'istogramma
     riporta **statistiche associate alla collezione di eventi**
 ![istogramma_graph](immagini/primo_TH1F.png)
 
@@ -223,7 +223,7 @@
     per **visualizzare la distribuzione di eventi pseudo-casuali** generati
     con gli algoritmi scritti nella lezione precedente
   * assumendo che la **funzione che genera numeri casuali**
-    con il metodo del teorema centrale del limite 
+    con il metodo del teorema centrale del limite
     abbia il seguente prototipo:
     ```cpp
     float rand_TCL (float xMin, float xMax, int N = 10)
@@ -268,13 +268,13 @@
 
 ![linea](../immagini/linea.png)
 
-## 5.3 una piccoola digressione: la varianza di una distribuzione
+## 5.3 una piccola digressione: la varianza di una distribuzione
 
   * dato un campione di variabili casuali *{x<sub>i</sub>}<sub>i=1,..,N</sub>*
     indipendenti identicamente distribuite,
     **la varianza della distribuzione è la media degli scarti quadratici dalla media**
   * si dimostra che la varianza di un campione è uguale alla **media dei quadrati meno il quadrato della media**:
-    *V = E[x<sup>2</sup>]-E[x]<sup>2</sup>* 
+    *V = E[x<sup>2</sup>]-E[x]<sup>2</sup>*
     (*E[f]* è il valore di aspettazione di f sul campione in esame)
   * la radice della varianza è detta **sigma, o deviazione standard**
     ed è una stima della dispersione del campione attorno alla sua media
@@ -287,16 +287,16 @@
     la dispersone degli eventi non cambia, quindi **la varianza rimane costante**
     per variabili identicamente distribuite
   * chiaramente, siccome ogni campione è finito,
-    i valori della varianza ottenuti con campioni diversi non sono identici, 
+    i valori della varianza ottenuti con campioni diversi non sono identici,
     ma ci si aspetta che siano **compatibili fra loro**
-  * di conseguenza, 
+  * di conseguenza,
     anche la **deviazione standard non dipende dal numero di eventi nel campione**
 
 ![linea](../immagini/linea.png)
 
 ### 5.3.2 varianza e misure (o numeri pseudo-casuali)
 
-  * se si conosce media e varianza di un campione, 
+  * se si conosce media e varianza di un campione,
     si ha un'idea di **dove ci si aspetta di trovare l'evento successivo** di quel campione
   * se il campione è un insieme di misure,
     la deviazione standard dice quanto distante ci si aspetta di trovare la **prossima misura**
@@ -307,7 +307,7 @@
 
 ### 5.3.3 incertezza sulla media
 
-  * all'aumentare del numero di misure, invece, aumenta la **precisione 
+  * all'aumentare del numero di misure, invece, aumenta la **precisione
     con la quale si conosce la media** del campione
   * la **deviazione standard della media**,
     definita come la deviazione standard divisa per la radice del numero di eventi nel campione,
@@ -375,13 +375,13 @@
     * le opzioni passate al metodo ```Draw``` richiedono di
       * tracciare gli **assi** (```A```)
       * congiungere i punti con una **linea** (```L```)
-      * disegnare i **marker** ad ogni punto (```P```). 
+      * disegnare i **marker** ad ogni punto (```P```).
 
 ![linea](../immagini/linea.png)
 
 ### 5.4.4 qualche opzione grafica
 
-  * anche per un ```TGraph```, 
+  * anche per un ```TGraph```,
     si possono impostare diversi parametri grafici:
     ```cpp
     g_sigma.SetMarkerStyle (20) ;
@@ -402,7 +402,7 @@
   * nel caso dell'andamento della **deviazione standard**
     e della **deviazione standard della media**,
     dal disegno dei ```TGraph``` nel caso di una distribuzione uniforme
-    si nota chiaramente che una delle due rimane costante, 
+    si nota chiaramente che una delle due rimane costante,
     mentre l'altra diminuisce all'aumentare del numero di eventi
     presenti nel campione
 ![deviazione_standard](immagini/sigma_trends.png)
@@ -434,7 +434,7 @@
 ## 5.6 L'interfaccia interattiva di ```ROOT```: la classe ```TApplication```
 
   * i ```TCanvas``` di ```ROOT``` sono dotati di diverse **funzionalità interattive**
-    alle quali si accede con menu a tendina o contestuali 
+    alle quali si accede con menu a tendina o contestuali
     (accessibili con il pulsante destro del mouse)
   * per **abilitare queste funzionalità** in un programma compilato,
     è necessario utilizzare un oggetto della classe **TApplication**
@@ -454,7 +454,7 @@
       ```
       va incluso tutto il codice che si vuole interattivo
     * può esistere un solo oggetto di tipo ```TApplication``` in ogni programma
-    * per terminare l'esecuzione del programma, 
+    * per terminare l'esecuzione del programma,
       da un qualunque ```TCanvas``` bisogna utilizzare il menu ```File->Quit ROOT```
 
 ![linea](../immagini/linea.png)
@@ -478,7 +478,3 @@
 ## 5.8 ESERCIZI
 
   * Gli esercizi relativi alla lezione si trovano [qui](ESERCIZI.md)
-
-
-
-
