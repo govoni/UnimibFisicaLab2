@@ -80,14 +80,14 @@
 
 ### 1.1.1 linguaggio di programmazione e linguaggio macchina
 
-  * le istruzioni che un calcolatore segue per eserguire i compiti assegnati 
-    sono scritte in **linguaggio macchina**, 
-    che non è umanamente intelleggibile 
-  * i **linguaggi di programmazione** sono gli strumenti di scrittura umana 
+  * le istruzioni che un calcolatore segue per eserguire i compiti assegnati
+    sono scritte in **linguaggio macchina**,
+    che non è umanamente intelleggibile
+  * i **linguaggi di programmazione** sono gli strumenti di scrittura umana
     delle istruzioni per il calcolatore
   * la **traduzione** delle istruzioni scritte in linguaggi di programmazione
     in istruzioni per il calcolatore è effettuata da appositi programmi
-  * l'**esecuzione** di un programma corrisponde al momento in cui il calcolatore 
+  * l'**esecuzione** di un programma corrisponde al momento in cui il calcolatore
     segue le istruzioni impartite
 
 ![linea](../immagini/linea.png)
@@ -99,12 +99,12 @@
   | linguaggi interpretati |
   | -----------------------|
 
-  * la traduzione del programma avviene automaticamente 
+  * la traduzione del programma avviene automaticamente
     **durante la sua esecuzione**
-  * le istruzioni sono lette e tradotte riga per riga, 
+  * le istruzioni sono lette e tradotte riga per riga,
     quindi spesso il programmatore può scrivere la riga successiva
     dopo aver osservato il risultato dell'istruzione precedente  
-  * il programma è in generale **lento**, 
+  * il programma è in generale **lento**,
     perché la traduzione contestuale non è ottimizzata
   * ```python``` è un linguaggio di programmazione interpretato  
 
@@ -125,7 +125,7 @@
     * **imperativo**, cioè che impartisce sequenze di istruzioni al calolatore
     * **procedurale**, cioè che permette di raggruppare istruzioni in procedure
   * ```C++``` è un linguaggio di programmazione:
-    * che **estende il ```C```**: 
+    * che **estende il ```C```**:
       * un programma ```C``` compila anche in ```C++```
       * la sintassi del ```C``` è valida anche in ```C++```
       * esistono concetti nuovi nel ```C++```
@@ -133,7 +133,7 @@
     * **object oriented**, cioè che permette di definire nuovi tipi di variabili
       all'interno dei programmi
       * vedremo che si tratta di un cambio di paradigma fondamentale
-    * permette la **programmazione template**, 
+    * permette la **programmazione template**,
       che è una forma di generalizzazione delle istruzioni impartite al calcolatore
       * vedremo che porta alla creazione di molte librerie di utilità generale
   * esistono diverse versioni del linguaggio ```C++```:
@@ -146,7 +146,7 @@
 ### 1.2.1 il codice sorgente
 
   * la sequenza di istruzioni scritte nel linguaggio di programmazione
-    sono salvate in un file di testo, 
+    sono salvate in un file di testo,
     che è solitamente chiamato **codice sorgente**
   * gli **editor di testo** dedicati alla programmazione contengono strumenti
     specifici che permettono di evidenziare la sintassi del codice
@@ -158,7 +158,7 @@
     /* questo è un commento
     */
     ```
-  * ATTENZIONE: i simboli di apertura e chiusura di commenti **non funzionano come parentesi** 
+  * ATTENZIONE: i simboli di apertura e chiusura di commenti **non funzionano come parentesi**
       * scrivere ```/* /* */ */``` non è come scrivere ```( ( ) )```
   * in ```C++``` i commenti possono anche iniziare con ```//``` e terminano automaticamente a fine riga:
     ```cpp
@@ -170,7 +170,7 @@
 ### 1.2.2 uno scheletro vuoto
 
   * il programma più semplice e autoconsistente è costituito dalla sequenza di istruzioni relative alla funzione ```main```
-  * ogni programma deve contenere una ed una sola **funzione chiamata ```main```**, 
+  * ogni programma deve contenere una ed una sola **funzione chiamata ```main```**,
     che viene eseguita dal calcolatore quando il programma viene lanciato
   * esistono due versioni della funzione ```main```
     * una **senza argomenti** che corrisponde al caso in cui il programma sia eseguito da SHELL senza argomenti:
@@ -180,38 +180,38 @@
         return 0 ;
       }
     ```
-    * una **con argomenti in ingresso** che corrisponde al caso in cui il programma sia eseguito da SHELL 
+    * una **con argomenti in ingresso** che corrisponde al caso in cui il programma sia eseguito da SHELL
     con l'aggiuntda di argomenti mediante una frase scritta a linea di comando:
     ```cpp
-    int main (int arcg, char ** argv)
+    int main (int argc, char ** argv)
       {
         return 0 ;
       }
     ```
-  * entrambe le versioni illustrate della funzione   ```main```  implementano un programma funzionante che, 
+  * entrambe le versioni illustrate della funzione   ```main```  implementano un programma funzionante che,
     quando viene eseguito, restituisce alla SHELL
     un numero intero, chiamato **exit status**
-    * per convenzione si sceglie di restituire il numero ```0``` se tutto è andato bene, 
+    * per convenzione si sceglie di restituire il numero ```0``` se tutto è andato bene,
       mentre un numero non nullo è usato per segnalare che ci sono stati problemi durante l'esecuzione
-      (esistono codici di errori codificati, 
+      (esistono codici di errori codificati,
        tuttavia il programmatore ha la libertà di aggiungerne o cambiarli)
-  
+
   | suggerimenti |
   | -------------|
-   
-  * si consiglia di svolgere tutti gli esercizi presentati in ogni lezione in una cartella dedicata, 
+
+  * si consiglia di svolgere tutti gli esercizi presentati in ogni lezione in una cartella dedicata,
     quindi, dopo aver aperto una SHELL:
     ```
     > mkdir Lab2_Modulo1   
-    > cd Lab2_Modulo1 
+    > cd Lab2_Modulo1
     > mkdir Lezione_01
     > cd Lezione_01
     > touch main_00.cpp
     ```
     * il comando ```touch``` crea un file vuoto, in questo caso con nome ```main.cpp```.
       Aprite quindi il file con il vostro editor preferito, scrivete il codice e salvate
-    * il nome del file che contiene il codice sorgente può essere scelto arbitrariamente. 
-      Noi useremo sempre il suffisso ```.cpp``` per i codici sorgenti che contengono la funzione ```main``` 
+    * il nome del file che contiene il codice sorgente può essere scelto arbitrariamente.
+      Noi useremo sempre il suffisso ```.cpp``` per i codici sorgenti che contengono la funzione ```main```
       (vedremo che il codice sorgente di un programma può essere spezzato in più file)
   * nello scrivere un programma, ogni volta che si apre una parentesi graffa **la si chiuda immediatamente**,
     per non dimenticarlo
@@ -220,10 +220,10 @@
 ![linea](../immagini/linea.png)
 
 ### 1.2.3 la prima compilazione
-    
+
   * create un codice sorgente ```main.cpp``` con lo scheletro vuoto descritto al paragrafo precedente
   * il sorgente va **compilato** perché possa essere eseguito dal calcolatore
-  * per compilare il programma si utilizza il comando ```c++```, chiamato **compilatore**: 
+  * per compilare il programma si utilizza il comando ```c++```, chiamato **compilatore**:
     ```
     > c++ -o main_00 main_00.cpp
     ```
@@ -234,32 +234,32 @@
     >
     ```
     * non succede nulla, infatti non ci sono istruzioni all'interno della funzione ```main```
-    * l'istruzione ```return 0``` non dice di scrivere a schermo ```0```, 
-      ma di restituire alla SHELL il valore ```0``` 
+    * l'istruzione ```return 0``` non dice di scrivere a schermo ```0```,
+      ma di restituire alla SHELL il valore ```0```
       (questo valore può essere intercettato ed utilizzato mediante i comandi di SHELL)   
 
   | suggerimenti |
   | -------------|
- 
-  * includete sempre all'inizio del codice sorgente un commento 
+
+  * includete sempre all'inizio del codice sorgente un commento
     che contenga il **comando di compilazione** del programma
 
 ![linea](../immagini/linea.png)
-    
+
 ### 1.2.4 scrivere a schermo
 
   * oltre ai comandi fondamentali disponibili di default, il ```C++``` offre
     insiemi di istruzioni dedicate allo svolgimento di specifici compiti, questi
     sono **incapsulate in librerie** (identificate da un nome come ```iostream```, ```cmath``` ...)
-  * bisogna sempre dichiarare al programma che si vuole utilizzare una o più librerie 
+  * bisogna sempre dichiarare al programma che si vuole utilizzare una o più librerie
     (usando il comando ```#include <nome-della-libreria>```)
   * per scrivere a schermo,
-    si utilizza la libreria ```iostream``` che gestisce il flusso (stream) di informazione in input (i) ed output (o) 
-    durante l'esecuzione del programma: 
+    si utilizza la libreria ```iostream``` che gestisce il flusso (stream) di informazione in input (i) ed output (o)
+    durante l'esecuzione del programma:
     ```cpp
     #include <iostream>
 
-    int main (int arcg, char ** argv)
+    int main (int argc, char ** argv)
       {
         std::cout << "42" << std::endl ;
         return 0 ;
@@ -267,17 +267,17 @@
     ```
     * la linea ```#include <iostream>``` dice al compilatore di utilizzare la libreria ```iostream```
         * il compilatore sa dove trovare le librerie standard tramite variabili di ambiente della SHELL
-    * la variabile ```cout``` (che abbrevia *character output*) rappresenta lo strumento di output; 
+    * la variabile ```cout``` (che abbrevia *character output*) rappresenta lo strumento di output;
       in questo caso, essendo quello standard (```std::```) si tratta dello schermo
     * la variabile ```endl``` è la fine della linea, essendo quella standard è un accapo
     * il simbolo ```<<``` rappresenta l'operatore di redirezione,
-      che sposta quello che sta alla propria destra verso sinistra. 
+      che sposta quello che sta alla propria destra verso sinistra.
       Quindi in questo caso prima ```endl``` viene incollato a ```42```,
       quindi l'insieme dei due viene inviato allo schermo.
   * l'esecuzione del programma visualizzerà a schermo ```42```:
     ```
     > c++ -o main_01 main_01.cpp
-    > ./main_01 
+    > ./main_01
     42
     ```
 
@@ -293,7 +293,7 @@
   * **creazione del programma** da compilare:
     * vengono eseguite le direttive date al preprocessore, sono le istruzioni che iniziano con il simbolo ```#```
     * ad esempio, l'istruzione ```#include <iostream>``` chiede al preprocessore
-      di copiare al posto della linea stessa tutto il codice sorgente 
+      di copiare al posto della linea stessa tutto il codice sorgente
       contenuto nella libreria ```iostream```
 
   | compilazione |
@@ -310,7 +310,7 @@
   | --------|
 
   * in questo ultimo passaggio, vengono **connessi i vari oggetti del compilatore**
-    * nel nostro esempio, la parte pre-compilata delle librerie viene debitamente connessa 
+    * nel nostro esempio, la parte pre-compilata delle librerie viene debitamente connessa
       alle chiamate presenti nella funzione ```main```
   * NOTA BENE: gli oggetti del compilatore **non** hanno a che fare con la programmazione ad oggetti,
     si tratta di uno sfortunato caso di omonimia  
@@ -320,14 +320,14 @@
 ### 1.2.6 parametri passati a linea di comando
 
   * si possono passare informazioni al programma aggiungendo **parametri a linea di comando**
-  * la SHELL passa alla funzione ```main``` la frase scritta dall'utente, 
+  * la SHELL passa alla funzione ```main``` la frase scritta dall'utente,
     sotto forma di ```array``` di stringhe di tipo ```C```
     * ```argc``` è il numero di elementi dell'```array```
     * ```argv``` è l'array stesso
     ```cpp
     #include <iostream>
 
-    int main (int arcg, char ** argv)
+    int main (int argc, char ** argv)
       {
         std::cout << "42" << std::endl ;
         std::cout << "ecco il nome dell'eseguibile: " << argv[0] << "\n" ;
@@ -343,7 +343,7 @@
     ```cpp
     #include <iostream>
 
-    int main (int arcg, char ** argv)
+    int main (int argc, char ** argv)
       {
         int numero = 0 ;
         std::cout << "inserisci un numero\n" ;
@@ -355,15 +355,15 @@
     * la tastiera è identificata da ```std::cin```
     * l'operatore ```>>``` trasferisce l'informazione dall'esterno verso il programma:
     ```
-    > ./main_03 
+    > ./main_03
     inserisci un numero
-    4 
+    4
     hai inserito: 4
     ```
 
 ![linea](../immagini/linea.png)
 
-## 1.3 Le variabili 
+## 1.3 Le variabili
 
   * le informazioni sono manipolate dal programma sotto forma di **variabili**,
     che indicano zone di memoria del calcolatore riservate dal programma
@@ -373,19 +373,19 @@
   * per ogni differente possibilità esiste un **tipo associato in ```C++```**,
     che contiene le informazioni di lunghezza e formattazione
   * i principali tipi sono i seguenti:
-  
+
   | tipo                            | Keyword | contenuto  |
   | ------------------------------- | ------- | ---------- |
   | Boolean                         | bool    | vero/falso |     
   | Character                       | char    | singoli caratteri |
   | Integer                         | int     | numeri interi fra -32768 fino a 32767 |
-  | Floating point (virgola mobile) | float   | numeri razionali | 
+  | Floating point (virgola mobile) | float   | numeri razionali |
   | Double floating point           | double  | numeri razionali |
   | Valueless                       | void    | nessun tipo |
 
 ![linea](../immagini/linea.png)
 
-### 1.3.1 la loro inizializzazione 
+### 1.3.1 la loro inizializzazione
 
   * le variabili si definiscono ed inizializzano utilizzando le keyword indicate in tabella precedente:
     ```cpp
@@ -393,11 +393,11 @@
     int num1 = 0 ;
     int num2 = 3 ;
     // somma di due numeri interi
-    int somma = num1 + num2 ; 
-    std::cout << "Somma: " << somma << std::endl ; 
+    int somma = num1 + num2 ;
+    std::cout << "Somma: " << somma << std::endl ;
     // definizione di due numeri razionali
     float razionale1 = 3.1416 ;
-    double razionale2 = 1.4142 ; 
+    double razionale2 = 1.4142 ;
     // definizione di un carattere
     char lettera = 'à ;
     // definizione di un valore booleano
@@ -407,13 +407,13 @@
 
   | suggerimenti |
   | -------------|
-  
-  * non appena una variabile viene definita, **assegnarle sempre un valore**, 
-    tipicamente optando per una delle seguenti scelte: 
-    * si assegna un **valore di default**, 
+
+  * non appena una variabile viene definita, **assegnarle sempre un valore**,
+    tipicamente optando per una delle seguenti scelte:
+    * si assegna un **valore di default**,
       che abbia senso nei calcoli a seguire;
-    * si assegna un **valore palesemte insensato**, 
-      in modo che se ci si scorda di assegnare il valore corretto alla variabile, 
+    * si assegna un **valore palesemte insensato**,
+      in modo che se ci si scorda di assegnare il valore corretto alla variabile,
       il programma non funzioni o dia risultati palesemente insensati;
   * definire **una variabile per riga**, per chiarezza di lettura;
   * dare **nomi esplicativi** alle variabili (e quindi anche sufficientemente lunghi).   
@@ -452,11 +452,11 @@
     // array di 5 numeri interi
     int num_array[5] ;
     ```
-      * la dimensione dell'array, 
+      * la dimensione dell'array,
         indicata fra parentesi nella definizione della variabile,
         non può essere una variabile (nemmeno ```const```),
         **deve essere un numero scritto nel codice sorgente**
-  * **le singole celle di memoria** sono accessibili 
+  * **le singole celle di memoria** sono accessibili
     tramite l'operatore ```operator[]``` applicato al nome della variabile,
     che si scrive utilizzando le parentesi quadre
     come nell'esempio che segue:
@@ -482,7 +482,7 @@
     int index = 4 ;
     std::cout << num_array[index + 1] << std::endl ;
     ```
-  * NOTA BENE: si tratta di errori difficili da trovare, 
+  * NOTA BENE: si tratta di errori difficili da trovare,
     bisogna prestare molta attenzione agli indici di lettura degli array
 
 ![linea](../immagini/linea.png)
@@ -518,24 +518,24 @@
 ### 1.3.7 il casting in ```C++```
 
   * in ```C++``` l'operazione di casting ha portata più ampia
-    e può essere realizzato con operatori dedicati. 
+    e può essere realizzato con operatori dedicati.
     Quello con la funzionalità equivalente al type cast del```C``` è:
     ```cpp
     float secondo_razionale = static_cast<float> (numero_intero) ;
     ```
-  * NOTA BENE uno dei vantaggi di usare l'espressione ```C++``` del cast 
+  * NOTA BENE uno dei vantaggi di usare l'espressione ```C++``` del cast
     è che questo è facilmente rintracciabile nel codice sorgente!
 ![linea](../immagini/linea.png)
 
 ## 1.4 Gli operatori
 
   * Gli operatori predefiniti in ```C++``` permettono di compiere **operazioni fra variabili**
-  * **Per ogni tipo di variabile**, esistono operatori corrispondenti alle operazioni 
+  * **Per ogni tipo di variabile**, esistono operatori corrispondenti alle operazioni
     che si possono fare fra queste variabili
   * gli operatori si comportano **alla stregua di funzioni**, con variabili in ingresso
     e variabili di ritorno
-  * tipicamente un operatore agisce su un singolo di tipo, 
-    quindi l'applicazione di operatori a più di un tipo 
+  * tipicamente un operatore agisce su un singolo di tipo,
+    quindi l'applicazione di operatori a più di un tipo
     implica un **casting implicito** fatto dal compilatore  
 
 ![linea](../immagini/linea.png)
@@ -546,9 +546,9 @@
     ```cpp
     int numero = 5 ;
     ```
-    * in questo caso, il tipo in ingresso è un ```int``` 
+    * in questo caso, il tipo in ingresso è un ```int```
       (la variabile stessa è una sorta di argomento implicito dell'operatore)
-    * l'effetto dell'operatore è quello di assegnare alla variabile ```numero``` il valore 
+    * l'effetto dell'operatore è quello di assegnare alla variabile ```numero``` il valore
       **che sta a destra** del simbolo ```=```
     * il tipo in uscita è ancora ```int``` ed è il valore assegnato alla variabile  
     ```cpp
@@ -588,7 +588,7 @@
     R3 += 2.1 ;
     std::cout << R3 << std::endl ;
     ```
- * l'operazione precedente è equivalente a equivalente a 
+ * l'operazione precedente è equivalente a equivalente a
    ```cpp
     R3 = R3 + 2.1 ;
     ```
@@ -605,7 +605,7 @@
 
 ### 1.4.4 operatori di incremento
 
-  * **L'incremento o decremento unitario** di una variabile si può ottenere 
+  * **L'incremento o decremento unitario** di una variabile si può ottenere
     anche con operaori dedicati:
 
     | operatore | operazione |
@@ -628,11 +628,11 @@
 ### 1.4.5 pre-incremento e post-incremento
 
   * ciascun operatore esiste in due versioni:
-    * **pre-incremento** o **pre-decremento**: la variabile a cui viene applicato 
+    * **pre-incremento** o **pre-decremento**: la variabile a cui viene applicato
       viene modificata dall'operatore **prima** dell'esecuzione di eventuali altre operazioni
-      che accadono in quella linea (```++num```, ```--num```), 
+      che accadono in quella linea (```++num```, ```--num```),
       quindi l'operatore restituisce la variabile stessa
-    * **post-incremento** o **post-decremento**: la variabile a cui viene applicato 
+    * **post-incremento** o **post-decremento**: la variabile a cui viene applicato
       viene modificata dall'operatore **dopo** dell'esecuzione di eventuali altre operazioni
       che accadono in quella linea (```num++```, ```num--```)
     ```cpp
@@ -645,7 +645,7 @@
     * gli operatori di post-incremento e post-decremento **creano una copia** della variabile
       alla quale sono applicati, incrementano la variabile e restituiscono la copia
       (che non è stata incrementata)
-    * di conseguenza, gli operatori di post-incremento e post-decremento **sono più lenti** 
+    * di conseguenza, gli operatori di post-incremento e post-decremento **sono più lenti**
       di quelli di pre-incremento e pre-decremento
       e richiedono che **sia possibile creare una copia** della variabile alla quale sono applicati
   * gli operatori di incremento vengono tipicamente utilizzati per aumentare o diminuire
@@ -656,7 +656,7 @@
 ### 1.4.6 operatori relazionali
 
   * gli operatori relazionali **confrontano tra loro** i valori di due variabili
-  * prendono in ingresso due variabili e **restituiscono un valore booleano** 
+  * prendono in ingresso due variabili e **restituiscono un valore booleano**
     che indica se la relazione è soddisfatta o meno
 
     | operatore | operazione |
@@ -691,15 +691,15 @@
 ### 1.4.8 le precedenze fra operatori
 
   * se in una singola linea di un codice sorgente vengono effettuate diverse operazioni,
-    il calcolatore le esegue **da destra verso sinistra**, 
+    il calcolatore le esegue **da destra verso sinistra**,
     rispettando l'ordine imposto da eventuali parentesi
     e una serie di regole di precedenza
-  
+
   * ecco una tabella ridotta alle operazioni più comuni,
     gli operatori nelle righe più in alto hanno **precedenza** rispetto a quelli delle righe sottostanti
 
   | categorie di priorità |
-  | -------------| 
+  | -------------|
   |  ```a++```, ```a[]```  |
   |  ```++a```, ```!```  |
   |  ```a*b```, ```a/b```, ```a%b```  |
@@ -709,9 +709,9 @@
   |  ```&&``` |
   |  ```||``` |
   |  ```=```, ```+=```, ```-=```, ```*=```, ```/=```, ```%=``` |
-  
+
   * la lista completa delle precedenze si trova [qui](https://en.cppreference.com/w/cpp/language/operator_precedence)  
-    
+
 ![linea](../immagini/linea.png)
 
 ## 1.5 Le strutture di controllo
@@ -719,7 +719,7 @@
   * Le strutture di controllo sono il metodo che si utilizza nei linguaggi di programmazione procedurali
     per **gestire il flusso di istruzioni** che il calcolatore deve eseguire.
     Esistono tre tipi di strutture di controllo:
-    * **sequenza**: si tratta della configurazione di default: 
+    * **sequenza**: si tratta della configurazione di default:
       le istruzioni si susseguono una dopo l'altra
     * **selezione**: a seconda che una condizione sia o meno soddisfatta,
       il calcolatore sceglie di eseguire diverse istruzioni
@@ -734,7 +734,7 @@
 
   * nel codice sorgente diverse istruzioni vengono raggruppate in insiemi chiamati **scope**,
     delimitati da parentesi graffe
-  * le **variabili** definite all'interno di uno scope 
+  * le **variabili** definite all'interno di uno scope
     rimangono definite solamente fino alla chiusura dello scope
     e vengono automaticamente rimosse alla chiusura della parentesi graffa
   * singole istruzioni all'interno di una struttura di controllo
@@ -745,13 +745,13 @@
 ### 1.5.2 ```if ... else```
 
   * la sequenza ```if (condizione) {scope} else {scope alternativo}``` realizza una selezione binaria,
-    nella quale una istruzione o uno scope di istruzioni vengono eseguiti 
+    nella quale una istruzione o uno scope di istruzioni vengono eseguiti
     nel caso in cui venga **soddisfatta una condizione booleana**
-  * opzionalmente, uno **scope alternativo** può essere eseguito 
+  * opzionalmente, uno **scope alternativo** può essere eseguito
     nel caso in cui la condizione risulti falsa
     ```cpp
     int num1 = 5 ;
-    if (num1 % 2 == 0) 
+    if (num1 % 2 == 0)
       {
         std::cout << num1 << " è pari\n" ;
       }
@@ -789,21 +789,21 @@
   ![strutture](immagini/switch.png)
 
   * nella struttura di controllo ```switch (espressione)```
-    vengono eseguite le istruzioni che stanno sotto la linea ```case``` 
-    tale per cui **```espressione``` è uguale al valore riportato 
+    vengono eseguite le istruzioni che stanno sotto la linea ```case```
+    tale per cui **```espressione``` è uguale al valore riportato
     dopo la parola chiave ```case```**
   * per evitare che vengano eseguite anche le istruzioni riportate dopo i ```case``` seguenti,
     solitamente si inserisce in ogni blocco di istruzioni il comando **```break```**,
     che interrompe l'esecuzione dello scope
-    * la situazione in cui le istruzioni eseguite non siano soltanto quelle 
+    * la situazione in cui le istruzioni eseguite non siano soltanto quelle
       del ```case``` corrispondente al valore di ```espressione```
       prende il nome di **fallthrough**
     * il comando ```break``` può essere utilizzato anche per **interrompere l'esecuzione di un ciclo**
-    * la presenza di un ```break``` **non è obbligatoria** 
-  * oltre ai vari ```case```, 
-    si può aggiungere un ulteriore caso, 
+    * la presenza di un ```break``` **non è obbligatoria**
+  * oltre ai vari ```case```,
+    si può aggiungere un ulteriore caso,
     che contiene istruzioni da svolgere nell'evenienza in cui nessuno dei ```case```
-    venga soddisfatto, 
+    venga soddisfatto,
     che viene etichettato con la parola chiave **```default```**
     * il caso di ```default``` **non è obbligatorio**
 
@@ -811,12 +811,12 @@
 
 ### 1.5.4 il ciclo ```for```
 
-  * la struttura di controllo ```for ()``` 
+  * la struttura di controllo ```for ()```
     è un modo di implementare la struttura di controllo a ciclo,
     tipicamente nel caso in cui al ciclo sia **associato un conteggio**
   * nella parentesi che segue il comando ```for``` sono solitamente riportate tre istruzioni,
     separati da un punto e virgola:
-    * **inizializzazione**: dove viene inizializzata (e talvolta definita) 
+    * **inizializzazione**: dove viene inizializzata (e talvolta definita)
       una variabile che conta il numero di cicli, detta contatore
     * **controllo**: dove si verifica se il numero di cicli abbia oltrepassato una determinata soglia
     * **incremento**: dove si incrementa il contatore
@@ -835,7 +835,7 @@
     * l'operazione di controllo viene compiuta **prima** di effettuare nell'iterazione corrispondente  
     * l'operazione di incremento viene compiuta **dopo** che è stata effettuata l'iterazione corrispondente
   * c'è **molta libertà** nella scrittura di un ciclo ```for```:
-    i tre campi fra parentesi possono anche essere vuoti ed il programma compila 
+    i tre campi fra parentesi possono anche essere vuoti ed il programma compila
     * utilizzare una scrittura non ortodossa del ciclo ```for```
       può portare ad errori logici nel programma,
       che possono condurre a risultati inaffidabili in fase di esecuzione
@@ -844,11 +844,11 @@
 
 ### 1.5.5 il ciclo ```while```
 
-  * la struttura di controllo ```while ()``` 
+  * la struttura di controllo ```while ()```
     consente di implementare un ciclo
     fintanto che una **condizione risulta vera**
   * nella parentesi che segue l'istruzione ```while```
-    è codificata un'affermazione da verificare (condizione); 
+    è codificata un'affermazione da verificare (condizione);
     se l'affermazione è vera (condizione soddisfatta), lo scope del ciclo viene effettuato
     ```cpp
     int N = 10 ;
@@ -866,10 +866,10 @@
 
 ### 1.5.6 il ciclo ```do ... while```
 
-  * talvolta conviene che la condizione di proseguimento del ciclo 
+  * talvolta conviene che la condizione di proseguimento del ciclo
     venga verificata **dopo l'esecuzione dello scope**
     (ad esempio quando, prima della prima esecuzione dello scope, non ha senso effettuare il controllo)
-  * per ottenere questo comportamento, 
+  * per ottenere questo comportamento,
     si utilizza la sintassi ``` do { ... } while ()```   
     ```cpp
     do
@@ -882,13 +882,13 @@
    ![strutture](immagini/do_while.png)
 
  ![linea](../immagini/linea.png)
- 
+
 ### 1.5.7 l'interruzione di un ciclo
 
   * oltre a terminare quando la condizione di controllo diventa falsa,
     **l'esecuzione di un ciclo può essere interrotta** con due comandi:
    * l'istruzione ```break``` che interrompe l'esecuzione dell'iterazione ed esce dal ciclo
-   * l'istruzione ```continue``` che interrompe l'esecuzione dell'iterazione 
+   * l'istruzione ```continue``` che interrompe l'esecuzione dell'iterazione
      e passa a quella successiva
 
    ![strutture](immagini/break_continue.png)
@@ -901,31 +901,31 @@
     * aumenta considerevolmente il rischio che **il ciclo non termini mai**
 
 ![linea](../immagini/linea.png)
- 
+
 ## 1.6 Le funzioni
 
-  * insiemi di istruzioni che svolgono un **compito preciso e spesso ripetuto** 
-    all'interno di uno o più programmi 
+  * insiemi di istruzioni che svolgono un **compito preciso e spesso ripetuto**
+    all'interno di uno o più programmi
     vengono solitamente raggruppate in funzioni,
     che si utilizzano come un singolo comando
-  * le funzioni hanno un nome, una o più variabili in ingresso 
+  * le funzioni hanno un nome, una o più variabili in ingresso
     e restituiscono una sola variabile,
     con il comando ```return```
 
 ![linea](../immagini/linea.png)
- 
+
 ### 1.6.1 un primo esempio
 
   * le funzioni vanno **definite prima di essere chiamate** e **possono** essere simultaneamente definite e implementate (come nel caso sottostante)
     ```cpp
-    int raddoppia (int input_value) 
+    int raddoppia (int input_value)
       {
         return 2 * input_value ;
       }
-    
-    int main (int arcg, char ** argv)
+
+    int main (int argc, char ** argv)
       {
-      
+
         for (int i = 0 ; i < 5 ; ++i)
           {
             std::cout << "il doppio di " << i << " vale: " << raddoppia (i) << std::endl ;
@@ -935,25 +935,25 @@
     ```
 
 ![linea](../immagini/linea.png)
- 
+
 ### 1.6.2 funzioni senza tipo di ritorno
 
-  * una funzione che **non restituisce alcun valore** si definisce 
+  * una funzione che **non restituisce alcun valore** si definisce
     con la parola chiave ```void``` (indicatore del tipo di ritorno invece di ```int``` , ```float```  ...)
     ed al suo interno l'istruzione ```return``` è immediatamente seguita da una virgola
     ```cpp
-    int raddoppia (int input_value) 
+    int raddoppia (int input_value)
       {
         return 2 * input_value ;
       }
 
-    void scriviAschermo (int input_value) 
+    void scriviAschermo (int input_value)
       {
         std::cout << "ecco il numero da scrivere: " << input_value << std::endl ;
         return ;
       }
 
-    int main (int arcg, char ** argv)
+    int main (int argc, char ** argv)
       {
           for (int i = 0 ; i < 5 ; ++i)
           {
@@ -965,7 +965,7 @@
     ```
 
 ![linea](../immagini/linea.png)
- 
+
 ### 1.6.3 funzioni ed omonimia
 
   * il nome di una funzione, insieme ai suoi tipi in ingresso,
@@ -975,12 +975,12 @@
   * funzioni con lo stesso nome, ma con tipi in ingresso diversi, possono invece coesistere:
       questa proprietà del ```C++``` si chiama **overloading**
       ```cpp
-      int raddoppia (int input_value) 
+      int raddoppia (int input_value)
         {
           return 2 * input_value ;
         }
-      
-      float raddoppia (float input_value) 
+
+      float raddoppia (float input_value)
         {
           return 2 * input_value ;
         }
@@ -991,27 +991,27 @@
 ### 1.6.4 il prototipo di una funzione e la sua implementazione
 
   * definire una funzione prima di essere chiamata
-    è necessario per **permettere il controllo grammaticale** del codice sorgente 
+    è necessario per **permettere il controllo grammaticale** del codice sorgente
     da parte del compilatore
-  * per effettuare il controllo grammaticale, 
+  * per effettuare il controllo grammaticale,
     al compilatore è **sufficiente** conoscere il nome della funzione,
     la variabili in ingresso e quelle in uscita
   * è quindi lecito anticipare questa informazione sotto forma di **prototipo**,
     posticipando la scrittura dell'implementazione della funzione:
     ```cpp
     int raddoppia (int) ;
-    
-    int main (int arcg, char ** argv)
+
+    int main (int argc, char ** argv)
       {
-      
+
         for (int i = 0 ; i < 5 ; ++i)
           {
             std::cout << "il doppio di " << i << " vale: " << raddoppia (i) << std::endl ;
           }
         return 0 ;
       }
-    
-    int raddoppia (int input_value) 
+
+    int raddoppia (int input_value)
       {
         return 2 * input_value ;
       }
@@ -1028,22 +1028,22 @@
     questi saranno i  valori utilizzati dalla funzione per quella variabile
     nel caso in cui il valore non venga passato al momento della chiamata della funzione
     ```cpp
-    int raddoppia (int input_value = 0) 
+    int raddoppia (int input_value = 0)
       {
         return 2 * input_value ;
       }
     ```
     * il valore di default deve essere attribuito solamente **in uno dei due luoghi**
-    * in caso di **funzioni con più variabili in ingresso**, 
+    * in caso di **funzioni con più variabili in ingresso**,
       se ad una variabile viene assegnato un valore di default
-      anche le variabili seguenti devono possederlo, 
+      anche le variabili seguenti devono possederlo,
       per evitare situazioni di ambiguità
 
 ![linea](../immagini/linea.png)
 
 ### 1.6.6 l'esportazione delle funzioni in librerie
 
-  * funzioni che vengono utilizzate in più di un programma ```main``` 
+  * funzioni che vengono utilizzate in più di un programma ```main```
     possono essere **scritte in un file diverso**,
     in modo che non sia necessario riscriverle ogni volta
   * ogni funzione, dopo essere stata compilata, diventa un **oggetto del compilatore**
@@ -1051,7 +1051,7 @@
     connette le varie funzioni per costruire l'eseguibile finale
   * per permettere al compilatore di **controllare la grammatica** in fase di compilazione,
     è sempre necessario mettere nel codice sorgente del ```main``` il prototipo delle funzioni
-  * questa struttura viene realizzata tipicamente con tre file: 
+  * questa struttura viene realizzata tipicamente con tre file:
     ```libreria.h```, ```libreria.cc```, ```main.cpp```
 
 ![linea](../immagini/linea.png)
@@ -1062,9 +1062,9 @@
     ```cpp
     #ifndef libreria_h
     #define libreria_h
-    
+
     int raddoppia (int) ;
-    
+
     #endif
     ```
      * le linee che iniziano con ```#``` sono **istruzioni al preprocessore**,
@@ -1082,8 +1082,8 @@
   * ```libreria.cc```: è il file che contiene il **codice sorgente delle funzioni secondarie**
     ```cpp
     #include "libreria.h"      
-    
-    int raddoppia (int input_value) 
+
+    int raddoppia (int input_value)
       {
         return 2 * input_value ;
       }
@@ -1100,10 +1100,10 @@
     ```cpp
     #include <iostream>
     #include "libreria.h"
-       
-    int main (int arcg, char ** argv)
+
+    int main (int argc, char ** argv)
       {
-      
+
         for (int i = 0 ; i < 5 ; ++i)
           {
             std::cout << "il doppio di " << i << " vale: " << raddoppia (i) << std::endl ;
@@ -1114,15 +1114,15 @@
      * il codice sorgente include ```libreria.h```
        per ereditare tutte le definizioni e gli altri ```#include```
        che stanno al suo interno
-     * il file ```libreria.cc``` non viene mai incluso, 
+     * il file ```libreria.cc``` non viene mai incluso,
        ma va **indicato nel comando di compilazione**:
        ```
        > c++ -o main_16 libreria.cc main_16.cpp
        ```  
  * NOTA BENE i file indicati fra parentesi angolate nelle istruzioni ```#include```
-   vengono cercati, dal preprocessore, 
+   vengono cercati, dal preprocessore,
    in cartelle predefinite
-   * se il nome del file è racchiuso tra doppi apici il file viene dapprima cercato 
+   * se il nome del file è racchiuso tra doppi apici il file viene dapprima cercato
      nella cartella in cui si sta compilando e successivamente in cartelle predefinite
 
 ![linea](../immagini/linea.png)
@@ -1132,13 +1132,13 @@
   * si possono creare ed includere **più di una libreria** in un programma
   * le librerie di ```C++``` funzionano in questo modo,
     con i codici sorgente delle librerie spesso già compilati
-    ed il file da includere indicato fra parentesi angolate, 
-    come ad esempio ```#include <iostream>``` 
+    ed il file da includere indicato fra parentesi angolate,
+    come ad esempio ```#include <iostream>```
 
   | suggerimenti |
   | -------------|
 
-  * è utile **organizzare** le proprie librerie per funzionalità, 
+  * è utile **organizzare** le proprie librerie per funzionalità,
     sia per strutturazione logica del proprio programma
     che per decidere che cosa includere e compilare in ogni programma
   * l'utilizzo di una funzione comporta **rallentamento** nel programma,
@@ -1151,26 +1151,26 @@
 ### 1.6.11 le funzioni ```inline```
 
 
-  * si può utilizzare la parola chiave ```inline```, 
+  * si può utilizzare la parola chiave ```inline```,
     per chiedere al compilatore di **sostituire la funzione con la sua implementazione**.
-  * questo si fa (è vantaggioso) solo per **funzioni piccole** 
-    per cui il tempo di esecuzione delle operazioni codificate 
-    è confrontabile con il tempo di chiamata di una funzione non ```inline``` 
-    
+  * questo si fa (è vantaggioso) solo per **funzioni piccole**
+    per cui il tempo di esecuzione delle operazioni codificate
+    è confrontabile con il tempo di chiamata di una funzione non ```inline```
+
     ```cpp
     #ifndef libreria_h
     #define libreria_h
-    
-    inline int raddoppia (int input_value) 
+
+    inline int raddoppia (int input_value)
       {
         return 2 * input_value ;
       }
-    
+
     #endif
     ```
     * in questo caso, la funzione va definita prima del ```main```, quindi **nel file ```.h```**
-    * il compilatore può decidere di **ignorare** la parola chiave ```inline``` 
-      quando non sono soddisfatti determinati criteri 
+    * il compilatore può decidere di **ignorare** la parola chiave ```inline```
+      quando non sono soddisfatti determinati criteri
       (quindi l'istruzione ```inline``` è una richiesta o proposta fatta al compilatore, non un comando)
 
 ![linea](../immagini/linea.png)
@@ -1178,10 +1178,10 @@
 ### 1.6.12 funzioni matematiche
 
   * la libreria ```cmath``` offre un'utile **estensione delle operazioni matematiche**
-  * per poterla utilizzare, bisogna includerne il file ```.h``` corrispondente: 
+  * per poterla utilizzare, bisogna includerne il file ```.h``` corrispondente:
     ```#include <cmath>```
   * la libreria contiene funzioni e variabili notevoli
-    * la lista delle funzioni notevoli si trova [qui](http://www.cplusplus.com/reference/cmath/), 
+    * la lista delle funzioni notevoli si trova [qui](http://www.cplusplus.com/reference/cmath/),
       contiene funzioni trigonometriche, funzioni di potenza, iperboliche...
 
 ![linea](../immagini/linea.png)
@@ -1222,18 +1222,18 @@
     rispetto all'operazione ```x * x``` potremmo ripetere entrambe le operazioni molte (```N```) volte
     e misurare il tempo di calcolo nei due casi:
     ```cpp
-    double start = (double) clock () / CLOCKS_PER_SEC ; 
-    for (double i = 0; i < N; ++i) 
+    double start = (double) clock () / CLOCKS_PER_SEC ;
+    for (double i = 0; i < N; ++i)
       {
-        test += pow (i, 2) ; 
+        test += pow (i, 2) ;
       }
     double stop = (double) clock () / CLOCKS_PER_SEC ;
     std::cout << "tempo di esecuzione per pow: " << stop - start << " secondi\n" ;
 
-    start = (double) clock () / CLOCKS_PER_SEC ; 
-    for (double i = 0; i < N; ++i) 
+    start = (double) clock () / CLOCKS_PER_SEC ;
+    for (double i = 0; i < N; ++i)
       {
-        test += i * i ; 
+        test += i * i ;
       }
     stop = (double) clock () / CLOCKS_PER_SEC ;
     std::cout << "tempo di esecuzione per i*i: " << stop - start << " secondi\n" ;
@@ -1262,7 +1262,7 @@ tempo di esecuzione per i*i: 3.91943 secondi
   * come abbiamo già visto,
     questa istruzione viene utilizzata quando si scrivono **librerie di funzioni**
     in un file separato da quello che contiene il codice sorgente del ```main``` program
-  * seguendo questa direttiva, 
+  * seguendo questa direttiva,
     il preprocessore **sostituisce alla linea l'intero file** riportato dopo ```#include```
 
 ![linea](../immagini/linea.png)
@@ -1270,22 +1270,22 @@ tempo di esecuzione per i*i: 3.91943 secondi
 ### 1.7.2 variabili del preprocessore
 
   * la direttiva ```#define``` **definisce variabili** del preprocessore
-  * viene estensivamente utilizzata, unitamente al controllo booleano ```#ifndef``` (se non è definita), 
+  * viene estensivamente utilizzata, unitamente al controllo booleano ```#ifndef``` (se non è definita),
     per impedire la doppia definizione del prototipo di una funzione
     e per impedire che si crei un circolo infinito di istruzioni ```#include```:
     ```cpp
     #ifndef libreria_h
     #define libreria_h
-    
+
     int raddoppia (int) ;
-    
+
     #endif
     ```
   * è invalso nell'uso utilizzare ```#define``` anche in sostituzione di variabili del ```C++```
     ```cpp
     #define NUMERO 150
     ```
-    * si tratta di una **cattiva pratica di programmazione**, 
+    * si tratta di una **cattiva pratica di programmazione**,
       perché può portare a comportamenti inattesi del programma (inclusi problemi di compilazione)
       e rende difficile la fattorizzazione del codice sorgente
     * in questo caso, ```NUMERO``` **non è una variabile del ```C++```**,
@@ -1293,27 +1293,27 @@ tempo di esecuzione per i*i: 3.91943 secondi
       prima della compilazione
     * quando si utilizzano questi metodi poco ortodossi,
       è buona regola utilizzare **prassi sintattiche che differenzino chiaramente**
-      le effettive variabili del ```C++``` dalle sostituzioni di testo del preprocessore, 
+      le effettive variabili del ```C++``` dalle sostituzioni di testo del preprocessore,
       ad esempio scrivendone il nome interamente in caratteri maiuscoli    
 
 ![linea](../immagini/linea.png)
 
-### 1.7.3 le macro del preprocessore 
+### 1.7.3 le macro del preprocessore
 
   * si possono anche definire **macro del preprocessore**,
     che sono espressioni che richiamano in forma il comportamento delle funzioni del ```C++```
     ```cpp
     #define quadrato(a) a*a
     ```
-  * utilizzare le macro del processore come funzioni 
+  * utilizzare le macro del processore come funzioni
     **può produrre disastri**, questo programma:
     ```cpp
     int main (int argc, char ** argv)
-      { 
+      {
         double numero = 3. ;
         double risposta = quadrato (numero + 1.) ;
-      
-        std::cout << "Il quadrato di " << numero + 1. 
+
+        std::cout << "Il quadrato di " << numero + 1.
                   << " vale " << risposta << "\n" ;
         return 0 ;
       }
@@ -1326,12 +1326,12 @@ tempo di esecuzione per i*i: 3.91943 secondi
     ```cpp  
     double risposta = numero + 1. * numero + 1. ;
     ```
-    
+
 ![linea](../immagini/linea.png)
 
 ## 1.8 La scrittura del proprio programma
 
-  * perché un codice sorgente **compili**, 
+  * perché un codice sorgente **compili**,
     bisogna rispettare sintassi e grammatica del ```C++```
   * perché un programma **funzioni**,
     bisogna evitare errori logici nell'uso del ```C++```
@@ -1345,7 +1345,7 @@ tempo di esecuzione per i*i: 3.91943 secondi
 
   * scegliete nomi di funzioni e variabili **lunghi ed autoesplicativi**
   * scegliete nomi che riguardino il ruolo effettivo di variabili e funzioni:
-    ad esempio, se una variabile o una funzione servono 
+    ad esempio, se una variabile o una funzione servono
     nel programma per ottenere un determinato calcolo,
     ma abbiano funzionalità più ampia,
     il loro nome deve **riflettere l'effettiva funzionalità**
@@ -1358,7 +1358,7 @@ tempo di esecuzione per i*i: 3.91943 secondi
 
 ### 1.8.2 la dimensione degli scope
 
-  * scegliete di scrivere **scope piccoli**: 
+  * scegliete di scrivere **scope piccoli**:
     se il numero di istruzioni in uno scope è molto alto,
     spezzatelo in sotto-gruppi tramite funzioni
   * una **numero indicativo** di istruzioni oltre il quale pensare se spezzare lo scope
@@ -1380,7 +1380,7 @@ tempo di esecuzione per i*i: 3.91943 secondi
     **quale scope sia chiuso** da una graffa:
     ```cpp
     int main (int argc, char ** argv)
-      { 
+      {
         for (int i1 = 0 ; i1 < 100 ; ++i1)
           {
             /* tante istruzioni che si susseguono */
@@ -1395,13 +1395,13 @@ tempo di esecuzione per i*i: 3.91943 secondi
 
   * indentare il codice sorgente coerentemente aiuta enormemente la lettura del codice sorgente
   * **tutte le istruzioni di uno stesso scope** devono inizare alla medesima colonna
-  * quando si apre uno scope, 
+  * quando si apre uno scope,
     le istruzioni devono **inziare in posizione rientrata**
     rispetto allo scope precedente:
     **scegliete una regola** (ad es. 2 colonne) ed attenetevi rigorosamente a quella
     * imparate ad usare con cognizione di causa il tasto ```TAB```,
       oppure non utilizzatelo
-  * decidete se **aprire le parentesi graffe** alla fine di una linea, 
+  * decidete se **aprire le parentesi graffe** alla fine di una linea,
     oppure dopo essere andati accapo
   * non chiudete parentesi graffe su una **linea in cui ci sono istruzioni**
 
@@ -1422,12 +1422,12 @@ tempo di esecuzione per i*i: 3.91943 secondi
 
 ### 1.8.6 dettagli
 
-  * il ```C++``` **distingue maiuscole da minuscole**, 
+  * il ```C++``` **distingue maiuscole da minuscole**,
     quindi ```num``` e ```Num``` sono due variabili diverse
   * il ```C++``` **non riconosce caratteri speciali** come lettere accentate,
     quindi non usatele nei codici sorgente
   * esistono **caratteri riservati** al ```C++```, come le virgolette, gli apici, o il backslash:
-    nell'output a schermo evitate di utilizzarli, oppure fateli precedere con il carattere ```\\```, 
+    nell'output a schermo evitate di utilizzarli, oppure fateli precedere con il carattere ```\\```,
     che dice al compilatore di non utilizzare il carattere successivo come carattere riservato
 
 ![linea](../immagini/linea.png)
@@ -1437,20 +1437,20 @@ tempo di esecuzione per i*i: 3.91943 secondi
   * quando si scrive un nuovo programma,
     è utile **compilare il codice sorgente** molto spesso
   * ad ogni passaggio importante del programma, fate uno **unit test**,
-    cioè test di compilazione ed esecuzione 
-    * scrivere **la funzione ```main``` vuota** è un passaggio importante 
+    cioè test di compilazione ed esecuzione
+    * scrivere **la funzione ```main``` vuota** è un passaggio importante
       (una unit da testare)
     * **includere una libreria** è una unit da testare
     * aggiungere la **definizione di una variabile rilevante** per il programma è una unit da testare
-    * aggiungere **una struttura di controllo vuota**, 
+    * aggiungere **una struttura di controllo vuota**,
       cioè ancora prima di avere scritto istruzioni all'interno,
       è una unit da testare
-  * procedendo in questo modo, 
+  * procedendo in questo modo,
     si semplifica molto l'identificazione delle cause di errori,
     perché sono tipicamente da ricercare soltanto nelle ultime aggiunte al codice sorgente    
   * in caso di programmi molto complessi,
-    è buona pratica preparare tante versioni della funzione ```main```, 
-    dove ciascuna fa da **test di un aspetto specifico del programma**, 
+    è buona pratica preparare tante versioni della funzione ```main```,
+    dove ciascuna fa da **test di un aspetto specifico del programma**,
     ad esempio una funzione ```main``` per fare il test di ogni libreria creata
 
 ![linea](../immagini/linea.png)
@@ -1458,7 +1458,7 @@ tempo di esecuzione per i*i: 3.91943 secondi
 ## 1.9 Le opzioni di compilazione
 
   * durante la compilazione di un codice sorgente,
-    il compilatore (```c++```) prende in ingresso **diversi parametri**. 
+    il compilatore (```c++```) prende in ingresso **diversi parametri**.
     Alcuni sono elencati qui:
     | parametro | ruolo |
     | --------- | --------- |  
@@ -1477,7 +1477,7 @@ tempo di esecuzione per i*i: 3.91943 secondi
 
 ### 1.9.1 il caso di librerie non di default
 
-  * nel caso si utilizzino **librerie non di default**, 
+  * nel caso si utilizzino **librerie non di default**,
     si può istruire il compilatore riguardo alla loro posizione nel computer:
     | parametro | ruolo |
     | --------- | --------- |  
@@ -1492,7 +1492,7 @@ tempo di esecuzione per i*i: 3.91943 secondi
 
 ## 1.10 Gli errori di compilazione
 
-  * in caso di errore di compilazione, 
+  * in caso di errore di compilazione,
     il compilatore mostra a schemo la **descrizione degli errori** che ha riscontrato
   * il messaggio di errore è solitamente utile a capire il problema:
     ```
@@ -1509,7 +1509,7 @@ tempo di esecuzione per i*i: 3.91943 secondi
        **la linea** alla quale ha trovato un errore
        e **la ragione** per la quale ha ritenuto che ci fosse un problema
   * spesso un singolo errore genera altri errori in cascata,  
-    quindi è consigliato **risolvere gli errori uno per uno**, 
+    quindi è consigliato **risolvere gli errori uno per uno**,
     iniziando dal primo che si trova
 
 ![linea](../immagini/linea.png)
@@ -1517,5 +1517,3 @@ tempo di esecuzione per i*i: 3.91943 secondi
 ## 1.11 ESERCIZI
 
   * Gli esercizi relativi alla lezione si trovano [qui](ESERCIZI.md)
-
-

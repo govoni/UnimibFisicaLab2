@@ -33,8 +33,8 @@
     * per **falsificare il modello**, oppure
     * per **determinare il valore (e l'incertezza** associata) di uno dei suoi parametri
   * è cruciale saper **calcolare le previsioni** di un modello
-    * spesso **non si conosce** il modello in forma analitica 
-      e si ricorre a **metodi computazionali alternativi** per ottenere le previsioni 
+    * spesso **non si conosce** il modello in forma analitica
+      e si ricorre a **metodi computazionali alternativi** per ottenere le previsioni
       da confrontare con le misure
   * molte tecniche di calcolo si basano sulla **generazione di numeri casuali**
     * per riprodurre la **natura aleatoria** delle misure
@@ -45,7 +45,7 @@
 ### 4.1.1 sequenze casuali
 
   * un **processo casuale, o stocastico**,
-    produce una successione di numeri distribuiti casualmente 
+    produce una successione di numeri distribuiti casualmente
     secondo una distribuzione di probabilità fissata
   * la probabilità che un determinato numero compaia in qualunque punto della successione
     **non dipende dai numeri che lo precedono o che lo seguono**
@@ -60,15 +60,15 @@
 
 ### 4.1.2 sequenze pseudo-casuali
 
-  * esistono programmi e librerie, 
+  * esistono programmi e librerie,
     detti in generale **generatori di numeri pseudo-casuali**,
     che producono successioni di numeri tali da **sembrare** numeri casuali
   * la sequenza dei numeri nelle successioni è deterministica,
-    e le funzioni utilizzate per la generazione sono costruite per 
+    e le funzioni utilizzate per la generazione sono costruite per
     **mimare il comportamento di successioni casuali**
   * il primo numero di una successione (o sequenza) di numeri pseudo-casuali
     si chiama *seed*,
-    perché noto quel numero e l'algoritmo di generazione 
+    perché noto quel numero e l'algoritmo di generazione
     si può riprodurre l'intera sequenza
     * chiaramente, da diversi seed iniziano sequenze di numeri pseudo-casuali diverse
 
@@ -90,7 +90,7 @@
 
   * la dipendenza funzionale fra due numeri pseudo-casuali consecutivi **non deve essere visibile**
   * se in una sequenza di numeri pseudo-casuali ricompare un numero già visto,
-    la sequenza inizia a ripetersi da quel punto: 
+    la sequenza inizia a ripetersi da quel punto:
     si tratta della **periodicità del generatore**.
   * il periodo deve essere **molto maggiore** della quantità di numeri pseudo-casuali generati
     e non dipendere dalla scelta del seed
@@ -109,8 +109,8 @@
     ```cpp
     #include <cstdlib>
     #include <iostream>
-    
-    int main (int arcg, char ** argv)
+
+    int main (int argc, char ** argv)
       {
         for (int i = 0 ; i < 5 ; ++i)
           std::cout << "indice " << i << " --> " << rand () << "\n" ;
@@ -125,7 +125,7 @@
     indice 2 --> 1622650073
     indice 3 --> 984943658
     indice 4 --> 1144108930
-    
+
     RAND_MAX: 2147483647
     ```
 
@@ -169,8 +169,8 @@
 
 ## 4.2 generare numeri pseudo-casuali con distribuzione uniforme
 
-  * ```rand()```  genera numeri interi compresi fra ```0``` e ```RAND_MAX``` 
-  * può però essere usata per produrre sequenze di numeri pseudo-casuali 
+  * ```rand()```  genera numeri interi compresi fra ```0``` e ```RAND_MAX```
+  * può però essere usata per produrre sequenze di numeri pseudo-casuali
     che seguano distribuzioni differenti, mediante opportuni algoritmi
   * in generale le densità di probabilità dei numeri pseudo-casuali prodotti con un calcolatore
     avranno sempre **dominio limitato**, per via delle limitazioni intrinseche dei calcolatori  
@@ -181,10 +181,10 @@
 
 ### 4.2.1 una distribuzione uniforme di numeri razionali pseudo-casuali
 
-  
+
   * l'obiettivo è produrre numeri casuali compresi nell'intervallo ```min, max```,
     **partendo dalle risorse che abbiamo**, cioè ```rand ()```
-    1. **distribuzione uniforme fra ``0`` ed ``1``** : 
+    1. **distribuzione uniforme fra ``0`` ed ``1``** :
        ```cpp
        rand () / static_cast<float> (RAND_MAX) ;
        ```  
@@ -219,7 +219,7 @@
 
 ![distribuzione_non_uniforme](immagini/try_and_catch_aree.png)
 
-  * popolare il piano con coppie di numeri pseudo-casuali ```x,y```, 
+  * popolare il piano con coppie di numeri pseudo-casuali ```x,y```,
     ciascuno generato uniformemente con ```rand_range ()```
     e utilizzare ```x``` solo se ```y < f(x)```
 
@@ -235,17 +235,17 @@
     float rand_TAC (float f (float), float xMin, float xMax, float yMax)
       {
         double x = 0. ;
-        double y = 0. ; 
+        double y = 0. ;
         do {
           x = rand_range (xMin, xMax) ;
           y = rand_range (0, yMax) ;
         } while (y > f (x)) ;
-        return x ; 
+        return x ;
       }
     ```
   * la funzione ```rand_TAC``` ha bisogno di più argomenti rispetto a ```rand_range```:
     * un **limite superiore per l'asse verticale**: ```yMax```
-    * la **forma funzionale** da usare come pdf: 
+    * la **forma funzionale** da usare come pdf:
       come vedete anche una funzione può essere passata come argomento
       ad un'altra funzione, descrivendone il prototipo
 
@@ -259,7 +259,7 @@
   * **nota la forma funzionale** della pdf, l'algoritmo funziona
   * **non è necessario che la pdf sia nota analiticamente**,
       è sufficiente che si possa scrivere come funzione di ```C++```
-  * facilmente **generalizzabile a N dimensioni** 
+  * facilmente **generalizzabile a N dimensioni**
 
   | svantaggi |
   | --------- |
@@ -273,9 +273,9 @@
 
 ## 4.4 altre distribuzioni di probabilità: la funzione inversa
 
-  * sia x una variabile casuale con pdf *f(x)* continua 
-  * sia *F(x)* la distribuzione di probabilità cumulativa (cdf) 
-  * **se *F(x)* è strettamente crescente allora la variabile *y = F(x)* ha distribuzione uniforme** 
+  * sia x una variabile casuale con pdf *f(x)* continua
+  * sia *F(x)* la distribuzione di probabilità cumulativa (cdf)
+  * **se *F(x)* è strettamente crescente allora la variabile *y = F(x)* ha distribuzione uniforme**
     (si dimostra usando la regola per il cambio di variabile in una pdf)
   * generare eventi pseudo-casuali **con distribuzione uniforme in *y***
     equivale a generare eventi pseudo-casuali lungo *x* con distribuzione *f(x)*
@@ -291,8 +291,8 @@
   * si **generano numeri pseudo-casuali y<sub>i</sub> con distribuzione uniforme** fra *0* ed *1* lungo l'asse *y*
   * per ogni evento generato, si calcola *x<sub>i</sub> = F <sup>-1</sup>(y<sub>i</sub>)*
     e si utilizza quel valore come numero casuale generato
-  * dove *f(x)* è più alta *F(x)* è più ripida, 
-    quindi il numero di numeri pseudo-casuali generati nei due intervalli 
+  * dove *f(x)* è più alta *F(x)* è più ripida,
+    quindi il numero di numeri pseudo-casuali generati nei due intervalli
     *&Delta;y<sub>1<sub>* e *&Delta;y<sub>2<sub>*
     risulta proporzionale all'area sottesa dalla curva *f(x)*
     sopra i due intervalli con dimensione *&Delta;x*, rispettivamente,
@@ -305,7 +305,7 @@
   | vantaggi |
   | -------- |
 
-  * è **efficiente** nella generazione dei numeri pseudo-casuali, 
+  * è **efficiente** nella generazione dei numeri pseudo-casuali,
     perché ogni numero viene utilizzato
 
   | svantaggi |
@@ -329,10 +329,10 @@
 
 ### 4.5.1 l'implementazione dell'algoritmo
 
-  * anche in questo caso, 
-    si parte da **generatori di numeri pseudo-casuali noti**: 
+  * anche in questo caso,
+    si parte da **generatori di numeri pseudo-casuali noti**:
     la distribuzione uniforme
-  * per produrre un singolo numero pseudo-casuale distribuito secondo una Gaussiana, 
+  * per produrre un singolo numero pseudo-casuale distribuito secondo una Gaussiana,
     è necessario **generare *N* numeri pseudo-casuali** secondo la distribuzione uniforme
     e calcolarne la media
   * al **crescere di *N*** la distribuzione finale si avvicina sempre più al limite Gaussiano:
@@ -361,5 +361,3 @@
 ## 4.6 ESERCIZI
 
   * Gli esercizi relativi alla lezione si trovano [qui](ESERCIZI.md)
-
-
