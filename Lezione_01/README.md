@@ -399,7 +399,7 @@
     float razionale1 = 3.1416 ;
     double razionale2 = 1.4142 ;
     // definizione di un carattere
-    char lettera = 'à ;
+    char lettera = 'à' ;
     // definizione di un valore booleano
     bool condizione = true ;
     ```
