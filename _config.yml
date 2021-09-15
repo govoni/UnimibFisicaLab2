@@ -1,0 +1,8 @@
+# Book settings
+title: Laboratorio II
+author: Pietro Govoni, Maura Pavan
+logo: logo_unimib.png
+
+latex:
+  latex_documents:
+    targetname: book.tex
