@@ -1,46 +1,44 @@
-- file: intro
-  sections:
-    - file: README.md
-    - file: Lezione_00/README.md
+format: jb-article
+root: intro
+sections:
+- file: README.md
+- file: Lezione_00/README.md
 - file: content
   sections:
-    - file: Lezione_01/README.md
-      sections:
-        - file: Lezione_01/ESERCIZI.md
-    - file: Lezione_02/README.md
-      sections:
-        - file: Lezione_02/ESERCIZI.md
-    - file: Lezione_03/README.md
-      sections:
-        - file: Lezione_03/ESERCIZI.md
-    - file: Lezione_04/README.md
-      sections:
-        - file: Lezione_04/ESERCIZI.md
-    - file: Lezione_05/README.md
-      sections:
-        - file: Lezione_05/ESERCIZI.md
-    - file: Lezione_06/README.md
-      sections:
-        - file: Lezione_06/ESERCIZI.md
-    - file: Lezione_07/README.md
-      sections:
-        - file: Lezione_07/ESERCIZI.md
-    - file: Lezione_08/README.md
-      sections:
-        - file: Lezione_08/ESERCIZI.md
-    - file: Lezione_09/README.md
-      sections:
-        - file: Lezione_09/ESERCIZI.md
-    - file: Lezione_10/README.md
-      sections:
-        - file: Lezione_10/ESERCIZI.md
-    - file: Lezione_11/README.md
-      sections:
-        - file: Lezione_11/ESERCIZI.md
-    - file: Lezione_12/README.md
-      sections:
-        - file: Lezione_12/ESERCIZI.md
+  - file: Lezione_01/README.md
+    sections:
+    - file: Lezione_01/ESERCIZI.md
+  - file: Lezione_02/README.md
+    sections:
+    - file: Lezione_02/ESERCIZI.md
+  - file: Lezione_03/README.md
+    sections:
+    - file: Lezione_03/ESERCIZI.md
+  - file: Lezione_04/README.md
+    sections:
+    - file: Lezione_04/ESERCIZI.md
+  - file: Lezione_05/README.md
+    sections:
+    - file: Lezione_05/ESERCIZI.md
+  - file: Lezione_06/README.md
+    sections:
+    - file: Lezione_06/ESERCIZI.md
+  - file: Lezione_07/README.md
+    sections:
+    - file: Lezione_07/ESERCIZI.md
+  - file: Lezione_08/README.md
+    sections:
+    - file: Lezione_08/ESERCIZI.md
+  - file: Lezione_09/README.md
+    sections:
+    - file: Lezione_09/ESERCIZI.md
+  - file: Lezione_10/README.md
+    sections:
+    - file: Lezione_10/ESERCIZI.md
+  - file: Lezione_11/README.md
+    sections:
+    - file: Lezione_11/ESERCIZI.md
+  - file: Lezione_12/README.md
+    sections:
+    - file: Lezione_12/ESERCIZI.md
 - file: appendix
-  # sections:
-  #   - file: a1_esempio_misura_g
-  #   - file: a2_rudimenti_python
