@@ -1,7 +1,6 @@
 format: jb-article
 root: intro
 sections:
-- file: README.md
 - file: Lezione_00/README.md
 - file: content
   sections:
