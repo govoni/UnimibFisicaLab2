@@ -38,11 +38,11 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./_build/html
 
-    # Deploy the book's HTML to gh-pages branch
+    # Deploy the book's HTML to main branch of UnimibFisica2WebBook
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
         deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
         external_repository: cpviolation/UnimibFisica2WebBook
-        publish_branch: gh-pages  # default: gh-pages
+        publish_branch: main  # default: gh-pages
         publish_dir: ./_build/html
