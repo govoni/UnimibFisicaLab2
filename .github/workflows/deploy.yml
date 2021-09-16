@@ -43,6 +43,6 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       with:
         deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-        external_repository: cpviolation/UnimibFisica2WebBook
+        external_repository: cpviolation/UnimibFisica2WebBook.github.io
         publish_branch: main  # default: gh-pages
         publish_dir: ./_build/html
