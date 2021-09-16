@@ -36,4 +36,6 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3.6.1
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: _build/html
+        external_repository: cpviolation/UnimibFisica2WebBook
+        publish_branch: main
+        publish_dir: ./public
