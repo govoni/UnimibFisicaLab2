@@ -35,7 +35,7 @@ jobs:
     - name: GitHub Pages action
       uses: peaceiris/actions-gh-pages@v3.6.1
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.ACTIONS_DEPLOY_KEY }}
         external_repository: cpviolation/UnimibFisica2WebBook
         publish_branch: main
         publish_dir: ./public
